@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Tambah Kidung</title>
+</head>
+<body>
+    <h1>Form Tambah Data Kidung</h1>
+    <form method="POST">
+        <label>Judul Kidung:</label><br>
+        <input type="text" name="judul" required><br><br>
+
+        <label>Deskripsi:</label><br>
+        <textarea name="deskripsi" rows="4" required></textarea><br><br>
+
+        <label>Terkait Upacara:</label><br>
+        <input type="text" name="upacara" required><br><br>
+
+        <button type="submit">Simpan</button>
+    </form>
+    <br>
+    <a href="/">← Kembali ke Beranda</a>
+</body>
+</html>

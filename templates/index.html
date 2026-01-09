@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="margin:0; overflow: hidden;">
+    <section class="hero-full" style="
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                    url('https://images.unsplash.com/photo-1573790328299-fc8d8d5ae61e?q=80&w=1600');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    ">
+        <div class="animate" style="text-align: center; padding: 40px; border: 1px solid rgba(212,175,55,0.3); background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border-radius: 2px;">
+            <p style="color: var(--gold); letter-spacing: 8px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 20px;">The Sacred Chants Ontology</p>
+            <h1 style="font-size: 5rem; color: white; margin: 0; line-height: 1;">Sari<span style="color: var(--gold);">Kidung</span></h1>
+            <div style="width: 100px; height: 2px; background: var(--gold); margin: 30px auto;"></div>
+            <p style="color: white; font-size: 1.1rem; margin-bottom: 40px; opacity: 0.8; font-style: italic; font-weight: 300;">
+                "Transforming Balinese Oral Tradition into Digital Wisdom"
+            </p>
+            <a href="{{ url_for('home') }}" class="btn-cta" style="padding: 20px 60px; font-size: 1.1rem; border-radius: 0; letter-spacing: 4px;">
+                ENTER ARCHIVE
+            </a>
+        </div>
+    </section>
+</body>
+</html>

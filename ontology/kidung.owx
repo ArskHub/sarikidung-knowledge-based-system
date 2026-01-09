@@ -1,0 +1,1160 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.kidungbali.org/ontologi/pancayadnya"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.kidungbali.org/ontologi/pancayadnya">
+    <Prefix name="" IRI="http://www.semanticweb.org/ardis/ontologies/2025/9/untitled-ontology-5/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="kidung" IRI="kidung:"/>
+    <Declaration>
+        <Class IRI="#AwalRangkaianUpacara"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BhutaYadnya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DewaYadnya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Diksa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#JenisKidung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#JenisYadnya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Keselamatan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KidungPancaYadnya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KidungSekarAlit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KidungSekarMadya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KidungWargasari"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaknaKidung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ManusaYadnya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mapandes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mecaru"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Melasti"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Metatah"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NeluBulanan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ngaben"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ngelinggihang"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nyekah"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Otonan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pawiwahan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pemujaan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Penetralan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Penghormatan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PengiringUpacara"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PenolakBala"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PenutupUpacara"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PenyelarasanAlam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Penyucian"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Permohonan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Piodalan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PitraYadnya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuncakUpacara"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuraDalem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuraDesa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuraKahyanganJagat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuraKahyanganTiga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuraKeluarga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuraPuseh"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RsiYadnya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SanggahMerajan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TahapPelaksanaanUpacara"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tawur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memilikiJenisKidung"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memilikiMakna"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#terkaitDenganUpacara"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#bahasa"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#catatan"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#judulKidung"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#sumberData"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#teksKidung"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BhutaYadnya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Diksa_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Keselamatan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KidungSekarAlit_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KidungSekarMadya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KidungWargasari_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mecaru_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Melasti_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Metatah_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NeluBulanan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ngelinggihang_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Nyekah_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Otonan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pawiwahan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Penetralan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Penghormatan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PengiringUpacara_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PenolakBala_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PenutupUpacara_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PenyelarasanAlam_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Penyucian_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Permohonan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraAndakasa_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraBesakih_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraBukitPengelengan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraDalem_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraDesa_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraGoaLawah_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraKahyanganJagat_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraKahyanganTiga_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraKeluarga_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraLempuyang_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraPuseh_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraUlunDanuBatur_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraUluwatu_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraWatukaru_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RsiYadnya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SanggahMerajan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tawur_Ref"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#AwalRangkaianUpacara"/>
+        <Class IRI="#TahapPelaksanaanUpacara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BhutaYadnya"/>
+        <Class IRI="#JenisYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DewaYadnya"/>
+        <Class IRI="#JenisYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diksa"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Keselamatan"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KidungSekarAlit"/>
+        <Class IRI="#JenisKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KidungSekarMadya"/>
+        <Class IRI="#JenisKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KidungWargasari"/>
+        <Class IRI="#JenisKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ManusaYadnya"/>
+        <Class IRI="#JenisYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mapandes"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mecaru"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Melasti"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Metatah"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NeluBulanan"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ngaben"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ngelinggihang"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nyekah"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Otonan"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pawiwahan"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pemujaan"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Penetralan"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Penghormatan"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PengiringUpacara"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PenolakBala"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PenutupUpacara"/>
+        <Class IRI="#TahapPelaksanaanUpacara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PenyelarasanAlam"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Penyucian"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Permohonan"/>
+        <Class IRI="#MaknaKidung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piodalan"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PitraYadnya"/>
+        <Class IRI="#JenisYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PuncakUpacara"/>
+        <Class IRI="#TahapPelaksanaanUpacara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PuraDalem"/>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PuraDesa"/>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PuraKahyanganJagat"/>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PuraKahyanganTiga"/>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PuraKeluarga"/>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PuraPuseh"/>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RsiYadnya"/>
+        <Class IRI="#JenisYadnya"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SanggahMerajan"/>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tawur"/>
+        <Class IRI="#UpacaraPancaYadnya"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#TahapPelaksanaanUpacara"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisYadnya"/>
+        <NamedIndividual IRI="#BhutaYadnya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisYadnya"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Diksa_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Keselamatan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisKidung"/>
+        <NamedIndividual IRI="#KidungSekarAlit_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisKidung"/>
+        <NamedIndividual IRI="#KidungSekarMadya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisKidung"/>
+        <NamedIndividual IRI="#KidungWargasari_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisYadnya"/>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Mecaru_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Melasti_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Metatah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#NeluBulanan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Ngelinggihang_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Nyekah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Otonan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Pawiwahan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Penetralan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Penghormatan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PengiringUpacara_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PenolakBala_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TahapPelaksanaanUpacara"/>
+        <NamedIndividual IRI="#PenutupUpacara_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PenyelarasanAlam_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Penyucian_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Permohonan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisYadnya"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TahapPelaksanaanUpacara"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraAndakasa_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraBesakih_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraBukitPengelengan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraDalem_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraDesa_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraGoaLawah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraKahyanganJagat_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraKahyanganTiga_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraKeluarga_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraLempuyang_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraPuseh_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraUlunDanuBatur_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraUluwatu_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraWatukaru_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#JenisYadnya"/>
+        <NamedIndividual IRI="#RsiYadnya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#SanggahMerajan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Tawur_Ref"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#PuraDesa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#PuraKahyanganJagat_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#PuraKahyanganTiga_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#PuraPuseh_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraAndakasa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraBesakih_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraBukitPengelengan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraGoaLawah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraLempuyang_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraUlunDanuBatur_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraUluwatu_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#PuraWatukaru_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <NamedIndividual IRI="#PuraDalem_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <NamedIndividual IRI="#Penyucian_Ref"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <Literal>- --/00-/0-/00-/--/--0/0=19</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <Literal>Pengaksama ring Bhatara Pupuh Bremara</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
+        <Literal>1.	Om, Om, sembah i ketunan, 
+dumadak jua keaksi, 
+mungguhing pangebaktin tityang, 
+dyastu langkung tuna sami, 
+pakirang arta wibawa, 
+nista solah lawan wuwus, 
+muwuh banget hina bhudi.
+
+2.	Kewanten sredaning manah, 
+miwah katlebaning hati, 
+kalawan eling tan pegat,
+kanggen menyanggra manyuhun, 
+Swecan I Ratu sang Iwih.
+
+3.	I Ratu langkung pawikan, 
+ring manah sarwa dumadi, 
+ne jati kalawan boya, 
+ne corah lan bakti mulus, 
+ne patut kalawan rusit.
+
+4.	Apan paduka Bhatara, 
+ne mula nodyanin gumi, 
+weruh ring sekandan jagat, 
+saluwir ne wus ngelangkung, 
+mangkin miwah ne kauri.
+
+5.	Sakala lawan niskala, 
+Bhatara ngangganin sami, 
+Botika ganal Bhatara, 
+ginika alit sang luwih, 
+wisnawa suksman Bhatara, 
+Brahmi niskalam i Ratu, 
+pepek sami karagin.
+
+6.	Mugi tan kecakra bhawa, tityang i ketutnan sami, 
+Kaya Wak lan Manah, langgeng ngulami Hyang
+Widhi, sang suksma mahacintya, nirbana Siwa 
+kasengguh, singidan ring tampak aksi.
+
+7.	Apan pada kaswecanan, dyastu tambet sami-sami, 
+Engaturang sarwa nista, sekar sane gelis alum, 
+doh langkung ring padma hredhi.
+
+8.	Sok wenten anggen sadana, nunas nugraha
+Hyang Widhi, kang mungguh ring wasuh pada, ne suci
+Mangardi luwung, dirgayusa hayu wrédhi.
+
+9.	Ong ksama swamam pukulan, 
+sadosa Tri Kayane, 
+manusan ira hati jugul, 
+pangkah mangaturang gurit, 
+ri pada dwaya sang luwih,
+sedanan ingong aneda, 
+sih ira Hyang kasuhun, 
+moga sida nangun trepti.
+
+10. Pengaksamane kaluhur, 
+nunas wara nugrahane, 
+menawi kirang ne katur, 
+agung sinampura ugi, 
+canange asebit sari, 
+apang ica Ida nonton, 
+nodia saking luhur, 
+mamuputang sami.
+
+11.	Awighna ta pukulun, 
+angarcana Bhatarane, 
+angayap ngaturang kukus, 
+maduluran pangebakti, 
+miwah sahananing suci 
+apang Ida ica nonton,
+turun saking luhur, 
+Kaula manangkil.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <Literal>Wirama Sucyandewi. Menyebut manifestasi Bhatara di Kahyangan Jagat</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <Literal>Pengayat ring Bhatara</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
+        <Literal>1.Cakra Bhatara Wisnu ring Pura Ulun Danu Batur, 
+Trisula Bhatara Sambu ring Pura Besakih, 
+Genta Bhatara Iswara ring Pura Lempuyang, 
+Dupa Bhatara Maheswara ring Pura Goalawah,
+2.Gada Bhatara Brahma ring Pura Andakasa, 
+Muksala Bhatara Rudra ring Pura Uluwatu, 
+Nagapasa Bhatara Mahadewa ring Pura Watukaru, 
+Angkus Dewa Sangkara ring Pura Bukit Pengelengan</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <Literal>Bali Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <Literal>Wirama Aswa Lalita. Digunakan dalam prosesi pengantaran sawa pada Pitra Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <Literal>Nanginin Sawa (Layon)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <Literal>Buku Kidung Pitra Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+        <Literal>1.Matang i kakanta matya lepaseng pasir ta juga kenakang 
+kwa leleha,
+Rurubana puspa padapa sawangku satpada
+marakusanangisana,
+Tengah akeneng tsik adhu tekapning anghanut 
+aram wanasana sumar, 
+Muliha mareng smaralaya maran ri janma nika
+kaptyaning wwang ahajeng.</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#memilikiJenisKidung"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#terkaitDenganUpacara"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#digunakanDiPura"/>
+            <Class IRI="#KidungPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#digunakanPadaTahap"/>
+            <Class IRI="#KidungPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#digunakanPadaUpacara"/>
+            <Class IRI="#KidungPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memilikiJenisKidung"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#memilikiJenisKidung"/>
+            <Class IRI="#KidungPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#memilikiJenisYadnya"/>
+            <Class IRI="#KidungPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#memilikiMakna"/>
+            <Class IRI="#KidungPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#terkaitDenganUpacara"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#terkaitDenganUpacara"/>
+            <Class IRI="#UpacaraPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#digunakanDiPura"/>
+            <Class IRI="#PuraTempatPelaksanaan"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#digunakanPadaTahap"/>
+            <Class IRI="#TahapPelaksanaanUpacara"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#digunakanPadaUpacara"/>
+            <Class IRI="#UpacaraPancaYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memilikiJenisKidung"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#memilikiJenisKidung"/>
+            <Class IRI="#JenisKidung"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#memilikiJenisKidung"/>
+            <Class IRI="#JenisYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#memilikiMakna"/>
+            <Class IRI="#MaknaKidung"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#terkaitDenganUpacara"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#terkaitDenganUpacara"/>
+            <Class IRI="#JenisYadnya"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#bahasa"/>
+        <Class IRI="#KidungPancaYadnya"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#catatan"/>
+        <Class IRI="#KidungPancaYadnya"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#judulKidung"/>
+        <Class IRI="#KidungPancaYadnya"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#sumberData"/>
+        <Class IRI="#KidungPancaYadnya"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#teksKidung"/>
+        <Class IRI="#KidungPancaYadnya"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#bahasa"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#catatan"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#judulKidung"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#sumberData"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#teksKidung"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

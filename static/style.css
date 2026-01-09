@@ -1,0 +1,218 @@
+/* SariKidung Master Stylesheet 
+   Theme: Bali Digital Luxury 
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --gold: #d4af37;
+  --gold-hover: #b8962e;
+  --dark: #1a1a1b;
+  --dark-light: #2d2d2e;
+  --cream: #f9f9f7;
+  --white: #ffffff;
+  --gray-text: #666666;
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 1. Global Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--cream);
+  color: var(--dark);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Playfair Display", serif;
+}
+
+/* 2. Navigation Bar */
+.navbar {
+  background: rgba(26, 26, 27, 0.98);
+  padding: 1rem 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  color: var(--gold);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: var(--transition);
+  opacity: 0.7;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  opacity: 1;
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+
+/* 3. Specialized Buttons */
+.btn-cta {
+  background: var(--gold);
+  color: var(--dark) !important;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.btn-cta:hover {
+  background: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-predict {
+  background: var(--dark);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-predict:hover {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+/* 4. Layout & Cards */
+.container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 25px;
+}
+
+.glass-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.grid-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  transition: var(--transition);
+  border-bottom: 4px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow);
+}
+
+/* 5. Form Styles */
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fcfcfc;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* 6. Animations */
+.animate {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 7. Hero (khusus index.html) */
+.hero-full {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1573790328299-fc8d8d5ae61e?q=80&w=1600");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

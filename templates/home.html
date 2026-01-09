@@ -1,0 +1,299 @@
+{% extends "base.html" %} {% block content %}
+<style>
+  .hero-bg {
+    /* Gambar Header Baru: Pura di Bali */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)),
+      url("https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1600");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Memastikan grid bertumpuk di HP */
+  @media (max-width: 768px) {
+    .split-grid {
+      grid-template-columns: 1fr !important;
+      gap: 30px !important;
+    }
+    .hero-bg {
+      background-attachment: scroll;
+      padding: 100px 0 !important;
+    }
+    .hero-title {
+      font-size: 2.5rem !important;
+    }
+  }
+
+  .feature-card:hover {
+    border-color: var(--gold) !important;
+    transform: translateY(-10px);
+    background: #252526 !important;
+  }
+</style>
+
+<header
+  class="hero-bg"
+  style="
+    padding: 160px 0;
+    text-align: center;
+    color: white;
+    border-bottom: 4px solid var(--gold);
+  "
+>
+  <div class="animate" style="max-width: 900px; margin: auto; padding: 0 20px">
+    <h2
+      class="hero-title"
+      style="
+        font-family: 'Playfair Display';
+        font-size: 4rem;
+        color: var(--gold);
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+      "
+    >
+      Rahajeng Rauh
+    </h2>
+    <p
+      style="
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        color: var(--gold);
+        margin-bottom: 30px;
+        font-weight: 600;
+      "
+    >
+      Digitalization of Sacred Literature
+    </p>
+    <p
+      style="
+        opacity: 0.9;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        max-width: 750px;
+        margin: 0 auto 40px;
+        font-weight: 300;
+      "
+    >
+      SariKidung adalah jembatan antara tradisi luhur Bali dan inovasi teknologi
+      modern. Gunakan kecerdasan buatan untuk menemukan Kidung Panca Yadnya yang
+      tepat sesuai konteks upacara Anda.
+    </p>
+    <a
+      href="{{ url_for('browsing') }}"
+      class="btn-cta"
+      style="
+        padding: 18px 50px;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 4px;
+        display: inline-block;
+      "
+    >
+      MULAI IDENTIFIKASI PAKAR
+    </a>
+  </div>
+</header>
+
+<div class="container" style="margin-top: 80px; margin-bottom: 100px">
+  <div
+    class="split-grid"
+    style="
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    "
+  >
+    <div class="animate">
+      <h3
+        style="
+          font-family: 'Playfair Display';
+          font-size: 2.8rem;
+          margin-bottom: 25px;
+          color: var(--dark);
+          line-height: 1.2;
+        "
+      >
+        Pelestarian Budaya <br />Era Digital
+      </h3>
+      <p
+        style="color: var(--gray-text); margin-bottom: 25px; font-size: 1.05rem"
+      >
+        Sistem ini mendokumentasikan pengetahuan pakar
+        <strong>Dharma Gita</strong> ke dalam struktur data cerdas (Ontology),
+        memastikan nilai-nilai suci tetap terjaga dan mudah diakses oleh
+        generasi mendatang.
+      </p>
+
+      <div style="display: flex; gap: 40px; margin-top: 30px">
+        <div>
+          <h4 style="color: var(--gold); font-size: 2rem; margin-bottom: 0">
+            100%
+          </h4>
+          <small
+            style="text-transform: uppercase; letter-spacing: 1px; color: #888"
+            >Validasi Sastra</small
+          >
+        </div>
+        <div style="border-left: 2px solid var(--gold); padding-left: 25px">
+          <h4 style="color: var(--gold); font-size: 2rem; margin-bottom: 0">
+            AI
+          </h4>
+          <small
+            style="text-transform: uppercase; letter-spacing: 1px; color: #888"
+            >Decision Tree</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="animate" style="position: relative">
+      <img
+        src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80"
+        alt="Bali Ritual"
+        style="
+          width: 100%;
+          height: auto;
+          border-radius: 15px;
+          box-shadow: var(--shadow);
+          border: 8px solid white;
+          display: block;
+          background-color: #f1f1f1;
+        "
+        onerror="this.src='https://placehold.co/800x600/D4AF37/1A1A1B?text=SariKidung+Bali'"
+      />
+
+      <div
+        style="
+          position: absolute;
+          bottom: -20px;
+          right: -20px;
+          background: var(--gold);
+          padding: 18px 25px;
+          color: var(--dark);
+          border-radius: 10px;
+          font-weight: bold;
+          box-shadow: var(--shadow);
+          z-index: 10;
+          font-size: 0.85rem;
+          letter-spacing: 1px;
+        "
+      >
+        TRADISI & TEKNOLOGI
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  style="
+    background: var(--dark);
+    padding: 100px 0;
+    border-top: 5px solid var(--gold);
+  "
+>
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 70px">
+      <h2
+        style="
+          font-family: 'Playfair Display';
+          color: var(--gold);
+          font-size: 3rem;
+          margin-bottom: 15px;
+        "
+      >
+        Mengapa SariKidung?
+      </h2>
+      <div
+        style="
+          width: 60px;
+          height: 3px;
+          background: var(--gold);
+          margin: 0 auto 20px;
+        "
+      ></div>
+      <p style="color: rgba(255, 255, 255, 0.6); font-size: 1.1rem">
+        Teknologi Semantic Web di balik kemudahan akses sastra suci.
+      </p>
+    </div>
+
+    <div class="grid-features">
+      <div
+        class="feature-card"
+        style="
+          background: var(--dark-light);
+          border: 1px solid rgba(212, 175, 55, 0.1);
+          padding: 50px 30px;
+          transition: all 0.3s ease;
+        "
+      >
+        <div style="font-size: 3.5rem; margin-bottom: 25px">🧠</div>
+        <h3
+          style="
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display';
+          "
+        >
+          AI Diagnosis
+        </h3>
+        <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7">
+          Sistem Pakar dengan logika Decision Tree untuk menentukan Kidung
+          berdasarkan konteks upacara secara presisi.
+        </p>
+      </div>
+
+      <div
+        class="feature-card"
+        style="
+          background: var(--dark-light);
+          border: 1px solid rgba(212, 175, 55, 0.1);
+          padding: 50px 30px;
+          transition: all 0.3s ease;
+        "
+      >
+        <div style="font-size: 3.5rem; margin-bottom: 25px">📜</div>
+        <h3
+          style="
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display';
+          "
+        >
+          Digital Archive
+        </h3>
+        <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7">
+          Akses ke koleksi lengkap lirik, bahasa, dan makna Kidung yang tersusun
+          secara semantik dalam database OWL.
+        </p>
+      </div>
+
+      <div
+        class="feature-card"
+        style="
+          background: var(--dark-light);
+          border: 1px solid rgba(212, 175, 55, 0.1);
+          padding: 50px 30px;
+          transition: all 0.3s ease;
+        "
+      >
+        <div style="font-size: 3.5rem; margin-bottom: 25px">🏛️</div>
+        <h3
+          style="
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display';
+          "
+        >
+          Academic Method
+        </h3>
+        <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7">
+          Platform yang menggunakan metode ilmiah Ontologi untuk memastikan
+          integritas data dan relasi antar kidung yang akurat.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

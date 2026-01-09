@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SariKidung{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">SARIKIDUNG</a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}" class="{{ 'active' if request.path == url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('browsing') }}" class="{{ 'active' if request.path == url_for('browsing') }}">Expert System</a></li>
+            <li><a href="{{ url_for('library') }}" class="{{ 'active' if request.path == '/library' }}">Kidung Library</a></li>
+            <li><a href="{{ url_for('questionnaire') }}">Questionnaire</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('browsing') }}" class="btn-cta">CONSULT NOW</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="background: var(--dark); color: white; padding: 60px 0; text-align: center; margin-top: 100px;">
+        <p style="color: var(--gold); font-family: 'Playfair Display'; font-size: 1.5rem;">SariKidung Bali</p>
+        <p style="opacity: 0.6; margin-top: 10px;">Preserving Sacred Chants through Knowledge Engineering</p>
+    </footer>
+</body>
+</html>
