@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SariKidung - Digitalisasi Sastra Suci Bali{% endblock %}</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #1a1a1b;
+            --light-gray: rgba(255,255,255,0.7);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 27, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* PERBAIKAN: CSS agar Garis Kuning "Diam" saat Aktif */
+        .nav-links li a {
+            position: relative;
+            padding-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .nav-links li a.active {
+            color: var(--gold) !important;
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+        }
+
+        .logo-text {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Footer Link Styling */
+        .footer-link {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .footer-link:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-logo {
+            height: 70px;
+            margin-bottom: 20px;
+        }
+
+        .container-footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo-container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-img" 
+                 onerror="this.src='https://cdn-icons-png.flaticon.com/512/10433/10433048.png'"> 
+            <span class="logo-text">SARI<span style="color: var(--gold);">KIDUNG</span></span>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}" class="{{ 'active' if request.path == url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('browsing') }}" class="{{ 'active' if request.path == url_for('browsing') }}">Expert System</a></li>
+            <li><a href="{{ url_for('library') }}" class="{{ 'active' if request.path == url_for('library') }}">Library</a></li>
+            <li><a href="{{ url_for('questionnaire') }}" class="{{ 'active' if request.path == url_for('questionnaire') }}">Feedback</a></li>
+            <li><a href="{{ url_for('about') }}" class="{{ 'active' if request.path == url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('browsing') }}" class="btn-cta" style="margin-left: 20px;">CONSULT NOW</a></li>
+        </ul>
+    </nav>
+
+    <main style="min-height: 80vh;">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="background: #0f0f0f; color: white; padding: 80px 0 30px; margin-top: 100px; border-top: 4px solid var(--gold);">
+        <div class="container-footer" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;">
+            
+            <div>
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Footer" class="footer-logo"
+                     onerror="this.src='https://cdn-icons-png.flaticon.com/512/10433/10433048.png'">
+                <p style="color: var(--gold); font-family: 'Playfair Display'; font-size: 1.6rem; margin-bottom: 10px;">SariKidung Bali</p>
+                <p style="opacity: 0.6; font-size: 0.85rem; line-height: 1.8;">
+                    Pelestarian Sastra Suci Kidung Panca Yadnya Bali melalui pendekatan sistem pakar dan digitalisasi budaya.
+                </p>
+            </div>
+
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 25px; font-family: 'Playfair Display'; border-left: 3px solid var(--gold); padding-left: 15px;">Navigasi</h4>
+                <a href="{{ url_for('home') }}" class="footer-link">Beranda</a>
+                <a href="{{ url_for('browsing') }}" class="footer-link">Sistem Pakar</a>
+                <a href="{{ url_for('library') }}" class="footer-link">Perpustakaan</a>
+                <a href="{{ url_for('about') }}" class="footer-link">Tentang Kami</a>
+            </div>
+
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 25px; font-family: 'Playfair Display'; border-left: 3px solid var(--gold); padding-left: 15px;">Panca Yadnya</h4>
+                <a href="{{ url_for('library') }}?search=Dewa+Yadnya" class="footer-link"><i class="fas fa-om" style="margin-right: 8px; font-size: 0.7rem;"></i> Dewa Yadnya</a>
+                <a href="{{ url_for('library') }}?search=Pitra+Yadnya" class="footer-link"><i class="fas fa-om" style="margin-right: 8px; font-size: 0.7rem;"></i> Pitra Yadnya</a>
+                <a href="{{ url_for('library') }}?search=Manusa+Yadnya" class="footer-link"><i class="fas fa-om" style="margin-right: 8px; font-size: 0.7rem;"></i> Manusa Yadnya</a>
+                <a href="{{ url_for('library') }}?search=Bhuta+Yadnya" class="footer-link"><i class="fas fa-om" style="margin-right: 8px; font-size: 0.7rem;"></i> Bhuta Yadnya</a>
+            </div>
+
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 25px; font-family: 'Playfair Display'; border-left: 3px solid var(--gold); padding-left: 15px;">Kontak</h4>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 15px;">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--gold);"></i> Denpasar, Bali
+                </p>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 15px;">
+                    <i class="fas fa-envelope" style="margin-right: 10px; color: var(--gold);"></i> info@sarikidung.com
+                </p>
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <a href="#" style="color: var(--gold); font-size: 1.3rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: var(--gold); font-size: 1.3rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05);">
+            <p style="opacity: 0.4; font-size: 0.75rem; letter-spacing: 1px;">
+                &copy; 2024 SARIKIDUNG BALI. DIGITALIZATION OF BALINESE SACRED LITERATURE.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

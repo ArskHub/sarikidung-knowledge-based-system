@@ -20,35 +20,35 @@ ai_engine.train(df)
 @app.route('/')
 def index():
     """Halaman Splash/Landing awal"""
-    return render_template('index.html')
+    return render_template('pages/index.html')
 
 @app.route('/home')
 def home():
     """Halaman Dashboard Utama"""
-    return render_template('home.html')
+    return render_template('pages/home.html')
 
 @app.route('/browsing')
 def browsing():
     """Halaman Expert System (AI)"""
     options = get_dropdown_options(onto)
-    return render_template('browsing.html', **options)
+    return render_template('pages/browsing.html', **options)
 
 @app.route('/library')
 def library():
     """Halaman Pustaka Kidung (Daftar Manual)"""
     # Mengubah dataframe menjadi list of dictionary agar mudah dibaca oleh Jinja2
     kidung_list = df.to_dict(orient='records')
-    return render_template('library.html', kidungs=kidung_list)
+    return render_template('pages/library.html', kidungs=kidung_list)
 
 @app.route('/questionnaire')
 def questionnaire():
     """Halaman Evaluasi Sistem"""
-    return render_template('questionnaire.html')
+    return render_template('pages/questionnaire.html')
 
 @app.route('/about')
 def about():
     """Halaman Metodologi & Profil"""
-    return render_template('about.html')
+    return render_template('pages/about.html')
 
 # ==========================================
 # API ENDPOINTS
