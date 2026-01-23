@@ -1,322 +1,240 @@
-{% extends "layouts/base.html" %} {% block content %}
-<header
-  style="
-    background: var(--dark);
-    padding: 60px 0;
-    text-align: center;
-    color: white;
-    border-bottom: 3px solid var(--gold);
-  "
->
-  <div class="animate-fade">
-    <h1 style="font-family: 'Playfair Display', serif; color: var(--gold)">
-      Expert System AI
-    </h1>
-    <p>
-      Gunakan 5 parameter kriteria untuk mendapatkan akurasi identifikasi
-      tertinggi.
-    </p>
+{% extends "layouts/base.html" %} 
+
+{% block content %}
+<header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
+  <div class="container animate">
+    <h1 class="display-5 fw-bold mb-2">Expert System AI</h1>
+    <p class="lead opacity-75">Gunakan 5 parameter kriteria untuk mendapatkan akurasi identifikasi tertinggi.</p>
   </div>
 </header>
 
-<div class="container">
-  <div
-    class="grid-features"
-    style="grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start"
-  >
-    <div class="glass-card animate-fade">
-      <h3
-        style="
-          margin-bottom: 20px;
-          border-bottom: 2px solid var(--gold);
-          padding-bottom: 10px;
-        "
-      >
-        Input Kriteria
-      </h3>
-      <form id="expertForm">
-        <label>Jenis Yadnya</label>
-        <select id="yadnya" required>
-          <option value="" disabled selected>Pilih Yadnya...</option>
-          {% for y in yadnyas %}
-          <option value="{{ y }}">{{ y }}</option>
-          {% endfor %}
-        </select>
+<div class="container my-5">
+  <div class="row g-4 align-items-start position-relative">
+    
+    <div class="col-lg-5 col-md-12 animate">
+      <div class="card border-0 shadow-sm p-4 h-100">
+        <h4 class="mb-4 pb-2 border-bottom border-bronze text-bronze fw-bold">
+          <i class="fas fa-sliders-h me-2"></i>Input Kriteria
+        </h4>
+        
+        <form id="expertForm">
+          <div class="mb-3">
+            <label class="form-label fw-semibold small text-muted">Jenis Yadnya</label>
+            <select id="yadnya" class="form-select border-light-subtle shadow-none" required>
+              <option value="" disabled selected>Pilih Yadnya...</option>
+              {% for y in yadnyas %}
+              <option value="{{ y }}">{{ y }}</option>
+              {% endfor %}
+            </select>
+          </div>
 
-        <label>Nama Upacara</label>
-        <select id="upacara" required>
-          <option value="" disabled selected>Pilih Upacara...</option>
-          {% for u in upacaras %}
-          <option value="{{ u }}">{{ u }}</option>
-          {% endfor %}
-        </select>
+          <div class="mb-3">
+            <label class="form-label fw-semibold small text-muted">Nama Upacara</label>
+            <select id="upacara" class="form-select border-light-subtle shadow-none" required>
+              <option value="" disabled selected>Pilih Upacara...</option>
+              {% for u in upacaras %}
+              <option value="{{ u }}">{{ u }}</option>
+              {% endfor %}
+            </select>
+          </div>
 
-        <label>Tahapan Upacara</label>
-        <select id="tahap" required>
-          <option value="" disabled selected>Pilih Tahapan...</option>
-          {% for t in tahaps %}
-          <option value="{{ t }}">{{ t }}</option>
-          {% endfor %}
-        </select>
+          <div class="mb-3">
+            <label class="form-label fw-semibold small text-muted">Tahapan Upacara</label>
+            <select id="tahap" class="form-select border-light-subtle shadow-none" required>
+              <option value="" disabled selected>Pilih Tahapan...</option>
+              {% for t in tahaps %}
+              <option value="{{ t }}">{{ t }}</option>
+              {% endfor %}
+            </select>
+          </div>
 
-        <label>Makna Kidung</label>
-        <select id="makna" required>
-          <option value="" disabled selected>Pilih Makna...</option>
-          {% for m in maknas %}
-          <option value="{{ m }}">{{ m }}</option>
-          {% endfor %}
-        </select>
+          <div class="mb-3">
+            <label class="form-label fw-semibold small text-muted">Makna Kidung</label>
+            <select id="makna" class="form-select border-light-subtle shadow-none" required>
+              <option value="" disabled selected>Pilih Makna...</option>
+              {% for m in maknas %}
+              <option value="{{ m }}">{{ m }}</option>
+              {% endfor %}
+            </select>
+          </div>
 
-        <label>Lokasi / Pura</label>
-        <select id="pura" required>
-          <option value="" disabled selected>Pilih Lokasi...</option>
-          {% for p in puras %}
-          <option value="{{ p }}">{{ p }}</option>
-          {% endfor %}
-        </select>
+          <div class="mb-4">
+            <label class="form-label fw-semibold small text-muted">Lokasi / Pura</label>
+            <select id="pura" class="form-select border-light-subtle shadow-none" required>
+              <option value="" disabled selected>Pilih Lokasi...</option>
+              {% for p in puras %}
+              <option value="{{ p }}">{{ p }}</option>
+              {% endfor %}
+            </select>
+          </div>
 
-        <button
-          type="submit"
-          class="btn-predict"
-          id="btnSubmit"
-          style="margin-top: 30px"
-        >
-          <span id="btnText">JALANKAN ANALISIS AI</span>
-        </button>
-      </form>
+          <button type="submit" class="btn btn-bronze w-100 py-3 fw-bold" id="btnSubmit">
+            <span id="btnText"><i class="fas fa-brain me-2"></i>JALANKAN ANALISIS AI</span>
+          </button>
+        </form>
+      </div>
     </div>
 
-    <div id="display-area">
-      <div
-        id="welcome-msg"
-        class="glass-card"
-        style="
-          text-align: center;
-          padding: 100px 20px;
-          border: 2px dashed var(--gold);
-          opacity: 0.5;
-        "
-      >
-        <p>
-          Silakan isi kriteria di samping untuk melihat hasil identifikasi
-          pakar.
-        </p>
+    <div class="col-lg-7 col-md-12 position-relative" id="display-area">
+      
+      <div id="ai-loader" class="d-none position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center bg-white rounded-4 shadow-sm" style="z-index: 10;">
+          <div class="logo-spinner mb-3">
+              <img src="{{ url_for('static', filename='images/logo.png') }}" 
+                   onerror="this.src='https://cdn-icons-png.flaticon.com/512/10433/10433048.png'" 
+                   alt="SariKidung Logo" class="rotating-logo">
+          </div>
+          <h5 class="text-bronze fw-bold animate-pulse">ANALYZING KNOWLEDGE BASE...</h5>
+          <p class="small text-muted">Sistem Pakar sedang memproses data ontologi</p>
       </div>
 
-      <div
-        id="result-box"
-        class="glass-card"
-        style="
-          display: none;
-          border: 2px solid var(--gold);
-          position: sticky;
-          top: 100px;
-        "
-      >
-        <div
-          style="
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 1px double var(--gold);
-            padding-bottom: 20px;
-          "
-        >
-          <h5
-            style="
-              color: var(--gold);
-              letter-spacing: 3px;
-              font-size: 0.75rem;
-              font-weight: 700;
-            "
-          >
-            HASIL IDENTIFIKASI SISTEM PAKAR
-          </h5>
-          <h2
-            id="resJudul"
-            style="
-              font-family: 'Playfair Display';
-              font-size: 2.4rem;
-              color: var(--dark);
-              margin-top: 10px;
-            "
-          ></h2>
+      <div id="welcome-msg" class="card border-0 shadow-sm p-5 text-center bg-light border-dashed h-100 d-flex flex-column justify-content-center align-items-center" style="border: 2px dashed #ddd !important; min-height: 500px;">
+        <i class="fas fa-robot fs-1 text-muted mb-3 opacity-25"></i>
+        <p class="text-muted italic">Silakan isi kriteria di samping untuk melihat hasil identifikasi pakar.</p>
+      </div>
+
+      <div id="result-box" class="card border-bronze shadow-lg p-0 overflow-hidden d-none" style="border-width: 2px;">
+        <div class="bg-bronze-light p-4 text-center border-bottom border-bronze">
+          <h6 class="text-uppercase ls-2 fw-bold text-bronze small mb-2">Hasil Identifikasi Sistem Pakar</h6>
+          <h2 id="resJudul" class="h1 fw-bold text-dark m-0"></h2>
         </div>
 
-        <div style="margin-bottom: 30px">
-          <p
-            style="
-              font-size: 0.8rem;
-              font-weight: 600;
-              color: var(--gray-text);
-              margin-bottom: 15px;
-              text-transform: uppercase;
-            "
-          >
-            Dasar Pertimbangan Sistem:
-          </p>
-          <div
-            id="logic-path"
-            style="display: flex; flex-wrap: wrap; gap: 10px"
-          ></div>
-        </div>
+        <div class="p-4 bg-white">
+          <p class="text-uppercase small fw-bold text-muted mb-3">Dasar Pertimbangan Sistem:</p>
+          <div id="logic-path" class="d-flex flex-wrap gap-2 mb-4"></div>
 
-        <div
-          style="
-            background: #fffcf5;
-            padding: 30px;
-            border-radius: 5px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 25px;
-            position: relative;
-          "
-        >
-          <span
-            style="
-              position: absolute;
-              top: 10px;
-              right: 20px;
-              font-family: 'Playfair Display';
-              color: rgba(212, 175, 55, 0.2);
-              font-size: 4rem;
-            "
-            >“</span
-          >
-          <h4
-            style="
-              font-family: 'Playfair Display';
-              margin-bottom: 15px;
-              color: var(--dark-light);
-            "
-          >
-            Teks Suci / Lirik:
-          </h4>
-          <div
-            id="resTeks"
-            style="
-              font-style: italic;
-              white-space: pre-line;
-              line-height: 2.2;
-              color: #222;
-              font-size: 1.1rem;
-              text-align: center;
-            "
-          ></div>
-        </div>
-
-        <div
-          style="
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 20px;
-            background: var(--dark);
-            color: var(--gold);
-            border-radius: 8px;
-          "
-        >
-          <div class="info-item">
-            <small
-              style="
-                color: rgba(255, 255, 255, 0.5);
-                display: block;
-                margin-bottom: 5px;
-              "
-              >Kategori Bahasa</small
-            >
-            <span
-              id="resBahasa"
-              style="font-weight: 600; font-size: 1rem"
-            ></span>
+          <div class="bg-soft p-4 rounded-3 border mb-4 position-relative">
+            <i class="fas fa-quote-right position-absolute top-0 end-0 p-3 fs-1 opacity-10 text-bronze"></i>
+            <h5 class="fw-bold text-bronze mb-3"><i class="fas fa-scroll me-2"></i>Teks Suci / Lirik:</h5>
+            <div id="resTeks" class="fst-italic text-center lh-lg text-dark fs-5 py-2"></div>
           </div>
-          <div class="info-item">
-            <small
-              style="
-                color: rgba(255, 255, 255, 0.5);
-                display: block;
-                margin-bottom: 5px;
-              "
-              >Validasi Makna</small
-            >
-            <span
-              id="resKeterangan"
-              style="font-weight: 600; font-size: 1rem"
-            ></span>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 bg-dark rounded-3 text-white h-100">
+                <small class="d-block opacity-50 mb-1">Kategori Bahasa</small>
+                <span id="resBahasa" class="fw-bold text-bronze"></span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 bg-dark rounded-3 text-white h-100">
+                <small class="d-block opacity-50 mb-1">Validasi Makna</small>
+                <span id="resKeterangan" class="fw-bold text-bronze"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
+<style>
+  .border-bronze { border-color: var(--gold) !important; }
+  .text-bronze { color: var(--gold) !important; }
+  .bg-bronze-light { background-color: rgba(146, 98, 55, 0.05); }
+  .bg-soft { background-color: #fdfaf7; }
+  .ls-2 { letter-spacing: 2px; }
+  .border-dashed { border-style: dashed !important; }
+
+  /* Logo Muter Animation */
+  .rotating-logo {
+    width: 100px;
+    height: 100px;
+    animation: rotateLogo 2s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(146, 98, 55, 0.3));
+  }
+
+  @keyframes rotateLogo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-pulse {
+    animation: pulseText 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseText {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+</style>
+
 <script>
-  document
-    .getElementById("expertForm")
-    .addEventListener("submit", async function (e) {
-      e.preventDefault();
+  document.getElementById("expertForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-      const btnText = document.getElementById("btnText");
-      const resultBox = document.getElementById("result-box");
-      const welcomeMsg = document.getElementById("welcome-msg");
-      const logicContainer = document.getElementById("logic-path");
+    const btnSubmit = document.getElementById("btnSubmit");
+    const loader = document.getElementById("ai-loader");
+    const resultBox = document.getElementById("result-box");
+    const welcomeMsg = document.getElementById("welcome-msg");
+    const logicContainer = document.getElementById("logic-path");
 
-      btnText.innerText = "SEDANG MENGANALISIS...";
+    // Efek UI saat mulai
+    btnSubmit.disabled = true;
+    loader.classList.remove("d-none"); // Munculkan logo muter
+    loader.classList.add("d-flex");
+    
+    // Sembunyikan hasil lama & welcome
+    resultBox.classList.add("d-none");
+    welcomeMsg.classList.add("d-none");
 
-      // 1. Ambil data dari form
-      const payload = {
-        yadnya: document.getElementById("yadnya").value,
-        upacara: document.getElementById("upacara").value,
-        tahap: document.getElementById("tahap").value,
-        makna: document.getElementById("makna").value,
-        pura: document.getElementById("pura").value,
-      };
+    const payload = {
+      yadnya: document.getElementById("yadnya").value,
+      upacara: document.getElementById("upacara").value,
+      tahap: document.getElementById("tahap").value,
+      makna: document.getElementById("makna").value,
+      pura: document.getElementById("pura").value,
+    };
 
-      try {
-        // 2. Kirim ke Flask
-        const response = await fetch("/predict", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+    try {
+      // Memberi delay buatan agar animasi muter terlihat (misal 2 detik)
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      const response = await fetch("/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (data.status === "success") {
+        resultBox.classList.remove("d-none");
+
+        document.getElementById("resJudul").innerText = data.judul.replace(/_/g, ' ');
+        document.getElementById("resTeks").innerText = data.teks;
+        document.getElementById("resBahasa").innerText = data.bahasa;
+        document.getElementById("resKeterangan").innerText = data.keterangan;
+
+        logicContainer.innerHTML = "";
+        const criteria = [
+          { label: "Yadnya", val: payload.yadnya },
+          { label: "Tahap", val: payload.tahap },
+          { label: "Makna", val: payload.makna }
+        ];
+
+        criteria.forEach((item) => {
+          const badge = document.createElement("span");
+          badge.className = "badge bg-light text-dark border p-2 fw-normal";
+          badge.innerHTML = `<strong class="text-bronze">${item.label}:</strong> ${item.val}`;
+          logicContainer.appendChild(badge);
         });
 
-        const data = await response.json();
-
-        if (data.status === "success") {
-          welcomeMsg.style.display = "none";
-          resultBox.style.display = "block";
-
-          // 3. Update Data Hasil
-          document.getElementById("resJudul").innerText = data.judul;
-          document.getElementById("resTeks").innerText = data.teks;
-          document.getElementById("resBahasa").innerText = data.bahasa;
-          document.getElementById("resKeterangan").innerText = data.keterangan;
-
-          // 4. Update Jejak Logika (Decision Trace)
-          logicContainer.innerHTML = "";
-          const criteria = [
-            { label: "Yadnya", val: payload.yadnya },
-            { label: "Tahap", val: payload.tahap },
-            { label: "Makna", val: payload.makna },
-          ];
-
-          criteria.forEach((item) => {
-            const span = document.createElement("span");
-            span.style =
-              "background: #eee; padding: 5px 12px; border-radius: 4px; font-size: 0.75rem; border: 1px solid #ccc; color: #555;";
-            span.innerHTML = `<strong>${item.label}:</strong> ${item.val}`;
-            logicContainer.appendChild(span);
-          });
-
-          // Scroll otomatis ke hasil
-          resultBox.scrollIntoView({ behavior: "smooth", block: "center" });
-        } else {
-          alert("Maaf: " + data.message);
-        }
-      } catch (err) {
-        console.error(err);
-        alert("Gagal menghubungi server Python.");
-      } finally {
-        btnText.innerText = "JALANKAN ANALISIS AI";
+        resultBox.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        welcomeMsg.classList.remove("d-none");
+        alert("Peringatan: " + data.message);
       }
-    });
+    } catch (err) {
+      welcomeMsg.classList.remove("d-none");
+      alert("Terjadi kesalahan koneksi ke server.");
+    } finally {
+      btnSubmit.disabled = false;
+      loader.classList.add("d-none"); // Hilangkan logo muter
+      loader.classList.remove("d-flex");
+    }
+  });
 </script>
 {% endblock %}

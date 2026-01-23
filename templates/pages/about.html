@@ -1,95 +1,79 @@
 {% extends "layouts/base.html" %}
 
-{% block title %}About Project - SariKidung Methodology{% endblock %}
-
 {% block content %}
-<header style="background: var(--dark); padding: 80px 0; text-align: center; color: white; border-bottom: 3px solid var(--gold);">
-    <div class="animate">
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold);">Technical Methodology</h1>
-        <p style="opacity: 0.8; max-width: 600px; margin: 10px auto; font-size: 1.1rem;">
-            Membongkar "Otak" di Balik Sistem Pakar SariKidung.
-        </p>
+<header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
+    <div class="container animate">
+        <h1 class="display-5 fw-bold mb-2">Methodology & Technology</h1>
+        <p class="lead opacity-75">Implementasi Semantic Web dan Expert System untuk Pelestarian Kidung Bali.</p>
     </div>
 </header>
 
-<div class="container">
-    
-    <div class="glass-card animate" style="margin-bottom: 50px; text-align: center;">
-        <h2 style="font-family: 'Playfair Display'; color: var(--dark); margin-bottom: 20px;">Project Vision: Digital Heritage</h2>
-        <p style="font-size: 1.05rem; color: var(--dark-light); line-height: 1.8; max-width: 900px; margin: auto;">
-            **SariKidung** adalah inisiatif penelitian untuk melestarikan sastra suci *Kidung Panca Yadnya* Bali. Tantangan utama dalam pelestarian budaya di era digital bukanlah sekadar mendigitalkan teks, tetapi **memetakan konteks dan makna filosofisnya**. Kami menjawab tantangan ini dengan menggabungkan dua teknologi canggih: *Semantic Web Ontology* untuk struktur pengetahuan, dan *Machine Learning* untuk pengambilan keputusan.
-        </p>
-    </div>
-
-    <div class="grid-features" style="margin-bottom: 50px;">
-        
-        <div class="feature-card animate" style="text-align: left; border-top: 4px solid var(--gold);">
-            <div style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;">🕸️</div>
-            <h3 style="font-family: 'Playfair Display'; margin-bottom: 15px;">1. The Knowledge Base (Ontology)</h3>
-            <p>Kami tidak menggunakan database SQL biasa. Kami menggunakan **Web Ontology Language (OWL)**. Ini adalah "otak" yang menyimpan hubungan semantik yang kompleks.</p>
-            <ul style="margin-top: 20px; padding-left: 20px; font-size: 0.9rem;">
-                <li style="margin-bottom: 10px;"><strong>Classes:</strong> Kategori hierarkis (misal: <em>JenisYadnya</em>, <em>TahapUpacara</em>).</li>
-                <li style="margin-bottom: 10px;"><strong>Individuals:</strong> Data kidung spesifik (misal: <em>Wargasari_DewaYadnya</em>).</li>
-                <li><strong>Object Properties:</strong> Relasi logis yang menghubungkan data (misal: Kidung A <em>digunakanPadaTahap</em> Puncak Acara).</li>
-            </ul>
-            <div style="margin-top: 20px; background: #eee; padding: 10px; font-family: monospace; font-size: 0.8rem; border-radius: 5px;">
-                (Kidung) --[memilikiMakna]--> (Penyucian)
+<div class="container my-5">
+    <div class="row g-5 align-items-center mb-5">
+        <div class="col-lg-6 animate">
+            <h2 class="fw-bold text-dark mb-4" style="font-family: 'Playfair Display';">Metode Pengembangan</h2>
+            <p class="text-muted lh-lg">
+                Pengembangan <strong>SariKidung</strong> menggunakan metode pengembangan sistem pakar yang terintegrasi dengan teknologi <em>Semantic Web</em>. 
+                Data dikumpulkan melalui studi literatur sastra agama dan wawancara dengan praktisi Dharma Gita untuk membangun basis pengetahuan yang valid secara teologis.
+            </p>
+            
+            <div class="card border-0 bg-light p-4 rounded-4 mt-4">
+                <h5 class="fw-bold text-bronze"><i class="fas fa-project-diagram me-2"></i>Arsitektur Sistem</h5>
+                <p class="small text-muted mb-0">
+                    Sistem ini memisahkan antara <strong>Knowledge Base</strong> (disimpan dalam format OWL/Ontology) dan <strong>Inference Engine</strong> 
+                    (logika Decision Tree) untuk menghasilkan rekomendasi yang cepat dan akurat.
+                </p>
             </div>
         </div>
-
-        <div class="feature-card animate" style="text-align: left; border-top: 4px solid var(--dark);">
-            <div style="font-size: 2.5rem; color: var(--dark); margin-bottom: 15px;">🧠</div>
-            <h3 style="font-family: 'Playfair Display'; margin-bottom: 15px;">2. The Inference Engine (AI)</h3>
-            <p>Untuk memberikan rekomendasi, kami menggunakan algoritma **Decision Tree Classifier** (via *scikit-learn*). AI ini bertindak sebagai "Pakar" yang meniru cara berpikir manusia.</p>
-            <ul style="margin-top: 20px; padding-left: 20px; font-size: 0.9rem;">
-                <li style="margin-bottom: 10px;"><strong>Training Data:</strong> AI "belajar" dari pola data yang diekstrak dari Ontologi.</li>
-                <li style="margin-bottom: 10px;"><strong>Features (Input):</strong> Yadnya, Upacara, Tahap, Makna, Lokasi.</li>
-                <li><strong>Target (Output):</strong> Nama individu Kidung yang paling relevan.</li>
-            </ul>
-            <div style="margin-top: 20px; background: #eee; padding: 10px; font-family: monospace; font-size: 0.8rem; border-radius: 5px;">
-                IF Yadnya=Dewa AND Tahap=Puncak THEN...
+        <div class="col-lg-6 animate text-center">
+            
+            <div class="p-3 bg-white shadow-sm rounded-4 border">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800" class="img-fluid rounded-3" alt="Technology Concept">
             </div>
         </div>
     </div>
 
-    <div class="glass-card animate" style="margin-bottom: 50px;">
-        <h3 style="font-family: 'Playfair Display'; text-align: center; margin-bottom: 30px;">How the System "Thinks"</h3>
-        
-        <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px; text-align: center;">
-            <div style="flex: 1; min-width: 200px; padding: 20px; background: var(--cream); border-radius: 10px;">
-                <span style="font-size: 1.5rem; color: var(--gold);">01. User Input</span>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Pengguna memilih kriteria (Yadnya, Tahap, dll) di menu Expert System.</p>
+    <div class="row g-4 mb-5">
+        <div class="col-md-4 animate">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                <div class="text-bronze mb-3"><i class="fas fa-sitemap fs-1"></i></div>
+                <h4 class="fw-bold mb-3">Ontology (OWL)</h4>
+                <p class="text-muted small">Representasi pengetahuan yang mendefinisikan hubungan antara Yadnya, Upacara, dan lirik Kidung secara hierarkis.</p>
             </div>
-            <div style="font-size: 2rem; color: var(--dark);">→</div>
-            <div style="flex: 1; min-width: 200px; padding: 20px; background: var(--dark); color: white; border-radius: 10px;">
-                <span style="font-size: 1.5rem; color: var(--gold);">02. AI Classification</span>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Decision Tree menganalisis input dan memprediksi nama Kidung.</p>
+        </div>
+        <div class="col-md-4 animate" style="animation-delay: 0.2s;">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                <div class="text-bronze mb-3"><i class="fas fa-code-branch fs-1"></i></div>
+                <h4 class="fw-bold mb-3">Decision Tree</h4>
+                <p class="text-muted small">Algoritma klasifikasi yang digunakan sistem untuk mencocokkan input pengguna dengan Kidung yang paling relevan.</p>
             </div>
-             <div style="font-size: 2rem; color: var(--dark);">→</div>
-            <div style="flex: 1; min-width: 200px; padding: 20px; background: var(--cream); border-radius: 10px;">
-                <span style="font-size: 1.5rem; color: var(--gold);">03. Ontology Query</span>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Sistem mengambil detail lirik dan bahasa dari file .owx berdasarkan hasil AI.</p>
+        </div>
+        <div class="col-md-4 animate" style="animation-delay: 0.4s;">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                <div class="text-bronze mb-3"><i class="fas fa-database fs-1"></i></div>
+                <h4 class="fw-bold mb-3">Knowledge Base</h4>
+                <p class="text-muted small">Penyimpanan data sastra yang telah divalidasi oleh pakar, mencakup teks suci, makna, dan klasifikasi bahasa.</p>
             </div>
         </div>
     </div>
 
-    <div style="text-align: center; margin-bottom: 30px;">
-        <h3 style="font-family: 'Playfair Display'; color: var(--dark);">Development Stack</h3>
+    <div class="card border-0 bg-dark text-white p-5 rounded-4 shadow-lg animate">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 class="text-bronze fw-bold mb-3" style="font-family: 'Playfair Display';">Pemodelan Data Semantik</h3>
+                <p class="opacity-75 mb-4">
+                    Berbeda dengan database tradisional, teknologi semantik memungkinkan sistem memahami "konteks". 
+                    Misalnya, sistem mengetahui bahwa <em>Wargasari</em> tidak hanya sebuah lagu, tetapi memiliki relasi khusus dengan <em>Dewa Yadnya</em> 
+                    dan tahapan upacara <em>Piodalan</em>.
+                </p>
+                
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="border border-bronze border-2 p-4 rounded-circle d-inline-block">
+                    <i class="fas fa-brain display-3 text-bronze"></i>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="grid-features" style="grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center;">
-        <div style="padding: 20px; background: white; border-radius: 10px; box-shadow: var(--shadow);">
-            <h4 style="color: var(--gold);">Backend & AI</h4>
-            <p style="font-size: 0.9rem;">Python, Flask, Scikit-learn</p>
-        </div>
-        <div style="padding: 20px; background: white; border-radius: 10px; box-shadow: var(--shadow);">
-            <h4 style="color: var(--gold);">Knowledge Base</h4>
-            <p style="font-size: 0.9rem;">Protégé (Editor), Owlready2 (Library), OWL/XML</p>
-        </div>
-        <div style="padding: 20px; background: white; border-radius: 10px; box-shadow: var(--shadow);">
-            <h4 style="color: var(--gold);">Frontend UX</h4>
-            <p style="font-size: 0.9rem;">HTML5, Modern CSS3, Jinja2 Templates</p>
-        </div>
-    </div>
-
 </div>
 {% endblock %}

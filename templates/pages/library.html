@@ -3,111 +3,137 @@
 {% block title %}Kidung Library - Digital Archive{% endblock %}
 
 {% block content %}
-<header style="background: var(--dark); padding: 80px 0; text-align: center; color: white; border-bottom: 3px solid var(--gold);">
-    <div class="animate">
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold);">Kidung Digital Library</h1>
-        <p style="opacity: 0.8; max-width: 700px; margin: 10px auto; font-size: 1.1rem;">
+<header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
+    <div class="container animate">
+        <h1 class="display-5 fw-bold mb-2">Kidung Digital Library</h1>
+        <p class="lead opacity-75 mx-auto" style="max-width: 700px;">
             Eksplorasi seluruh basis data Kidung Panca Yadnya yang tersimpan dalam sistem Ontologi.
         </p>
     </div>
 </header>
 
-<div class="container">
-    <div class="glass-card animate" style="margin-bottom: 30px; padding: 30px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-            <div style="flex: 1; min-width: 300px;">
-                <label style="font-size: 0.8rem; letter-spacing: 1px; color: var(--gold);">SEARCH ARCHIVE</label>
-                <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Cari nama kidung, jenis yadnya, atau upacara..." 
-                       style="width: 100%; padding: 12px 20px; border-radius: 50px; border: 1px solid #ddd; outline: none; margin-top: 5px; font-family: 'Poppins';">
+<div class="container my-5">
+    <div class="card border-0 shadow-sm p-4 mb-4 animate">
+        <div class="row align-items-center g-3">
+            <div class="col-md-8">
+                <label class="form-label small fw-bold text-bronze text-uppercase ls-2">Search Archive</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input type="text" id="searchInput" onkeyup="searchTable()" 
+                           class="form-control border-start-0 ps-0 shadow-none" 
+                           placeholder="Cari nama kidung, jenis yadnya, atau upacara...">
+                </div>
             </div>
-            <div style="text-align: right;">
-                <p style="font-size: 0.9rem; color: var(--dark-light);">Total Koleksi: <strong>{{ kidungs|length }} Kidung</strong></p>
+            <div class="col-md-4 text-md-end text-start">
+                <div class="p-3 bg-light rounded-3 d-inline-block border">
+                    <p class="mb-0 small text-muted text-uppercase fw-bold ls-1">Total Koleksi</p>
+                    <h4 class="mb-0 text-bronze fw-bold">{{ kidungs|length }} <small class="text-dark fs-6 fw-normal">Kidung</small></h4>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="glass-card animate" style="padding: 0; overflow: hidden; border: none; box-shadow: var(--shadow);">
-        <table id="kidungTable" style="width: 100%; border-collapse: collapse; background: white;">
-            <thead>
-                <tr style="background: var(--dark); color: var(--gold); text-align: left; font-family: 'Playfair Display'; font-size: 1.1rem;">
-                    <th style="padding: 20px 25px; border-bottom: 2px solid var(--gold);">#</th>
-                    <th style="padding: 20px 25px; border-bottom: 2px solid var(--gold);">Kidung Name</th>
-                    <th style="padding: 20px 25px; border-bottom: 2px solid var(--gold);">Yadnya Category</th>
-                    <th style="padding: 20px 25px; border-bottom: 2px solid var(--gold);">Ceremony</th>
-                    <th style="padding: 20px 25px; border-bottom: 2px solid var(--gold);">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for k in kidungs %}
-                <tr class="table-row" style="border-bottom: 1px solid #eee; transition: all 0.3s;">
-                    <td style="padding: 20px 25px; color: var(--gold); font-weight: bold;">{{ loop.index }}</td>
-                    <td style="padding: 20px 25px;">
-                        <span style="font-weight: 600; color: var(--dark);">{{ k.target.replace('_', ' ') }}</span>
-                    </td>
-                    <td style="padding: 20px 25px;">
-                        <span style="background: var(--cream); color: var(--dark-light); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(212,175,55,0.3);">
-                            {{ k.yadnya }}
-                        </span>
-                    </td>
-                    <td style="padding: 20px 25px; color: #666;">{{ k.upacara }}</td>
-                    <td style="padding: 20px 25px;">
-                        <a href="{{ url_for('browsing') }}" class="btn-predict" style="padding: 8px 15px; font-size: 0.75rem; text-decoration: none; display: inline-block; width: auto; border-radius: 5px;">
-                            DETAILS
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+    <div class="card border-0 shadow-sm overflow-hidden animate">
+        <div class="table-responsive">
+            <table id="kidungTable" class="table table-hover align-middle mb-0">
+                <thead class="bg-dark text-bronze">
+                    <tr class="border-bronze">
+                        <th class="ps-4 py-3 fw-bold border-0">#</th>
+                        <th class="py-3 fw-bold border-0">Kidung Name</th>
+                        <th class="py-3 fw-bold border-0">Yadnya Category</th>
+                        <th class="py-3 fw-bold border-0 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    {% for k in kidungs %}
+                    <tr class="table-row border-bottom transition">
+                        <td class="ps-4 fw-bold text-bronze">{{ loop.index }}</td>
+                        <td>
+                            <div class="fw-bold text-dark">{{ k.target.replace('_', ' ') }}</div>
+                            <small class="text-muted d-block d-md-none">{{ k.upacara }}</small>
+                            <span class="d-none d-md-inline small text-muted">{{ k.upacara }}</span>
+                        </td>
+                        <td>
+                            <span class="badge rounded-pill px-3 py-2 bg-bronze-soft text-bronze border border-bronze-subtle fw-medium">
+                                <i class="fas fa-tag me-1 small"></i> {{ k.yadnya }}
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ url_for('browsing') }}" class="btn btn-sm btn-outline-bronze px-3 rounded-pill">
+                                <i class="fas fa-info-circle me-1"></i> Details
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    <div id="noResult" style="display: none; text-align: center; padding: 50px;">
-        <p style="color: var(--dark-light); font-style: italic;">Data kidung tidak ditemukan...</p>
+        <div id="noResult" class="py-5 text-center d-none">
+            <i class="fas fa-folder-open fs-1 text-muted mb-3 opacity-25"></i>
+            <p class="text-muted fst-italic">Data kidung tidak ditemukan dalam arsip digital...</p>
+        </div>
     </div>
 </div>
 
 <style>
+    /* Specific Styles for Library */
+    .bg-bronze-soft { background-color: rgba(146, 98, 55, 0.08); }
+    .border-bronze-subtle { border-color: rgba(146, 98, 55, 0.2) !important; }
+    .ls-1 { letter-spacing: 1px; }
+    
+    .btn-outline-bronze {
+        color: var(--gold);
+        border-color: var(--gold);
+        transition: all 0.3s;
+    }
+    .btn-outline-bronze:hover {
+        background-color: var(--gold);
+        color: white;
+    }
+
+    .table-row { transition: var(--transition); }
     .table-row:hover {
-        background-color: var(--cream) !important;
-        transform: scale(1.005);
+        background-color: rgba(146, 98, 55, 0.03) !important;
         box-shadow: inset 4px 0 0 var(--gold);
     }
-    
-    #searchInput:focus {
-        border-color: var(--gold) !important;
-        box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+
+    /* Form control focus */
+    .form-control:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 0.25rem rgba(146, 98, 55, 0.1);
     }
 </style>
 
 <script>
 function searchTable() {
-    var input, filter, table, tr, td, i, j, txtValue, found;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("kidungTable");
-    tr = table.getElementsByTagName("tr");
+    let input = document.getElementById("searchInput");
+    let filter = input.value.toUpperCase();
+    let table = document.getElementById("kidungTable");
+    let tr = table.getElementsByTagName("tr");
     let noResult = document.getElementById("noResult");
     let visibleCount = 0;
 
-    for (i = 1; i < tr.length; i++) {
-        tr[i].style.display = "none";
-        td = tr[i].getElementsByTagName("td");
-        found = false;
-        for (j = 0; j < td.length; j++) {
-            if (td[j]) {
-                txtValue = td[j].textContent || td[j].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    found = true;
-                    break;
-                }
-            }
-        }
-        if (found) {
-            tr[i].style.display = "";
+    for (let i = 1; i < tr.length; i++) {
+        let textContent = tr[i].textContent || tr[i].innerText;
+        if (textContent.toUpperCase().indexOf(filter) > -1) {
+            tr[i].classList.remove("d-none");
             visibleCount++;
+        } else {
+            tr[i].classList.add("d-none");
         }
     }
-    noResult.style.display = (visibleCount === 0) ? "block" : "none";
+    
+    // Toggle no result message
+    if (visibleCount === 0) {
+        noResult.classList.remove("d-none");
+        table.querySelector('thead').classList.add("d-none");
+    } else {
+        noResult.classList.add("d-none");
+        table.querySelector('thead').classList.remove("d-none");
+    }
 }
 </script>
 {% endblock %}

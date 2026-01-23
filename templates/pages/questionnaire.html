@@ -3,56 +3,75 @@
 {% block title %}System Evaluation - SariKidung Validation{% endblock %}
 
 {% block content %}
-<header style="background: var(--dark); padding: 80px 0; text-align: center; color: white; border-bottom: 3px solid var(--gold);">
-    <div class="animate">
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold);">System Evaluation</h1>
-        <p style="opacity: 0.8; max-width: 700px; margin: 10px auto; font-size: 1.1rem;">
+<header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
+    <div class="container animate">
+        <h1 class="display-5 fw-bold mb-2">System Evaluation</h1>
+        <p class="lead opacity-75 mx-auto" style="max-width: 700px;">
             Bantu kami memvalidasi akurasi kecerdasan buatan dan pengalaman pengguna pada sistem SariKidung.
         </p>
     </div>
 </header>
 
-<div class="container">
-    <div class="glass-card animate" style="margin-bottom: 50px; border-left: 5px solid var(--gold);">
-        <h2 style="font-family: 'Playfair Display'; margin-bottom: 15px;">Partisipasi Pengujian</h2>
-        <p style="color: var(--dark-light); line-height: 1.8;">
-            Evaluasi ini bertujuan untuk mengukur sejauh mana sistem mampu memberikan rekomendasi yang akurat berdasarkan Sastra Agama, serta menilai kenyamanan antarmuka pengguna. Masukan Anda sangat berharga untuk pengembangan teknologi pelestarian budaya Bali yang lebih baik.
+<div class="container my-5">
+    <div class="card border-0 shadow-sm p-4 mb-5 border-start border-bronze border-5 animate">
+        <h2 class="fw-bold mb-3" style="font-family: 'Playfair Display';">Partisipasi Pengujian</h2>
+        <p class="text-muted lh-lg mb-0">
+            Evaluasi ini bertujuan untuk mengukur sejauh mana sistem mampu memberikan rekomendasi yang akurat berdasarkan Sastra Agama, 
+            serta menilai kenyamanan antarmuka pengguna. Masukan Anda sangat berharga untuk pengembangan teknologi pelestarian budaya Bali yang lebih baik.
         </p>
     </div>
 
-    <div class="grid-features" style="margin-bottom: 60px;">
-        <div class="feature-card animate" style="padding: 30px;">
-            <div style="font-size: 3rem; margin-bottom: 20px;">🎯</div>
-            <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 10px;">Akurasi Rekomendasi</h3>
-            <p style="font-size: 0.9rem; color: #666;">Apakah kidung yang disarankan oleh sistem sudah sesuai dengan jenis Yadnya dan tahapan upacara?</p>
+    <div class="row g-4 mb-5">
+        <div class="col-md-4 animate">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-card">
+                <div class="display-4 mb-3">🎯</div>
+                <h4 class="fw-bold text-bronze">Akurasi Rekomendasi</h4>
+                <p class="small text-muted mb-0">Apakah kidung yang disarankan oleh sistem sudah sesuai dengan jenis Yadnya dan tahapan upacara?</p>
+            </div>
         </div>
 
-        <div class="feature-card animate" style="padding: 30px;">
-            <div style="font-size: 3rem; margin-bottom: 20px;">📱</div>
-            <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 10px;">Kemudahan Penggunaan</h3>
-            <p style="font-size: 0.9rem; color: #666;">Seberapa mudah Anda memahami navigasi dan proses input data pada fitur Expert System?</p>
+        <div class="col-md-4 animate" style="animation-delay: 0.2s;">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-card">
+                <div class="display-4 mb-3">📱</div>
+                <h4 class="fw-bold text-bronze">Kemudahan Penggunaan</h4>
+                <p class="small text-muted mb-0">Seberapa mudah Anda memahami navigasi dan proses input data pada fitur Expert System?</p>
+            </div>
         </div>
 
-        <div class="feature-card animate" style="padding: 30px;">
-            <div style="font-size: 3rem; margin-bottom: 20px;">📖</div>
-            <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 10px;">Integritas Data</h3>
-            <p style="font-size: 0.9rem; color: #666;">Apakah lirik, bahasa, dan makna kidung yang ditampilkan sudah tepat dan mudah dibaca?</p>
+        <div class="col-md-4 animate" style="animation-delay: 0.4s;">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-card">
+                <div class="display-4 mb-3">📖</div>
+                <h4 class="fw-bold text-bronze">Integritas Data</h4>
+                <p class="small text-muted mb-0">Apakah lirik, bahasa, dan makna kidung yang ditampilkan sudah tepat dan mudah dibaca?</p>
+            </div>
         </div>
     </div>
 
-    <div class="glass-card animate" style="text-align: center; background: var(--dark); color: white; padding: 60px;">
-        <h2 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 20px;">Siap Memberikan Penilaian?</h2>
-        <p style="opacity: 0.8; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Klik tombol di bawah ini untuk menuju formulir evaluasi resmi. Proses ini hanya memakan waktu sekitar 3-5 menit.
-        </p>
+    <div class="card border-0 bg-dark text-white p-5 text-center shadow-lg position-relative overflow-hidden animate">
+        <i class="fas fa-check-circle position-absolute top-50 start-50 translate-middle display-1 opacity-10"></i>
         
-        <a href="https://forms.gle/link-anda-disini" target="_blank" class="btn-cta" style="padding: 20px 60px; font-size: 1.1rem; display: inline-block; text-decoration: none;">
-            MULAI EVALUASI SISTEM
-        </a>
-        
-        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">
-            *Data Anda akan dijaga kerahasiaannya dan hanya digunakan untuk kepentingan riset akademik.
-        </p>
+        <div class="position-relative z-1">
+            <h2 class="display-6 fw-bold text-bronze mb-3" style="font-family: 'Playfair Display';">Siap Memberikan Penilaian?</h2>
+            <p class="text-white-50 mb-5 mx-auto" style="max-width: 600px;">
+                Klik tombol di bawah ini untuk menuju formulir evaluasi resmi. Proses ini hanya memakan waktu sekitar 3-5 menit.
+            </p>
+            
+            <a href="https://forms.gle/link-anda-disini" target="_blank" class="btn btn-bronze btn-lg px-5 py-3 fw-bold rounded-1">
+                <i class="fas fa-external-link-alt me-2"></i> MULAI EVALUASI SISTEM
+            </a>
+            
+            <p class="mt-4 small text-white-50 opacity-50">
+                *Data Anda akan dijaga kerahasiaannya dan hanya digunakan untuk kepentingan riset akademik.
+            </p>
+        </div>
     </div>
 </div>
+
+<style>
+    .transition-card:hover {
+        transform: translateY(-10px);
+        border: 1px solid var(--gold) !important;
+        transition: all 0.3s ease;
+    }
+</style>
 {% endblock %}
