@@ -3,238 +3,255 @@
 {% block content %}
 <header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
   <div class="container animate">
-    <h1 class="display-5 fw-bold mb-2">Expert System AI</h1>
-    <p class="lead opacity-75">Gunakan 5 parameter kriteria untuk mendapatkan akurasi identifikasi tertinggi.</p>
+    <h1 class="display-5 fw-bold mb-2">Expert System Identification</h1>
+    <p class="lead opacity-75">Sistem akan menyaring pilihan secara otomatis berdasarkan jawaban Anda.</p>
   </div>
 </header>
 
 <div class="container my-5">
-  <div class="row g-4 align-items-start position-relative">
+  <div class="row g-4 align-items-start">
     
     <div class="col-lg-5 col-md-12 animate">
-      <div class="card border-0 shadow-sm p-4 h-100">
+      <div class="card border-0 shadow-sm p-4 h-100" id="wizard-container" style="min-height: 450px; border-radius: 15px;">
         <h4 class="mb-4 pb-2 border-bottom border-bronze text-bronze fw-bold">
-          <i class="fas fa-sliders-h me-2"></i>Input Kriteria
+          <i class="fas fa-question-circle me-2"></i>Konsultasi Pakar
         </h4>
         
-        <form id="expertForm">
-          <div class="mb-3">
-            <label class="form-label fw-semibold small text-muted">Jenis Yadnya</label>
-            <select id="yadnya" class="form-select border-light-subtle shadow-none" required>
-              <option value="" disabled selected>Pilih Yadnya...</option>
-              {% for y in yadnyas %}
-              <option value="{{ y }}">{{ y }}</option>
-              {% endfor %}
-            </select>
+        <div id="question-area">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <p class="text-muted small mb-0" id="step-indicator">Menyiapkan...</p>
+            <div class="spinner-border spinner-border-sm text-bronze d-none" id="mini-loader" role="status"></div>
           </div>
+          <h5 class="fw-bold mb-4" id="current-question-text">Memuat pertanyaan...</h5>
+          <div id="options-list" class="d-grid gap-2"></div>
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label fw-semibold small text-muted">Nama Upacara</label>
-            <select id="upacara" class="form-select border-light-subtle shadow-none" required>
-              <option value="" disabled selected>Pilih Upacara...</option>
-              {% for u in upacaras %}
-              <option value="{{ u }}">{{ u }}</option>
-              {% endfor %}
-            </select>
-          </div>
+        <div id="finish-area" class="d-none text-center py-5">
+            <div class="mb-3">
+                <i class="fas fa-clipboard-check text-success" style="font-size: 4rem;"></i>
+            </div>
+            <h5 class="fw-bold">Data Terkumpul!</h5>
+            <p class="text-muted small mb-4">Semua jawaban telah dicatat. Klik tombol di bawah untuk memulai pencocokan dengan database pakar.</p>
+            <button onclick="submitToAI()" class="btn btn-dark btn-lg rounded-pill px-4 shadow">
+                <i class="fas fa-microchip me-2"></i> Mulai Analisis
+            </button>
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label fw-semibold small text-muted">Tahapan Upacara</label>
-            <select id="tahap" class="form-select border-light-subtle shadow-none" required>
-              <option value="" disabled selected>Pilih Tahapan...</option>
-              {% for t in tahaps %}
-              <option value="{{ t }}">{{ t }}</option>
-              {% endfor %}
-            </select>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label fw-semibold small text-muted">Makna Kidung</label>
-            <select id="makna" class="form-select border-light-subtle shadow-none" required>
-              <option value="" disabled selected>Pilih Makna...</option>
-              {% for m in maknas %}
-              <option value="{{ m }}">{{ m }}</option>
-              {% endfor %}
-            </select>
-          </div>
-
-          <div class="mb-4">
-            <label class="form-label fw-semibold small text-muted">Lokasi / Pura</label>
-            <select id="pura" class="form-select border-light-subtle shadow-none" required>
-              <option value="" disabled selected>Pilih Lokasi...</option>
-              {% for p in puras %}
-              <option value="{{ p }}">{{ p }}</option>
-              {% endfor %}
-            </select>
-          </div>
-
-          <button type="submit" class="btn btn-bronze w-100 py-3 fw-bold" id="btnSubmit">
-            <span id="btnText"><i class="fas fa-brain me-2"></i>JALANKAN ANALISIS AI</span>
-          </button>
-        </form>
+        <button onclick="resetWizard()" class="btn btn-sm btn-outline-secondary mt-4 border-0">
+            <i class="fas fa-sync-alt me-1"></i> Mulai dari awal
+        </button>
       </div>
     </div>
 
     <div class="col-lg-7 col-md-12 position-relative" id="display-area">
       
-      <div id="ai-loader" class="d-none position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center bg-white rounded-4 shadow-sm" style="z-index: 10;">
-          <div class="logo-spinner mb-3">
-              <img src="{{ url_for('static', filename='images/logo.png') }}" 
-                   onerror="this.src='https://cdn-icons-png.flaticon.com/512/10433/10433048.png'" 
-                   alt="SariKidung Logo" class="rotating-logo">
-          </div>
-          <h5 class="text-bronze fw-bold animate-pulse">ANALYZING KNOWLEDGE BASE...</h5>
-          <p class="small text-muted">Sistem Pakar sedang memproses data ontologi</p>
+      <div id="ai-loader" class="d-none position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center bg-white rounded-4 shadow-sm" style="z-index: 10; opacity: 0.95;">
+          <img src="https://cdn-icons-png.flaticon.com/512/10433/10433048.png" class="rotating-logo mb-3" style="width: 80px;">
+          <h5 class="text-bronze fw-bold animate-pulse text-center">MENYARING PENGETAHUAN PAKAR...</h5>
+          <p class="text-muted small">Mencocokkan jawaban dengan Ontologi Kidung</p>
       </div>
 
-      <div id="welcome-msg" class="card border-0 shadow-sm p-5 text-center bg-light border-dashed h-100 d-flex flex-column justify-content-center align-items-center" style="border: 2px dashed #ddd !important; min-height: 500px;">
-        <i class="fas fa-robot fs-1 text-muted mb-3 opacity-25"></i>
-        <p class="text-muted italic">Silakan isi kriteria di samping untuk melihat hasil identifikasi pakar.</p>
+      <div id="welcome-msg" class="card border-0 shadow-sm p-5 text-center bg-light h-100 d-flex flex-column justify-content-center align-items-center" style="border: 2px dashed #ccc !important; min-height: 500px; border-radius: 15px;">
+        <i class="fas fa-project-diagram fs-1 text-muted mb-3 opacity-25"></i>
+        <h5 class="text-muted">Halo! Mari tentukan Kidung Anda.</h5>
+        <p class="text-muted small italic">Pilihan Anda akan menyempitkan hasil pencarian secara otomatis.</p>
       </div>
 
-      <div id="result-box" class="card border-bronze shadow-lg p-0 overflow-hidden d-none" style="border-width: 2px;">
+      <div id="result-box" class="card border-bronze shadow-lg p-0 overflow-hidden d-none animate" style="border-radius: 15px;">
         <div class="bg-bronze-light p-4 text-center border-bottom border-bronze">
-          <h6 class="text-uppercase ls-2 fw-bold text-bronze small mb-2">Hasil Identifikasi Sistem Pakar</h6>
+          <h6 class="text-uppercase ls-2 fw-bold text-bronze small mb-2">Rekomendasi Kidung</h6>
           <h2 id="resJudul" class="h1 fw-bold text-dark m-0"></h2>
         </div>
-
         <div class="p-4 bg-white">
-          <p class="text-uppercase small fw-bold text-muted mb-3">Dasar Pertimbangan Sistem:</p>
-          <div id="logic-path" class="d-flex flex-wrap gap-2 mb-4"></div>
-
-          <div class="bg-soft p-4 rounded-3 border mb-4 position-relative">
-            <i class="fas fa-quote-right position-absolute top-0 end-0 p-3 fs-1 opacity-10 text-bronze"></i>
-            <h5 class="fw-bold text-bronze mb-3"><i class="fas fa-scroll me-2"></i>Teks Suci / Lirik:</h5>
-            <div id="resTeks" class="fst-italic text-center lh-lg text-dark fs-5 py-2"></div>
+          <div class="bg-soft p-4 rounded-3 border mb-4 shadow-sm">
+            <h5 class="fw-bold text-bronze mb-3 small"><i class="fas fa-scroll me-2"></i>TEKS LIRIK:</h5>
+            <div id="resTeks" class="text-center lh-lg text-dark fs-5 py-2" style="white-space: pre-line; font-style: italic; font-family: 'Georgia', serif;"></div>
           </div>
-
+          <div class="p-4 bg-dark rounded-3 text-white mb-4 shadow-sm">
+            <h5 class="fw-bold text-gold mb-2 small"><i class="fas fa-lightbulb me-2"></i>MAKNA & FILOSOFI:</h5>
+            <p id="resMakna" class="m-0 opacity-90 small" style="text-align: justify; line-height: 1.6;"></p>
+          </div>
           <div class="row g-3">
-            <div class="col-md-6">
-              <div class="p-3 bg-dark rounded-3 text-white h-100">
-                <small class="d-block opacity-50 mb-1">Kategori Bahasa</small>
+            <div class="col-md-5">
+              <div class="p-3 border rounded-3 h-100 bg-light">
+                <small class="text-muted d-block mb-1 text-uppercase fw-bold" style="font-size: 0.65rem;">Bahasa</small>
                 <span id="resBahasa" class="fw-bold text-bronze"></span>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="p-3 bg-dark rounded-3 text-white h-100">
-                <small class="d-block opacity-50 mb-1">Validasi Makna</small>
-                <span id="resKeterangan" class="fw-bold text-bronze"></span>
-              </div>
+            <div class="col-md-7">
+               <div id="logic-path" class="d-flex flex-wrap gap-1"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
 <style>
-  .border-bronze { border-color: var(--gold) !important; }
-  .text-bronze { color: var(--gold) !important; }
-  .bg-bronze-light { background-color: rgba(146, 98, 55, 0.05); }
-  .bg-soft { background-color: #fdfaf7; }
+  .border-bronze { border-color: #926237 !important; }
+  .text-bronze { color: #926237 !important; }
+  .text-gold { color: #d4af37 !important; }
+  .bg-bronze-light { background-color: rgba(146, 98, 55, 0.08); }
+  .bg-soft { background-color: #fcf9f6; }
+  .rotating-logo { animation: rotateLogo 2.5s linear infinite; }
+  @keyframes rotateLogo { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .animate-pulse { animation: pulseText 1.5s infinite; }
+  @keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .btn-outline-bronze { border-color: #926237; color: #926237; transition: all 0.3s ease; }
+  .btn-outline-bronze:hover { background-color: #926237; color: white !important; transform: translateX(5px); }
   .ls-2 { letter-spacing: 2px; }
-  .border-dashed { border-style: dashed !important; }
-
-  /* Logo Muter Animation */
-  .rotating-logo {
-    width: 100px;
-    height: 100px;
-    animation: rotateLogo 2s linear infinite;
-    filter: drop-shadow(0 0 10px rgba(146, 98, 55, 0.3));
-  }
-
-  @keyframes rotateLogo {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  .animate-pulse {
-    animation: pulseText 1.5s ease-in-out infinite;
-  }
-
-  @keyframes pulseText {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-  }
 </style>
 
 <script>
-  document.getElementById("expertForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+const stepLabels = {
+    yadnya: "Apa Jenis Yadnya yang dilaksanakan?",
+    upacara: "Pilih Upacara yang sesuai:",
+    tahap: "Dalam tahapan apa Kidung dinyanyikan?",
+    makna: "Apa Makna/Tujuan Kidung tersebut?",
+    pura: "Di lokasi Pura mana dilaksanakan?"
+};
 
-    const btnSubmit = document.getElementById("btnSubmit");
+let userChoices = {};
+let selectionHistory = [];
+
+async function initWizard() {
+    userChoices = {};
+    selectionHistory = [];
+    document.getElementById('question-area').classList.remove('d-none');
+    document.getElementById('finish-area').classList.add('d-none');
+    document.getElementById("result-box").classList.add("d-none");
+    document.getElementById("welcome-msg").classList.remove("d-none");
+    await getNextOptions();
+}
+
+async function getNextOptions() {
+    const miniLoader = document.getElementById("mini-loader");
+    if(miniLoader) miniLoader.classList.remove("d-none");
+
+    try {
+        const response = await fetch("/get_filtered_options", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userChoices),
+        });
+        const data = await response.json();
+
+        if (data.status === "next") {
+            renderButtons(data.options, data.next_feature);
+        } else {
+            // Jika sudah tidak ada pertanyaan lagi, tampilkan area tombol analisis
+            document.getElementById('question-area').classList.add('d-none');
+            document.getElementById('finish-area').classList.remove('d-none');
+        }
+    } catch (err) {
+        console.error("Fetch error:", err);
+    } finally {
+        if(miniLoader) miniLoader.classList.add("d-none");
+    }
+}
+
+function renderButtons(options, feature) {
+    const container = document.getElementById('options-list');
+    const questionText = document.getElementById('current-question-text');
+    const indicator = document.getElementById('step-indicator');
+
+    questionText.innerText = stepLabels[feature] || `Pilih ${feature}:`;
+    indicator.innerText = `Langkah ${Object.keys(userChoices).length + 1}`;
+    container.innerHTML = '';
+
+    if (Object.keys(userChoices).length > 0) {
+        const backBtn = document.createElement('button');
+        backBtn.className = 'btn btn-sm btn-link text-muted mb-2 p-0 text-start text-decoration-none';
+        backBtn.innerHTML = `<i class="fas fa-arrow-left"></i> Kembali`;
+        backBtn.onclick = goBack;
+        container.appendChild(backBtn);
+    }
+
+    options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-outline-bronze text-start p-3 shadow-sm mb-1';
+        const displayName = opt.replace(/_Ref/g, '').replace(/_/g, ' ');
+        btn.innerHTML = `<i class="fas fa-chevron-right me-2 small opacity-50"></i> ${displayName}`;
+        btn.onclick = () => {
+            selectionHistory.push(feature);
+            userChoices[feature] = opt;
+            getNextOptions();
+        };
+        container.appendChild(btn);
+    });
+}
+
+function goBack() {
+    if (selectionHistory.length > 0) {
+        const lastFeature = selectionHistory.pop(); 
+        delete userChoices[lastFeature]; 
+        getNextOptions(); 
+    }
+}
+
+async function submitToAI() {
     const loader = document.getElementById("ai-loader");
     const resultBox = document.getElementById("result-box");
     const welcomeMsg = document.getElementById("welcome-msg");
-    const logicContainer = document.getElementById("logic-path");
+    const finishArea = document.getElementById("finish-area");
 
-    // Efek UI saat mulai
-    btnSubmit.disabled = true;
-    loader.classList.remove("d-none"); // Munculkan logo muter
-    loader.classList.add("d-flex");
-    
-    // Sembunyikan hasil lama & welcome
-    resultBox.classList.add("d-none");
+    // Tampilkan logo berputar HANYA di sini
+    if(loader) loader.classList.remove("d-none");
     welcomeMsg.classList.add("d-none");
+    resultBox.classList.add("d-none");
 
-    const payload = {
-      yadnya: document.getElementById("yadnya").value,
-      upacara: document.getElementById("upacara").value,
-      tahap: document.getElementById("tahap").value,
-      makna: document.getElementById("makna").value,
-      pura: document.getElementById("pura").value,
-    };
+    // Berikan loading sederhana di panel kiri juga
+    finishArea.innerHTML = `<div class="py-4"><div class="spinner-border text-bronze mb-2"></div><p>Menganalisis...</p></div>`;
 
     try {
-      // Memberi delay buatan agar animasi muter terlihat (misal 2 detik)
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      const response = await fetch("/predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await response.json();
-
-      if (data.status === "success") {
-        resultBox.classList.remove("d-none");
-
-        document.getElementById("resJudul").innerText = data.judul.replace(/_/g, ' ');
-        document.getElementById("resTeks").innerText = data.teks;
-        document.getElementById("resBahasa").innerText = data.bahasa;
-        document.getElementById("resKeterangan").innerText = data.keterangan;
-
-        logicContainer.innerHTML = "";
-        const criteria = [
-          { label: "Yadnya", val: payload.yadnya },
-          { label: "Tahap", val: payload.tahap },
-          { label: "Makna", val: payload.makna }
-        ];
-
-        criteria.forEach((item) => {
-          const badge = document.createElement("span");
-          badge.className = "badge bg-light text-dark border p-2 fw-normal";
-          badge.innerHTML = `<strong class="text-bronze">${item.label}:</strong> ${item.val}`;
-          logicContainer.appendChild(badge);
+        const response = await fetch("/predict", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userChoices),
         });
+        const data = await response.json();
 
-        resultBox.scrollIntoView({ behavior: "smooth", block: "center" });
-      } else {
-        welcomeMsg.classList.remove("d-none");
-        alert("Peringatan: " + data.message);
-      }
+        // Delay 2 detik agar user bisa melihat proses logo berputar
+        await new Promise(r => setTimeout(r, 2000));
+
+        if (data.status === "success") {
+            document.getElementById("resJudul").innerText = data.judul;
+            document.getElementById("resTeks").innerText = data.teks;
+            document.getElementById("resBahasa").innerText = data.bahasa || "-";
+            document.getElementById("resMakna").innerText = data.makna || "-";
+
+            const logicPath = document.getElementById("logic-path");
+            logicPath.innerHTML = "";
+            Object.entries(userChoices).forEach(([k, v]) => {
+                const span = document.createElement("span");
+                span.className = "badge bg-white text-dark border shadow-sm p-2 small mb-1 me-1";
+                span.innerHTML = `<b class="text-bronze">${k}:</b> ${v.replace(/_Ref/g, '').replace(/_/g, ' ')}`;
+                logicPath.appendChild(span);
+            });
+
+            resultBox.classList.remove("d-none");
+            finishArea.innerHTML = `
+                <i class="fas fa-check-circle text-success fs-1 mb-2"></i>
+                <h5>Selesai!</h5>
+                <p class="small text-muted">Hasil ditemukan.</p>
+            `;
+        } else {
+            alert(data.message);
+            resetWizard();
+        }
     } catch (err) {
-      welcomeMsg.classList.remove("d-none");
-      alert("Terjadi kesalahan koneksi ke server.");
+        alert("Gagal terhubung ke server.");
     } finally {
-      btnSubmit.disabled = false;
-      loader.classList.add("d-none"); // Hilangkan logo muter
-      loader.classList.remove("d-flex");
+        if(loader) loader.classList.add("d-none");
     }
-  });
+}
+
+function resetWizard() {
+    // Refresh halaman atau panggil initWizard
+    location.reload(); 
+}
+
+document.addEventListener("DOMContentLoaded", initWizard);
 </script>
 {% endblock %}

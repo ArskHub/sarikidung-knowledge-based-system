@@ -13,6 +13,18 @@
 </header>
 
 <div class="container my-5">
+    <div class="mb-4 animate">
+        <label class="form-label small fw-bold text-bronze text-uppercase ls-2 mb-3">Filter Berdasarkan Yadnya</label>
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-sm btn-dark px-4 rounded-pill filter-btn active" onclick="filterByCategory('ALL', this)">Semua</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Dewa Yadnya', this)">Dewa Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Pitra Yadnya', this)">Pitra Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Manusa Yadnya', this)">Manusa Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Rsi Yadnya', this)">Rsi Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Bhuta Yadnya', this)">Bhuta Yadnya</button>
+        </div>
+    </div>
+
     <div class="card border-0 shadow-sm p-4 mb-4 animate">
         <div class="row align-items-center g-3">
             <div class="col-md-8">
@@ -23,13 +35,15 @@
                     </span>
                     <input type="text" id="searchInput" onkeyup="searchTable()" 
                            class="form-control border-start-0 ps-0 shadow-none" 
-                           placeholder="Cari nama kidung, jenis yadnya, atau upacara...">
+                           placeholder="Ketik kata kunci (misal: 'dewa', 'wargasari', 'piodalan')...">
                 </div>
             </div>
-            <div class="col-md-4 text-md-end text-start">
+            <div class="col-md-4 text-md-end">
                 <div class="p-3 bg-light rounded-3 d-inline-block border">
                     <p class="mb-0 small text-muted text-uppercase fw-bold ls-1">Total Koleksi</p>
-                    <h4 class="mb-0 text-bronze fw-bold">{{ kidungs|length }} <small class="text-dark fs-6 fw-normal">Kidung</small></h4>
+                    <h4 class="mb-0 text-bronze fw-bold" id="counterDisplay">
+                        {{ kidungs|length }} <small class="text-dark fs-6 fw-normal">Kidung</small>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -40,30 +54,29 @@
             <table id="kidungTable" class="table table-hover align-middle mb-0">
                 <thead class="bg-dark text-bronze">
                     <tr class="border-bronze">
-                        <th class="ps-4 py-3 fw-bold border-0">#</th>
-                        <th class="py-3 fw-bold border-0">Kidung Name</th>
-                        <th class="py-3 fw-bold border-0">Yadnya Category</th>
-                        <th class="py-3 fw-bold border-0 text-center">Action</th>
+                        <th class="ps-4 py-3 fw-bold border-0" style="width: 5%">#</th>
+                        <th class="py-3 fw-bold border-0" style="width: 45%">Kidung Name</th>
+                        <th class="py-3 fw-bold border-0" style="width: 30%">Yadnya Category</th>
+                        <th class="py-3 fw-bold border-0 text-center" style="width: 20%">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
                     {% for k in kidungs %}
                     <tr class="table-row border-bottom transition">
-                        <td class="ps-4 fw-bold text-bronze">{{ loop.index }}</td>
+                        <td class="ps-4 fw-bold text-bronze index-col">{{ loop.index }}</td>
                         <td>
-                            <div class="fw-bold text-dark">{{ k.target.replace('_', ' ') }}</div>
-                            <small class="text-muted d-block d-md-none">{{ k.upacara }}</small>
-                            <span class="d-none d-md-inline small text-muted">{{ k.upacara }}</span>
+                            <div class="fw-bold text-dark name-cell">{{ k.target.replace('_', ' ') }}</div>
+                            <small class="text-muted d-block upacara-cell">{{ k.upacara.replace('_', ' ') }}</small>
                         </td>
                         <td>
-                            <span class="badge rounded-pill px-3 py-2 bg-bronze-soft text-bronze border border-bronze-subtle fw-medium">
-                                <i class="fas fa-tag me-1 small"></i> {{ k.yadnya }}
+                            <span class="badge rounded-pill px-3 py-2 bg-bronze-soft text-bronze border border-bronze-subtle fw-medium yadnya-cell">
+                                {{ k.yadnya.replace('_', ' ') }}
                             </span>
                         </td>
                         <td class="text-center">
-                            <a href="{{ url_for('browsing') }}" class="btn btn-sm btn-outline-bronze px-3 rounded-pill">
-                                <i class="fas fa-info-circle me-1"></i> Details
-                            </a>
+                            <button onclick="showDetail('{{ k.target }}')" class="btn btn-sm btn-outline-bronze px-3 rounded-pill">
+                                <i class="fas fa-eye me-1"></i> Detail
+                            </button>
                         </td>
                     </tr>
                     {% endfor %}
@@ -72,67 +85,142 @@
         </div>
 
         <div id="noResult" class="py-5 text-center d-none">
-            <i class="fas fa-folder-open fs-1 text-muted mb-3 opacity-25"></i>
-            <p class="text-muted fst-italic">Data kidung tidak ditemukan dalam arsip digital...</p>
+            <i class="fas fa-search-minus fs-1 text-muted mb-3 opacity-25"></i>
+            <p class="text-muted fst-italic">Tidak ada Kidung yang cocok dengan kata kunci tersebut.</p>
+            <button class="btn btn-sm btn-link text-bronze" onclick="resetSearch()">Bersihkan Pencarian</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 15px;">
+            <div class="modal-header bg-dark text-white border-0" style="border-radius: 15px 15px 0 0;">
+                <h5 class="modal-title fw-bold text-gold" id="modalJudul">Judul Kidung</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="bg-light p-4 rounded-3 border mb-4 shadow-sm">
+                    <h6 class="text-bronze fw-bold mb-3 small uppercase"><i class="fas fa-scroll me-2"></i>LIRIK / TEKS:</h6>
+                    <div id="modalTeks" class="text-center lh-lg text-dark fs-5 italic" style="white-space: pre-line; font-family: 'Georgia', serif;"></div>
+                </div>
+                <div class="p-3 bg-bronze-soft rounded-3 border-start border-bronze border-4">
+                    <h6 class="text-bronze fw-bold mb-2 small"><i class="fas fa-lightbulb me-2"></i>MAKNA & FILOSOFI:</h6>
+                    <p id="modalMakna" class="m-0 text-muted small"></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <style>
-    /* Specific Styles for Library */
     .bg-bronze-soft { background-color: rgba(146, 98, 55, 0.08); }
     .border-bronze-subtle { border-color: rgba(146, 98, 55, 0.2) !important; }
     .ls-1 { letter-spacing: 1px; }
-    
-    .btn-outline-bronze {
-        color: var(--gold);
-        border-color: var(--gold);
-        transition: all 0.3s;
-    }
-    .btn-outline-bronze:hover {
-        background-color: var(--gold);
-        color: white;
-    }
-
-    .table-row { transition: var(--transition); }
-    .table-row:hover {
-        background-color: rgba(146, 98, 55, 0.03) !important;
-        box-shadow: inset 4px 0 0 var(--gold);
-    }
-
-    /* Form control focus */
-    .form-control:focus {
-        border-color: var(--gold);
-        box-shadow: 0 0 0 0.25rem rgba(146, 98, 55, 0.1);
-    }
+    .btn-outline-bronze { color: var(--gold); border-color: var(--gold); transition: all 0.3s; }
+    .btn-outline-bronze:hover { background-color: var(--gold); color: white; }
+    .filter-btn.active { background-color: var(--dark) !important; color: white !important; border-color: var(--dark) !important; }
+    .table-row:hover { background-color: rgba(146, 98, 55, 0.03) !important; box-shadow: inset 4px 0 0 var(--gold); }
 </style>
 
 <script>
+// Fungsi Update Counter Global
+function updateCounter(count) {
+    const display = document.getElementById("counterDisplay");
+    if(display) {
+        display.innerHTML = `${count} <small class="text-dark fs-6 fw-normal">Kidung</small>`;
+    }
+}
+
 function searchTable() {
     let input = document.getElementById("searchInput");
-    let filter = input.value.toUpperCase();
+    let filter = input.value.toUpperCase().trim();
     let table = document.getElementById("kidungTable");
     let tr = table.getElementsByTagName("tr");
     let noResult = document.getElementById("noResult");
     let visibleCount = 0;
 
+    // Reset Filter Buttons ke "Semua" saat user mulai mengetik manual
+    if(filter !== "") {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active', 'btn-dark');
+            btn.classList.add('btn-outline-bronze');
+        });
+        document.querySelector('[onclick*="ALL"]').classList.add('active', 'btn-dark');
+    }
+
     for (let i = 1; i < tr.length; i++) {
-        let textContent = tr[i].textContent || tr[i].innerText;
-        if (textContent.toUpperCase().indexOf(filter) > -1) {
-            tr[i].classList.remove("d-none");
+        let name = tr[i].querySelector(".name-cell").textContent || "";
+        let upacara = tr[i].querySelector(".upacara-cell").textContent || "";
+        let yadnya = tr[i].querySelector(".yadnya-cell").textContent || "";
+        let combined = `${name} ${upacara} ${yadnya}`.toUpperCase();
+
+        if (combined.indexOf(filter) > -1) {
+            tr[i].style.display = "";
             visibleCount++;
+            tr[i].querySelector(".index-col").textContent = visibleCount;
         } else {
-            tr[i].classList.add("d-none");
+            tr[i].style.display = "none";
         }
     }
     
-    // Toggle no result message
-    if (visibleCount === 0) {
-        noResult.classList.remove("d-none");
-        table.querySelector('thead').classList.add("d-none");
-    } else {
-        noResult.classList.add("d-none");
-        table.querySelector('thead').classList.remove("d-none");
+    updateCounter(visibleCount);
+    noResult.classList.toggle("d-none", visibleCount > 0);
+    table.querySelector('thead').style.display = visibleCount > 0 ? "" : "none";
+}
+
+function filterByCategory(category, element) {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active', 'btn-dark');
+        btn.classList.add('btn-outline-bronze');
+    });
+    element.classList.add('active', 'btn-dark');
+
+    let tr = document.querySelectorAll("#kidungTable tr:not(:first-child)");
+    let visibleCount = 0;
+    let filterTarget = category.toUpperCase().split(' ')[0]; 
+
+    tr.forEach(row => {
+        let yadnyaText = row.querySelector(".yadnya-cell").textContent.toUpperCase().replace(/_/g, " ").trim();
+        if (category === 'ALL' || yadnyaText.includes(filterTarget)) {
+            row.style.display = "";
+            visibleCount++;
+            row.querySelector(".index-col").textContent = visibleCount;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    updateCounter(visibleCount);
+    document.getElementById("noResult").classList.toggle("d-none", visibleCount > 0);
+    document.querySelector("#kidungTable thead").style.display = visibleCount > 0 ? "" : "none";
+}
+
+function resetSearch() {
+    document.getElementById("searchInput").value = "";
+    filterByCategory('ALL', document.querySelector('[onclick*="ALL"]'));
+}
+
+async function showDetail(targetId) {
+    const modalElement = document.getElementById('detailModal');
+    const modal = new bootstrap.Modal(modalElement);
+    
+    try {
+        const response = await fetch("/predict", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ "target": targetId })
+        });
+        const data = await response.json();
+
+        if (data.status === "success") {
+            document.getElementById("modalJudul").innerText = data.judul;
+            document.getElementById("modalTeks").innerText = data.teks;
+            document.getElementById("modalMakna").innerText = data.makna;
+            modal.show();
+        }
+    } catch (err) {
+        alert("Gagal memuat detail.");
     }
 }
 </script>

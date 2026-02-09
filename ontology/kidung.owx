@@ -203,7 +203,34 @@
         <NamedIndividual IRI="#Diksa_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Griya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HalamanRumah_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#IlmuPengetahuan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JalanKeSetra_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kedukaan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Keharmonisan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KeindahanSpritual_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KeseimbanganAlam_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Keselamatan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KesucianWiku_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#KidungSekarAlit_Ref"/>
@@ -215,13 +242,115 @@
         <NamedIndividual IRI="#KidungWargasari_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Kidung_DewaYadnya_PengayatBhataraSucyandewi"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#ManusaYadnya_Ref"/>
@@ -233,13 +362,25 @@
         <NamedIndividual IRI="#Melasti_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#MembangunkanJenazah_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MengharmoniskanBhuta_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Metatah_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NangininSawa_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#NeluBulanan_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Ngaben_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Nganyut_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Ngelinggihang_Ref"/>
@@ -254,10 +395,31 @@
         <NamedIndividual IRI="#Pawiwahan_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Pelarungan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PelepasanKeSegara_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pelepasan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PembersihanAtma_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PemujaanRaja_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PemujaanUmum_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Pemujaan_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Penetralan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pengembalian_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Penghormatan_Ref"/>
@@ -272,19 +434,52 @@
         <NamedIndividual IRI="#PenutupUpacara_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#PenyatuanAtma_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Penyatuan_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#PenyelarasanAlam_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PenyucianBhuta_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PenyucianLahirBatin_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Penyucian_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#PerempatanAgung_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PerjalananAtma_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PerjalananKeSetra_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PermohonanMaaf_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Permohonan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PersiapanUpacara_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Piodalan_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pralina_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PujianGrhastha_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PuncakUpacara_Ref"/>
@@ -297,6 +492,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PuraBukitPengelengan_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraDalemSolo_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PuraDalem_Ref"/>
@@ -323,10 +521,19 @@
         <NamedIndividual IRI="#PuraPuseh_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#PuraSegara_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraSekolah_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#PuraUlunDanuBatur_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PuraUluwatu_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PuraUmum_Ref"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PuraWatukaru_Ref"/>
@@ -335,10 +542,31 @@
         <NamedIndividual IRI="#RsiYadnya_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RumahMempelai_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rumah_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#SanggahMerajan_Ref"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Saraswati_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Segara_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Setra_Ref"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Tawur_Ref"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#UpacaraAbhiseka_Ref"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#AwalRangkaianUpacara"/>
@@ -517,8 +745,44 @@
         <NamedIndividual IRI="#Diksa_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#Griya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#HalamanRumah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#IlmuPengetahuan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#JalanKeSetra_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Kedukaan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Keharmonisan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#KeindahanSpritual_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#KeseimbanganAlam_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#MaknaKidung"/>
         <NamedIndividual IRI="#Keselamatan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#KesucianWiku_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#JenisKidung"/>
@@ -534,6 +798,38 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
         <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -542,7 +838,111 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
         <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KidungPancaYadnya"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#JenisYadnya"/>
@@ -557,8 +957,20 @@
         <NamedIndividual IRI="#Melasti_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#MembangunkanJenazah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#MengharmoniskanBhuta_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#UpacaraPancaYadnya"/>
         <NamedIndividual IRI="#Metatah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#NangininSawa_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#UpacaraPancaYadnya"/>
@@ -567,6 +979,10 @@
     <ClassAssertion>
         <Class IRI="#UpacaraPancaYadnya"/>
         <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Nganyut_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#UpacaraPancaYadnya"/>
@@ -586,11 +1002,39 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Pelarungan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PelepasanKeSegara_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Pelepasan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PembersihanAtma_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PemujaanRaja_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#PemujaanUmum_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
         <NamedIndividual IRI="#Pemujaan_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#MaknaKidung"/>
         <NamedIndividual IRI="#Penetralan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Pengembalian_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#MaknaKidung"/>
@@ -610,15 +1054,51 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PenyatuanAtma_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Penyatuan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
         <NamedIndividual IRI="#PenyelarasanAlam_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PenyucianBhuta_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PenyucianLahirBatin_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#MaknaKidung"/>
         <NamedIndividual IRI="#Penyucian_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PerempatanAgung_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PerjalananAtma_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PerjalananKeSetra_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PermohonanMaaf_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#MaknaKidung"/>
         <NamedIndividual IRI="#Permohonan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PersiapanUpacara_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#UpacaraPancaYadnya"/>
@@ -627,6 +1107,14 @@
     <ClassAssertion>
         <Class IRI="#JenisYadnya"/>
         <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#Pralina_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaknaKidung"/>
+        <NamedIndividual IRI="#PujianGrhastha_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TahapPelaksanaanUpacara"/>
@@ -643,6 +1131,10 @@
     <ClassAssertion>
         <Class IRI="#PuraTempatPelaksanaan"/>
         <NamedIndividual IRI="#PuraBukitPengelengan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraDalemSolo_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#PuraTempatPelaksanaan"/>
@@ -678,11 +1170,23 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraSegara_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraSekolah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
         <NamedIndividual IRI="#PuraUlunDanuBatur_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#PuraTempatPelaksanaan"/>
         <NamedIndividual IRI="#PuraUluwatu_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#PuraUmum_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#PuraTempatPelaksanaan"/>
@@ -694,12 +1198,240 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#RumahMempelai_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#Rumah_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
         <NamedIndividual IRI="#SanggahMerajan_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#Saraswati_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#Segara_Ref"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PuraTempatPelaksanaan"/>
+        <NamedIndividual IRI="#Setra_Ref"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#UpacaraPancaYadnya"/>
         <NamedIndividual IRI="#Tawur_Ref"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#UpacaraPancaYadnya"/>
+        <NamedIndividual IRI="#UpacaraAbhiseka_Ref"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <NamedIndividual IRI="#HalamanRumah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <NamedIndividual IRI="#Mecaru_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <NamedIndividual IRI="#BhutaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <NamedIndividual IRI="#KeseimbanganAlam_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <NamedIndividual IRI="#HalamanRumah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <NamedIndividual IRI="#Mecaru_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <NamedIndividual IRI="#BhutaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <NamedIndividual IRI="#PenyucianBhuta_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <NamedIndividual IRI="#PerempatanAgung_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <NamedIndividual IRI="#Mecaru_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <NamedIndividual IRI="#BhutaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <NamedIndividual IRI="#MengharmoniskanBhuta_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <NamedIndividual IRI="#PuraDesa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <NamedIndividual IRI="#PenutupUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <NamedIndividual IRI="#Melasti_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <NamedIndividual IRI="#Pengembalian_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <NamedIndividual IRI="#PuraDalemSolo_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <NamedIndividual IRI="#PemujaanRaja_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <NamedIndividual IRI="#PuraUmum_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <NamedIndividual IRI="#PemujaanUmum_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <NamedIndividual IRI="#PuraUmum_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <NamedIndividual IRI="#PemujaanUmum_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <NamedIndividual IRI="#PermohonanMaaf_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <NamedIndividual IRI="#PuraDesa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <NamedIndividual IRI="#Penyucian_Ref"/>
+    </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#digunakanDiPura"/>
         <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
@@ -802,6 +1534,411 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <NamedIndividual IRI="#PuraDesa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <NamedIndividual IRI="#PuraUmum_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <NamedIndividual IRI="#PemujaanUmum_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <NamedIndividual IRI="#PuraDesa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <NamedIndividual IRI="#PuraSegara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <NamedIndividual IRI="#Melasti_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <NamedIndividual IRI="#Penyucian_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <NamedIndividual IRI="#PuraSekolah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <NamedIndividual IRI="#Saraswati_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <NamedIndividual IRI="#IlmuPengetahuan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <NamedIndividual IRI="#Segara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <NamedIndividual IRI="#Melasti_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <NamedIndividual IRI="#Penyucian_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <NamedIndividual IRI="#Griya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <NamedIndividual IRI="#KesucianWiku_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <NamedIndividual IRI="#Rumah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <NamedIndividual IRI="#Pawiwahan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <NamedIndividual IRI="#Keharmonisan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <NamedIndividual IRI="#Rumah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <NamedIndividual IRI="#Pawiwahan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <NamedIndividual IRI="#Penyatuan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <NamedIndividual IRI="#RumahMempelai_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <NamedIndividual IRI="#Pawiwahan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <NamedIndividual IRI="#PujianGrhastha_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <NamedIndividual IRI="#Rumah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <NamedIndividual IRI="#Otonan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <NamedIndividual IRI="#ManusaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <NamedIndividual IRI="#PenyucianLahirBatin_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <NamedIndividual IRI="#PuraKahyanganJagat_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <NamedIndividual IRI="#Piodalan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <NamedIndividual IRI="#DewaYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <NamedIndividual IRI="#Pemujaan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <NamedIndividual IRI="#JalanKeSetra_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <NamedIndividual IRI="#PerjalananKeSetra_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <NamedIndividual IRI="#NangininSawa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <NamedIndividual IRI="#MembangunkanJenazah_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <NamedIndividual IRI="#Setra_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <NamedIndividual IRI="#PerjalananAtma_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <NamedIndividual IRI="#JalanKeSetra_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <NamedIndividual IRI="#Pelepasan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <NamedIndividual IRI="#Kedukaan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
         <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
         <NamedIndividual IRI="#PuraDalem_Ref"/>
     </ObjectPropertyAssertion>
@@ -825,6 +1962,569 @@
         <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
         <NamedIndividual IRI="#Penyucian_Ref"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <NamedIndividual IRI="#Segara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <NamedIndividual IRI="#PenutupUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <NamedIndividual IRI="#Nganyut_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <NamedIndividual IRI="#PelepasanKeSegara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <NamedIndividual IRI="#Segara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <NamedIndividual IRI="#PenutupUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <NamedIndividual IRI="#Pelarungan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <NamedIndividual IRI="#Setra_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <NamedIndividual IRI="#Pralina_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <NamedIndividual IRI="#PembersihanAtma_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <NamedIndividual IRI="#Penyucian_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <NamedIndividual IRI="#Penghormatan_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <NamedIndividual IRI="#RumahDuka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <NamedIndividual IRI="#Ngaben_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <NamedIndividual IRI="#PitraYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <NamedIndividual IRI="#PenyatuanAtma_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <NamedIndividual IRI="#Griya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <NamedIndividual IRI="#PenutupUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <NamedIndividual IRI="#Diksa_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <NamedIndividual IRI="#RsiYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <NamedIndividual IRI="#KeindahanSpritual_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <NamedIndividual IRI="#Griya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <NamedIndividual IRI="#AwalRangkaianUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <NamedIndividual IRI="#UpacaraAbhiseka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <NamedIndividual IRI="#RsiYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <NamedIndividual IRI="#PersiapanUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanDiPura"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <NamedIndividual IRI="#Griya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaTahap"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <NamedIndividual IRI="#PuncakUpacara_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#digunakanPadaUpacara"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <NamedIndividual IRI="#UpacaraAbhiseka_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiJenisYadnya"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <NamedIndividual IRI="#RsiYadnya_Ref"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMakna"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <NamedIndividual IRI="#KesucianWiku_Ref"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <Literal>Menggambarkan tatanan alam melalui cerita Tantri, digunakan saat persiapan caru.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <Literal>Pupuh Demung Sawit (Tantri)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_DemungSawit"/>
+        <Literal>Pupuh Demung Sawit (Tantri)
+1.	Gumanti kawuwusan sri Singa di Prabu, pinarek ri soring jati, riareping guh wara mangkuk, kweh bala sona makadi, ken sambada ngrep anyongkong.
+2.	Ulahing swara mongsil sawanyang alulu, Anglincak aswacengil, Akrah larut angawung, Suka sri mrega dipati,</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <Literal>Kidung penyucian untuk menenangkan kekuatan Bhuta agar kembali ke sifat dewa (Somya).</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <Literal>Pupuh Jerum</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <Literal>Sastra Bhuta Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Jerum"/>
+        <Literal>Pupuh Jerum
+3.	Tangeh anamun turida, salimun tan kasalimburr, prakerti abayeng dangu, tumuwuh ta andadi wwong, rasa tan dadi ageman, marma nira mesreng kidung, tan anuting pupuh bhasa.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <Literal>Menggambarkan prosesi Mahoma dan pemberian caru kepada Pisaca serta Raksasa.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <Literal>Wirama Saronca</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <Literal>Sastra Bhuta Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_BhutaYadnya_Saronca"/>
+        <Literal>Wirama Saronca :
+4.	Sanjining yajna ta humadhang,
+ Sriwreksa samiddha puspa gandha phala,
+ Dadhi ghreta kresna tila madhu,
+ Mwang kumba kusagra wreti wetih.
+
+5.	Lumekas ta sira mahoma,
+ Pretadi pisaca raksasa minantran,
+ Bhuta kabeh I nilagaken
+ Asing mamihghna rikang yajna.
+
+6.	Sanghyang kunda pinuja,
+ Caru makulilingan samatsya mangsa dadhi,
+ Kalawan sekul niwediya
+ Inames salwir nikang marasa.
+7.	Sampun pwa sira pinuji,
+ Bhinojanan sang maharesi paripurnna,
+ Kalawan sang Wiku saksi,
+ Winursita dinaksinan ta sira.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <Literal>Dinyanyikan saat Bhatara kembali ke pura setelah masucian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <Literal>Bhatara Mantuk Saking Masucian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_BhataraMantukSakingMasucian"/>
+        <Literal>6.	Bhatara Mantuk Saking Masucian
+Wirama Indra Wangsa :
+--0/--0/0 - 0/- 00=12
+
+1.	Amwitnarendratmaja ring tapowana,
+manganjali ryagraning indra parwata, 
+Tan wismıti sangkanikang hayun teka, 
+Swabhawa sang sajjana rakwa mangkana.
+2.	Mangkat dateng tolih arum wulat nira, 
+Sinambaying camara sangkaring geger, 
+Panawwanging mrak panangis nikang halas, 
+Erang tininggal masaput-saput hima.
+
+Wirama Wirat Tebusol (Wikerti)
+00-/0-0/00-/000/000/-0-/00=20
+3.	Kadi harsaning taru latangelih angayam-ayam labuh kapat,
+Sukaning sakendran 1 dateng nrpasuta kadi tambaying hudan,
+Nguni weh tikang sura wadhu dumadak asemikungnya de nira,
+Katering pater padani wittanira lagi ri nengwa rengwaken.
+4.	Sura kanyakasahananing kararan atiki tan hana ngunggang, kadi tan mapatra turidanya linaca lacaning kakanghyasi,
+Awingit-wingit sinurunyan dali-dali hana ring ranging hati,
+Agelem ta ya naluk aken sahaja cala tinagwatagwaken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <Literal>Kidung khusus yang ditujukan untuk memuja manifestasi Ida Bhatara yang berstana di Pura Dalem Solo.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <Literal>Pupuh Alis-Alis Ijo Bawak (Kidung Dalem Solo)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <Literal>Sastra Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DalemSolo"/>
+        <Literal>ALIS-ALIS IJO BAWAK
+1.	Prapteng sira rahadyan, jenek maring linggih sira, endi mararem, sira Dalem Solo, semu egar ne wirage, kangen ngatonang, ranak rangrong, winuwus Irakajeng anom, amuji iki, sanak ingsun, malungguhmaring Jawi,
+Prabhusira Dalem Solo.
+
+2.	Egar kahyun kahayata, lumra manibakang krta, subaga wiryya, landuh katon, Sri Bhupati nene mangkin, tusta nagara, Wali Pulo, linuhung suka nikang wong, lan sastrawit, jagat mahayu, tentrem pradnyan kang ulati, kapti Sira Dalem Solo.
+
+3.	Mangd kahyun kahayata, Hyang Bhatari Hyang Bhatara, ledang nyangra, bhakti katon, prapta maring Sanghyang Widhi, nunas rahayu majeng Bhatara, Ida sayang ne kawuwus, hayu wredi Hyang Kasuhun, sida moga ngawe trepti, gelis turun manywecanin.
+
+4.	Sweca Ida manibakang, karahayon maring jagat, taler ring hrdaya jaba jero, kreta anduh kanginapti, pada suka mangguh wiryya, mangda Bhatara mabawos, saking astute maha agung, ngawe ledang Sanghyang Widhi, Ida ica manonton.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <Literal>Dinyanyikan sebagai pembuka pemujian, menggambarkan ketulusan hati dalam menyembah Sang Hyang Widhi.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <Literal>Pupuh Dangdang Gendis (Amad)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <Literal>Sastra Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_DangdangGendis"/>
+        <Literal>PUPUH DANGDANG GENDIS/AMAD
+Om ksantawya purwaning pamuji, 
+Apan prasangga angayat Bhatara, 
+Sang amurbeng Tri Lokane, 
+Tingalana pukulun, 
+Sembahing astiti bhakti, 
+Puspa maka sarana, 
+Pangarcananing ati jugul, 
+Saha jnana lila suddha, 
+Mangradana,
+Sang pakestining kumilip, 
+Sang anyuksmeng sahana.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <Literal>Berisi permohonan maaf atas segala kekurangan, ketidaktahuan, dan keterbatasan dalam sarana upacara.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <Literal>Pupuh Magatruh (Pengaksama ring Bhatara)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <Literal>Sastra Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Magatruh"/>
+        <Literal>PUPUH MAGATRUH
+1.	Antur tityang para pamedek 
+lintang jugul,
+Panembahe ring Hyang Widhi, 
+Tan pamantra tan pasuguh, 
+Bhakti antuk manah eling, 
+Eling maring raga belog
+2.	Mangke walia Ira sraya sembah ingsun, 
+Ksama ya tan pangesti, 
+Asung asih Hyang Pakulun, 
+Manugraha maring mami, 
+Mangda kasidan don.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <Literal>Permohonan tirtha dari pancoran empat penjuru dan tengah. Digunakan dalam upacara Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <Literal>Nunas Tirtha Ring Bhatara</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_NunasTirthaRingBhatara"/>
+        <Literal>Nunas Tirtha ring Bhatara
+
+Reng Wirama Wawirat:
+- --/00-/0 0/00-/000/000/-0-/00=23
+1.	Saking purwa pancoran salaka tirthanya pawitra
+tinumbuhan tunjung putih,
+Saking daksina pancoran temaga tirthanya 
+sanjiwani tinumbuhan tunjung bang, 
+Saking kulon pancoran mas tirthanya
+Kundalini tinumbuhan tunjung kuning,
+Saking utara pancoran wesi tirthanya
+kamendalu tinumbuhan tunjung ireng.
+Saking tengah pancoran petak tirthanya
+sudhamala tinumbuhan tunjung warna.
+
+Pupuh Warga Sari
+2.	Turun tirta saking luhur,
+tirthan Panca Dewatane,
+Wisnu tirtha kamendalu,
+Hyang Iswara sanjiwani,
+Mahadewa kundalini,
+Hyang Brahma tirtha pawitra.
+Hyang Siwa pamuput,
+Amretha kinardi.
+
+3.	Seger-eger kamandalu,
+sanjiwani pikukuhe,
+ngardi jagat pang rahayu,
+pawitra kasucian hati,
+trepti santi kundalini
+sadya sakala niskala,
+amertha nama rum,
+lamakang pinuji.
+
+4.	Turun tirtha saking luhur,
+Manyıratın pemangkune,
+Mekalangan muncrat mumbul,
+Mapan tirtha amerta jati,
+Paican Bhatara sami,
+Panyupatan dasa mala,
+Apang sida lebur,
+Malane ring bumi.</Literal>
+    </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#bahasa"/>
         <NamedIndividual IRI="#Kidung_DewaYadnya_PengaksamaBhataraBremara"/>
@@ -956,6 +2656,883 @@ Angkus Dewa Sangkara ring Pura Bukit Pengelengan</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <Literal>Digunakan dalam pemujaan Ida Sang Hyang Widhi pada upacara Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <Literal>Pupuh Adri</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_PupuhAdri"/>
+        <Literal>Pupuh Adri
+
+9.	Egar manah ira ngesti hayu, 
+ngesti Bhatarane,
+Kalih Ida Sanghyang Widhi, 
+madak ica Ida nerus, 
+betel kangin betel kawuh, 
+ngulayang I kewelas harsa, 
+angastyang brata sadhu, 
+ngesti Ida Hyang Bhatara, 
+nunas sarining amertha.
+
+10.	Kaula ngaturang canang harum, 
+sarwa kesekare, 
+manca warna sarwa wangi, 
+ambunnyane ngalub-alub, 
+ngawe egar Hyang Hayu, 
+kalih Ida Hyang Bhatara, 
+pakenak pada pakenyung, 
+hyang Dedari Hyang Dedara, 
+menyari haturan kaula.
+
+11.	Kaula ngaturang canang harum, 
+ring Ida Bhatara, 
+kaula manuhun bakti, 
+Manyungsung Ida Ratu, 
+I Ratu Susunan Agung, 
+I Ratu Hyang Panembahan, 
+pang terus ican i kaula, 
+nyari haturkan kaula, 
+ring cokor Ida Bhatara.
+
+12.	Canang wangi mrik sumembur,
+mangrembun sekare,
+anggrembun jebad kasturi,
+ngawe kalangen i Ratu, 
+wangine mangalub-alub,
+rame mangebekin pura,
+ring kadewatan menyusup,
+para Dewa para Hyang Kabeh,
+Geger saking pura nıra.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <Literal>Kidung pemujaan agung yang mengakui keberadaan Sang Hyang Widhi di seluruh jagat raya.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <Literal>Wirama Ragakusuma</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <Literal>Sastra Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Ragakusuma"/>
+        <Literal>Dewa Yadnya (Pamujian ring Bhatara)
+WIRAMARAGAKUSUMA
+
+1.	Om sembah ning anasraye carane pangkaja bhuwana patiki tinghali,
+Wahyawahya panembah ingwang iki teka satata kinabhaktyan inghulun,
+Byaktabyakta kiteng sarat kita hurip ning ahurip agawe hala hayu,
+Sang manggeh pinake stining maha lilang manaha nilar aken dasendriya.
+
+2.	Ring diksadhi niwretyatita pinakanta nika kita wisesa tan kalen,
+Yan ring weda kitawaking pranawa mantra taya lewiha len sake kita,
+Murttyamurtti kitati suksma saka ring tanu kita maganal sakeng agong,
+Munggwing stawara janggamadi kita kewala paraning angungsi sunyata.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <Literal>Digunakan dalam rangkaian upacara Melasti</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <Literal>Rikala Bhatara Masucian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_RikalaBhataraMasucian"/>
+        <Literal>5.	Rikala Bhatara Masucian (melasti)
+Wirama Wirat Kalengengan :
+0 0/00-/0-0/00-/000/000-0-/00=23
+1.	Ikang wukirapaksapajaran abhasma limut
+adaluwang kukap magong,
+Petungnya tumakul mareng Iwah anawuk
+banu pareng atekes macamana,
+Kayunya pada kayikan pasaji sarwa phala
+tinemuning macangkrama,
+Atangkil adawa mure titir anganjali sulurika ring hanar dhateng.
+2.	Alas katemu sanggraheng tamuya na malaku jawuhi tanggaling kapat,
+Lirangnya linengis huwus makatirah ya ta-dunungani tinghaling mara,
+Atha saji sekar suhun kayu seno humanturaken awaknya sumpingan,
+Wungu mwang asanang ruhun-ruhun aken sekarana api raganing mulat.
+Wirama Basanta Tatilaka
+3.	Kawit sarat samaya kala nirar para ngka, 
+Nton tang pradesa ri hawan nira kapwa ramya,
+Kweh Iwah mageng katemu de nira tirtha dibya, 
+Udyana len talaga nirjara kapwa mahning.
+4.	Tunjung putih pwa ya ta tunjung bang sedheng rum, 
+Kumbangnya ghurnita masabda humung Sadarppa, 
+Len manda maruta miriryya sugandha mambo, 
+Sang Rama Laksamana rikang ksana tusta denya.
+5.	Kambang turut sisi rikang padha margga lumra, 
+Sang Ramabhadra mancher mangalap takambang,
+Madyus sira camana kapwa masoca ring Iwah, 
+Ngkane silatala jenek ta siran pararyyam.
+
+Pupuh Wargasari:
+6.	Purwakaning angripta rum, 
+ning wana ukir, 
+kahadang labuh kartika,
+panedenging sari, 
+angayon tanguli katur, 
+AngringringJangga mure,</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <Literal>Pemujaan agung kepada Dewi Saraswati sebagai penguasa tutur dan ilmu pengetahuan.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <Literal>Wirama Sragdhara (Pangastawa Saraswati)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <Literal>Sastra Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Saraswati"/>
+        <Literal>SRAGDHARA:
+Sanghyang Wagiswarindah lihati satata bhaktinkgwi jong
+Dhatrdewi, pinrih ring citta munggwing sarasija ri dalem
+twas lanenastawangku, nityawehang waranugraha 
+kaluputa ring duhka sangsara wighna, lawan tastu wruheng 
+sastra sakala gunaning janma tapwan haneweh.
+
+Nahan donk wajapangarccana ri sira kedo mrakrtang canda 
+sastra, mangke tingkahnyapintonakena gumawayang
+wrddhyaning wala buddhi, sangkyaning warnna
+munggwing sapada tang inaran canda ling sang kawindra, 
+pat sangkyanyang pada byakta dadi saka kawin mon 
+umunggwing palambang.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <Literal>Dinyanyikan saat prosesi Melasti, menggambarkan kemegahan rombongan suci bak matahari yang terbit menyinari dunia.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <Literal>Wirama Sragdhara (Rikala Bhatara Masucian)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <Literal>Sastra Dewa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_SragdharaMelasti"/>
+        <Literal>SRAGDHARA
+1.	Ryyangkat sang Pandhawenjing saka ri kuta nikang rajya 
+dhani Wirata, tan pendah suryya sangkeng udaya giri 
+mijil mahyun angdipanang rat, lumra wrasok penuh lwir 
+jalanidi mangalih mwang wukir guntur agra, cihnanyan 
+wah tekapning gaja turaga ratharengga ratna pradipta.
+
+2.	Ngka lumrang puspa warseng ghana sinawur aken sang 
+watek siddha Sanggha, lawan Ungkara mantra jaya jaya 
+ri jaya sri maha Pandhu putra, matrang warsararab
+manggalani laku nira pangruhun sedhung adres, apan 
+Sanghyang Surendraduluring awang awang mastwaken
+yanayeng prang.
+Pamujian ring Bhatara
+3.	Sri bajrajnana sunyatmaka parama siranindya ring rat 
+wisesa, Lila sudda pratisteng hrdaya jaya jayangken 
+maha swargga loka, eka cchatreng sariranguripi
+sahananing bhur bhuwah swah prakirnna, saksat 
+candrarkka purnnadbhuta wijil iran sangka ring Bodda citta.
+
+4.	Singgih yan sidda Yogi Swara wekas ira sang satmya lawan Bhatara, sarwwajnamurtti sunya ganal alit inucap mustining dharma tatwa, Sangsiptan pet wulik ring hati sira sekunging yoya lawan Samadhi, Byakta Iwir bhranta cittangrasa riwa riwaning nirmmalacintya rupa.
+5.	Sanghyang sriyatma Suddhatmaka parama sire Boddha paksa nirwaryya,yapwan sewa paksa parimitan inucap sri maha Nilakanta, tunggal rakwatema rwa sira maka
+Uriping Bhur Bhuwah Swah tanimba, Om hrih rakwe
+wekasning haji sarananikang janma ring marttya loka.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <Literal>Kidung yang menggambarkan pertemuan murid dengan gurunya (Dukuh), digunakan dalam prosesi Manusa Yadnya.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <Literal>Pupuh Alis-Alis Ijo Bawak</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <Literal>Sastra Manusa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_AlisAlisIjo"/>
+        <Literal>ALIS-ALIS IJO BAWAK
+1.	Prapteng dukuh ling sang sunia, apolah age sira tuan, Endi sinangkang ranak, ingong, yaya semu newirage, minda kania ami rangrong, kasalulutan winadon, duh tuan kaki ranak ingsun, alungguh maring patani, manawi sira kaleson.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <Literal>Menggambarkan keindahan alam di kala fajar, melambangkan harapan dan awal baru bagi pasangan pengantin.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <Literal>Wirama Kusumarabhasa (Widaragumulung)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <Literal>Sastra Manusa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_Kusumarabhasa"/>
+        <Literal>WIDARAGUMULUNG/ KUSUMARABHASA
+Pawiwahan
+- 00/-00/-00/000/0-0/0-0/00=20
+
+1.	Meh rahina semu bang Hyang aruna kadi netraning ogha rapuh,
+Sabda ni kokila ring kanigara saketer ni kidung ning akung,
+Lwir wuwusing wini panca papetaking ayam wana ring pagagan,
+Mrak anguhuh brhramarangrabhasa kusuma ring parahasyan arum.
+
+2.	Gandha ni jangga menur nikang alaya latamrik angumkuma mar, Lot linawad ni kukusning angusuma ri wimba Bhatara Gana, Molih ulih wangining sulasih agaru candana gulgula mar, Sri gadhinging harepan wilaja mangalasa manegehnegehi.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <Literal>Digunakan dalam puncak pernikahan, mengandung filosofi tentang karma dan pengendalian diri dalam rumah tangga</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <Literal>Wirama Manda Malon (Pawiwahan)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <Literal>Sastra Manusa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MandaMalon"/>
+        <Literal>MANDA MALON
+000/0-07-00/0-0/0-0/00=17
+
+1.	Hana mara janma tan pamihutang brata yoga tapa, Angetul aminta wirrya sukaning Widhi sahasika, binalik aken purih nika lewih tinamunya lara, Sinakitaning rajah tamah inandhehaning prihati.
+2.	Kadi hana purwwa karma dinalih sang akaryya hayu, Ulah apageh magegwana rasagama buddhi tepet, ya juga sudhira munggu ring manah nira sang nipuna, Karana nikang sukabhyudaya niskala yan katemu.
+3.	Syapa kari tan temung hayu masadhana sarwwa hayu, Niyata katemwaning hala masadhna sarwwa hala, Tewas alisuh manangsaya purakrita tapa tinut,
+Sakarepan kasuddha maka darsana Pandhusuta.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <Literal>Jawa Kuno (Kawi)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <Literal>Digunakan untuk mengiringi upacara pernikahan (Pawiwahan), bermakna pujian atas keindahan mempelai.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <Literal>Wirama Merta Todaka</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <Literal>Buku Kidung Manusa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_MertaTodaka"/>
+        <Literal>KIDUNG MANUSA YADNYA
+
+1.Pawiwahan
+Wirama Merta Todaka (Tristapa)
+---/00-/000/00=11
+1.	Sojar sang prabhu haywa cinapalan, 
+Sembahning saranagata ri haji, 
+Yan yogya welining sura duhita, 
+Heren ring rahınan kadı kawawa.
+2.	Ndin lungha rasaning gula hinemu, 
+De sang natha haris harisen atah, 
+Gongnya remba patik haji huluna,
+Sambegan saphalakena rumuhun.
+3.	Laksmi tulya nikang sura duhita, 
+Yan ring sakti mangasraya ri haji,
+Sang natha pa siddhi kıta wara,
+Acchedya maranasta guna hama.
+
+Wirama Demung Sawit (Tantri)
+
+4.	Wuwusen Bhupati ring Patali na gantung, 
+subaga wirya siniwi, 
+kajrihin sang para ratu, 
+salwaningjambu warsadi
+Prasama hatur kembang tahen.
+5.	Tuhu tan kneng apuy pratapa sang prabu, 
+kesyaning ruktya sadnya ari, 
+sawyakti yan ari Wisnu, 
+nityang de ulaping ari, 
+sridara patra sang katong.
+
+Pupuh Adri:
+6.	Egar manah ira ni sri Tanjung, 
+duk teka lakine, 
+toya ring sangku sumanding, 
+Ki Sidapaksa andalu, 
+ulate awrengat wrengut,
+sinambut kang sangku mangkin, 
+binanting aken ring batur,
+Ni sri Tanjung tan pengucap, 
+kemengan tan wruh ring dosa.
+
+7.	Sumungkeming pakon ni sri Tanjung, 
+tur angembeng luhe, 
+Paran dosan ingsun kaki, 
+maras ugatiningsun, 
+baya sira manggihkewuh,
+sang natha wengi merene, 
+arep agawea kewuh, 
+yen ingsun anglayanana, 
+rowang ira takonana.
+
+Pupuh Demung:
+8.	Tuhu ndatan pasiring, 
+yadin sasoring akasa, 
+ri guna widya wicaksana, 
+byakta saraswati,
+surasmi Hyang giri wadu, 
+anupama nurageng rat, 
+sang apatra dyah Tantri, 
+tumuli prapta pareking ibu.
+
+Wirama Sucyandewi :
+0-01--0/001-00=12
+9.	Prihen temen dharma dhumaranang sarat,
+Saraga sang sadhu sireka tutana, 
+Tanartha tan kama pi donya tan yasa, 
+Ya sakti sang sajjana dharma raksaka.
+
+10.	Saka nikang rat kita yang wenang manut, 
+manupadesa prihatah rumaksa ya, 
+ksaya nikang papa nahan prayojana, 
+Jananuragadi tuwin kapangguha.
+11.	Prabha nikang jnana susila dharma weh, 
+Maweh kasiddhyan papa mukti nirmala, 
+Mala milet tan pamatuk makin maring, 
+Maring wisesang yasa siddha tapasa.
+
+Wirama Raitiga :
+1.00-/00/00-/000/000/-0-/00=20
+II.-00/000/0-0/00=11
+111.00-/0-0/00-/0-/0=13
+
+12.	Nda ta tita sang prabhu gumanti tujara ta-sirang marutsuta,
+Sadara sira mara manglawada, 
+Para teng taman katemu dewi Janaki.
+
+13.	Pranata ri panembahan ati bhakti jaya-jaya namost manggala,
+Dewi Wijaya naranatha huwus, 
+Pahawas hidep ta teka ning sukekihen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <Literal>Jawa Kuno (Kawi)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <Literal>Dinyanyikan pada upacara Telubulanan atau Ngotonin sebagai simbol kegembiraan dan perlindungan bagi si anak.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <Literal>Wirama Malat</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <Literal>Sastra Kidung Manusa Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ManusaYadnya_WiramaMalat"/>
+        <Literal>2. Telubulanan/Ngotonin Alit/Agung
+Wirama Malat:
+1.	Mangkana sang ing tohpati sirajinira winongwong sadina mangun gamelan sajero tan hana duhka kawuwusan soma manis enjing sira Panji atangya hyas lan sira anawangwulan akampuh ijo botlo asabuk permas wilis keris ira landeyan syama.
+2.	Rinengganing mas adi apinggelkana sada alit anguwah karna tan pasekar ling ira semu
+ira nawang sasi rambut bujana sing anggarag sira panji angaras pakanira sok wwong roro anggarapi manira.
+3.	Sang ratu ing malayu kalawan pakanira malih
+wwong papah amiliha manira wwonging Tohpati, rowanging acruba awor apan yaya asanak asung sepahe mijil rangga titah jiwa katemu ingjawi.
+Wirama Alis-alis Ijo:
+4.	Mrik minging ganda nikang pudak wahu mekar ron ikarombe rombe asideheng parang parung winilet dening kawelas hyun tekang jangga kasturi lumangle lungguh ipun kadi anuduh aken marga kanglihan ngwang areren-ri sira sumayana sri atum pal ngong amirangrong kasongan dening pandan wwong asuwe ngong andel laku ngwang mihat mendra cetakanya ngambong amintatedining riris bramitang doh.
+
+Wirama Sumuka: ---/- 00/00=8
+5.	Utsahata iarapana,
+Karyya sing paha pagehen, 
+Sampay tan gawaya kena, 
+Ring satwadhama ya tuwi,
+6.	Sangkaning wruh aji ginege, 
+Nitijnacara kapuhara,
+Pandhyacaryya dwija pahayun,
+Gengentatah ikanangasi,
+7.	Krodambek yelagaken ika,
+Dosak weh durbala winuwus, 
+Mwang wadwanung rahayu milag, 
+Mitradoh tang musuh aparek.
+8.	Kadyangga ning widhus upaman, 
+Bhitatwang ring kayu mangadeg,
+Yapwan sundhe wijah umenek, 
+Icca tan sangsaya malayu.
+9.	Haywa dwa dwa umhara hala, 
+Durbhagawas ta ya inupet,
+Mwang wadwasing kutila katon.
+Tan wiswasana ta ikahen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <Literal>Terdiri dari beberapa wirama. Merdukomala, Ragakusuma, Todaka, Basanta Tatilaka, Manda Malon</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <Literal>Pamujian ring Bhatara</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
+        <Literal>4.	Pamujian ring Bhatara
+
+Wirama Merdukomala :
+---/00-/0-0/00-/0-0/000=18
+
+1.	Ong sembah ning anata tinghalana de tri loka sarana,
+Wahya dhyatmika sembahing hulun i jong ta tan hana waneh,
+Sang Iwiragni saking tahen kadi minyak
+saking dadi kita,
+Sang saksat metu yan hana wwang amuter
+tutur pinahayu.
+2.	Wyapi wyapaka sarining parama tatwa durlaba kita,
+Icchantang hana tan hana ganal alit lawan hala ayu,
+Utpati sthiti linaning dadi kita ta karananika,
+Sang sangkan paraning sarat sakala niskalatmaka kita
+
+Wirama Ragakusuma :
+---/0 0-/0-0/00-/000/000/-0-/00=23
+3.	Nahan donku mangastaweng rahina ratri 
+mareking suku sang saraswati,
+Hyun kwa nanggapa nugraha nulusa purna
+rahayu pasarira nitiman,
+Wrdyo dharma ni sang pinandita mwah
+wihikana ri sakojar ing aji,
+Suddha jnana umandeleng hrdaya mangruraha jalada
+mungguhing hati.
+
+4.	Lawan teki muwah sapunggungi hatingku
+hilang akenna denta sapwani,
+Madangkun dedeting swacitta kumuling tanupiladi
+wuwusku dohaken,
+Erang ngwwangku meling wuwusku tan inget hilang akena kabeh mutmengong,
+Salwirning mala wghnaning hrdaya sirnakena
+satata muksaheng tawang.
+
+5.	Sanghyang ning kawi sanggraheng
+kalengengan sira ri wekasanindya ring langa, Sang munggwing telenging sarasija mekar sinirami datengi labuh kapat,
+Nahan karananing hulun cumantaka tumiru
+tiru ring sang kawiswara,
+Ndan tan karasa ring sarira hinaguna milu
+milu amarnaken kata.
+6.	Kanggen kwa rumakseng sarira liputing lara
+pinarananing kaduryasan,
+Marmang kwa ngartya tatwa gawya kakawin malara lumipureng katur idan,
+Ndan dura kawasa lengeng tekap ika ru-
+macana hati pinging hulun,
+Dirgayusa ring mastuti nama siwaya wastu 
+astu nama swaha.
+
+7.	Sanghyang Candra taranggana pinaka dipa-
+mamadangi ri kalaning wengi,
+Sanghyang Surya sedheng prabata maka dipa-
+mamadangi ri bumi mandala, 
+Widya sastra sudharma dipanikanang tri 
+Bhuwana sumena prabaswara, 
+Yaning putra suputra sadhu gunawan 
+Memadangi kula wandu wandana.
+
+Wirama Todaka :
+00-/00-/00-/000=12
+8.	Sasiwimba haneng ghata mesi banyu, Ndan asing suci nirmala mesi wulan, Iwa mangkana rak wa kiteng kadadin, Ring angambeking yoga kiteng sakala.
+9.	Katemunta mareka si tan katemu, Kahidepta mareka si tan kahidep, Kawenangta mareka si tan kawenang, Paramartha Siwatwa nir awarana.
+Kidung Panca Yadnya
+
+
+Wirama Basanta Tatilaka :
+---0/-00/0-0/0-0/-0=14
+10.	Rwaneka dhatu winuwus wara Buddha Wiswa, 
+Bhineki rakwa ring apan kene parwa nosen, 
+Mangkang jinatwa kalawa Siwa tatwa tunggal, 
+Bhineka tunggal ika tan hana dharma Mangrwa.
+11.	Aksobhya tatwa kitang Iswara Dewa dibya, 
+Hyang Ratna sambawa sireki Bhatara Dhata, 
+Sanghyang Maha Mara Sirastami Kami Tabha, 
+Sryamogha siddhi sira Wisnu Maha Dhikara.
+
+Wirama Manda Malon:
+000/0-01-00/0-0/0-0/00=17
+12.	Stutinira tan tulus sinahuran paramartha Siwa, 
+Anaku huwus katon abhimatan ta temunta kabeh, 
+Hana panganugrahangwa cadu sakti winimba sara, 
+Pasupati sastra kastu pangaranya nihanwulati.
+13.	Wuwusira Sanghyang Iswara mijil tangapuyri tangan, 
+Wawang asarira katara manginditaken warayang,
+Tinarima sang Dhananjaya tikang sara suksma tika, 
+Nganala sarira satma kalawan warayang Wekasan.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <Literal>Mengiringi perjalanan jenazah menuju setra, menggambarkan Sang Atma yang diiringi oleh para bidadari menuju alam sana.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <Literal>Pupuh Adri (Memarga ke Setra)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <Literal>Sastra Pitra Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AdriSetra"/>
+        <Literal>Memarga ke Setra
+Pupuh Adri:
+1.	Hyang dedari sira samadulur, Sira anggagana, Sang Nilotama ngiring
+Gagar Mayang Tunjung Biru, Pranash kundang kada kash, Puyung nasih mwang kendran, Kunting tokong enjer sampun, Prasama rampeh rumampeh, Mangiring Dewi Supraba.
+2.	Prapta ring tegal komala asri asruh, akeh kang kunapa, Hyang narda sama prapti, Sanghyang lumanglang sama dulur, Anona kunapan ipun, layone sri jagatkarana, sinambut de Hyang ibu, tinangisan tinuturan,
+Layone kadi nidra.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <Literal>Dinyanyikan saat prosesi menyucikan jenazah, bermakna melepaskan keterikatan duniawi.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <Literal>Wirama Aswa Lalita (Nanginin Sawa)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <Literal>Sastra Pitra Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_AswaLalita"/>
+        <Literal>Nanginin Sawa ( Layon)
+WIRAMA ASWA LALITA
+
+1.	Matang i kakanta matya lepaseng pasir ta juga kenakang 
+kwa leleha,
+Rurubana puspa padapa sawangku satpada
+marakusanangisana,
+Tengah akeneng tsik adhu tekapning anghanut 
+aram wanasana sumar, 
+Muliha mareng smaralaya maran ri janma nika
+kaptyaning wwang ahajeng.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <Literal>Menggambarkan perjalanan Atma menuju pintu akhirat dan percakapan dengan para penjaga pintu suci.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <Literal>Kidung Malat Rasmi (Kancing Kori)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <Literal>Sastra Pitra Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_MalatRasmi"/>
+        <Literal>MALAT RASMI
+1.	Sira sang atunggun kori,
+Bungkahana kancing kori, 
+Sang Cikrabala amuwus,
+Atma paran sira prapti.
+
+2.	Warahana sira tuwi, 
+Sang atma sumahur manis,
+Duh singih pukulun,
+Pan tutur menget ingsun prapti,
+
+3.	Ken Dorakala nyawurin, 
+Sapa ngaran ikang bibi, 
+Mwang bapa ira tuhu, 
+Pan tutur menget angling.
+
+4.	Sang atma sumawur aris, 
+Ibunira Sanghyang Anis, 
+Bapanira Sanghyang Putus, 
+Ingsun Snghyang Lepas iki.
+
+5.	Sira Jogormanik angling, 
+Cikrabala anyawurin,
+Sang atma sira muwus,
+Dorakala angucap aris.
+
+6.	Ingsun iki den arani, 
+Sapa aran sun iki,
+Sang atma sira muwus, 
+Wuwusane angasih-asih.
+
+7.	Sira Suratma kadang mami,
+Kula ta kita ari-ari, 
+Antapreta sira iku, 
+Ring papusuhan ingsun iki.
+
+8.	Aranana sira malih, 
+Sapa aran sanak mami, 
+Sang atma mangke muwus, 
+Mangke ingsun angaranin.
+
+9.	Sira ngaran Jogormanik, 
+Getih ingsun sira nguni, 
+Cikrabala punika, 
+Yeh Nyom sira nguni.
+
+10.	Miwah Dorakala iki, 
+Lamas ingsun nguni, 
+Pun maka lawangan pukulun, 
+Bapa ibu ingsun nguni.
+
+11.	Bapa sira Nareswara iki, 
+Mwah ibun sira Nareswari, 
+Hyang Brahma Wisnu pukulun, 
+Bungkahana kancing kori,
+
+12.	Sira Sang atunggun kori, 
+Nulya mungkah kancing kori, 
+Sira sang atma anyusup, 
+Inapagin Widyadari.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <Literal>Dinyanyikan saat iring-iringan jenazah (Bade/Wadah) bergerak menuju setra (kuburan).</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <Literal>Kidung Memarga ke Setra (Pupuh Adri)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Memarga"/>
+        <Literal>5.	Memarga ke Setra
+Pupuh Adri:
+1.	Hyang dedari sira samadulur, sira anggagana, sang Nilotama ngiring Gagar Mayang Tunjung Biru, Pranasih kundang kada kasih, puyung nasih mwang kendran, kunting tokong enjer sampun, prasama rampeh rumampeh, mangiring Dewi Supraba.
+2.	Prapta ring tagal komala asri asruh, akeh kang kunapa
+Hyang narda sama prapti, Sanghyang lumanglang sama dulur, Anona kunapan ipun, Layone sri jagatkarana,
+sinambut de Hyang ibu, tinangisan tinuturan, layone kadi nidra
+3.	Hyang dedari sama nangis ngunggun, 
+welasing Jagatkarana,
+layone kadi aguling, 
+ndan ingaras amekul, 
+ban rupane sayang bagus, 
+tan pendah layon Hyang Smara,</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <Literal>Dinyanyikan saat tahap Nanginin Sawa, menggambarkan suasana duka dan persiapan pelepasan.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <Literal>Kidung Nanginin Sawa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nanginin"/>
+        <Literal>1.	Nanginin Sawa (Layon)
+Wirama Girisa: (lelayungan)
+000/000/---/--0/000/0=16
+1.	Atha sedhengira mantuk sang suralaga Ringayun, Tucapa haji Wiratan karyyasanangsi weka, Pinahajengira laywan sang putra nalap i niwo, Padha litu hajeng anwam Iwir kandarppa Pinatelu.
+2.	Lalu lara niranasambat putran ira pejah, Laki bi sira sumungkem ring putraluru kinusa, Ginambel ira ginanti kang lawyan lagi ginugah, Inutus ira masabda kapwajara bibi haji.
+3.	Anak aleheng ikasih yan tunggal kita pejaha, Kita tiki katigalyus ndyanung pang lipura lara, Syapa tiki palarengkwamuktyang rajya sumiliha, Ri hilangi tanayangkwadhu ngwang yenaka pejaha.
+
+
+Wirama Puspita Agra : (lelayungan)
+a. 000/00-/0-01-00=12
+b.000/0-0/0-0/-0-/0=13
+4.	Ri pati sang Abhimanyu ring ranangga, Tenuh araras kadi sewaleng tahas mas, Hananang araga kala ning pajang lek, Cinacah alindi sahantimun ginenten.
+5.	Kalalu lara Sapandhu putra sena, Tinuti luwar nikang aprang asrang adoh, Padha mulih angusir kuwunya sowang, Tuwi wengi lud nawaming kulem kamantyan.
+6.	Tucapa lara naryya Dharınmaputra, Ri pati nikang mangaran wara Bhimanyu, Kimutu bibi nira ngaran Subhadra, Kapati wimurccita ring lemah makundhah.
+
+Wirama Aupacandasika :
+a.00-/00-/0-/- 0=11
+b.00-/-00/-0-/0-0=12
+
+7.	Ya matangnya harebu haywa soka, 
+Purihing jadma keta nira wasana,
+Si hurip kadi mega kala lahru, 
+Rinarah ning pati kawakan samara,
+
+8.	Taya mula niking haneng tri loka
+Sakareng bawa mwah mareng abawa, 
+Ndya tam arpaniking hurip katresnan, 
+Tuhu yawat kretakan katon anitya.
+
+9.	Panitah tri putran take wekangku, 
+Ratih ing stri smara ring lanang padayu, 
+Kita raga lulut ring indyamor, 
+Wetuning sparsana sukra sonitang his.
+
+Wirama Aswalalita :
+000/0-0/-00/0-0/-00/0-0/-00/00=23
+10.	Atha ri pejaha ni sang prawara Somadatta tanayan
+Tekap sinisuta,
+Makin aparek Jayadratha tekap sang Arjjuna
+Wrekodara ngurak amuk,
+Irika Sakorawangrebut angembuli sara ware sang 
+arjjuna n aso, Maka muka sang Dwijendra Krepa Salya Karna guruputra len Kurukula.
+
+Wirama Upendra Bajra: (lelayungan)
+0-0/--0/0-01-0=11
+11.	Tangeh ujar Satyawati n pasambat, Ikang lara marwata mangkin abwat, Tuwin katon tan hana ning hiner-her, Matang niradan pejah angkas-angkas.
+12.	Menges marang kadga lana minusti, Huwus kasah ring sarungan pradipta, Inandheman de nira tan hana ngres, Hili nikang rah kadi dhatu muncar.
+13.	Nda tan wawang mati mangentak-entak, Sugandhika lot inawe sinabdan, Kakangku tantukta ri madran rajya, Warah tikang wwang ri wekasku mangke.
+14.	Ta pintakasih ta ri sang kawindra, Larangku dadyaken agita bhasa, Rengening orhangidhep ta gantingku, Malar ngresi twasnya mamungwa waspa.
+15.	Nahan panambe sang angambek-ambek
+Pegat-pegat de ning asabda manda,
+Hidhep juga wruh mangalinga rehnya, 
+Matangnya mamrat sahur ing kawunten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
         <NamedIndividual IRI="#Kidung_PitraYadnya_NangininSawaAswaLalita"/>
         <Literal>Bali Kawi</Literal>
     </DataPropertyAssertion>
@@ -985,6 +3562,337 @@ Tengah akeneng tsik adhu tekapning anghanut
 aram wanasana sumar, 
 Muliha mareng smaralaya maran ri janma nika
 kaptyaning wwang ahajeng.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <Literal>Bali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <Literal>Dinyanyikan saat menghanyutkan abu jenazah ke laut, memohon kepada Dewa Rudra agar Atma diterima di sisi-Nya.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <Literal>Pupuh Alis-Alis Ijo Bawak (Rikala Nganyut)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <Literal>Sastra Pitra Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_NganyutRudra"/>
+        <Literal>PITRA YADNYA (rikala nganyut)
+Alis-alis Ijo Bawak
+1.	Bhatara Rudra kahayata, nunas mangda Ida ledang, lungsur Atmane maring luwah, pada kenak Ida mangke, jaga antukang ring Pura Siwa, banten suci nekatur, manuhun bhakti Rudra ingsun, Hyang Atma mangda malinggih, stana Siwa Dalem reko.
+2.	Sampun jenek linggih Atma, maring Dalem linggih Siwa, sembah ning Santana mangda katon, kasanggra lan Dewatane, bhaktin tityang langgeng lanus, nunas damuh karahayon, Swargane panggih pada kenyung, pada egar Atma sami,</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <Literal>Dinyanyikan saat prosesi menghanyutkan abu jenazah ke laut (Segara) atau sungai sebagai akhir ritual.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <Literal>Kidung Rikala Ngayut (Pupuh Adri)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngayut"/>
+        <Literal>7.	Rikala Ngayut (Menden Sawa)
+Pupuh Adri:
+1.	Sinambut atmane sang putus, inunggahang mangke,
+ring jampana tuwah ngrawit, mariring sutrane wungu, arahab bang ijo murub kala sanya sutra jingga, asamir papatran halus, cinarang canging kambala kumelep kenyar komala
+2.	Widyadara prasama abgrubung, amemunduk kabeh,
+pada papandonri mihin, tata bhuana anglangun, sopacara munggwing hayun, angresing hati polahe, swaraning gumitit anglangun, curing rebab kacapya,
+Guntang minu kaklentingan.
+3.	Sampun munggah sang atma ri nubung, ringJampana masse,
+aduluran pahe aris, prawatek Hyang mari nghyun, gerebegan denya alaku, kancit parpta maring swarga, tumurun akweh mangrubung,
+munggah maring meru wetan, agagenteng mas komala</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <Literal>Dinyanyikan saat proses pembakaran jenazah sebagai simbol pengembalian unsur fisik ke alam semesta.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <Literal>Kidung Ngeseng Sawa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Ngeseng"/>
+        <Literal>Ngeseng Sawa (layon)
+Wirama Girisa (reng lelayungan)
+1.	Na wuwus ira nasambat karwa stryapega malume,
+Inariwuwu tekap sang sri Pandhwatmaja
+malara,
+Pinahayu kinabehan sampun purnna rinuruban,
+Hinanuti pajanging lek mungnwing pancaka
+Gineseng.
+Wirama Puspitagra :
+2.	Kunang iki wekasing sasoka citta, Tanaya Wirata sang Uttari kasangkya, Apituwi sira garbbhini wwalung lek,
+Niyata niran kari tan tumut paratra.
+3.	Kunang iki sang arupa wangsa wresni, Weka Yadu sang ksiti Sundari tekasih, Agarawalan adan widangamer hyas, Apan iki milwa ri sang telas paratra.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <Literal>Dinyanyikan saat memercikkan tirta pembersihan (nirthain) agar atma terbebas dari kekotoran duniawi.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <Literal>Kidung Nirthain Sawa (Pupuh Adri)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nirthain"/>
+        <Literal>3.	Nirthain Sawa (Layon)
+Pupuh Adri
+1.	Om karastuti ngurukang santun, krepu kanakane,
+muwang dupa dipa sumirit, watek gandrawane paum, kadi tinuduh den ira rum, dadya sinauran puspa, prasida hamoring cupu, dadya lukat tan pemala, hamuji Rahaden Bhima.
+2.	Widyadara prasama tumurun, mapagin atmane,
+watek nawa sanga sami, tetabuhane gumuruh,
+suling rebab muwang calempung,
+pareret warapsarine, gong gending angalun-alun, guntang kumarencing karenguan, curing munia kaklentingan.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <Literal>Dinyanyikan saat prosesi memandikan jenazah, bermakna penyucian fisik dan spiritual.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <Literal>Kidung Nyiramang Sawa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <Literal>Sastra Pitra Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyiramang"/>
+        <Literal>2.	Nyiramang Sawa (Layon)
+1.	Bala ugu dina melah manuju tanggal sasih, Pan Brayut panamaya asisig adyus akramas, Sinalinan wastra petak mamusti madayang batis, Sampun puput maprayoga kaswen ngemasin paratra.
+2.	Ikang laywan ginosongan istrine tumut asatya, Depamayune matingkah saeteh-eteh paratra, Toya hening pabresihan misi ganda burat wangi, Lengise pudak sategal sumar ganda merbuk harum.
+3.	Pusuh utama malem sampun macawisan, Kalawan don intaran bebek wangi lengis kapur,
+Monmon mirah windusara waja meka pancadatu,
+Don tuwung sube masembar sikapa kalawan taluh.
+
+4.	Buku-buku panyolasan pagemelane salaka, 
+Kawangene panyalean gagalenge satak seket,
+sampun puput pabresihan winiletan dening
+kasa,
+Tikeh halus wijil jawa lante maulat penyalin.
+
+5.	Tatindihe sutra petak rinuruban sarwa kasa, 
+Anak puttunya ngabakti mungguh ring ayun, 
+Ginosongan punang layon len kidung 
+mawanti-wanti,
+Bedil kukul tan karunguang gong gambang 
+gender lan angklung.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <Literal>Dinyanyikan saat momen penghormatan terakhir (sembah bakti) dari keluarga kepada jenazah.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <Literal>Kidung Nyumbah Sawa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_Nyumbah"/>
+        <Literal>4.	Nyumbah Sawa (Layon)
+Wirama Saprawitala :
+0-0/00-/0-0/00-/0--/00=17
+1.	Wibhisana sirati tibra kabaran gelanangarang, Manah nira ya kasrepan wulati sang kakasih pejah, Drawang hati kamanusan kapasukan ngasih luh tiba, Tibaken ikanang sekar i suku sang kakanganjali.
+2.	Kakangku kita ah Dasanana niham nghulun tinghali, Ksamakena tamankena ta ring upadrawa ngingganti,
+Apak para ri sang parartha paramartha doning hulun, Maha huluna sang maharddhika mahat sireng rat kabeh.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <Literal>Buku Kidung Panca Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <Literal>Dinyanyikan saat pemasangan rurub kajang sebagai simbol penyatuan unsur raga dan atma.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <Literal>Kidung Rikala Ngaben (Kajang)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_PitraYadnya_UmumKajang"/>
+        <Literal>8.	Kidung Rikala Ngaben
+Wirama Asti/Girisa
+1.	Kalaning rurub kajang pangawak 1 raga sadaya,
+Paripihan atma rupane mangentos atma, Patukon panetep raga paripih iraga sadaya,
+Wukur pakuleman atma sanggar agung pangabaktyan.
+2.	Tumpang salu palinggihan kalewaran dadi naga,
+Asmu rimrin Sanghyang atma kori agung munggwing naga,
+Mangu-mangu Sanghyang atma tumon ring warnaning naga,
+Tur munggah kedamar kurung manyuluhin
+Marga sanga.
+3.	Sucine sami tetepang kirang beya masi wirya, Unggahang kesanggar agung suci pingit Munggwing tawang,
+Katur ring kasurya Candra malane kajepria, Pitra-pitra pitaro mrete mulih maring swarga.
+4.	Wus putus de nira mukti syu tahun mretan ira, Mojar Bhatara Sadaya mulih maring swarga nira, Astu kita manggih wirya tan keweh-keweh
+Kutus kita lunga anuhut damuh kita mulih.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <Literal>Bali/Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <Literal>Berisi metafora keindahan spritual dan karisma seorang pendeta yang telah selesai disucikan.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <Literal>Pupuh Alis-lis Ijo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <Literal>Sastra Resi Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_AlislisIjo"/>
+        <Literal>Pupuh Alis-lis Ijo :
+4.	Dening alis ijo alise mngroni nimba yan
+kumelabtab, pendah tatit de ne lwir moga asri 
+ngandra wela, dening ngong katersnan
+Kageheman dening alis wilis.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <Literal>Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <Literal>Menggambarkan persiapan sajian dan singgasana untuk upacara penobatan (Abhiseka) sang pendeta.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <Literal>Wirama Prthiwitala</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <Literal>Sastra Resi Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_Prthiwitala"/>
+        <Literal>Wirama Prthiwitala :
+
+1.	Aneka saji sanggrahe kang abhiseka yomeh teka, Sinanggraha sapada pita manimukya Singhasana, Lawan kanaka kumbha tirtha ya isinya sampun mawit, Ginomaya ikang sabda sinawuran ta Gandhaksata.
+2.	Sugandha kumukus ngasep ya tinata kabeh tut sisi, Kukusnya mawelun-welun gugula dhupa Gandhot kata, Sekar surabhi campakasana sugandha lumra marum, Lawan dhwaja pataka komala kelabnya dening hangin.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bahasa"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <Literal>Bali/Kawi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#catatan"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <Literal>Menggambarkan sifat seorang Wiku (Pendeta) yang telah memahami hakikat bumi dan langit (kosmologi suci).</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#judulKidung"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <Literal>Pupuh Raga Wangi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sumberData"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <Literal>Sastra Resi Yadnya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#teksKidung"/>
+        <NamedIndividual IRI="#Kidung_ResiYadnya_RagaWangi"/>
+        <Literal>Pupuh Raga Wangi :
+3.	Nihan polahing sang tatas wiku, 
+nawang bumi langit, 
+dija ento warange, 
+punika tegakan wiku,
+Wulan Surya lawan Wintang, 
+sampun kawas ne ring langit, 
+ndi pamating ipun, 
+iwang suruping banyu asri.</Literal>
     </DataPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#digunakanDiPura"/>
