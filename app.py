@@ -1,56 +1,60 @@
 from flask import Flask, render_template, request, jsonify
 from ontology.loader import load_ontology, get_kidung_dataframe
 from ontology.rules import KidungDecisionTree
-from ontology.query import get_kidung_detail
-import os
-import pandas as pd
+from ontology.query import get_kidung_detail, get_kidung_by_context
+import os, pandas as pd
 
 app = Flask(__name__)
 
-# ==========================================
-# BOOTING SYSTEM & KNOWLEDGE BASE
-# ==========================================
-# Inisialisasi variabel global agar TIDAK NameError jika booting gagal
-onto = None
+# ─── BOOTING ────────────────────────────────────────────────────
+onto      = None
 ai_engine = None
-# Membuat DataFrame kosong dengan kolom yang sesuai sebagai cadangan
-df = pd.DataFrame(columns=['target', 'yadnya', 'upacara', 'tahap', 'makna', 'pura'])
+df = pd.DataFrame(columns=['target','judul','yadnya','upacara','pura','tahap','makna','jenis_sekar'])
 
 try:
-    onto = load_ontology()
-    df = get_kidung_dataframe(onto)
+    onto      = load_ontology()
+    df        = get_kidung_dataframe(onto)
     ai_engine = KidungDecisionTree()
     ai_engine.train(df)
-    print("✅ Sistem Berhasil Booting: Ontology & AI Ready.")
+    print("✅ SariKidung siap.")
 except Exception as e:
-    print(f"❌ Gagal Memuat Sistem: {e}")
+    print(f"❌ Gagal booting: {e}")
 
-# Urutan kriteria pertanyaan untuk Expert System
-FEATURES = ['yadnya', 'upacara', 'tahap', 'makna', 'pura']
+# ──────────────────────────────────────────────────────────────────
+# ALUR PERTANYAAN:
+#   Q1: Yadnya   → selalu tampil
+#   Q2: Upacara  → selalu tampil, pilihan dinamis dari Q1
+#   Q3: Tahap    → selalu tampil, dengan pilihan "Semua Tahap (Panduan Lengkap)"
+#   Q4: Pura     → hanya muncul jika ada >1 pilihan pura yang relevan
+# ──────────────────────────────────────────────────────────────────
+FEATURES = ['yadnya', 'upacara', 'tahap', 'pura']
 
-# ==========================================
-# ROUTES - NAVIGATION
-# ==========================================
+QUESTION_LABELS = {
+    'yadnya':  'Apa Jenis Yadnya yang akan dilaksanakan?',
+    'upacara': 'Pilih Upacara yang sesuai:',
+    'tahap':   'Dalam tahapan apa Kidung akan dinyanyikan?',
+    'pura':    'Di Pura atau Tempat mana upacara dilaksanakan?',
+}
 
+# Opsi khusus "semua tahap" — ditampilkan selalu di posisi pertama Q3
+SEMUA_TAHAP = "── Semua Tahap (Panduan Lengkap) ──"
+
+# ─── ROUTES ─────────────────────────────────────────────────────
 @app.route('/')
 def landing():
-    """Halaman Landing Page (Halaman Transparan dengan tombol ENTER ARCHIVE)"""
     return render_template('pages/index.html')
 
 @app.route('/home')
 def home():
-    """Halaman Utama (Halaman dengan tulisan Rahajeng Rauh)"""
-    return render_template('pages/home.html')
+    total = len(df) if not df.empty else 0
+    return render_template('pages/home.html', total_kidung=total)
 
 @app.route('/browsing')
 def browsing():
-    # Menggunakan df yang sudah diinisialisasi (kosong atau isi)
-    yadnyas = sorted([y for y in df['yadnya'].unique() if y != "None"]) if not df.empty else []
-    return render_template('pages/browsing.html', yadnyas=yadnyas)
+    return render_template('pages/browsing.html')
 
 @app.route('/library')
 def library():
-    # Menggunakan df yang sudah diinisialisasi
     kidung_list = df.to_dict(orient='records') if not df.empty else []
     return render_template('pages/library.html', kidungs=kidung_list)
 
@@ -62,72 +66,167 @@ def about():
 def questionnaire():
     return render_template('pages/questionnaire.html')
 
-# ==========================================
-# API ENDPOINTS (Logic Processor)
-# ==========================================
-
+# ─── API: GET OPTIONS ────────────────────────────────────────────
 @app.route('/get_filtered_options', methods=['POST'])
 def get_options():
-    selections = request.json
     if df.empty:
-        return jsonify({"status": "error", "message": "Data tidak tersedia"})
-        
-    temp_df = df.copy()
+        return jsonify({"status": "error", "message": "Data tidak tersedia."})
 
-    # 1. Filter data dengan toleransi spasi (strip)
+    selections = request.json or {}
+    tmp = df.copy()
+
+    # Filter berdasarkan jawaban yang sudah ada
+    # (kecuali tahap = SEMUA_TAHAP, itu tidak difilter)
     for key, val in selections.items():
-        if val and val != "None":
-            # Pastikan perbandingan dilakukan dengan string yang bersih dari spasi di ujung
-            temp_df = temp_df[temp_df[key].astype(str).str.strip() == str(val).strip()]
+        if not val or val in ('None', SEMUA_TAHAP):
+            continue
+        if key in tmp.columns:
+            tmp = tmp[tmp[key].astype(str).str.strip().str.lower()
+                      == str(val).strip().lower()]
 
-    current_step_count = len(selections)
-    if current_step_count < len(FEATURES):
-        next_feature = FEATURES[current_step_count]
-        # 2. Ambil opsi unik dan bersihkan hasilnya
-        options = sorted([str(opt).strip() for opt in temp_df[next_feature].unique() if str(opt) != "None"])
-        
+    # Tentukan pertanyaan berikutnya
+    answered = [k for k in FEATURES if k in selections and selections[k]]
+    step_index = len(answered)
+
+    if step_index < len(FEATURES):
+        next_feat = FEATURES[step_index]
+
+        # ── Q3: Tahap ─────────────────────────────────────────────
+        if next_feat == 'tahap':
+            tahap_options = sorted([
+                str(o).strip() for o in tmp['tahap'].unique()
+                if str(o).strip() not in ('None', '', 'nan')
+            ])
+            # Selalu tambahkan opsi "Semua Tahap" di posisi pertama
+            options = [SEMUA_TAHAP] + tahap_options
+            return jsonify({
+                "status":       "next",
+                "next_feature": "tahap",
+                "label":        QUESTION_LABELS['tahap'],
+                "options":      options,
+                "step":         step_index + 1,
+                "total_steps":  len(FEATURES),
+                "hint":         "Pilih tahap tertentu atau 'Semua Tahap' untuk panduan lengkap upacara.",
+            })
+
+        # ── Q4: Pura — lewati jika hanya ≤1 pilihan ──────────────
+        if next_feat == 'pura':
+            pura_options = sorted([
+                str(o).strip() for o in tmp['pura'].unique()
+                if str(o).strip() not in ('None', '', 'nan')
+            ])
+            if len(pura_options) <= 1:
+                return jsonify({"status": "complete"})
+            options = pura_options
+
+        # ── Q1 & Q2 ───────────────────────────────────────────────
+        else:
+            options = sorted([
+                str(o).strip() for o in tmp[next_feat].unique()
+                if str(o).strip() not in ('None', '', 'nan')
+            ])
+
+        if not options:
+            return jsonify({"status": "complete"})
+
         return jsonify({
-            "status": "next",
-            "next_feature": next_feature,
-            "options": options
+            "status":       "next",
+            "next_feature": next_feat,
+            "label":        QUESTION_LABELS.get(next_feat, f"Pilih {next_feat}:"),
+            "options":      options,
+            "step":         step_index + 1,
+            "total_steps":  len(FEATURES),
         })
-    
+
     return jsonify({"status": "complete"})
 
+
+# ─── API: PREDICT ────────────────────────────────────────────────
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        if ai_engine is None:
-            return jsonify({"status": "error", "message": "AI Engine tidak siap"})
-            
-        data = request.json
-        # 1. Bersihkan input dari spasi gaib
-        cleaned_data = {k: str(v).strip() for k, v in data.items()}
-        
-        # AI memprediksi nama individu asli (misal: Kidung_Wargasari_Ref)
-        nama_individu = ai_engine.predict(cleaned_data)
-        
-        if nama_individu:
-            # PENTING: Gunakan nama asli hasil prediksi AI untuk ambil detail
-            detail = get_kidung_detail(onto, nama_individu)
-            
+        if ai_engine is None or onto is None:
+            return jsonify({"status": "error", "message": "Sistem belum siap."})
+
+        data = request.json or {}
+
+        # ── Mode library: lookup langsung ──
+        if 'target' in data and len(data) == 1:
+            detail = get_kidung_detail(onto, data['target'])
             if detail:
-                # Judul untuk tampilan di web baru boleh kita bersihkan
-                judul_tampilan = str(nama_individu).replace("_Ref", "").replace("_", " ")
-                
-                return jsonify({
-                    "status": "success", 
-                    "judul": judul_tampilan,
-                    **detail
-                })
-        
+                return jsonify({"status": "success", **detail})
+            return jsonify({"status": "error", "message": "Kidung tidak ditemukan."})
+
+        # ── Mode expert system ──
+        cleaned    = {k: str(v).strip() for k, v in data.items()}
+        print(f"🔍 /predict dipanggil dengan: {cleaned}")
+
+        tahap_pilih = cleaned.get('tahap', '')
+        mode_semua  = (not tahap_pilih or tahap_pilih in ('None', SEMUA_TAHAP))
+
+        # Prediksi kidung utama via decision tree
+        nama = ai_engine.predict({k: v for k, v in cleaned.items() if k != 'tahap' or not mode_semua})
+
+        # Ambil kidung sesuai konteks
+        per_tahap = get_kidung_by_context(
+            onto, df,
+            yadnya       = cleaned.get('yadnya'),
+            upacara      = cleaned.get('upacara'),
+            pura         = cleaned.get('pura'),
+            tahap_filter = None if mode_semua else tahap_pilih,
+        )
+
+        # Fallback
+        if not per_tahap:
+            return jsonify({
+                "status":  "fallback",
+                "message": (
+                    "Kidung untuk konteks ini belum tersedia dalam basis pengetahuan. "
+                    "Coba pilih konteks yang lebih umum atau konsultasikan dengan pemangku setempat."
+                ),
+                "konteks": cleaned,
+            })
+
+        detail_utama = get_kidung_detail(onto, nama) if nama else None
+        if not detail_utama:
+            detail_utama = per_tahap[0]
+
+        explanation    = ai_engine.build_explanation(cleaned, detail_utama.get('judul', ''))
+        top_candidates = ai_engine.get_top_candidates(
+            {k: v for k, v in cleaned.items() if k in ['yadnya','upacara','pura']}, n=3
+        )
+
         return jsonify({
-            "status": "error", 
-            "message": "Maaf, sistem tidak menemukan Kidung yang sesuai."
+            "status":           "success",
+            "judul":            detail_utama.get('judul', ''),
+            "teks":             detail_utama.get('teks', '-'),
+            "makna":            detail_utama.get('makna_mendalam', '-'),
+            "bahasa":           detail_utama.get('bahasa', '-'),
+            **detail_utama,
+            "kidung_per_tahap": per_tahap,
+            "explanation":      explanation,
+            "top_candidates":   top_candidates,
+            "total_ditemukan":  len(per_tahap),
+            "mode_semua_tahap": mode_semua,
+            "konteks":          cleaned,
         })
+
     except Exception as e:
-        print(f"Error pada /predict: {e}")
-        return jsonify({"status": "error", "message": str(e)})
+        import traceback
+        print(f"❌ /predict error: {e}")
+        traceback.print_exc()
+        return jsonify({"status": "error", "message": f"Error sistem: {str(e)}"}), 500
+
+
+@app.route('/api/kidung/<nama>', methods=['GET'])
+def detail_kidung(nama):
+    if onto is None:
+        return jsonify({"status": "error", "message": "Sistem belum siap."})
+    detail = get_kidung_detail(onto, nama)
+    if detail:
+        return jsonify({"status": "success", **detail})
+    return jsonify({"status": "error", "message": "Kidung tidak ditemukan."})
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

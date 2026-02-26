@@ -9,48 +9,58 @@ def load_ontology():
     if not os.path.exists(ONTO_PATH):
         raise FileNotFoundError(f"File {ONTO_PATH} tidak ditemukan!")
     try:
-        onto = get_ontology(ONTO_PATH).load()
+        onto = get_ontology(f"file://{ONTO_PATH}").load()
         return onto
     except Exception as e:
         raise Exception(f"Gagal memuat ontology: {str(e)}")
 
 def get_v(prop):
+    """Ambil nilai object property sebagai string bersih."""
     try:
         if prop:
-            # Gunakan .strip() dan .title() agar seragam
             return prop[0].name.replace("_Ref", "").replace("_", " ").strip()
         return "None"
     except:
         return "None"
 
+def get_s(prop):
+    """Ambil nilai data property string."""
+    try:
+        if prop:
+            return str(prop[0]).strip()
+        return ""
+    except:
+        return ""
+
 def get_kidung_dataframe(onto):
-    """Mengekstrak data dari ontology ke DataFrame."""
+    """
+    Mengekstrak data dari ontology ke DataFrame.
+    Fitur decision tree : yadnya, upacara, pura  (3 fitur)
+    Kolom tambahan      : tahap, makna, jenis_sekar (untuk tampilan)
+    """
     data = []
     try:
-        # Mengambil instance dari class KidungPancaYadnya
-        instances = onto.KidungPancaYadnya.instances()
+        instances = list(onto.KidungPancaYadnya.instances())
         print(f"🔍 Berhasil menarik {len(instances)} data dari Ontology.")
     except AttributeError:
         print("⚠️ Class 'KidungPancaYadnya' tidak ditemukan!")
-        return pd.DataFrame(columns=['target', 'yadnya', 'upacara', 'tahap', 'makna', 'pura'])
+        return pd.DataFrame(columns=['target','judul','yadnya','upacara','pura','tahap','makna','jenis_sekar'])
 
     for k in instances:
-        # PENTING: 'target' harus k.name ASLI agar get_kidung_detail bisa bekerja
+        judul = get_s(k.judulKidung) or k.name.replace("_", " ")
         data.append({
-            "target": k.name, 
-            "yadnya": get_v(k.memilikiJenisYadnya),
-            "upacara": get_v(k.digunakanPadaUpacara),
-            "tahap": get_v(k.digunakanPadaTahap),
-            "makna": get_v(k.memilikiMakna),
-            "pura": get_v(k.digunakanDiPura)
+            "target":      k.name,
+            "judul":       judul,
+            # === 3 FITUR DECISION TREE ===
+            "yadnya":      get_v(k.memilikiJenisYadnya),
+            "upacara":     get_v(k.digunakanPadaUpacara),
+            "pura":        get_v(k.digunakanDiPura),
+            # === KOLOM TAMBAHAN (tampilan, bukan pertanyaan) ===
+            "tahap":       get_v(k.digunakanPadaTahap),
+            "makna":       get_v(k.memilikiMakna),
+            "jenis_sekar": get_v(k.memilikiJenisKidung),
         })
-    return pd.DataFrame(data)
 
-def get_filtered_options(df, current_selections):
-    """Melakukan filter data dengan toleransi spasi dan huruf besar/kecil."""
-    temp_df = df.copy()
-    for key, value in current_selections.items():
-        if value and value != "None":
-            # Bandingkan dengan menghapus spasi dan mengubah ke huruf kecil agar sinkron
-            temp_df = temp_df[temp_df[key].astype(str).str.strip().str.lower() == str(value).strip().lower()]
-    return temp_df
+    df = pd.DataFrame(data)
+    print(f"✅ DataFrame siap: {len(df)} baris | kolom: {list(df.columns)}")
+    return df

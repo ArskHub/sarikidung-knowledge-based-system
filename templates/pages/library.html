@@ -1,81 +1,84 @@
 {% extends "layouts/base.html" %}
-
-{% block title %}Kidung Library - Digital Archive{% endblock %}
+{% block title %}Library Kidung - SariKidung{% endblock %}
 
 {% block content %}
 <header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
     <div class="container animate">
         <h1 class="display-5 fw-bold mb-2">Kidung Digital Library</h1>
-        <p class="lead opacity-75 mx-auto" style="max-width: 700px;">
-            Eksplorasi seluruh basis data Kidung Panca Yadnya yang tersimpan dalam sistem Ontologi.
+        <p class="lead opacity-75 mx-auto" style="max-width:700px;">
+            Eksplorasi seluruh koleksi Kidung Panca Yadnya dalam basis pengetahuan ontologi.
         </p>
     </div>
 </header>
 
 <div class="container my-5">
-    <div class="mb-4 animate">
-        <label class="form-label small fw-bold text-bronze text-uppercase ls-2 mb-3">Filter Berdasarkan Yadnya</label>
-        <div class="d-flex flex-wrap gap-2">
-            <button class="btn btn-sm btn-dark px-4 rounded-pill filter-btn active" onclick="filterByCategory('ALL', this)">Semua</button>
-            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Dewa Yadnya', this)">Dewa Yadnya</button>
-            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Pitra Yadnya', this)">Pitra Yadnya</button>
-            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Manusa Yadnya', this)">Manusa Yadnya</button>
-            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Rsi Yadnya', this)">Rsi Yadnya</button>
-            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Bhuta Yadnya', this)">Bhuta Yadnya</button>
-        </div>
-    </div>
 
+    <!-- Filter & Search -->
     <div class="card border-0 shadow-sm p-4 mb-4 animate">
-        <div class="row align-items-center g-3">
+        <div class="row g-3 align-items-end">
             <div class="col-md-8">
-                <label class="form-label small fw-bold text-bronze text-uppercase ls-2">Search Archive</label>
+                <label class="form-label small fw-bold text-bronze text-uppercase" style="letter-spacing:1px;">Cari Kidung</label>
                 <div class="input-group">
-                    <span class="input-group-text bg-white border-end-0 text-muted">
-                        <i class="fas fa-search"></i>
-                    </span>
-                    <input type="text" id="searchInput" onkeyup="searchTable()" 
-                           class="form-control border-start-0 ps-0 shadow-none" 
-                           placeholder="Ketik kata kunci (misal: 'dewa', 'wargasari', 'piodalan')...">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-search"></i></span>
+                    <input type="text" id="searchInput" onkeyup="searchTable()"
+                           class="form-control border-start-0 ps-0 shadow-none"
+                           placeholder="Ketik nama, upacara, jenis yadnya...">
                 </div>
             </div>
             <div class="col-md-4 text-md-end">
                 <div class="p-3 bg-light rounded-3 d-inline-block border">
-                    <p class="mb-0 small text-muted text-uppercase fw-bold ls-1">Total Koleksi</p>
-                    <h4 class="mb-0 text-bronze fw-bold" id="counterDisplay">
+                    <p class="mb-0 small text-muted text-uppercase fw-bold" style="letter-spacing:1px;">Total Koleksi</p>
+                    <h4 class="mb-0 fw-bold" style="color:var(--gold);" id="counterDisplay">
                         {{ kidungs|length }} <small class="text-dark fs-6 fw-normal">Kidung</small>
                     </h4>
                 </div>
             </div>
         </div>
+
+        <!-- Filter Yadnya -->
+        <div class="mt-3 d-flex flex-wrap gap-2">
+            <button class="btn btn-sm btn-dark px-4 rounded-pill filter-btn active" onclick="filterByCategory('ALL',this)">Semua</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Dewa Yadnya',this)">Dewa Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Pitra Yadnya',this)">Pitra Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Manusa Yadnya',this)">Manusa Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Bhuta Yadnya',this)">Bhuta Yadnya</button>
+            <button class="btn btn-sm btn-outline-bronze px-4 rounded-pill filter-btn" onclick="filterByCategory('Rsi Yadnya',this)">Rsi Yadnya</button>
+        </div>
     </div>
 
+    <!-- Tabel -->
     <div class="card border-0 shadow-sm overflow-hidden animate">
         <div class="table-responsive">
             <table id="kidungTable" class="table table-hover align-middle mb-0">
                 <thead class="bg-dark text-bronze">
-                    <tr class="border-bronze">
-                        <th class="ps-4 py-3 fw-bold border-0" style="width: 5%">#</th>
-                        <th class="py-3 fw-bold border-0" style="width: 45%">Kidung Name</th>
-                        <th class="py-3 fw-bold border-0" style="width: 30%">Yadnya Category</th>
-                        <th class="py-3 fw-bold border-0 text-center" style="width: 20%">Action</th>
+                    <tr>
+                        <th class="ps-4 py-3 border-0" style="width:5%">#</th>
+                        <th class="py-3 border-0" style="width:45%">Nama Kidung</th>
+                        <th class="py-3 border-0" style="width:20%">Jenis Yadnya</th>
+                        <th class="py-3 border-0" style="width:20%">Upacara</th>
+                        <th class="py-3 border-0 text-center" style="width:10%">Detail</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white">
+                <tbody>
                     {% for k in kidungs %}
-                    <tr class="table-row border-bottom transition">
-                        <td class="ps-4 fw-bold text-bronze index-col">{{ loop.index }}</td>
+                    <tr class="border-bottom">
+                        <td class="ps-4 fw-bold index-col" style="color:var(--gold);">{{ loop.index }}</td>
                         <td>
-                            <div class="fw-bold text-dark name-cell">{{ k.target.replace('_', ' ') }}</div>
-                            <small class="text-muted d-block upacara-cell">{{ k.upacara.replace('_', ' ') }}</small>
+                            <div class="fw-bold name-cell">{{ (k.judul or k.target).replace('_',' ') }}</div>
+                            <small class="text-muted sekar-cell">{{ k.jenis_sekar.replace('_',' ') if k.jenis_sekar and k.jenis_sekar != 'None' else '' }}</small>
                         </td>
                         <td>
-                            <span class="badge rounded-pill px-3 py-2 bg-bronze-soft text-bronze border border-bronze-subtle fw-medium yadnya-cell">
-                                {{ k.yadnya.replace('_', ' ') }}
+                            <span class="badge rounded-pill px-3 py-2 yadnya-cell"
+                                  style="background:rgba(146,98,55,.1); color:var(--gold); border:1px solid rgba(146,98,55,.2);">
+                                {{ k.yadnya.replace('_',' ') }}
                             </span>
                         </td>
+                        <td class="upacara-cell text-muted small">{{ k.upacara.replace('_',' ') }}</td>
                         <td class="text-center">
-                            <button onclick="showDetail('{{ k.target }}')" class="btn btn-sm btn-outline-bronze px-3 rounded-pill">
-                                <i class="fas fa-eye me-1"></i> Detail
+                            <button onclick="showDetail('{{ k.target }}')"
+                                    class="btn btn-sm px-3 rounded-pill"
+                                    style="border-color:var(--gold); color:var(--gold);">
+                                <i class="fas fa-eye me-1"></i>Lihat
                             </button>
                         </td>
                     </tr>
@@ -83,30 +86,26 @@
                 </tbody>
             </table>
         </div>
-
         <div id="noResult" class="py-5 text-center d-none">
             <i class="fas fa-search-minus fs-1 text-muted mb-3 opacity-25"></i>
-            <p class="text-muted fst-italic">Tidak ada Kidung yang cocok dengan kata kunci tersebut.</p>
-            <button class="btn btn-sm btn-link text-bronze" onclick="resetSearch()">Bersihkan Pencarian</button>
+            <p class="text-muted fst-italic">Tidak ada kidung yang cocok.</p>
+            <button class="btn btn-sm btn-link" style="color:var(--gold);" onclick="resetSearch()">Bersihkan Pencarian</button>
         </div>
     </div>
 </div>
 
+<!-- ── MODAL DETAIL ── -->
 <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 15px;">
-            <div class="modal-header bg-dark text-white border-0" style="border-radius: 15px 15px 0 0;">
-                <h5 class="modal-title fw-bold text-gold" id="modalJudul">Judul Kidung</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg" style="border-radius:15px;">
+            <div class="modal-header bg-dark text-white border-0" style="border-radius:15px 15px 0 0;">
+                <h5 class="modal-title fw-bold" style="color:#d4af37;" id="modalJudul">Judul Kidung</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body p-4">
-                <div class="bg-light p-4 rounded-3 border mb-4 shadow-sm">
-                    <h6 class="text-bronze fw-bold mb-3 small uppercase"><i class="fas fa-scroll me-2"></i>LIRIK / TEKS:</h6>
-                    <div id="modalTeks" class="text-center lh-lg text-dark fs-5 italic" style="white-space: pre-line; font-family: 'Georgia', serif;"></div>
-                </div>
-                <div class="p-3 bg-bronze-soft rounded-3 border-start border-bronze border-4">
-                    <h6 class="text-bronze fw-bold mb-2 small"><i class="fas fa-lightbulb me-2"></i>MAKNA & FILOSOFI:</h6>
-                    <p id="modalMakna" class="m-0 text-muted small"></p>
+            <div class="modal-body p-4" id="modalBody">
+                <div class="text-center py-4">
+                    <div class="spinner-border" style="color:var(--gold);"></div>
+                    <p class="mt-2 text-muted small">Memuat...</p>
                 </div>
             </div>
         </div>
@@ -114,114 +113,139 @@
 </div>
 
 <style>
-    .bg-bronze-soft { background-color: rgba(146, 98, 55, 0.08); }
-    .border-bronze-subtle { border-color: rgba(146, 98, 55, 0.2) !important; }
-    .ls-1 { letter-spacing: 1px; }
-    .btn-outline-bronze { color: var(--gold); border-color: var(--gold); transition: all 0.3s; }
-    .btn-outline-bronze:hover { background-color: var(--gold); color: white; }
-    .filter-btn.active { background-color: var(--dark) !important; color: white !important; border-color: var(--dark) !important; }
-    .table-row:hover { background-color: rgba(146, 98, 55, 0.03) !important; box-shadow: inset 4px 0 0 var(--gold); }
+.btn-outline-bronze { color:var(--gold); border-color:var(--gold); }
+.btn-outline-bronze:hover { background:var(--gold); color:#fff; }
+.filter-btn.active { background:var(--dark)!important; color:#fff!important; border-color:var(--dark)!important; }
+tr:hover { background:rgba(146,98,55,.03)!important; box-shadow:inset 4px 0 0 var(--gold); }
 </style>
 
 <script>
-// Fungsi Update Counter Global
-function updateCounter(count) {
-    const display = document.getElementById("counterDisplay");
-    if(display) {
-        display.innerHTML = `${count} <small class="text-dark fs-6 fw-normal">Kidung</small>`;
-    }
+function updateCounter(n) {
+    const el = document.getElementById('counterDisplay');
+    if(el) el.innerHTML = `${n} <small class="text-dark fs-6 fw-normal">Kidung</small>`;
 }
 
 function searchTable() {
-    let input = document.getElementById("searchInput");
-    let filter = input.value.toUpperCase().trim();
-    let table = document.getElementById("kidungTable");
-    let tr = table.getElementsByTagName("tr");
-    let noResult = document.getElementById("noResult");
-    let visibleCount = 0;
-
-    // Reset Filter Buttons ke "Semua" saat user mulai mengetik manual
-    if(filter !== "") {
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active', 'btn-dark');
-            btn.classList.add('btn-outline-bronze');
-        });
-        document.querySelector('[onclick*="ALL"]').classList.add('active', 'btn-dark');
-    }
-
-    for (let i = 1; i < tr.length; i++) {
-        let name = tr[i].querySelector(".name-cell").textContent || "";
-        let upacara = tr[i].querySelector(".upacara-cell").textContent || "";
-        let yadnya = tr[i].querySelector(".yadnya-cell").textContent || "";
-        let combined = `${name} ${upacara} ${yadnya}`.toUpperCase();
-
-        if (combined.indexOf(filter) > -1) {
-            tr[i].style.display = "";
-            visibleCount++;
-            tr[i].querySelector(".index-col").textContent = visibleCount;
-        } else {
-            tr[i].style.display = "none";
-        }
-    }
-    
-    updateCounter(visibleCount);
-    noResult.classList.toggle("d-none", visibleCount > 0);
-    table.querySelector('thead').style.display = visibleCount > 0 ? "" : "none";
+    const filter = document.getElementById('searchInput').value.toUpperCase().trim();
+    const rows   = document.querySelectorAll('#kidungTable tbody tr');
+    let count = 0;
+    rows.forEach((row, i) => {
+        const text = [
+            row.querySelector('.name-cell')?.textContent || '',
+            row.querySelector('.yadnya-cell')?.textContent || '',
+            row.querySelector('.upacara-cell')?.textContent || '',
+        ].join(' ').toUpperCase();
+        const visible = text.includes(filter);
+        row.style.display = visible ? '' : 'none';
+        if (visible) { count++; row.querySelector('.index-col').textContent = count; }
+    });
+    updateCounter(count);
+    document.getElementById('noResult').classList.toggle('d-none', count > 0);
 }
 
-function filterByCategory(category, element) {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active', 'btn-dark');
-        btn.classList.add('btn-outline-bronze');
+function filterByCategory(cat, el) {
+    document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active','btn-dark');
+        b.classList.add('btn-outline-bronze');
     });
-    element.classList.add('active', 'btn-dark');
+    el.classList.add('active','btn-dark');
+    el.classList.remove('btn-outline-bronze');
 
-    let tr = document.querySelectorAll("#kidungTable tr:not(:first-child)");
-    let visibleCount = 0;
-    let filterTarget = category.toUpperCase().split(' ')[0]; 
-
-    tr.forEach(row => {
-        let yadnyaText = row.querySelector(".yadnya-cell").textContent.toUpperCase().replace(/_/g, " ").trim();
-        if (category === 'ALL' || yadnyaText.includes(filterTarget)) {
-            row.style.display = "";
-            visibleCount++;
-            row.querySelector(".index-col").textContent = visibleCount;
-        } else {
-            row.style.display = "none";
-        }
+    const rows = document.querySelectorAll('#kidungTable tbody tr');
+    let count = 0;
+    rows.forEach(row => {
+        const yadnya = row.querySelector('.yadnya-cell')?.textContent.trim().toUpperCase() || '';
+        const vis    = cat === 'ALL' || yadnya.includes(cat.toUpperCase().split(' ')[0]);
+        row.style.display = vis ? '' : 'none';
+        if (vis) { count++; row.querySelector('.index-col').textContent = count; }
     });
-
-    updateCounter(visibleCount);
-    document.getElementById("noResult").classList.toggle("d-none", visibleCount > 0);
-    document.querySelector("#kidungTable thead").style.display = visibleCount > 0 ? "" : "none";
+    updateCounter(count);
+    document.getElementById('noResult').classList.toggle('d-none', count > 0);
 }
 
 function resetSearch() {
-    document.getElementById("searchInput").value = "";
+    document.getElementById('searchInput').value = '';
     filterByCategory('ALL', document.querySelector('[onclick*="ALL"]'));
 }
 
 async function showDetail(targetId) {
-    const modalElement = document.getElementById('detailModal');
-    const modal = new bootstrap.Modal(modalElement);
-    
-    try {
-        const response = await fetch("/predict", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "target": targetId })
-        });
-        const data = await response.json();
+    const modal = new bootstrap.Modal(document.getElementById('detailModal'));
+    document.getElementById('modalJudul').textContent = 'Memuat...';
+    document.getElementById('modalBody').innerHTML =
+        '<div class="text-center py-4"><div class="spinner-border" style="color:var(--gold);"></div></div>';
+    modal.show();
 
-        if (data.status === "success") {
-            document.getElementById("modalJudul").innerText = data.judul;
-            document.getElementById("modalTeks").innerText = data.teks;
-            document.getElementById("modalMakna").innerText = data.makna;
-            modal.show();
+    try {
+        const res  = await fetch('/predict', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({target: targetId})
+        });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+            document.getElementById('modalJudul').textContent = data.judul || targetId.replace(/_/g,' ');
+            document.getElementById('modalBody').innerHTML = `
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-4">
+                        <div class="p-3 bg-light rounded-3">
+                            <small class="text-muted d-block mb-1 fw-bold text-uppercase" style="font-size:.65rem;">Jenis Sekar</small>
+                            <span class="fw-bold" style="color:var(--gold);">${esc(data.jenis_sekar||'-')}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="p-3 bg-light rounded-3">
+                            <small class="text-muted d-block mb-1 fw-bold text-uppercase" style="font-size:.65rem;">Bahasa</small>
+                            <span class="fw-bold" style="color:var(--gold);">${esc(data.bahasa||'-')}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="p-3 bg-light rounded-3">
+                            <small class="text-muted d-block mb-1 fw-bold text-uppercase" style="font-size:.65rem;">Status Validasi</small>
+                            <span class="badge ${data.status_validasi==='Tervalidasi'?'bg-success':'bg-warning text-dark'}">
+                                ${esc(data.status_validasi||'-')}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-3 mb-3" style="background:#fcf9f6; border:1px solid #f0e8de;">
+                    <p class="small fw-bold mb-2" style="color:var(--gold);"><i class="fas fa-scroll me-1"></i>TEKS KIDUNG:</p>
+                    <div class="text-center lh-lg" style="white-space:pre-line; font-family:Georgia,serif; font-style:italic;">
+                        ${esc(data.teks||'Teks belum tersedia.')}
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-3 bg-dark text-white mb-3">
+                    <p class="small fw-bold mb-2" style="color:#d4af37;"><i class="fas fa-lightbulb me-1"></i>MAKNA MENDALAM:</p>
+                    <p class="mb-0 small opacity-90" style="text-align:justify; line-height:1.7;">
+                        ${esc(data.makna_mendalam||data.makna||'Makna belum tersedia.')}
+                    </p>
+                </div>
+
+                <div class="p-3 rounded-3" style="background:rgba(146,98,55,.06); border:1px solid rgba(146,98,55,.15);">
+                    <p class="small fw-bold mb-2" style="color:var(--gold);"><i class="fas fa-music me-1"></i>TEKNIK MENYANYI:</p>
+                    <p class="mb-0 small text-muted">${esc(data.teknik_menyanyi||'Teknik belum tersedia.')}</p>
+                </div>
+
+                ${data.sumber && data.sumber !== '-' ? `
+                <p class="small text-muted mt-3 mb-0">
+                    <i class="fas fa-book me-1"></i><strong>Sumber:</strong> ${esc(data.sumber)}
+                </p>` : ''}
+            `;
+        } else {
+            document.getElementById('modalJudul').textContent = 'Tidak Ditemukan';
+            document.getElementById('modalBody').innerHTML =
+                '<p class="text-muted text-center py-4">Data kidung tidak tersedia.</p>';
         }
-    } catch (err) {
-        alert("Gagal memuat detail.");
+    } catch(e) {
+        document.getElementById('modalBody').innerHTML =
+            '<p class="text-danger text-center py-4">Gagal memuat data.</p>';
     }
+}
+
+function esc(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 </script>
 {% endblock %}
