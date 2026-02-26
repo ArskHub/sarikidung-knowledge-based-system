@@ -19,7 +19,7 @@ try:
     df        = get_kidung_dataframe(onto)
     ai_engine = KidungDecisionTree()
     ai_engine.train(df)
-    print("✅ SariKidung siap.")
+    print("SariKidung siap.")
 except Exception as e:
     print(f"❌ Gagal booting: {e}")
 
