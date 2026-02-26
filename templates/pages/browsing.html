@@ -377,9 +377,24 @@ async function submitToAI() {
         if (data.status === 'fallback') {
             document.getElementById('fallback-text').textContent = data.message;
             show('fallback-msg');
+            // Restore panel kiri
+            document.getElementById('finish-area').innerHTML = `
+                <i class="fas fa-exclamation-circle text-warning mb-2" style="font-size:2.5rem;"></i>
+                <p class="small text-muted">Tidak ditemukan. Coba konteks lain.</p>
+                <button onclick="resetWizard()" class="btn btn-sm btn-outline-secondary mt-2">
+                    <i class="fas fa-redo me-1"></i>Coba Lagi
+                </button>`;
         } else if (data.status === 'success') {
             renderResults(data);
             show('result-box');
+            // Restore panel kiri — tampilkan konfirmasi selesai
+            document.getElementById('finish-area').innerHTML = `
+                <i class="fas fa-check-circle text-success mb-2" style="font-size:2.5rem;"></i>
+                <h6 class="fw-bold">Selesai!</h6>
+                <p class="small text-muted mb-3">Hasil ditampilkan di panel kanan.</p>
+                <button onclick="resetWizard()" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-redo me-1"></i>Konsultasi Baru
+                </button>`;
         } else {
             alert(data.message || 'Terjadi kesalahan pada sistem.');
             resetWizard();

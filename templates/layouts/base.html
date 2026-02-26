@@ -54,6 +54,112 @@
                         <i class="fas fa-search me-1"></i>KONSULTASI
                     </a>
                 </li>
+                <!-- Tombol Chat AI sebelah kanan KONSULTASI -->
+                <li class="nav-item position-relative">
+                    <button onclick="toggleNavChat()" id="nav-chat-btn"
+                            class="btn px-3 py-2 fw-bold d-flex align-items-center gap-2"
+                            style="background:#fff; border:2px solid var(--gold); color:var(--gold);
+                                   border-radius:8px; transition:all .2s; position:relative;">
+                        <i class="fas fa-comment-dots"></i>
+                        <span class="d-none d-lg-inline" style="font-size:.85rem;">Chat</span>
+                        <span id="nav-chat-notif"
+                              style="display:none; width:8px; height:8px; background:#e74c3c;
+                                     border-radius:50%; position:absolute; top:5px; right:5px;"></span>
+                    </button>
+
+                    <!-- Panel chat dropdown dari navbar -->
+                    <div id="nav-chat-panel"
+                         style="display:none; position:absolute; top:calc(100% + 12px); right:0;
+                                width:360px; border-radius:16px; z-index:2000;
+                                box-shadow:0 8px 40px rgba(0,0,0,.18); overflow:hidden;
+                                flex-direction:column; background:#fff;
+                                border:1px solid rgba(146,98,55,.2);">
+
+                        <!-- Header -->
+                        <div style="background:var(--gold); padding:12px 16px;
+                                    display:flex; align-items:center; justify-content:space-between;">
+                            <div class="d-flex align-items-center gap-2">
+                                <div style="width:32px;height:32px;border-radius:50%;
+                                            background:rgba(255,255,255,.2);
+                                            display:flex;align-items:center;justify-content:center;">
+                                    <i class="fas fa-robot text-white small"></i>
+                                </div>
+                                <div>
+                                    <div style="color:#fff;font-weight:700;font-size:.9rem;line-height:1.2;">SariBot</div>
+                                    <div style="color:rgba(255,255,255,.8);font-size:.7rem;">
+                                        <span style="display:inline-block;width:7px;height:7px;
+                                                     background:#4ade80;border-radius:50%;margin-right:4px;"></span>
+                                        Khusus Kidung & Upacara Bali
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button onclick="clearNavChat()" title="Hapus riwayat"
+                                        style="background:rgba(255,255,255,.15);border:none;color:#fff;
+                                               border-radius:6px;padding:4px 8px;cursor:pointer;font-size:.75rem;">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                                <button onclick="toggleNavChat()" title="Tutup"
+                                        style="background:rgba(255,255,255,.15);border:none;color:#fff;
+                                               border-radius:6px;padding:4px 8px;cursor:pointer;font-size:.75rem;">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Pesan -->
+                        <div id="nav-chat-messages"
+                             style="overflow-y:auto; padding:14px; background:#fafafa; height:300px;">
+                            <div class="d-flex gap-2 mb-3">
+                                <div style="width:28px;height:28px;border-radius:50%;background:var(--gold);
+                                            display:flex;align-items:center;justify-content:center;
+                                            flex-shrink:0;align-self:flex-end;">
+                                    <i class="fas fa-robot text-white" style="font-size:.6rem;"></i>
+                                </div>
+                                <div style="background:#fff;border:1px solid #e8e0d8;border-radius:12px;
+                                            padding:10px 12px;font-size:.82rem;max-width:85%;line-height:1.5;">
+                                    Rahajeng! 🙏 Tanya apa saja seputar <strong>Kidung & upacara Bali</strong>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saran -->
+                        <div id="nav-chat-suggestions"
+                             style="padding:8px 12px;border-top:1px solid #f0e8de;
+                                    background:#fff;display:flex;flex-wrap:wrap;gap:6px;">
+                            <button onclick="setNavQ('Apa itu Kidung Wargasari?')"
+                                    style="font-size:.7rem;padding:3px 10px;border:1px solid rgba(146,98,55,.3);
+                                           color:var(--gold);border-radius:20px;background:rgba(146,98,55,.05);cursor:pointer;">
+                                Kidung Wargasari?
+                            </button>
+                            <button onclick="setNavQ('Kidung apa untuk Ngaben?')"
+                                    style="font-size:.7rem;padding:3px 10px;border:1px solid rgba(146,98,55,.3);
+                                           color:var(--gold);border-radius:20px;background:rgba(146,98,55,.05);cursor:pointer;">
+                                Kidung Ngaben?
+                            </button>
+                            <button onclick="setNavQ('Bedanya Sekar Alit dan Sekar Madya?')"
+                                    style="font-size:.7rem;padding:3px 10px;border:1px solid rgba(146,98,55,.3);
+                                           color:var(--gold);border-radius:20px;background:rgba(146,98,55,.05);cursor:pointer;">
+                                Sekar Alit vs Madya?
+                            </button>
+                        </div>
+
+                        <!-- Input -->
+                        <div style="padding:10px 12px;border-top:1px solid #eee;
+                                    background:#fff;display:flex;gap:8px;">
+                            <input id="nav-chat-input" type="text"
+                                   placeholder="Ketik pertanyaan..."
+                                   onkeydown="if(event.key==='Enter'){event.preventDefault();sendNavChat();}"
+                                   style="flex:1;border:1px solid #dee2e6;border-radius:10px;
+                                          padding:8px 12px;font-size:.82rem;outline:none;">
+                            <button onclick="sendNavChat()" id="nav-send-btn"
+                                    style="background:var(--gold);border:none;color:#fff;
+                                           border-radius:10px;padding:8px 12px;cursor:pointer;font-size:.82rem;">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -114,3 +220,158 @@
 {% block extra_js %}{% endblock %}
 </body>
 </html>
+<style>
+#nav-chat-btn:hover { background: rgba(146,98,55,.08) !important; }
+.nav-bubble-typing-dot {
+    width:6px; height:6px; border-radius:50%; background:#aaa;
+    display:inline-block; animation: nbTyping .8s infinite;
+}
+.nav-bubble-typing-dot:nth-child(2) { animation-delay:.15s; }
+.nav-bubble-typing-dot:nth-child(3) { animation-delay:.3s; }
+@keyframes nbTyping { 0%,60%,100%{transform:translateY(0);} 30%{transform:translateY(-5px);} }
+</style>
+
+<script>
+let navChatHistory = [];
+let navChatOpen    = false;
+
+function toggleNavChat() {
+    navChatOpen = !navChatOpen;
+    const panel = document.getElementById('nav-chat-panel');
+    const notif = document.getElementById('nav-chat-notif');
+    panel.style.display = navChatOpen ? 'flex' : 'none';
+    if (navChatOpen) {
+        notif.style.display = 'none';
+        setTimeout(() => document.getElementById('nav-chat-input')?.focus(), 100);
+    }
+}
+
+// Tutup panel kalau klik di luar
+document.addEventListener('click', function(e) {
+    const panel = document.getElementById('nav-chat-panel');
+    const btn   = document.getElementById('nav-chat-btn');
+    if (navChatOpen && panel && !panel.contains(e.target) && !btn.contains(e.target)) {
+        navChatOpen = false;
+        panel.style.display = 'none';
+    }
+});
+
+function setNavQ(q) {
+    document.getElementById('nav-chat-input').value = q;
+    document.getElementById('nav-chat-input').focus();
+    document.getElementById('nav-chat-suggestions').style.display = 'none';
+}
+
+function clearNavChat() {
+    navChatHistory = [];
+    document.getElementById('nav-chat-messages').innerHTML = `
+        <div class="d-flex gap-2 mb-3">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--gold);
+                        display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+                <i class="fas fa-robot text-white" style="font-size:.6rem;"></i>
+            </div>
+            <div style="background:#fff;border:1px solid #e8e0d8;border-radius:12px;
+                        padding:10px 12px;font-size:.82rem;max-width:85%;line-height:1.5;">
+                Riwayat dihapus. Rahajeng! 🙏 Silakan tanya lagi.
+            </div>
+        </div>`;
+    document.getElementById('nav-chat-suggestions').style.display = 'flex';
+}
+
+async function sendNavChat() {
+    const input = document.getElementById('nav-chat-input');
+    const pesan = input.value.trim();
+    if (!pesan) return;
+
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('nav-send-btn').disabled = true;
+    document.getElementById('nav-chat-suggestions').style.display = 'none';
+
+    appendNavMsg('user', pesan);
+    navChatHistory.push({ role: 'user', text: pesan });
+
+    const typingId = appendNavTyping();
+
+    try {
+        const res  = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: pesan, history: navChatHistory.slice(0, -1) })
+        });
+        const data = await res.json();
+        removeNavEl(typingId);
+
+        const reply = data.reply || 'Maaf, tidak ada respons.';
+        appendNavMsg('bot', reply);
+
+        if (data.status === 'success') {
+            navChatHistory.push({ role: 'bot', text: reply });
+            if (navChatHistory.length > 20) navChatHistory = navChatHistory.slice(-20);
+        }
+
+        // Kalau panel tertutup, tampilkan notif dot
+        if (!navChatOpen) {
+            document.getElementById('nav-chat-notif').style.display = 'block';
+        }
+
+    } catch(e) {
+        removeNavEl(typingId);
+        appendNavMsg('bot', 'Maaf, gagal terhubung. Coba lagi.');
+    } finally {
+        input.disabled = false;
+        document.getElementById('nav-send-btn').disabled = false;
+        input.focus();
+    }
+}
+
+function appendNavMsg(role, text) {
+    const msgs  = document.getElementById('nav-chat-messages');
+    const isBot = role === 'bot';
+    const div   = document.createElement('div');
+    div.className = `d-flex gap-2 mb-2 ${isBot ? '' : 'flex-row-reverse'}`;
+
+    const formatted = text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/\n/g, '<br>');
+
+    div.innerHTML = `
+        <div style="width:26px;height:26px;border-radius:50%;background:${isBot?'var(--gold)':'#e0e0e0'};
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+            <i class="fas fa-${isBot?'robot':'user'} ${isBot?'text-white':'text-muted'}" style="font-size:.55rem;"></i>
+        </div>
+        <div style="background:${isBot?'#fff':'var(--gold)'};color:${isBot?'var(--dark)':'#fff'};
+                    border:${isBot?'1px solid #e8e0d8':'none'};border-radius:12px;
+                    padding:9px 11px;font-size:.8rem;max-width:82%;line-height:1.5;">
+            ${formatted}
+        </div>`;
+
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+}
+
+function appendNavTyping() {
+    const msgs = document.getElementById('nav-chat-messages');
+    const id   = 'nt-' + Date.now();
+    const div  = document.createElement('div');
+    div.id     = id;
+    div.className = 'd-flex gap-2 mb-2';
+    div.innerHTML = `
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--gold);
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+            <i class="fas fa-robot text-white" style="font-size:.55rem;"></i>
+        </div>
+        <div style="background:#fff;border:1px solid #e8e0d8;border-radius:12px;
+                    padding:10px 14px;display:flex;gap:4px;align-items:center;">
+            <span class="nav-bubble-typing-dot"></span>
+            <span class="nav-bubble-typing-dot"></span>
+            <span class="nav-bubble-typing-dot"></span>
+        </div>`;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+    return id;
+}
+
+function removeNavEl(id) { document.getElementById(id)?.remove(); }
+</script>
