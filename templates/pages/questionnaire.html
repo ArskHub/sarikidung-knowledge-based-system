@@ -1,77 +1,53 @@
 {% extends "layouts/base.html" %}
-
-{% block title %}System Evaluation - SariKidung Validation{% endblock %}
+{% block title %}System Evaluation - SariKidung{% endblock %}
 
 {% block content %}
-<header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
-    <div class="container animate">
-        <h1 class="display-5 fw-bold mb-2">System Evaluation</h1>
-        <p class="lead opacity-75 mx-auto" style="max-width: 700px;">
-            Bantu kami memvalidasi akurasi kecerdasan buatan dan pengalaman pengguna pada sistem SariKidung.
-        </p>
-    </div>
+
+<header class="page-header animate">
+    <span class="aksara-deco">ᬒᬁ</span>
+    <span class="page-tag">Evaluasi & Validasi</span>
+    <h1>System Evaluation</h1>
+    <p>Bantu kami memvalidasi akurasi dan pengalaman pengguna pada sistem SariKidung.</p>
 </header>
 
 <div class="container my-5">
-    <div class="card border-0 shadow-sm p-4 mb-5 border-start border-bronze border-5 animate">
-        <h2 class="fw-bold mb-3" style="font-family: 'Playfair Display';">Partisipasi Pengujian</h2>
-        <p class="text-muted lh-lg mb-0">
-            Evaluasi ini bertujuan untuk mengukur sejauh mana sistem mampu memberikan rekomendasi yang akurat berdasarkan Sastra Agama, 
-            serta menilai kenyamanan antarmuka pengguna. Masukan Anda sangat berharga untuk pengembangan teknologi pelestarian budaya Bali yang lebih baik.
+
+    <div class="sk-card p-4 p-md-5 mb-5 animate" style="border-left:3px solid var(--gold) !important;">
+        <h4 class="fw-bold mb-3" style="font-family:'Playfair Display';">Partisipasi Pengujian</h4>
+        <p class="text-muted mb-0" style="line-height:1.9;font-size:.9rem;">
+            Evaluasi ini bertujuan mengukur sejauh mana sistem mampu memberikan rekomendasi akurat berdasarkan Sastra Agama,
+            serta menilai kenyamanan antarmuka. Masukan Anda sangat berharga untuk pengembangan pelestarian budaya Bali yang lebih baik.
         </p>
     </div>
 
     <div class="row g-4 mb-5">
+        {% for emoji, judul, deskripsi in [
+            ('🎯','Akurasi Rekomendasi','Apakah kidung yang disarankan sudah sesuai dengan jenis Yadnya dan tahapan upacara?'),
+            ('📱','Kemudahan Penggunaan','Seberapa mudah Anda memahami navigasi dan proses input pada fitur Expert System?'),
+            ('📖','Integritas Data','Apakah lirik, bahasa, dan makna kidung yang ditampilkan sudah tepat dan mudah dibaca?')
+        ] %}
         <div class="col-md-4 animate">
-            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-card">
-                <div class="display-4 mb-3">🎯</div>
-                <h4 class="fw-bold text-bronze">Akurasi Rekomendasi</h4>
-                <p class="small text-muted mb-0">Apakah kidung yang disarankan oleh sistem sudah sesuai dengan jenis Yadnya dan tahapan upacara?</p>
+            <div class="feature-card transition-card p-4 text-center h-100">
+                <div class="mb-3" style="font-size:2.2rem;">{{ emoji }}</div>
+                <h5 class="fw-bold mb-2" style="color:var(--gold);">{{ judul }}</h5>
+                <p class="text-muted mb-0" style="font-size:.86rem;line-height:1.8;">{{ deskripsi }}</p>
             </div>
         </div>
-
-        <div class="col-md-4 animate" style="animation-delay: 0.2s;">
-            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-card">
-                <div class="display-4 mb-3">📱</div>
-                <h4 class="fw-bold text-bronze">Kemudahan Penggunaan</h4>
-                <p class="small text-muted mb-0">Seberapa mudah Anda memahami navigasi dan proses input data pada fitur Expert System?</p>
-            </div>
-        </div>
-
-        <div class="col-md-4 animate" style="animation-delay: 0.4s;">
-            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-card">
-                <div class="display-4 mb-3">📖</div>
-                <h4 class="fw-bold text-bronze">Integritas Data</h4>
-                <p class="small text-muted mb-0">Apakah lirik, bahasa, dan makna kidung yang ditampilkan sudah tepat dan mudah dibaca?</p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
-    <div class="card border-0 bg-dark text-white p-5 text-center shadow-lg position-relative overflow-hidden animate">
-        <i class="fas fa-check-circle position-absolute top-50 start-50 translate-middle display-1 opacity-10"></i>
-        
-        <div class="position-relative z-1">
-            <h2 class="display-6 fw-bold text-bronze mb-3" style="font-family: 'Playfair Display';">Siap Memberikan Penilaian?</h2>
-            <p class="text-white-50 mb-5 mx-auto" style="max-width: 600px;">
-                Klik tombol di bawah ini untuk menuju formulir evaluasi resmi. Proses ini hanya memakan waktu sekitar 3-5 menit.
-            </p>
-            
-            <a href="https://forms.gle/link-anda-disini" target="_blank" class="btn btn-bronze btn-lg px-5 py-3 fw-bold rounded-1">
-                <i class="fas fa-external-link-alt me-2"></i> MULAI EVALUASI SISTEM
-            </a>
-            
-            <p class="mt-4 small text-white-50 opacity-50">
-                *Data Anda akan dijaga kerahasiaannya dan hanya digunakan untuk kepentingan riset akademik.
-            </p>
-        </div>
+    <div class="rounded-3 p-5 text-center position-relative overflow-hidden animate" style="background:var(--dark);">
+        <div style="font-size:1.4rem;color:var(--gold);opacity:.25;letter-spacing:8px;margin-bottom:.75rem;">ᬒᬁ</div>
+        <h3 class="fw-bold mb-3" style="color:var(--gold);font-family:'Playfair Display';">Siap Memberikan Penilaian?</h3>
+        <p class="mb-5 mx-auto" style="color:rgba(255,255,255,.45);max-width:520px;font-size:.88rem;">
+            Klik tombol di bawah untuk menuju formulir evaluasi resmi. Proses ini hanya 3–5 menit.
+        </p>
+        <a href="https://forms.gle/link-anda-disini" target="_blank" class="btn btn-bronze btn-lg px-5 py-3 fw-bold" style="font-size:.88rem;">
+            <i class="fas fa-external-link-alt me-2"></i>MULAI EVALUASI SISTEM
+        </a>
+        <p class="mt-4" style="font-size:.76rem;color:rgba(255,255,255,.25);">
+            *Data Anda dijaga kerahasiaannya dan hanya digunakan untuk kepentingan riset akademik.
+        </p>
     </div>
 </div>
-
-<style>
-    .transition-card:hover {
-        transform: translateY(-10px);
-        border: 1px solid var(--gold) !important;
-        transition: all 0.3s ease;
-    }
-</style>
 {% endblock %}

@@ -3,65 +3,48 @@
 
 {% block content %}
 
-<!-- ===== HEADER ===== -->
-<header class="py-5 text-center text-white"
-        style="background: var(--dark); border-bottom: 3px solid var(--gold);">
-    <div class="container animate">
-        <p class="text-uppercase small fw-bold text-bronze letter-spacing-1 mb-2">
-            <i class="fas fa-brain me-2"></i>Rule-Based Expert System
-        </p>
-        <h1 class="display-5 fw-bold mb-2">Panduan Kidung Panca Yadnya</h1>
-        <p class="lead opacity-75 mx-auto" style="max-width: 650px;">
-            Sistem akan membantu Anda menemukan Kidung yang tepat sesuai konteks upacara
-            melalui serangkaian pertanyaan bertahap.
-        </p>
-    </div>
+<header class="page-header animate">
+    <span class="aksara-deco">ᬒᬁ</span>
+    <span class="page-tag"><i class="fas fa-brain me-2"></i>Rule-Based Expert System</span>
+    <h1>Panduan Kidung Panca Yadnya</h1>
+    <p>Sistem membantu menemukan Kidung yang tepat melalui serangkaian pertanyaan bertahap.</p>
 </header>
 
-<!-- ===== APA ITU SISTEM INI ===== -->
 <section class="py-5 bg-white">
     <div class="container py-3">
         <div class="row align-items-center g-5">
             <div class="col-lg-6 animate">
-                <p class="text-bronze small fw-bold text-uppercase letter-spacing-1">Tentang Sistem</p>
-                <h2 class="fw-bold mb-4" style="font-family:'Playfair Display';">
-                    Bagaimana <span class="text-bronze">Sistem Bekerja?</span>
-                </h2>
-                <p class="text-muted lh-lg mb-3">
-                    SariKidung menggunakan metode <strong>Rule-Based System</strong> dengan pendekatan
-                    <strong>Decision Tree</strong>. Basis pengetahuannya tersimpan dalam format
-                    <strong>Ontologi OWL</strong> yang berisi 74+ Kidung Panca Yadnya beserta
-                    relasi upacara, tahap, makna, dan teknik menyanyikannya.
+                <span class="section-tag">Tentang Sistem</span>
+                <h2 class="fw-bold mb-4" style="font-size:1.9rem;">Bagaimana <span style="color:var(--gold);">Sistem Bekerja?</span></h2>
+                <p class="text-muted mb-3" style="line-height:1.9;font-size:.9rem;">
+                    SariKidung menggunakan metode <strong>Rule-Based System</strong> dengan pendekatan <strong>Decision Tree</strong>.
+                    Basis pengetahuannya tersimpan dalam format <strong>Ontologi OWL</strong> yang berisi 74+ Kidung Panca Yadnya
+                    beserta relasi upacara, tahap, makna, dan teknik menyanyikannya.
                 </p>
-                <p class="text-muted lh-lg">
-                    Sistem akan mengajukan <strong>2–3 pertanyaan kondisional</strong> tentang konteks
-                    upacara, lalu mencocokkan jawaban Anda dengan basis pengetahuan untuk menghasilkan
-                    rekomendasi Kidung beserta penjelasan lengkap.
+                <p class="text-muted mb-0" style="line-height:1.9;font-size:.9rem;">
+                    Sistem mengajukan <strong>2–3 pertanyaan kondisional</strong> tentang konteks upacara, lalu mencocokkan
+                    dengan basis pengetahuan untuk menghasilkan rekomendasi beserta penjelasan lengkap.
                 </p>
             </div>
             <div class="col-lg-6 animate">
-                <!-- Alur sistem visual -->
-                <div class="p-4 bg-light rounded-4 border">
-                    <h6 class="fw-bold text-bronze mb-3 small text-uppercase">
+                <div class="p-4 rounded-3" style="background:var(--bg-soft);border:1px solid var(--border);">
+                    <h6 class="fw-bold mb-4" style="color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;">
                         <i class="fas fa-route me-2"></i>Alur Konsultasi
                     </h6>
-                    {% set steps = [
-                        ('1', 'fas fa-om', 'Pilih Jenis Yadnya', 'Dewa, Pitra, Manusa, Bhuta, atau Rsi Yadnya'),
-                        ('2', 'fas fa-torii-gate', 'Pilih Upacara', 'Sesuaikan dengan upacara yang akan dilaksanakan'),
-                        ('3', 'fas fa-map-marker-alt', 'Pilih Pura/Tempat', 'Hanya jika relevan dengan konteks upacara'),
-                        ('4', 'fas fa-scroll', 'Terima Hasil', 'Kidung per tahap + makna + teknik menyanyi'),
+                    {% for no, icon, judul, deskripsi in [
+                        ('1','fas fa-om','Pilih Jenis Yadnya','Dewa, Pitra, Manusa, Bhuta, atau Rsi Yadnya'),
+                        ('2','fas fa-torii-gate','Pilih Upacara','Sesuaikan dengan upacara yang akan dilaksanakan'),
+                        ('3','fas fa-map-marker-alt','Pilih Pura/Tempat','Hanya jika relevan dengan konteks upacara'),
+                        ('4','fas fa-scroll','Terima Hasil','Kidung per tahap + makna + teknik menyanyi')
                     ] %}
-                    {% for no, icon, judul, deskripsi in steps %}
-                    <div class="d-flex align-items-start gap-3 mb-3 {% if not loop.last %}pb-3 border-bottom{% endif %}">
-                        <div class="rounded-circle bg-bronze text-white d-flex align-items-center justify-content-center flex-shrink-0"
-                             style="width:36px;height:36px;background:var(--gold)!important;">
-                            <small class="fw-bold">{{ no }}</small>
+                    <div class="d-flex align-items-start gap-3 mb-3 {% if not loop.last %}pb-3 border-bottom{% endif %}" style="border-color:var(--border)!important;">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                             style="width:32px;height:32px;background:var(--gold);">
+                            <small class="fw-bold text-white" style="font-size:.78rem;">{{ no }}</small>
                         </div>
                         <div>
-                            <div class="fw-bold small text-dark">
-                                <i class="{{ icon }} me-1 text-bronze"></i>{{ judul }}
-                            </div>
-                            <div class="text-muted" style="font-size:0.8rem;">{{ deskripsi }}</div>
+                            <div class="fw-semibold" style="font-size:.85rem;"><i class="{{ icon }} me-1" style="color:var(--gold);"></i>{{ judul }}</div>
+                            <div class="text-muted" style="font-size:.78rem;">{{ deskripsi }}</div>
                         </div>
                     </div>
                     {% endfor %}
@@ -71,30 +54,27 @@
     </div>
 </section>
 
-<!-- ===== APA YANG AKAN DITAMPILKAN ===== -->
-<section class="py-5" style="background:#fafafa;">
+<section class="py-5" style="background:var(--bg-soft);">
     <div class="container py-3">
         <div class="text-center mb-5 animate">
-            <p class="text-bronze small fw-bold text-uppercase letter-spacing-1">Output Sistem</p>
-            <h2 class="fw-bold" style="font-family:'Playfair Display';">
-                Apa yang Akan Anda Dapatkan?
-            </h2>
+            <span class="section-tag">Output Sistem</span>
+            <h2 class="fw-bold" style="font-size:1.9rem;">Apa yang Akan Anda Dapatkan?</h2>
+            <div class="gold-divider"></div>
         </div>
         <div class="row g-4">
-            {% set features = [
-                ('fas fa-list-ol', 'Panduan Per Tahap', 'Kidung ditampilkan berurutan sesuai tahapan upacara: Pembuka → Pengaksama → Pengayat → Nunas Tirtha → Puncak → Penutup.'),
-                ('fas fa-scroll', 'Teks Kidung Lengkap', 'Lirik kidung yang siap dilantunkan, disajikan dengan font khusus yang mudah dibaca.'),
-                ('fas fa-lightbulb', 'Makna Mendalam', 'Penjelasan filosofis dan spiritual setiap kidung — apa maknanya dan mengapa digunakan dalam upacara tersebut.'),
-                ('fas fa-music', 'Teknik Menyanyi', 'Panduan cara melantunkan kidung: wirama, tempo, gaya nyanyian, dan catatan khusus.'),
-                ('fas fa-question-circle', 'Penjelasan Alasan', 'Sistem menjelaskan mengapa kidung tersebut direkomendasikan — bukan sekadar menampilkan nama.'),
-                ('fas fa-file-pdf', 'Download PDF', 'Simpan hasil konsultasi sebagai PDF untuk referensi saat upacara berlangsung.'),
+            {% for icon, judul, deskripsi in [
+                ('fas fa-list-ol','Panduan Per Tahap','Kidung ditampilkan berurutan: Pembuka → Pengaksama → Pengayat → Nunas Tirtha → Puncak → Penutup.'),
+                ('fas fa-scroll','Teks Kidung Lengkap','Lirik kidung yang siap dilantunkan, disajikan dengan font khusus yang mudah dibaca.'),
+                ('fas fa-lightbulb','Makna Mendalam','Penjelasan filosofis dan spiritual setiap kidung — mengapa digunakan dalam upacara tersebut.'),
+                ('fas fa-music','Teknik Menyanyi','Panduan melantunkan: wirama, tempo, gaya nyanyian, dan catatan khusus.'),
+                ('fas fa-question-circle','Penjelasan Alasan','Sistem menjelaskan mengapa kidung tersebut direkomendasikan.'),
+                ('fas fa-file-pdf','Download PDF','Simpan hasil konsultasi sebagai PDF untuk referensi saat upacara.')
             ] %}
-            {% for icon, judul, deskripsi in features %}
             <div class="col-md-6 col-lg-4 animate">
-                <div class="card border-0 shadow-sm p-4 h-100 feature-card">
-                    <div class="text-bronze fs-2 mb-3"><i class="{{ icon }}"></i></div>
-                    <h5 class="fw-bold mb-2">{{ judul }}</h5>
-                    <p class="text-muted small mb-0">{{ deskripsi }}</p>
+                <div class="feature-card p-4 h-100">
+                    <div class="mb-3" style="color:var(--gold);font-size:1.9rem;"><i class="{{ icon }}"></i></div>
+                    <h6 class="fw-bold mb-2">{{ judul }}</h6>
+                    <p class="text-muted mb-0" style="font-size:.85rem;line-height:1.8;">{{ deskripsi }}</p>
                 </div>
             </div>
             {% endfor %}
@@ -102,58 +82,49 @@
     </div>
 </section>
 
-<!-- ===== PANDUAN MENJAWAB ===== -->
 <section class="py-5 bg-white">
     <div class="container py-3">
         <div class="row justify-content-center">
-            <div class="col-lg-8 animate">
-                <div class="card border-0 shadow-sm p-5 rounded-4"
-                     style="border-left: 5px solid var(--gold) !important;">
-                    <h4 class="fw-bold mb-4" style="font-family:'Playfair Display';">
-                        <i class="fas fa-info-circle text-bronze me-2"></i>
-                        Tips Sebelum Memulai Konsultasi
-                    </h4>
-                    <ul class="list-unstyled mb-0">
-                        {% set tips = [
-                            ('Pastikan Anda mengetahui jenis Yadnya dari upacara yang akan dilaksanakan (misal: Piodalan = Dewa Yadnya, Ngaben = Pitra Yadnya).', 'fas fa-check-circle text-success'),
-                            ('Pilih jawaban yang paling sesuai dengan konteks upacara Anda — tidak perlu khawatir salah, Anda bisa mengulang konsultasi kapan saja.', 'fas fa-check-circle text-success'),
-                            ('Jika Anda tidak yakin dengan pilihan Pura, pilih opsi "Umum" atau "Kahyangan Tiga" sebagai pilihan default.', 'fas fa-check-circle text-success'),
-                            ('Hasil konsultasi mencakup semua tahapan upacara, tidak hanya satu kidung. Anda bisa download hasilnya sebagai PDF.', 'fas fa-check-circle text-success'),
-                            ('Data kidung dalam sistem adalah draft yang masih dalam proses validasi oleh pakar. Selalu konsultasikan dengan pemangku setempat untuk kepastian ritual.', 'fas fa-exclamation-triangle text-warning'),
-                        ] %}
-                        {% for teks, icon in tips %}
-                        <li class="d-flex gap-3 mb-3">
-                            <i class="{{ icon }} mt-1 flex-shrink-0"></i>
-                            <span class="text-muted small">{{ teks }}</span>
-                        </li>
-                        {% endfor %}
-                    </ul>
+            <div class="col-lg-7 animate">
+                <div class="sk-card p-4 p-md-5" style="border-left:3px solid var(--gold) !important;">
+                    <h5 class="fw-bold mb-4" style="font-family:'Playfair Display';">
+                        <i class="fas fa-info-circle me-2" style="color:var(--gold);"></i>Tips Sebelum Konsultasi
+                    </h5>
+                    {% for teks, icon, warna in [
+                        ('Pastikan Anda mengetahui jenis Yadnya dari upacara yang akan dilaksanakan (misal: Piodalan = Dewa Yadnya, Ngaben = Pitra Yadnya).','fas fa-check-circle','#28a745'),
+                        ('Pilih jawaban yang paling sesuai — tidak perlu khawatir salah, Anda bisa mengulang konsultasi kapan saja.','fas fa-check-circle','#28a745'),
+                        ('Jika tidak yakin dengan pilihan Pura, pilih "Umum" atau "Kahyangan Tiga" sebagai default.','fas fa-check-circle','#28a745'),
+                        ('Hasil mencakup semua tahapan upacara, tidak hanya satu kidung. Bisa diunduh sebagai PDF.','fas fa-check-circle','#28a745'),
+                        ('Data kidung masih dalam proses validasi pakar. Selalu konfirmasi dengan pemangku setempat.','fas fa-exclamation-triangle','#f59e0b')
+                    ] %}
+                    <div class="d-flex gap-3 mb-3">
+                        <i class="{{ icon }} mt-1 flex-shrink-0" style="color:{{ warna }};font-size:.9rem;"></i>
+                        <span class="text-muted" style="font-size:.86rem;line-height:1.75;">{{ teks }}</span>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== CTA MULAI KONSULTASI ===== -->
-<section class="py-5 bg-dark text-white text-center" style="border-top: 4px solid var(--gold);">
-    <div class="container py-4 animate">
-        <h2 class="display-6 fw-bold text-bronze mb-3" style="font-family:'Playfair Display';">
-            Siap Memulai Konsultasi?
-        </h2>
-        <p class="text-white-50 mb-5 mx-auto" style="max-width:500px;">
-            Proses konsultasi hanya memerlukan 2–3 langkah dan kurang dari 1 menit.
+<section class="py-5 text-center animate" style="background:var(--dark);border-top:2px solid rgba(146,98,55,.3);">
+    <div class="container py-4">
+        <div style="font-size:1.4rem;color:var(--gold);opacity:.25;letter-spacing:8px;margin-bottom:.75rem;">ᬒᬁ</div>
+        <h2 class="fw-bold mb-2" style="color:var(--gold);font-family:'Playfair Display';font-size:2rem;">Siap Memulai Konsultasi?</h2>
+        <p class="mb-5 mx-auto" style="color:rgba(255,255,255,.45);max-width:460px;font-size:.88rem;">
+            Proses konsultasi hanya 2–3 langkah dan kurang dari 1 menit.
         </p>
-        <a href="{{ url_for('konsultasi') }}"
-           class="btn btn-bronze btn-lg px-5 py-3 fw-bold rounded-1"
-           style="letter-spacing: 2px;">
+        <a href="{{ url_for('konsultasi') }}" class="btn btn-bronze btn-lg px-5 py-3 fw-bold" style="font-size:.88rem;letter-spacing:1px;">
             <i class="fas fa-play me-2"></i>MULAI KONSULTASI SEKARANG
         </a>
-        <p class="mt-4 small text-white-50">
-            Atau jelajahi koleksi kidung di
-            <a href="{{ url_for('library') }}" class="text-bronze">Library</a>
-            terlebih dahulu.
+        <p class="mt-4" style="font-size:.78rem;color:rgba(255,255,255,.3);">
+            Atau jelajahi koleksi di <a href="{{ url_for('library') }}" style="color:var(--gold);">Library</a> terlebih dahulu.
         </p>
     </div>
 </section>
 
+<style>
+.section-tag{font-size:.7rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:700;display:block;margin-bottom:.4rem;font-family:"Poppins",sans-serif;}
+</style>
 {% endblock %}

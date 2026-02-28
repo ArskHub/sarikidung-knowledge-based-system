@@ -1,79 +1,82 @@
 {% extends "layouts/base.html" %}
+{% block title %}About - SariKidung{% endblock %}
 
 {% block content %}
-<header class="py-5 text-center text-white" style="background: var(--dark); border-bottom: 3px solid var(--gold);">
-    <div class="container animate">
-        <h1 class="display-5 fw-bold mb-2">Methodology & Technology</h1>
-        <p class="lead opacity-75">Implementasi Semantic Web dan Expert System untuk Pelestarian Kidung Bali.</p>
-    </div>
+
+<header class="page-header animate">
+    <span class="aksara-deco">ᬒᬁ</span>
+    <span class="page-tag">Metodologi & Teknologi</span>
+    <h1>Methodology & Technology</h1>
+    <p>Implementasi Semantic Web dan Expert System untuk Pelestarian Kidung Bali.</p>
 </header>
 
 <div class="container my-5">
+
+    <!-- Metode -->
     <div class="row g-5 align-items-center mb-5">
         <div class="col-lg-6 animate">
-            <h2 class="fw-bold text-dark mb-4" style="font-family: 'Playfair Display';">Metode Pengembangan</h2>
-            <p class="text-muted lh-lg">
-                Pengembangan <strong>SariKidung</strong> menggunakan metode pengembangan sistem pakar yang terintegrasi dengan teknologi <em>Semantic Web</em>. 
+            <span class="section-tag">Metode Pengembangan</span>
+            <h2 class="fw-bold mb-4" style="font-size:1.9rem;">Bagaimana SariKidung<br>Dibangun?</h2>
+            <p class="text-muted mb-4" style="line-height:1.9;font-size:.9rem;">
+                Pengembangan <strong>SariKidung</strong> menggunakan metode pengembangan sistem pakar yang terintegrasi dengan teknologi <em>Semantic Web</em>.
                 Data dikumpulkan melalui studi literatur sastra agama dan wawancara dengan praktisi Dharma Gita untuk membangun basis pengetahuan yang valid secara teologis.
             </p>
-            
-            <div class="card border-0 bg-light p-4 rounded-4 mt-4">
-                <h5 class="fw-bold text-bronze"><i class="fas fa-project-diagram me-2"></i>Arsitektur Sistem</h5>
-                <p class="small text-muted mb-0">
-                    Sistem ini memisahkan antara <strong>Knowledge Base</strong> (disimpan dalam format OWL/Ontology) dan <strong>Inference Engine</strong> 
+            <div class="p-4 rounded-3" style="background:var(--bg-soft);border:1px solid var(--border);">
+                <h6 class="fw-bold mb-2" style="color:var(--gold);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;">
+                    <i class="fas fa-project-diagram me-2"></i>Arsitektur Sistem
+                </h6>
+                <p class="text-muted mb-0" style="font-size:.86rem;line-height:1.8;">
+                    Sistem memisahkan antara <strong>Knowledge Base</strong> (format OWL/Ontologi) dan <strong>Inference Engine</strong>
                     (logika Decision Tree) untuk menghasilkan rekomendasi yang cepat dan akurat.
                 </p>
             </div>
         </div>
-        <div class="col-lg-6 animate text-center">
-            
-            <div class="p-3 bg-white shadow-sm rounded-4 border">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800" class="img-fluid rounded-3" alt="Technology Concept">
+        <div class="col-lg-6 animate">
+            <div class="rounded-3 overflow-hidden" style="border:1px solid var(--border);">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800"
+                     class="img-fluid d-block" alt="Technology Concept" style="width:100%;height:280px;object-fit:cover;">
             </div>
         </div>
     </div>
 
+    <!-- 3 Teknologi -->
     <div class="row g-4 mb-5">
+        {% for icon, judul, deskripsi in [
+            ('fas fa-sitemap','Ontology (OWL)','Representasi pengetahuan yang mendefinisikan hubungan antara Yadnya, Upacara, dan Kidung secara hierarkis dan terstruktur.'),
+            ('fas fa-code-branch','Decision Tree','Algoritma klasifikasi yang digunakan untuk mencocokkan input pengguna dengan Kidung yang paling relevan dari basis pengetahuan.'),
+            ('fas fa-database','Knowledge Base','Penyimpanan data sastra yang divalidasi pakar — mencakup teks suci, makna mendalam, dan klasifikasi bahasa Kidung.')
+        ] %}
         <div class="col-md-4 animate">
-            <div class="card h-100 border-0 shadow-sm p-4 text-center">
-                <div class="text-bronze mb-3"><i class="fas fa-sitemap fs-1"></i></div>
-                <h4 class="fw-bold mb-3">Ontology (OWL)</h4>
-                <p class="text-muted small">Representasi pengetahuan yang mendefinisikan hubungan antara Yadnya, Upacara, dan lirik Kidung secara hierarkis.</p>
+            <div class="feature-card p-4 text-center h-100">
+                <div class="mb-3" style="color:var(--gold);font-size:2.2rem;"><i class="{{ icon }}"></i></div>
+                <h5 class="fw-bold mb-2">{{ judul }}</h5>
+                <p class="text-muted mb-0" style="font-size:.86rem;line-height:1.8;">{{ deskripsi }}</p>
             </div>
         </div>
-        <div class="col-md-4 animate" style="animation-delay: 0.2s;">
-            <div class="card h-100 border-0 shadow-sm p-4 text-center">
-                <div class="text-bronze mb-3"><i class="fas fa-code-branch fs-1"></i></div>
-                <h4 class="fw-bold mb-3">Decision Tree</h4>
-                <p class="text-muted small">Algoritma klasifikasi yang digunakan sistem untuk mencocokkan input pengguna dengan Kidung yang paling relevan.</p>
-            </div>
-        </div>
-        <div class="col-md-4 animate" style="animation-delay: 0.4s;">
-            <div class="card h-100 border-0 shadow-sm p-4 text-center">
-                <div class="text-bronze mb-3"><i class="fas fa-database fs-1"></i></div>
-                <h4 class="fw-bold mb-3">Knowledge Base</h4>
-                <p class="text-muted small">Penyimpanan data sastra yang telah divalidasi oleh pakar, mencakup teks suci, makna, dan klasifikasi bahasa.</p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
-    <div class="card border-0 bg-dark text-white p-5 rounded-4 shadow-lg animate">
-        <div class="row align-items-center">
+    <!-- Semantic banner -->
+    <div class="rounded-3 p-5 animate" style="background:var(--dark);">
+        <div class="row align-items-center g-4">
             <div class="col-lg-8">
-                <h3 class="text-bronze fw-bold mb-3" style="font-family: 'Playfair Display';">Pemodelan Data Semantik</h3>
-                <p class="opacity-75 mb-4">
-                    Berbeda dengan database tradisional, teknologi semantik memungkinkan sistem memahami "konteks". 
-                    Misalnya, sistem mengetahui bahwa <em>Wargasari</em> tidak hanya sebuah lagu, tetapi memiliki relasi khusus dengan <em>Dewa Yadnya</em> 
-                    dan tahapan upacara <em>Piodalan</em>.
+                <h3 class="fw-bold mb-3" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">Pemodelan Data Semantik</h3>
+                <p class="mb-0" style="color:rgba(255,255,255,.6);line-height:1.9;font-size:.9rem;">
+                    Berbeda dengan database tradisional, teknologi semantik memungkinkan sistem memahami "konteks".
+                    Misalnya, sistem mengetahui bahwa <em>Wargasari</em> tidak sekadar lagu, tetapi memiliki relasi khusus
+                    dengan <em>Dewa Yadnya</em> dan tahapan <em>Piodalan</em>.
                 </p>
-                
             </div>
             <div class="col-lg-4 text-center">
-                <div class="border border-bronze border-2 p-4 rounded-circle d-inline-block">
-                    <i class="fas fa-brain display-3 text-bronze"></i>
+                <div style="width:100px;height:100px;border:2px solid rgba(146,98,55,.4);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
+                    <i class="fas fa-brain" style="font-size:2.5rem;color:var(--gold);opacity:.7;"></i>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+.section-tag{font-size:.7rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:700;display:block;margin-bottom:.4rem;font-family:"Poppins",sans-serif;}
+</style>
 {% endblock %}

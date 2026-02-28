@@ -1,47 +1,87 @@
-{% extends "layouts/base.html" %} 
+{% extends "layouts/base.html" %}
 
 {% block content %}
-<header class="hero-header position-relative d-flex align-items-center justify-content-center text-center text-white py-5" 
-        style="min-height: 80vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1600') center/cover fixed;">
-    <div class="container animate">
-        <h6 class="text-uppercase ls-3 fw-bold text-bronze mb-3">Digitalization of Sacred Literature</h6>
-        <h1 class="display-2 fw-bold mb-4" style="font-family: 'Playfair Display';">Rahajeng Rauh</h1>
-        <p class="lead mx-auto mb-5 opacity-75" style="max-width: 800px; line-height: 1.8;">
-            SariKidung adalah jembatan antara tradisi luhur Bali dan inovasi teknologi modern. 
-            Gunakan kecerdasan buatan untuk menemukan Kidung Panca Yadnya yang tepat sesuai konteks upacara Anda.
+
+<!-- ═══ HERO ═══ -->
+<header class="position-relative d-flex align-items-center justify-content-center text-center text-white"
+        style="min-height:88vh;background:linear-gradient(160deg,rgba(0,0,0,.72),rgba(40,20,0,.86)),url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1600') center/cover fixed;">
+    <!-- Aksara dekorasi sisi — samar, hanya hiasan -->
+    <div style="position:absolute;top:50%;left:1.5rem;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:.85rem;color:rgba(255,255,255,.07);letter-spacing:6px;pointer-events:none;user-select:none;">ᬒᬁ ᬰᬵᬦ᭄ᬢᬶ</div>
+    <div style="position:absolute;top:50%;right:1.5rem;transform:translateY(-50%);writing-mode:vertical-rl;font-size:.85rem;color:rgba(255,255,255,.07);letter-spacing:6px;pointer-events:none;user-select:none;">ᬓᬶᬤᬸᬂ ᬧᬜ᭄ᬘ ᬬᬤ᭄ᬜ</div>
+
+    <div class="container animate" style="position:relative;z-index:2;">
+        <div style="font-size:1.8rem;color:var(--gold);opacity:.35;letter-spacing:10px;margin-bottom:.75rem;">ᬒᬁ</div>
+        <p class="text-uppercase fw-bold mb-3" style="color:var(--gold);font-size:.7rem;letter-spacing:4px;">
+            Digitalisasi Sastra Suci Hindu Bali
         </p>
-        <a href="{{ url_for('browsing') }}" class="btn btn-bronze btn-lg px-5 py-3 fs-6 fw-bold shadow-lg">
-            MULAI IDENTIFIKASI PAKAR
-        </a>
+        <h1 class="fw-bold mb-3" style="font-family:'Playfair Display';font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.1;">
+            Rahajeng Rauh<br><span style="color:var(--gold);font-style:italic;">ring SariKidung</span>
+        </h1>
+        <p class="mx-auto mb-5 opacity-75" style="max-width:560px;line-height:1.9;font-size:.92rem;font-weight:300;">
+            Platform cerdas menemukan <strong>Kidung Panca Yadnya</strong> yang tepat —
+            memadukan sistem pakar berbasis ontologi dengan kearifan sastra Hindu Bali.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="{{ url_for('browsing') }}" class="btn btn-bronze btn-lg px-5 py-3 fw-bold" style="font-size:.88rem;">
+                MULAI KONSULTASI
+            </a>
+            <a href="{{ url_for('library') }}" class="btn btn-outline-light btn-lg px-5 py-3" style="font-size:.88rem;border-color:rgba(255,255,255,.25);font-weight:500;">
+                JELAJAHI LIBRARY
+            </a>
+        </div>
+    </div>
+
+    <div style="position:absolute;bottom:0;left:0;right:0;line-height:0;">
+        <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;height:56px;width:100%;">
+            <path d="M0,36 C360,72 1080,0 1440,36 L1440,56 L0,56 Z" fill="#ffffff"/>
+        </svg>
     </div>
 </header>
 
+<!-- ═══ INTRO KIDUNG ═══ -->
 <section class="py-5 bg-white">
-    <div class="container py-5">
-        <div class="row align-items-center g-5">
+    <div class="container py-4">
+        <div class="row g-5 align-items-center">
             <div class="col-lg-6 animate">
-                <h2 class="display-5 fw-bold mb-4 text-dark" style="font-family: 'Playfair Display';">Pelestarian Budaya <br><span class="text-bronze">Era Digital</span></h2>
-                <p class="text-muted mb-4 fs-5">
-                    Sistem ini mendokumentasikan pengetahuan pakar <strong>Dharma Gita</strong> ke dalam struktur data cerdas (Ontology), 
-                    memastikan nilai-nilai suci tetap terjaga dan mudah diakses.
+                <span class="section-tag">Tentang Kidung</span>
+                <h2 class="fw-bold mb-4" style="font-size:1.9rem;">
+                    Seni Sakral Pengiring<br>Upacara Panca Yadnya
+                </h2>
+                <p class="text-muted mb-4" style="line-height:1.9;font-size:.9rem;">
+                    Kidung adalah karya sastra puisi yang erat kaitannya dengan upacara agama Hindu di Bali. Diklasifikasikan sebagai <strong>Sekar Madya</strong> dalam lingkup <strong>Dharmagita</strong>, kidung dinyanyikan sebagai pengiring ritual Panca Yadnya — dari upacara di pura hingga prosesi Ngaben.
                 </p>
-                <div class="d-flex gap-4 mt-4">
-                    <div class="border-start border-bronze border-4 ps-3">
-                        <h3 class="fw-bold text-bronze mb-0">100%</h3>
-                        <small class="text-uppercase ls-1 text-muted">Validasi Sastra</small>
-                    </div>
-                    <div class="border-start border-bronze border-4 ps-3">
-                        <h3 class="fw-bold text-bronze mb-0">AI</h3>
-                        <small class="text-uppercase ls-1 text-muted">Decision Tree</small>
-                    </div>
-                </div>
+                <p class="text-muted mb-0" style="line-height:1.9;font-size:.9rem;">
+                    Dalam kepercayaan Hindu Bali, setiap yadnya harus diiringi lima bunyi sakral: <em>kulkul, gamelan, kidung, genta,</em> dan <em>mantra</em> — agar terhubung dengan kesadaran Ida Sang Hyang Widhi Wasa.
+                </p>
             </div>
             <div class="col-lg-6 animate">
-                <div class="position-relative">
-                    <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80" 
-                         class="img-fluid rounded-4 shadow-lg border border-5 border-white" alt="Bali Ritual">
-                    <div class="position-absolute bottom-0 end-0 bg-bronze text-white p-3 rounded-3 shadow mb-n3 me-n3 d-none d-md-block fw-bold small">
-                        TRADISI & TEKNOLOGI
+                <!-- Stat cards -->
+                <div class="row g-3 mb-3">
+                    {% for angka, label, aksara in [('74','Koleksi Kidung','ᬓᬶᬤᬸᬂ'),('5','Jenis Panca Yadnya','ᬬᬤ᭄ᬜ'),('OWL','Basis Ontologi','ᬓ᭄ᬱᬶ')] %}
+                    <div class="col-4">
+                        <div class="text-center p-3 rounded-3 h-100" style="background:var(--bg-soft);border:1px solid var(--border);">
+                            <div style="font-size:1.2rem;color:var(--gold);opacity:.45;margin-bottom:.25rem;">{{ aksara }}</div>
+                            <h3 class="fw-bold mb-1" style="color:var(--gold);font-family:'Playfair Display';font-size:1.5rem;">{{ angka }}</h3>
+                            <p class="mb-0 text-muted" style="font-size:.7rem;line-height:1.4;">{{ label }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- Struktur kidung -->
+                <div class="p-4 rounded-3" style="background:var(--dark);">
+                    <p style="color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.85rem;font-weight:700;">Struktur Kidung</p>
+                    <div class="row g-2">
+                        {% for nama, arti in [('Pangawit','Pembuka'),('Pamawak','Bagian pendek'),('Panama','Bagian panjang'),('Pangawak','Bagian utama')] %}
+                        <div class="col-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <div style="width:3px;height:26px;background:var(--gold);border-radius:2px;opacity:.55;flex-shrink:0;"></div>
+                                <div>
+                                    <div style="color:#fff;font-size:.82rem;font-weight:500;">{{ nama }}</div>
+                                    <div style="color:rgba(255,255,255,.4);font-size:.72rem;">{{ arti }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -49,41 +89,179 @@
     </div>
 </section>
 
-<section class="py-5 bg-dark text-white shadow-lg" style="border-top: 5px solid var(--gold);">
-    <div class="container py-5 text-center">
-        <h2 class="display-6 fw-bold text-bronze mb-4" style="font-family: 'Playfair Display';">Mengapa SariKidung?</h2>
-        <div class="row g-4 mt-4">
-            <div class="col-md-4">
-                <div class="p-4 h-100 rounded-4 transition-card border border-white border-opacity-10 bg-white bg-opacity-5">
-                    <div class="fs-1 mb-3">🧠</div>
-                    <h4 class="text-bronze mb-3">AI Diagnosis</h4>
-                    <p class="text-white-50 small">Sistem Pakar dengan logika Decision Tree untuk menentukan Kidung berdasarkan konteks upacara.</p>
+<!-- ═══ PANCA YADNYA TABS ═══ -->
+<section class="py-5" style="background:var(--bg-soft);">
+    <div class="container py-4">
+
+        <div class="text-center mb-5 animate">
+            <div style="font-size:1.6rem;color:var(--gold);opacity:.3;letter-spacing:12px;margin-bottom:.6rem;">ᬒᬁ</div>
+            <span class="section-tag">Sistem Pengetahuan</span>
+            <h2 class="fw-bold mb-2" style="font-size:2rem;">Kidung Panca Yadnya</h2>
+            <p class="text-muted mx-auto" style="max-width:520px;font-size:.88rem;line-height:1.8;">
+                Lima jenis persembahan suci, masing-masing dengan kidung yang dilantunkan di setiap tahap prosesi.
+            </p>
+            <div class="gold-divider"></div>
+        </div>
+
+        <!-- Tab buttons -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+            {% for key, nama, aksara in [('dewa','Dewa Yadnya','ᬤᬾᬯ'),('pitra','Pitra Yadnya','ᬧᬶᬢᬺ'),('manusa','Manusa Yadnya','ᬫᬦᬸᬱ'),('bhuta','Bhuta Yadnya','ᬪᬹᬢ'),('rsi','Rsi Yadnya','ᬓ᭄ᬱᬶ')] %}
+            <button class="py-tab {% if loop.first %}active{% endif %}"
+                    onclick="showYadnya('{{ key }}')" id="tab-{{ key }}">
+                <span class="py-tab-aksara">{{ aksara }}</span>
+                <span>{{ nama }}</span>
+            </button>
+            {% endfor %}
+        </div>
+
+        <!-- Panels -->
+        {% set yadnya_data = {
+            'dewa': {
+                'nama':'Dewa Yadnya','aksara':'ᬤᬾᬯ ᬬᬤ᭄ᬜ',
+                'subtitle':'Persembahan kepada Ida Sang Hyang Widhi Wasa beserta seluruh manifestasi-Nya',
+                'deskripsi':'Dewa Yadnya adalah persembahan suci tertinggi kepada Tuhan Yang Maha Esa. Wujud rasa syukur atas segala anugerah kehidupan, dilaksanakan di pura dari yang sederhana hingga upacara agung seperti Panca Wali Krama.',
+                'upacara':[('Piodalan / Odalan','Upacara hari jadi pura'),('Pujawali','Pemujaan berkala di pura'),('Ngenteg Linggih','Peresmian tempat suci'),('Panca Wali Krama','Upacara agung di Besakih')],
+                'kidung':[('Kawitan Wargasari','Saat memuja Ida Bhatara'),('Mredu Komala / Totaka','Saat muspa dengan bunga'),('Wargasari','Saat nunas tirtha'),('Warga Sirang','Saat nyineb / penutupan')],
+                'img':'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80'
+            },
+            'pitra': {
+                'nama':'Pitra Yadnya','aksara':'ᬧᬶᬢᬺ ᬬᬤ᭄ᬜ',
+                'subtitle':'Persembahan kepada para leluhur dan roh suci yang telah meninggalkan dunia',
+                'deskripsi':'Pitra Yadnya adalah wujud penghormatan kepada orang tua dan leluhur. Melalui upacara ini, umat Hindu Bali membantu roh leluhur mencapai alam yang lebih baik.',
+                'upacara':[('Ngaben','Upacara pembakaran jenazah'),('Nyekah / Mukur','Penyucian roh pasca Ngaben'),('Maligia','Upacara penyempurnaan roh'),('Mamukur','Pengulangan penyucian roh')],
+                'kidung':[('Sewana Girisa / Bala Ugu','Menurunkan & memandikan jenazah'),('Indra Wangsa','Membawa jenazah ke setra'),('Praharsini','Upacara ngeseng sawa'),('Aji Kembang','Upacara reka abu'),('Sikarini / Asti','Nganyut abu ke laut')],
+                'img':'https://images.unsplash.com/photo-1604537466158-719b1972feb8?auto=format&fit=crop&w=800&q=80'
+            },
+            'manusa': {
+                'nama':'Manusa Yadnya','aksara':'ᬫᬦᬸᬱ ᬬᬤ᭄ᬜ',
+                'subtitle':'Persembahan untuk mensucikan manusia dari kandungan hingga akhir hayat',
+                'deskripsi':'Manusa Yadnya mencerminkan perjalanan hidup manusia. Dilaksanakan pada setiap tahap penting kehidupan sebagai bentuk syukur dan permohonan perlindungan dari Tuhan.',
+                'upacara':[('Megedong-gedongan','Saat dalam kandungan'),('Otonan','Hari kelahiran kalender Bali'),('Metatah','Upacara potong gigi'),('Mapetik','Upacara potong rambut'),('Pawiwahan','Upacara pernikahan')],
+                'kidung':[('Kawitan Tantri / Demung Sawit','Upacara metatah & raja swala'),('Malat Rasmi','Upacara mapetik'),('Tunjung Biru','Upacara pawiwahan')],
+                'img':'https://images.unsplash.com/photo-1583309219338-a582f1db9a66?auto=format&fit=crop&w=800&q=80'
+            },
+            'bhuta': {
+                'nama':'Bhuta Yadnya','aksara':'ᬪᬹᬢ ᬬᬤ᭄ᬜ',
+                'subtitle':'Persembahan untuk menetralisir kekuatan negatif demi keseimbangan alam semesta',
+                'deskripsi':'Bhuta Yadnya ditujukan kepada para Bhuta Kala — kekuatan alam bawah yang bersifat negatif. Bertujuan mengharmoniskan kekuatan alam berdasarkan konsep Tri Hita Karana.',
+                'upacara':[('Caru / Pecaruan','Ritual penyucian lingkungan'),('Mecaru Rsi Gana','Caru tingkat menengah'),('Tawur Kesanga','Sehari sebelum Nyepi'),('Hari Raya Nyepi','Tahun Baru Saka')],
+                'kidung':[('Pupuh Jerum','Kidung pengundang Bhuta'),('Alis-alis Ijo','Pengiring upacara pecaruan'),('Swaran Kumbang','Pengiring upacara caru')],
+                'img':'https://images.unsplash.com/photo-1539811516673-27e4a07ad23a?auto=format&fit=crop&w=800&q=80'
+            },
+            'rsi': {
+                'nama':'Rsi Yadnya','aksara':'ᬓ᭄ᬱᬶ ᬬᬤ᭄ᬜ',
+                'subtitle':'Persembahan dan penghormatan kepada para pendeta, Brahmana, dan guru suci',
+                'deskripsi':'Rsi Yadnya adalah penghormatan kepada para Rsi dan guru spiritual. Mencakup pelantikan atau penyucian seorang pemangku dan pendeta Hindu Bali.',
+                'upacara':[('Mediksa / Dwijati','Pelantikan menjadi pendeta'),('Mapedamel','Persiapan upacara diksa'),('Rsi Bojana','Jamuan suci untuk pendeta'),('Mapeselang','Ritual penyucian pendeta')],
+                'kidung':[('Wilet Mayura','Upacara Rsi Bojana'),('Bramara Sangupati','Pengiring Rsi Bojana'),('Rara Wangi','Upacara Diksa / Mediksa')],
+                'img':'https://images.unsplash.com/photo-1518050346340-aa2ec3bb424b?auto=format&fit=crop&w=800&q=80'
+            }
+        } %}
+
+        {% for key, data in yadnya_data.items() %}
+        <div class="py-panel" id="panel-{{ key }}" style="display:{% if loop.first %}block{% else %}none{% endif %};">
+            <div class="row g-4">
+                <!-- Foto -->
+                <div class="col-lg-4">
+                    <div class="rounded-3 overflow-hidden position-relative" style="height:100%;min-height:320px;">
+                        <img src="{{ data.img }}" alt="{{ data.nama }}"
+                             style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.08) 55%);"></div>
+                        <div style="position:absolute;top:1rem;right:1rem;font-size:2rem;color:rgba(255,255,255,.12);line-height:1;">{{ data.aksara }}</div>
+                        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem;">
+                            <h3 style="font-family:'Playfair Display';color:#fff;font-size:1.3rem;margin-bottom:.3rem;">{{ data.nama }}</h3>
+                            <p style="color:rgba(255,255,255,.6);font-size:.75rem;margin:0;line-height:1.5;">{{ data.subtitle }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Konten -->
+                <div class="col-lg-8">
+                    <div class="bg-white rounded-3 p-4 h-100 d-flex flex-column" style="border:1px solid var(--border);">
+                        <p class="text-muted mb-4" style="line-height:1.9;font-size:.88rem;">{{ data.deskripsi }}</p>
+                        <div class="row g-3 flex-grow-1">
+                            <!-- Upacara -->
+                            <div class="col-md-5">
+                                <div class="h-100 rounded-3 p-3" style="background:var(--bg-soft);border:1px solid var(--border);">
+                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div style="width:3px;height:12px;background:var(--gold);border-radius:2px;"></div>
+                                        <span style="color:var(--gold);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">Upacara</span>
+                                    </div>
+                                    {% for nama_u, ket_u in data.upacara %}
+                                    <div class="mb-2 pb-2 {% if not loop.last %}border-bottom{% endif %}" style="border-color:var(--border) !important;">
+                                        <div style="font-size:.81rem;color:var(--dark);font-weight:500;">{{ nama_u }}</div>
+                                        <div style="font-size:.72rem;color:var(--muted);">{{ ket_u }}</div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- Kidung -->
+                            <div class="col-md-7">
+                                <div class="h-100 rounded-3 p-3" style="background:#f8f6ff;border:1px solid #ddd5f5;">
+                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div style="width:3px;height:12px;background:#8b68d4;border-radius:2px;"></div>
+                                        <span style="color:#8b68d4;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">Kidung</span>
+                                    </div>
+                                    {% for nama_k, ket_k in data.kidung %}
+                                    <div class="mb-2 pb-2 {% if not loop.last %}border-bottom{% endif %}" style="border-color:#ece8f8 !important;">
+                                        <div style="font-size:.82rem;color:var(--dark);font-style:italic;font-weight:500;">{{ nama_k }}</div>
+                                        <div style="font-size:.72rem;color:var(--muted);">{{ ket_k }}</div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap" style="border-top:1px solid #f0f0f0;">
+                            <span style="color:#ccc;font-size:.76rem;">Gunakan sistem pakar untuk rekomendasi yang tepat</span>
+                            <a href="{{ url_for('browsing') }}" class="btn btn-bronze px-4 py-2" style="font-size:.78rem;border-radius:20px;">
+                                Konsultasi Sekarang
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="p-4 h-100 rounded-4 transition-card border border-white border-opacity-10 bg-white bg-opacity-5">
-                    <div class="fs-1 mb-3">📜</div>
-                    <h4 class="text-bronze mb-3">Digital Archive</h4>
-                    <p class="text-white-50 small">Akses ke koleksi lengkap lirik dan makna Kidung yang tersusun secara semantik dalam database OWL.</p>
-                </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ═══ QUOTE PENUTUP ═══ -->
+<section style="background:var(--dark);padding:70px 0;border-top:2px solid rgba(146,98,55,.3);">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-2 text-center d-none d-lg-block" style="font-size:4.5rem;color:var(--gold);opacity:.12;line-height:1;">ᬒᬁ<br>ᬰᬵᬦ᭄ᬢᬶ</div>
+            <div class="col-lg-8 text-center">
+                <p style="color:var(--gold);font-size:.7rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:1.25rem;">Nilai Religius</p>
+                <blockquote style="font-family:'Playfair Display';font-size:1.45rem;color:#fff;line-height:1.65;font-style:italic;margin:0 0 1.25rem;">
+                    "Yadnya yang tanpa kidung dirasakan kurang nilainya, seperti sayur tanpa garam."
+                </blockquote>
+                <p style="color:rgba(255,255,255,.35);font-size:.8rem;">— I Putu Ngurah Restiada, <em>Seni Sakral Kidung</em></p>
             </div>
-            <div class="col-md-4">
-                <div class="p-4 h-100 rounded-4 transition-card border border-white border-opacity-10 bg-white bg-opacity-5">
-                    <div class="fs-1 mb-3">🏛️</div>
-                    <h4 class="text-bronze mb-3">Academic Method</h4>
-                    <p class="text-white-50 small">Platform menggunakan metode ilmiah Ontologi untuk memastikan integritas data dan relasi yang akurat.</p>
-                </div>
-            </div>
+            <div class="col-lg-2 text-center d-none d-lg-block" style="font-size:4.5rem;color:var(--gold);opacity:.12;line-height:1;">ᬤᬸᬂ<br>ᬤᬸᬂ</div>
         </div>
     </div>
 </section>
 
 <style>
-    .ls-3 { letter-spacing: 3px; }
-    .transition-card:hover { 
-        background-color: rgba(255,255,255,0.1) !important; 
-        transform: translateY(-10px);
-        border-color: var(--gold) !important;
-    }
+.section-tag { font-size:.7rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:700;display:block;margin-bottom:.4rem;font-family:"Poppins",sans-serif; }
+.py-tab {
+    display:flex;align-items:center;gap:8px;padding:9px 18px;
+    border-radius:30px;border:1.5px solid var(--border);background:#fff;
+    color:#999;font-weight:600;font-size:.82rem;cursor:pointer;transition:var(--transition);
+}
+.py-tab:hover { border-color:var(--gold);color:var(--gold); }
+.py-tab.active { background:var(--gold);color:#fff;border-color:var(--gold); }
+.py-tab-aksara { font-size:.95rem;opacity:.7;line-height:1; }
+.py-tab.active .py-tab-aksara { opacity:1; }
+.py-panel { animation:fadeUp .3s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);} }
 </style>
+
+<script>
+function showYadnya(key) {
+    document.querySelectorAll('.py-panel').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.py-tab').forEach(b => b.classList.remove('active'));
+    const p = document.getElementById('panel-' + key); if(p) p.style.display = 'block';
+    const t = document.getElementById('tab-'   + key); if(t) t.classList.add('active');
+}
+</script>
 {% endblock %}

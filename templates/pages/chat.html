@@ -1,116 +1,176 @@
 {% extends "layouts/base.html" %}
-{% block title %}Chat AI - SariKidung{% endblock %}
+{% block title %}SariBot — Chat AI SariKidung{% endblock %}
+
 {% block content %}
-<header class="py-5 text-center text-white" style="background:var(--dark); border-bottom:3px solid var(--gold);">
-    <div class="container animate">
-        <p class="text-uppercase small fw-bold letter-spacing-1 mb-2" style="color:var(--gold);">
-            <i class="fas fa-robot me-2"></i>Powered by Gemini AI
+
+<!-- Header -->
+<div style="background:var(--dark);border-bottom:3px solid var(--gold);padding:3rem 0 2.5rem;">
+    <div class="container text-center">
+        <div style="font-size:1.5rem;color:var(--gold);opacity:.4;letter-spacing:8px;margin-bottom:.75rem;">ᬒᬁ</div>
+        <p class="text-uppercase fw-bold mb-2" style="color:var(--gold);font-size:.72rem;letter-spacing:3px;">
+            Powered by Groq AI &middot; LLaMA 3.1
         </p>
-        <h1 class="display-5 fw-bold mb-2">SariBot</h1>
-        <p class="lead opacity-75">Tanya apa saja seputar Kidung Panca Yadnya dan upacara Bali.</p>
+        <h1 class="fw-bold mb-2" style="font-family:'Playfair Display';color:#fff;font-size:2.2rem;">SariBot</h1>
+        <p style="color:rgba(255,255,255,.5);font-size:.9rem;margin:0;">
+            Asisten virtual khusus Kidung Panca Yadnya & upacara Hindu Bali
+        </p>
     </div>
-</header>
-<div class="container my-5" style="max-width:800px;">
-    <div class="card border-0 shadow-sm" style="border-radius:16px; overflow:hidden; min-height:500px;">
-        <div id="chat-messages" class="p-4" style="height:500px; overflow-y:auto; background:#fafafa;">
-            <!-- Pesan sambutan -->
+</div>
+
+<!-- Chat area -->
+<div class="container py-4" style="max-width:780px;">
+
+    <!-- Card chat -->
+    <div style="border-radius:16px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,.1);border:1px solid #f0e8de;">
+
+        <!-- Pesan -->
+        <div id="chat-messages"
+             style="height:480px;overflow-y:auto;padding:1.5rem;background:#fafaf8;">
+
+            <!-- Sambutan -->
             <div class="d-flex gap-3 mb-4">
-                <div class="flex-shrink-0 rounded-circle d-flex align-items-center justify-content-center"
-                     style="width:38px;height:38px;background:var(--gold);">
-                    <i class="fas fa-robot text-white small"></i>
+                <div style="width:36px;height:36px;border-radius:50%;background:var(--gold);
+                            display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+                    <i class="fas fa-robot text-white" style="font-size:.75rem;"></i>
                 </div>
-                <div class="chat-bubble bot-bubble p-3 rounded-3" style="max-width:80%;">
-                    <p class="mb-0 small">Rahajeng rawuh! Saya <strong>SariBot</strong>, asisten virtual SariKidung. 🙏<br><br>
-                    Silakan tanyakan apa saja seputar <strong>Kidung Panca Yadnya</strong> dan upacara adat Hindu Bali — mulai dari makna, teknik menyanyi, hingga kapan sebuah kidung dilantunkan.</p>
+                <div class="chat-bubble bot-bubble">
+                    Rahajeng rawuh! Saya <strong>SariBot</strong> 🙏<br><br>
+                    Silakan tanyakan seputar <strong>Kidung Panca Yadnya</strong> — makna, fungsi, teknik menyanyi, hingga kapan sebuah kidung dilantunkan dalam upacara Hindu Bali.
                 </div>
             </div>
         </div>
-        <div class="border-top p-3 bg-white">
-            <div class="d-flex gap-2">
-                <input type="text" id="chat-input" class="form-control shadow-none"
-                       placeholder="Tanya seputar Kidung Bali... (tekan Enter untuk kirim)"
-                       style="border-color:#dee2e6; border-radius:10px;"
-                       onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault(); sendChat();}">
-                <button onclick="sendChat()" id="send-btn"
-                        class="btn px-3 flex-shrink-0"
-                        style="background:var(--gold); color:#fff; border-radius:10px; min-width:46px;">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-            <div class="d-flex flex-wrap gap-2 mt-2">
-                <small class="text-muted me-1" style="font-size:.7rem; padding-top:2px;">Contoh:</small>
-                {% for q in [
-                    'Apa itu Kidung Wargasari?',
-                    'Bedanya Sekar Alit dan Sekar Madya?',
-                    'Kidung apa untuk Ngaben?',
-                    'Apa makna Kidung Sinom?'
-                ] %}
-                <button class="btn btn-sm px-2 py-1" onclick="setQuestion('{{ q }}')"
-                        style="font-size:.7rem; border:1px solid rgba(146,98,55,.3); color:var(--gold); border-radius:20px; background:rgba(146,98,55,.05);">
-                    {{ q }}
-                </button>
+
+        <!-- Input area -->
+        <div style="background:#fff;border-top:1px solid #f0ebe3;padding:1rem 1.25rem;">
+
+            <!-- Contoh pertanyaan -->
+            <div class="d-flex flex-wrap gap-2 mb-3" id="chat-suggestions">
+                {% for q in ['Apa itu Kidung Wargasari?','Kidung apa untuk Ngaben?','Bedanya Sekar Alit dan Sekar Madya?','Apa makna Kidung Tunjung Biru?'] %}
+                <button class="chat-q-btn" onclick="setQuestion('{{ q }}')">{{ q }}</button>
                 {% endfor %}
             </div>
+
+            <!-- Input + tombol kirim -->
+            <div class="d-flex gap-2">
+                <input type="text" id="chat-input"
+                       placeholder="Tanya seputar Kidung Panca Yadnya Bali..."
+                       onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"
+                       style="flex:1;border:1.5px solid #e8ddd0;border-radius:10px;
+                              padding:10px 14px;font-size:.88rem;outline:none;
+                              transition:border-color .2s;font-family:inherit;">
+                <button onclick="sendChat()" id="send-btn"
+                        style="background:var(--gold);border:none;color:#fff;border-radius:10px;
+                               padding:10px 16px;cursor:pointer;flex-shrink:0;transition:opacity .2s;">
+                    <i class="fas fa-paper-plane" style="font-size:.88rem;"></i>
+                </button>
+            </div>
+
         </div>
     </div>
-    <p class="text-center text-muted mt-3" style="font-size:.75rem;">
-        <i class="fas fa-info-circle me-1"></i>SariBot hanya menjawab pertanyaan seputar Kidung & upacara Bali.
-        Informasi bersifat umum — selalu konfirmasi dengan pemangku setempat.
+
+    <!-- Disclaimer -->
+    <p class="text-center mt-3" style="color:#bbb;font-size:.75rem;">
+        <i class="fas fa-info-circle me-1" style="color:var(--gold);opacity:.6;"></i>
+        SariBot hanya menjawab pertanyaan seputar Kidung & upacara Bali.
+        Selalu konfirmasi dengan pemangku setempat untuk keperluan ritual.
     </p>
 </div>
 
 <style>
-.chat-bubble { line-height: 1.6; font-size: .88rem; }
-.bot-bubble  { background: #fff; border: 1px solid #e8e0d8; color: var(--dark); }
-.user-bubble { background: var(--gold); color: #fff; margin-left: auto; }
-.typing-dot  { width:7px; height:7px; border-radius:50%; background:#999; display:inline-block; animation: typingBounce .9s infinite; }
+/* Input focus */
+#chat-input:focus { border-color:var(--gold) !important; }
+#send-btn:hover { opacity:.85; }
+#send-btn:disabled { opacity:.5; cursor:not-allowed; }
+
+/* Bubble */
+.chat-bubble {
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: .88rem;
+    line-height: 1.7;
+    max-width: 78%;
+}
+.bot-bubble {
+    background: #fff;
+    border: 1px solid #ede5da;
+    color: var(--dark);
+}
+.user-bubble {
+    background: var(--gold);
+    color: #fff;
+    margin-left: auto;
+}
+
+/* Contoh pertanyaan */
+.chat-q-btn {
+    font-size: .72rem;
+    padding: 4px 12px;
+    border: 1px solid rgba(146,98,55,.3);
+    color: var(--gold);
+    border-radius: 20px;
+    background: rgba(146,98,55,.04);
+    cursor: pointer;
+    transition: background .15s;
+    white-space: nowrap;
+}
+.chat-q-btn:hover { background: rgba(146,98,55,.12); }
+
+/* Typing dots */
+.typing-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #ccc;
+    display: inline-block; animation: tBounce .9s infinite;
+}
 .typing-dot:nth-child(2) { animation-delay:.2s; }
 .typing-dot:nth-child(3) { animation-delay:.4s; }
-@keyframes typingBounce { 0%,60%,100%{transform:translateY(0);} 30%{transform:translateY(-6px);} }
+@keyframes tBounce {
+    0%,60%,100% { transform:translateY(0); }
+    30%          { transform:translateY(-6px); }
+}
+
+/* Mobile */
+@media(max-width:576px) {
+    #chat-messages { height: 360px; }
+    .chat-bubble { max-width: 88%; font-size:.84rem; }
+    .chat-q-btn { font-size:.68rem; }
+}
 </style>
 
 <script>
 let chatHistory = [];
 
 function setQuestion(q) {
-    document.getElementById('chat-input').value = q;
-    document.getElementById('chat-input').focus();
+    const input = document.getElementById('chat-input');
+    input.value = q;
+    input.focus();
+    document.getElementById('chat-suggestions').style.display = 'none';
 }
 
 async function sendChat() {
-    const input   = document.getElementById('chat-input');
-    const pesan   = input.value.trim();
+    const input = document.getElementById('chat-input');
+    const pesan = input.value.trim();
     if (!pesan) return;
 
     input.value = '';
     input.disabled = true;
     document.getElementById('send-btn').disabled = true;
+    document.getElementById('chat-suggestions').style.display = 'none';
 
-    // Tampilkan pesan user
     appendMessage('user', pesan);
-
-    // Simpan ke history
-    chatHistory.push({ role: 'user', text: pesan });
-
-    // Tampilkan typing indicator
+    chatHistory.push({ role:'user', text:pesan });
     const typingId = appendTyping();
 
     try {
         const res  = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: pesan, history: chatHistory.slice(0, -1) })
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ message:pesan, history:chatHistory.slice(0,-1) })
         });
         const data = await res.json();
-
         removeTyping(typingId);
-
         const reply = data.reply || 'Maaf, tidak ada respons.';
         appendMessage('bot', reply);
-
         if (data.status === 'success') {
-            chatHistory.push({ role: 'bot', text: reply });
-            // Batasi history max 20 pesan
+            chatHistory.push({ role:'bot', text:reply });
             if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
         }
     } catch(e) {
@@ -128,39 +188,31 @@ function appendMessage(role, text) {
     const isBot     = role === 'bot';
     const div       = document.createElement('div');
     div.className   = `d-flex gap-3 mb-3 ${isBot ? '' : 'flex-row-reverse'}`;
-
-    // Format teks: bold (**text**), newline
     const formatted = text
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g,     '<em>$1</em>')
-        .replace(/\n/g,            '<br>');
-
+        .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g,'<em>$1</em>')
+        .replace(/\n/g,'<br>');
     div.innerHTML = `
-        <div class="flex-shrink-0 rounded-circle d-flex align-items-center justify-content-center"
-             style="width:34px;height:34px;background:${isBot?'var(--gold)':'#e0e0e0'};align-self:flex-end;">
-            <i class="fas fa-${isBot?'robot':'user'} ${isBot?'text-white':'text-muted'}" style="font-size:.75rem;"></i>
+        <div style="width:34px;height:34px;border-radius:50%;background:${isBot?'var(--gold)':'#e0e0e0'};
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+            <i class="fas fa-${isBot?'robot':'user'} ${isBot?'text-white':'text-muted'}" style="font-size:.72rem;"></i>
         </div>
-        <div class="chat-bubble ${isBot?'bot-bubble':'user-bubble'} p-3 rounded-3" style="max-width:80%;">
-            <p class="mb-0 small">${formatted}</p>
-        </div>`;
-
+        <div class="chat-bubble ${isBot?'bot-bubble':'user-bubble'}">${formatted}</div>`;
     container.appendChild(div);
     container.scrollTop = container.scrollHeight;
-    return div;
 }
 
 function appendTyping() {
     const container = document.getElementById('chat-messages');
     const id        = 'typing-' + Date.now();
     const div       = document.createElement('div');
-    div.id          = id;
-    div.className   = 'd-flex gap-3 mb-3';
-    div.innerHTML   = `
-        <div class="flex-shrink-0 rounded-circle d-flex align-items-center justify-content-center"
-             style="width:34px;height:34px;background:var(--gold);align-self:flex-end;">
-            <i class="fas fa-robot text-white" style="font-size:.75rem;"></i>
+    div.id = id; div.className = 'd-flex gap-3 mb-3';
+    div.innerHTML = `
+        <div style="width:34px;height:34px;border-radius:50%;background:var(--gold);
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+            <i class="fas fa-robot text-white" style="font-size:.72rem;"></i>
         </div>
-        <div class="bot-bubble p-3 rounded-3 d-flex align-items-center gap-1" style="min-width:60px;">
+        <div class="bot-bubble" style="padding:12px 16px;display:flex;gap:5px;align-items:center;border-radius:14px;">
             <span class="typing-dot"></span>
             <span class="typing-dot"></span>
             <span class="typing-dot"></span>
@@ -170,8 +222,7 @@ function appendTyping() {
     return id;
 }
 
-function removeTyping(id) {
-    document.getElementById(id)?.remove();
-}
+function removeTyping(id) { document.getElementById(id)?.remove(); }
 </script>
+
 {% endblock %}

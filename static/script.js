@@ -1,90 +1,64 @@
 /**
- * SariKidung - Main JavaScript
- * Tema: Bali Heritage Bronze
+ * SariKidung — Main JavaScript
+ * Theme: Bali Heritage Minimalis
  */
 
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // 1. ANIMASI MUNCUL (FADE-IN UP)
-    // Mencari semua elemen dengan class 'animate'
-    const animateElements = document.querySelectorAll('.animate');
-    
-    const observerOptions = {
-        threshold: 0.1 // Animasi jalan saat 10% elemen terlihat di layar
-    };
+document.addEventListener("DOMContentLoaded", function () {
 
+    // ── 1. INTERSECTION OBSERVER ANIMATION ──────────────────
+    const animEls = document.querySelectorAll('.animate');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
+                entry.target.style.opacity   = "1";
                 entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.08 });
 
-    animateElements.forEach(el => {
-        // Set kondisi awal (tersembunyi)
-        el.style.opacity = "0";
-        el.style.transform = "translateY(30px)";
-        el.style.transition = "all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)";
+    animEls.forEach(el => {
+        el.style.opacity    = "0";
+        el.style.transform  = "translateY(22px)";
+        el.style.transition = "opacity .75s ease, transform .75s cubic-bezier(.165,.84,.44,1)";
         observer.observe(el);
     });
 
-
-    // 2. EFEK NAVBAR SAAT SCROLL
+    // ── 2. NAVBAR SCROLL EFFECT ──────────────────────────────
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('shadow-sm'); // Tambah bayangan saat scroll
-            navbar.style.padding = "10px 0";  // Navbar jadi lebih ramping
-            navbar.style.backgroundColor = "rgba(255, 255, 255, 0.98)";
-        } else {
-            navbar.classList.remove('shadow-sm');
-            navbar.style.padding = "15px 0";  // Navbar kembali normal
-        }
-    });
+    if (navbar) {
+        const onScroll = () => {
+            if (window.scrollY > 40) {
+                navbar.style.boxShadow = "0 2px 18px rgba(0,0,0,.08)";
+            } else {
+                navbar.style.boxShadow = "none";
+            }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
 
-
-    // 3. INISIALISASI BOOTSTRAP TOOLTIP (Optional)
-    // Jika Anda ingin menggunakan fitur penjelasan saat kursor diarahkan ke tombol
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
+    // ── 3. BOOTSTRAP TOOLTIPS ────────────────────────────────
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+        new bootstrap.Tooltip(el);
     });
 
 });
 
-/**
- * 4. FUNGSI PENCARIAN TABEL (Library)
- * Diletakkan di luar agar bisa dipanggil oleh onkeyup="searchTable()"
- */
+// ── 4. LIBRARY SEARCH (called via onkeyup) ───────────────────
 function searchTable() {
-    let input = document.getElementById("searchInput");
-    if (!input) return; // Keluar jika bukan di halaman library
+    const input  = document.getElementById("searchInput");
+    if (!input) return;
+    const filter = input.value.toUpperCase().trim();
+    const rows   = document.querySelectorAll("#kidungTable tbody tr");
+    const noRes  = document.getElementById("noResult");
+    let count    = 0;
 
-    let filter = input.value.toUpperCase();
-    let table = document.getElementById("kidungTable");
-    let tr = table.getElementsByTagName("tr");
-    let noResult = document.getElementById("noResult");
-    let visibleCount = 0;
+    rows.forEach(row => {
+        const text = (row.textContent || row.innerText).toUpperCase();
+        const vis  = text.includes(filter);
+        row.style.display = vis ? "" : "none";
+        if (vis) count++;
+    });
 
-    // Loop semua baris tabel (lewati header index 0)
-    for (let i = 1; i < tr.length; i++) {
-        let textContent = tr[i].textContent || tr[i].innerText;
-        if (textContent.toUpperCase().indexOf(filter) > -1) {
-            tr[i].classList.remove("d-none"); // Tampilkan
-            visibleCount++;
-        } else {
-            tr[i].classList.add("d-none");    // Sembunyikan
-        }
-    }
-
-    // Tampilkan pesan "Data tidak ditemukan" jika hasil kosong
-    if (noResult) {
-        if (visibleCount === 0) {
-            noResult.classList.remove("d-none");
-        } else {
-            noResult.classList.add("d-none");
-        }
-    }
+    if (noRes) noRes.classList.toggle("d-none", count > 0);
 }

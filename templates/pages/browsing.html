@@ -2,14 +2,12 @@
 {% block title %}Expert System - SariKidung{% endblock %}
 
 {% block content %}
-<header class="py-5 text-center text-white" style="background:var(--dark); border-bottom:3px solid var(--gold);">
-    <div class="container animate">
-        <p class="text-uppercase small fw-bold letter-spacing-1 mb-2" style="color:var(--gold);">
-            <i class="fas fa-brain me-2"></i>Rule-Based Expert System
-        </p>
-        <h1 class="display-5 fw-bold mb-2">Konsultasi Kidung Panca Yadnya</h1>
-        <p class="lead opacity-75">Jawab pertanyaan berikut untuk menemukan Kidung yang tepat sesuai konteks upacara Anda.</p>
-    </div>
+
+<header class="page-header animate">
+    <span class="aksara-deco">ᬒᬁ</span>
+    <span class="page-tag"><i class="fas fa-brain me-2"></i>Rule-Based Expert System</span>
+    <h1>Konsultasi Kidung Panca Yadnya</h1>
+    <p>Jawab pertanyaan berikut untuk menemukan Kidung yang tepat sesuai konteks upacara Anda.</p>
 </header>
 
 <div class="container my-5">
@@ -17,34 +15,31 @@
 
         <!-- ══ PANEL KIRI: WIZARD ══ -->
         <div class="col-lg-5 animate">
-            <div class="card border-0 shadow-sm p-4" style="border-radius:15px; min-height:450px;">
-                <h5 class="fw-bold mb-4 pb-2 border-bottom" style="color:var(--gold);">
+            <div class="sk-card p-4" style="min-height:430px;">
+                <h6 class="fw-bold mb-4 pb-2 border-bottom" style="color:var(--gold);font-family:'Poppins',sans-serif;text-transform:uppercase;letter-spacing:1.5px;font-size:.75rem;">
                     <i class="fas fa-question-circle me-2"></i>Konsultasi Pakar
-                </h5>
+                </h6>
 
-                <!-- Progress Bar -->
+                <!-- Progress -->
                 <div class="mb-3" id="progress-wrap" style="display:none;">
-                    <div class="d-flex justify-content-between small text-muted mb-1">
+                    <div class="d-flex justify-content-between mb-1" style="font-size:.78rem;color:var(--muted);">
                         <span id="step-label">Langkah 1</span>
                         <span id="step-fraction"></span>
                     </div>
-                    <div class="progress" style="height:5px; border-radius:10px;">
-                        <div id="progress-bar" class="progress-bar"
-                             style="width:0%; background:var(--gold); transition:width .4s;"></div>
+                    <div class="progress" style="height:4px;border-radius:10px;background:var(--border);">
+                        <div id="progress-bar" class="progress-bar" style="width:0%;background:var(--gold);transition:width .4s;"></div>
                     </div>
                 </div>
 
-                <!-- Area Pertanyaan -->
+                <!-- Pertanyaan -->
                 <div id="question-area">
                     <div class="d-flex justify-content-between align-items-center mb-1">
-                        <p class="text-muted small mb-0" id="step-indicator">Menyiapkan...</p>
-                        <div class="spinner-border spinner-border-sm d-none" id="mini-loader"
-                             style="color:var(--gold);"></div>
+                        <p class="mb-0" id="step-indicator" style="font-size:.78rem;color:var(--muted);">Menyiapkan...</p>
+                        <div class="spinner-border spinner-border-sm d-none" id="mini-loader" style="color:var(--gold);width:14px;height:14px;border-width:2px;"></div>
                     </div>
-                    <h5 class="fw-bold mb-4" id="current-question-text">Memuat pertanyaan...</h5>
+                    <h6 class="fw-bold mb-4" id="current-question-text" style="font-family:'Playfair Display';font-size:1.05rem;">Memuat pertanyaan...</h6>
 
-                    <!-- Hint (muncul khusus Q3 tahap) -->
-                    <div id="hint-box" class="d-none alert alert-light border py-2 px-3 mb-3 small text-muted">
+                    <div id="hint-box" class="d-none alert py-2 px-3 mb-3" style="background:rgba(146,98,55,.06);border:1px solid rgba(146,98,55,.2);border-radius:8px;font-size:.78rem;color:var(--muted);">
                         <i class="fas fa-info-circle me-1" style="color:var(--gold);"></i>
                         <span id="hint-text"></span>
                     </div>
@@ -52,28 +47,25 @@
                     <div id="options-list" class="d-grid gap-2"></div>
                 </div>
 
-                <!-- Area Selesai -->
+                <!-- Selesai -->
                 <div id="finish-area" class="d-none text-center py-4">
-                    <i class="fas fa-clipboard-check text-success mb-3" style="font-size:3.5rem;"></i>
-                    <h5 class="fw-bold">Semua Jawaban Terkumpul!</h5>
-                    <p class="text-muted small mb-4">Klik tombol di bawah untuk memulai pencocokan dengan basis pengetahuan.</p>
-                    <button onclick="submitToAI()" class="btn btn-lg px-5 fw-bold shadow"
-                            style="background:var(--gold); color:#fff;">
+                    <i class="fas fa-clipboard-check mb-3" style="font-size:3rem;color:var(--gold);opacity:.6;"></i>
+                    <h6 class="fw-bold mb-2">Semua Jawaban Terkumpul!</h6>
+                    <p class="text-muted mb-4" style="font-size:.83rem;">Klik tombol di bawah untuk memulai pencocokan dengan basis pengetahuan.</p>
+                    <button onclick="submitToAI()" class="btn btn-bronze px-5 py-2 fw-bold">
                         <i class="fas fa-microchip me-2"></i>Mulai Analisis
                     </button>
                 </div>
 
-                <!-- Ringkasan Pilihan -->
-                <div id="summary-box" class="d-none mt-3 p-3 rounded-3"
-                     style="background:rgba(146,98,55,.06); border:1px solid rgba(146,98,55,.2); font-size:.82rem;">
-                    <p class="fw-bold small mb-2" style="color:var(--gold);">
-                        <i class="fas fa-list-check me-1"></i>Pilihan Anda:
+                <!-- Ringkasan -->
+                <div id="summary-box" class="d-none mt-3 p-3 rounded-3" style="background:rgba(146,98,55,.05);border:1px solid rgba(146,98,55,.18);font-size:.8rem;">
+                    <p class="fw-bold mb-2" style="color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:1px;">
+                        <i class="fas fa-list-check me-1"></i>Pilihan Anda
                     </p>
                     <div id="summary-content"></div>
                 </div>
 
-                <button onclick="resetWizard()"
-                        class="btn btn-sm btn-link text-muted mt-3 p-0 text-decoration-none">
+                <button onclick="resetWizard()" class="btn btn-sm btn-link p-0 mt-3 text-decoration-none" style="color:var(--muted);font-size:.78rem;">
                     <i class="fas fa-sync-alt me-1"></i>Mulai dari awal
                 </button>
             </div>
@@ -82,87 +74,75 @@
         <!-- ══ PANEL KANAN: HASIL ══ -->
         <div class="col-lg-7 position-relative" id="display-area">
 
-            <!-- Loading -->
-            <div id="ai-loader" class="position-absolute top-0 start-0 w-100 h-100
-                 flex-column align-items-center justify-content-center bg-white rounded-4 shadow-sm"
-                 style="z-index:10; opacity:.97; min-height:400px; display:none;">
-                <img src="https://cdn-icons-png.flaticon.com/512/10433/10433048.png"
-                     class="rotating-logo mb-3" style="width:75px;">
-                <h5 class="fw-bold animate-pulse text-center" style="color:var(--gold);">
-                    MENYARING PENGETAHUAN PAKAR...
-                </h5>
-                <p class="text-muted small">Mencocokkan dengan Ontologi Kidung Panca Yadnya</p>
+            <!-- Loading overlay -->
+            <div id="ai-loader" class="position-absolute top-0 start-0 w-100 h-100 flex-column align-items-center justify-content-center bg-white rounded-3"
+                 style="z-index:10;opacity:.97;min-height:400px;display:none;border:1px solid var(--border);">
+                <img src="https://cdn-icons-png.flaticon.com/512/10433/10433048.png" class="rotating-logo mb-3" style="width:64px;opacity:.7;">
+                <h6 class="fw-bold animate-pulse" style="color:var(--gold);">MENYARING PENGETAHUAN PAKAR...</h6>
+                <p class="text-muted" style="font-size:.8rem;">Mencocokkan dengan Ontologi Kidung Panca Yadnya</p>
             </div>
 
             <!-- Welcome -->
-            <div id="welcome-msg" class="card border-0 shadow-sm p-5 text-center bg-light
-                 d-flex flex-column justify-content-center align-items-center"
-                 style="border:2px dashed #ccc !important; min-height:500px; border-radius:15px;">
-                <i class="fas fa-scroll fs-1 text-muted mb-3 opacity-25"></i>
-                <h5 class="text-muted">Selamat datang!</h5>
-                <p class="text-muted small fst-italic">Jawab pertanyaan di panel kiri untuk mulai konsultasi.</p>
-                <div class="mt-3 d-flex gap-4 text-center">
-                    <div><div class="fw-bold fs-4" style="color:var(--gold);">74+</div><small class="text-muted">Koleksi Kidung</small></div>
-                    <div><div class="fw-bold fs-4" style="color:var(--gold);">5</div><small class="text-muted">Jenis Yadnya</small></div>
-                    <div><div class="fw-bold fs-4" style="color:var(--gold);">7</div><small class="text-muted">Tahap Upacara</small></div>
+            <div id="welcome-msg" class="sk-card p-5 text-center d-flex flex-column justify-content-center align-items-center"
+                 style="min-height:480px;border-style:dashed !important;">
+                <div style="font-size:3rem;color:var(--gold);opacity:.15;margin-bottom:.75rem;">ᬒᬁ</div>
+                <h6 class="text-muted mb-2">Selamat datang!</h6>
+                <p class="text-muted fst-italic mb-4" style="font-size:.83rem;">Jawab pertanyaan di panel kiri untuk mulai konsultasi.</p>
+                <div class="d-flex gap-4 text-center">
+                    <div><div class="fw-bold" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">74+</div><small class="text-muted" style="font-size:.72rem;">Koleksi Kidung</small></div>
+                    <div><div class="fw-bold" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">5</div><small class="text-muted" style="font-size:.72rem;">Jenis Yadnya</small></div>
+                    <div><div class="fw-bold" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">7</div><small class="text-muted" style="font-size:.72rem;">Tahap Upacara</small></div>
                 </div>
             </div>
 
             <!-- Fallback -->
-            <div id="fallback-msg" class="d-none card border-warning border-2 p-4 rounded-4">
+            <div id="fallback-msg" class="d-none sk-card p-4 rounded-3" style="border-left:4px solid #f59e0b !important;">
                 <div class="d-flex gap-3 align-items-start">
-                    <i class="fas fa-exclamation-triangle text-warning fs-3 mt-1"></i>
+                    <i class="fas fa-exclamation-triangle mt-1" style="color:#f59e0b;font-size:1.4rem;"></i>
                     <div>
-                        <h5 class="fw-bold">Kidung Belum Tersedia</h5>
-                        <p class="text-muted mb-3" id="fallback-text"></p>
-                        <button onclick="resetWizard()" class="btn btn-sm btn-warning">
+                        <h6 class="fw-bold mb-1">Kidung Belum Tersedia</h6>
+                        <p class="text-muted mb-3" id="fallback-text" style="font-size:.85rem;"></p>
+                        <button onclick="resetWizard()" class="btn btn-sm btn-bronze">
                             <i class="fas fa-redo me-1"></i>Coba Konteks Lain
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- ══ HASIL ══ -->
+            <!-- Hasil -->
             <div id="result-box" class="d-none animate">
-
-                <!-- Konteks summary -->
+                <!-- Konteks -->
                 <div class="p-3 mb-3 rounded-3 d-flex flex-wrap gap-2 align-items-center"
-                     style="background:rgba(146,98,55,.07); border-left:4px solid var(--gold);">
-                    <small class="fw-bold me-1" style="color:var(--gold);">Konteks:</small>
-                    <span id="badge-yadnya"  class="badge bg-white text-dark border shadow-sm"></span>
-                    <span id="badge-upacara" class="badge bg-white text-dark border shadow-sm"></span>
-                    <span id="badge-tahap"   class="badge bg-white text-dark border shadow-sm d-none"></span>
-                    <span id="badge-pura"    class="badge bg-white text-dark border shadow-sm d-none"></span>
-                    <span id="total-ditemukan" class="ms-auto small text-muted"></span>
+                     style="background:rgba(146,98,55,.06);border-left:3px solid var(--gold);">
+                    <small class="fw-bold me-1" style="color:var(--gold);font-size:.72rem;">Konteks:</small>
+                    <span id="badge-yadnya"  class="badge bg-white text-dark border shadow-sm" style="font-size:.72rem;"></span>
+                    <span id="badge-upacara" class="badge bg-white text-dark border shadow-sm" style="font-size:.72rem;"></span>
+                    <span id="badge-tahap"   class="badge bg-white text-dark border shadow-sm d-none" style="font-size:.72rem;"></span>
+                    <span id="badge-pura"    class="badge bg-white text-dark border shadow-sm d-none" style="font-size:.72rem;"></span>
+                    <span id="total-ditemukan" class="ms-auto text-muted" style="font-size:.76rem;"></span>
                 </div>
 
-                <!-- Explanation facility -->
-                <div class="p-3 mb-3 rounded-3"
-                     style="background:#f0fff4; border-left:4px solid #28a745;">
+                <!-- Penjelasan -->
+                <div class="p-3 mb-3 rounded-3" style="background:#f0fff4;border-left:3px solid #28a745;">
                     <div class="d-flex gap-2 align-items-start">
-                        <i class="fas fa-lightbulb text-success mt-1 flex-shrink-0"></i>
+                        <i class="fas fa-lightbulb mt-1 flex-shrink-0" style="color:#28a745;font-size:.9rem;"></i>
                         <div>
-                            <small class="fw-bold text-success d-block mb-1">MENGAPA KIDUNG INI DIREKOMENDASIKAN?</small>
-                            <p id="explanation-text" class="mb-0 small text-muted"></p>
+                            <small class="fw-bold d-block mb-1" style="color:#28a745;font-size:.68rem;text-transform:uppercase;letter-spacing:1px;">Mengapa kidung ini direkomendasikan?</small>
+                            <p id="explanation-text" class="mb-0 text-muted" style="font-size:.82rem;"></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Container kidung per tahap -->
                 <div id="tahap-container"></div>
 
-                <!-- Aksi -->
                 <div class="d-flex gap-2 mt-3 flex-wrap">
-                    <button onclick="window.print()"
-                            class="btn btn-sm btn-outline-secondary">
+                    <button onclick="window.print()" class="btn btn-sm btn-outline-secondary" style="font-size:.8rem;">
                         <i class="fas fa-print me-1"></i>Cetak
                     </button>
-                    <button onclick="resetWizard()"
-                            class="btn btn-sm btn-outline-secondary" style="border-color:var(--gold);color:var(--gold);">
+                    <button onclick="resetWizard()" class="btn btn-sm" style="font-size:.8rem;border:1.5px solid var(--gold);color:var(--gold);border-radius:6px;">
                         <i class="fas fa-redo me-1"></i>Konsultasi Baru
                     </button>
-                    <a href="{{ url_for('questionnaire') }}"
-                       class="btn btn-sm btn-outline-secondary">
+                    <a href="{{ url_for('questionnaire') }}" class="btn btn-sm btn-outline-secondary" style="font-size:.8rem;">
                         <i class="fas fa-comment me-1"></i>Beri Feedback
                     </a>
                 </div>
@@ -172,73 +152,29 @@
 </div>
 
 <style>
-.text-bronze   { color: var(--gold) !important; }
-.rotating-logo { animation: rotateLogo 2.5s linear infinite; }
-.animate-pulse { animation: pulseText 1.5s infinite; }
-@keyframes rotateLogo { to { transform: rotate(360deg); } }
-@keyframes pulseText  { 0%,100%{opacity:1;} 50%{opacity:.4;} }
-
 .btn-option {
-    background: #fff;
-    border: 1px solid #dee2e6;
-    text-align: left;
-    padding: .7rem 1rem;
-    border-radius: 8px;
-    font-size: .88rem;
-    transition: all .2s;
-    cursor: pointer;
-    width: 100%;
+    background:#fff;border:1px solid var(--border);text-align:left;padding:.62rem 1rem;
+    border-radius:8px;font-size:.85rem;transition:var(--transition);cursor:pointer;width:100%;color:var(--text);
 }
-.btn-option:hover {
-    background: rgba(146,98,55,.06);
-    border-color: var(--gold);
-    color: var(--gold);
-    transform: translateX(4px);
-}
-.btn-option.is-semua {
-    border-style: dashed;
-    border-color: var(--gold);
-    color: var(--gold);
-    font-weight: 600;
-    background: rgba(146,98,55,.03);
-}
-.btn-option.is-semua:hover {
-    background: rgba(146,98,55,.12);
-}
-
-.tahap-card {
-    border-left: 4px solid var(--gold);
-    border-radius: 0 12px 12px 0;
-    margin-bottom: 1rem;
-}
-.tahap-card.is-utama {
-    border-left-color: #28a745;
-}
-.tahap-card.mode-single {
-    border-left-color: #0d6efd;
-    border-width: 5px;
-}
+.btn-option:hover { background:var(--gold-light);border-color:var(--gold);color:var(--gold);transform:translateX(3px); }
+.btn-option.is-semua { border-style:dashed;border-color:var(--gold);color:var(--gold);font-weight:600;background:rgba(146,98,55,.03); }
+.btn-option.is-semua:hover { background:rgba(146,98,55,.1); }
+.tahap-card { border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;margin-bottom:.8rem;background:#fff;box-shadow:var(--shadow-sm); }
+.tahap-card.is-utama { border-left-color:#28a745;border-left-width:4px; }
+.tahap-card.mode-single { border-left-width:4px; }
 @media print {
-    .navbar, footer, #question-area, #finish-area, .btn,
-    #konteks-summary, #progress-wrap, #summary-box { display:none!important; }
-    .card { box-shadow: none!important; border: 1px solid #ddd!important; }
+    .navbar,footer,#question-area,#finish-area,.btn,#progress-wrap,#summary-box{display:none!important;}
+    .card{box-shadow:none!important;border:1px solid #ddd!important;}
 }
 </style>
 
 <script>
 const SEMUA_TAHAP = "── Semua Tahap (Panduan Lengkap) ──";
-const LABEL_MAP = {
-    yadnya: 'Yadnya', upacara: 'Upacara',
-    tahap: 'Tahap', pura: 'Pura'
-};
+const LABEL_MAP = { yadnya:'Yadnya', upacara:'Upacara', tahap:'Tahap', pura:'Pura' };
+let userChoices = {}, selectionHistory = [];
 
-let userChoices = {};
-let selectionHistory = [];
-
-// ─── INIT ─────────────────────────────────────────────────────
 async function initWizard() {
-    userChoices = {};
-    selectionHistory = [];
+    userChoices = {}; selectionHistory = [];
     show('question-area'); hide('finish-area');
     hide('result-box'); hide('fallback-msg'); show('welcome-msg');
     hide('summary-box'); hide('hint-box');
@@ -246,315 +182,159 @@ async function initWizard() {
     await getNextOptions();
 }
 
-// ─── GET OPTIONS ──────────────────────────────────────────────
 async function getNextOptions() {
     setLoading(true);
     try {
-        const res  = await post('/get_filtered_options', userChoices);
+        const res = await post('/get_filtered_options', userChoices);
         const data = await res.json();
-
-        if (data.status === 'next') {
-            renderButtons(data);
-        } else {
-            // Semua pertanyaan selesai → tampilkan tombol analisis
-            show('finish-area'); hide('question-area');
-            document.getElementById('progress-wrap').style.display = 'none';
-            renderSummary();
-        }
-    } catch(e) { console.error(e); }
-    finally { setLoading(false); }
+        if (data.status === 'next') { renderButtons(data); }
+        else { show('finish-area'); hide('question-area'); document.getElementById('progress-wrap').style.display='none'; renderSummary(); }
+    } catch(e) { console.error(e); } finally { setLoading(false); }
 }
 
-// ─── RENDER BUTTONS ───────────────────────────────────────────
 function renderButtons(data) {
-    const { options, next_feature: feat, step, total_steps: total, hint } = data;
+    const { options, next_feature:feat, step, total_steps:total, hint } = data;
     const container = document.getElementById('options-list');
-
-    document.getElementById('current-question-text').textContent =
-        data.label || `Pilih ${feat}:`;
-    document.getElementById('step-indicator').textContent =
-        `Pertanyaan ${step} dari ${total}`;
-
-    // Progress bar
-    const pw = document.getElementById('progress-wrap');
-    pw.style.display = 'block';
+    document.getElementById('current-question-text').textContent = data.label || `Pilih ${feat}:`;
+    document.getElementById('step-indicator').textContent = `Pertanyaan ${step} dari ${total}`;
+    const pw = document.getElementById('progress-wrap'); pw.style.display = 'block';
     document.getElementById('step-label').textContent    = `Pertanyaan ${step}`;
     document.getElementById('step-fraction').textContent = `${step} / ${total}`;
-    document.getElementById('progress-bar').style.width  =
-        `${Math.round((step / total) * 100)}%`;
-
-    // Hint (khusus Q3 tahap)
-    if (hint) {
-        document.getElementById('hint-text').textContent = hint;
-        show('hint-box');
-    } else {
-        hide('hint-box');
-    }
-
+    document.getElementById('progress-bar').style.width  = `${Math.round((step/total)*100)}%`;
+    if (hint) { document.getElementById('hint-text').textContent=hint; show('hint-box'); } else { hide('hint-box'); }
     container.innerHTML = '';
-
-    // Tombol kembali
     if (Object.keys(userChoices).length > 0) {
         const back = document.createElement('button');
-        back.className = 'btn btn-sm btn-link text-muted mb-2 p-0 text-decoration-none';
-        back.innerHTML = '<i class="fas fa-arrow-left me-1"></i>Kembali';
-        back.onclick   = goBack;
+        back.className='btn btn-sm btn-link text-muted mb-2 p-0 text-decoration-none'; back.style.fontSize='.78rem';
+        back.innerHTML='<i class="fas fa-arrow-left me-1"></i>Kembali'; back.onclick=goBack;
         container.appendChild(back);
     }
-
     options.forEach(opt => {
         const btn = document.createElement('button');
         const isSemua = opt === SEMUA_TAHAP;
-        btn.className = `btn-option ${isSemua ? 'is-semua' : ''}`;
-
+        btn.className = `btn-option ${isSemua?'is-semua':''}`;
         const label = opt.replace(/_Ref/g,'').replace(/_/g,' ');
         btn.innerHTML = isSemua
             ? `<i class="fas fa-list-ol me-2"></i>${label}`
-            : `<i class="fas fa-chevron-right me-2 small opacity-40" style="color:var(--gold)"></i>${label}`;
-
-        btn.onclick = () => {
-            selectionHistory.push(feat);
-            userChoices[feat] = opt;
-            getNextOptions();
-        };
+            : `<i class="fas fa-chevron-right me-2" style="font-size:.7rem;color:var(--gold);opacity:.5;"></i>${label}`;
+        btn.onclick = () => { selectionHistory.push(feat); userChoices[feat]=opt; getNextOptions(); };
         container.appendChild(btn);
     });
 }
 
-// ─── RINGKASAN PILIHAN ────────────────────────────────────────
 function renderSummary() {
-    const box     = document.getElementById('summary-box');
-    const content = document.getElementById('summary-content');
     show('summary-box');
-
-    content.innerHTML = Object.entries(userChoices).map(([k, v]) => {
+    document.getElementById('summary-content').innerHTML = Object.entries(userChoices).map(([k,v]) => {
         const label = v.replace(/_Ref/g,'').replace(/_/g,' ');
         const isSemua = v === SEMUA_TAHAP;
         return `<div class="d-flex justify-content-between mb-1">
-            <span class="text-muted">${LABEL_MAP[k]||k}:</span>
-            <span class="fw-bold ${isSemua ? '' : ''}" style="color:var(--dark);">
-                ${isSemua ? '<span style="color:var(--gold);">Panduan Lengkap</span>' : label}
-            </span>
-        </div>`;
+            <span class="text-muted" style="font-size:.79rem;">${LABEL_MAP[k]||k}:</span>
+            <span class="fw-bold" style="color:var(--dark);font-size:.79rem;">
+                ${isSemua?`<span style="color:var(--gold);">Panduan Lengkap</span>`:label}
+            </span></div>`;
     }).join('');
 }
 
-// ─── BACK ─────────────────────────────────────────────────────
 function goBack() {
     if (selectionHistory.length > 0) {
-        const last = selectionHistory.pop();
-        delete userChoices[last];
-        show('question-area'); hide('finish-area'); hide('summary-box');
-        getNextOptions();
+        const last = selectionHistory.pop(); delete userChoices[last];
+        show('question-area'); hide('finish-area'); hide('summary-box'); getNextOptions();
     }
 }
 
-// ─── SUBMIT TO AI ─────────────────────────────────────────────
 async function submitToAI() {
     const loader = document.getElementById('ai-loader');
-
     hide('welcome-msg'); hide('result-box'); hide('fallback-msg');
-    // Tampilkan loader pakai style display (hindari konflik d-none vs d-flex)
     loader.style.display = 'flex';
-
-    document.getElementById('finish-area').innerHTML =
-        `<div class="py-3 text-center">
-            <div class="spinner-border mb-2" style="color:var(--gold);"></div>
-            <p class="text-muted small">Menganalisis...</p>
-         </div>`;
-
+    document.getElementById('finish-area').innerHTML = `<div class="py-3 text-center"><div class="spinner-border mb-2" style="color:var(--gold);width:1.5rem;height:1.5rem;border-width:2px;"></div><p class="text-muted" style="font-size:.8rem;">Menganalisis...</p></div>`;
     try {
-        const res  = await post('/predict', userChoices);
-
-        // Cek apakah response OK sebelum parse JSON
-        if (!res.ok) {
-            throw new Error(`Server error: ${res.status}`);
-        }
-
+        const res = await post('/predict', userChoices);
+        if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const data = await res.json();
-        await delay(1000);
-
+        await delay(900);
         if (data.status === 'fallback') {
             document.getElementById('fallback-text').textContent = data.message;
             show('fallback-msg');
-            // Restore panel kiri
-            document.getElementById('finish-area').innerHTML = `
-                <i class="fas fa-exclamation-circle text-warning mb-2" style="font-size:2.5rem;"></i>
-                <p class="small text-muted">Tidak ditemukan. Coba konteks lain.</p>
-                <button onclick="resetWizard()" class="btn btn-sm btn-outline-secondary mt-2">
-                    <i class="fas fa-redo me-1"></i>Coba Lagi
-                </button>`;
+            document.getElementById('finish-area').innerHTML = `<i class="fas fa-exclamation-circle mb-2" style="font-size:2rem;color:#f59e0b;"></i><p class="text-muted" style="font-size:.8rem;">Tidak ditemukan. Coba konteks lain.</p><button onclick="resetWizard()" class="btn btn-sm btn-bronze mt-2"><i class="fas fa-redo me-1"></i>Coba Lagi</button>`;
         } else if (data.status === 'success') {
-            renderResults(data);
-            show('result-box');
-            // Restore panel kiri — tampilkan konfirmasi selesai
-            document.getElementById('finish-area').innerHTML = `
-                <i class="fas fa-check-circle text-success mb-2" style="font-size:2.5rem;"></i>
-                <h6 class="fw-bold">Selesai!</h6>
-                <p class="small text-muted mb-3">Hasil ditampilkan di panel kanan.</p>
-                <button onclick="resetWizard()" class="btn btn-sm btn-outline-secondary">
-                    <i class="fas fa-redo me-1"></i>Konsultasi Baru
-                </button>`;
-        } else {
-            alert(data.message || 'Terjadi kesalahan pada sistem.');
-            resetWizard();
-        }
-    } catch(e) {
-        console.error('submitToAI error:', e);
-        alert(`Gagal terhubung ke server.\nDetail: ${e.message}`);
-        resetWizard();
-    } finally {
-        // Sembunyikan loader — pakai display:none agar pasti jalan
-        loader.style.display = 'none';
-    }
+            renderResults(data); show('result-box');
+            document.getElementById('finish-area').innerHTML = `<i class="fas fa-check-circle mb-2" style="font-size:2rem;color:#28a745;"></i><h6 class="fw-bold">Selesai!</h6><p class="text-muted mb-3" style="font-size:.8rem;">Hasil ditampilkan di panel kanan.</p><button onclick="resetWizard()" class="btn btn-sm btn-bronze"><i class="fas fa-redo me-1"></i>Konsultasi Baru</button>`;
+        } else { alert(data.message||'Terjadi kesalahan.'); resetWizard(); }
+    } catch(e) { console.error(e); alert(`Gagal terhubung.\n${e.message}`); resetWizard(); }
+    finally { loader.style.display='none'; }
 }
 
-// ─── RENDER RESULTS ───────────────────────────────────────────
 function renderResults(data) {
-    const ctx       = data.konteks || userChoices;
+    const ctx = data.konteks || userChoices;
     const modeSemua = data.mode_semua_tahap;
-
-    // Badge konteks
-    setBadge('badge-yadnya',  'Yadnya',  ctx.yadnya);
-    setBadge('badge-upacara', 'Upacara', ctx.upacara);
-
-    if (ctx.tahap && ctx.tahap !== 'None') {
-        const tahapLabel = ctx.tahap === SEMUA_TAHAP ? 'Semua Tahap' : ctx.tahap;
-        setBadge('badge-tahap', 'Tahap', tahapLabel);
-        show('badge-tahap');
-    }
-    if (ctx.pura && ctx.pura !== 'None') {
-        setBadge('badge-pura', 'Pura', ctx.pura);
-        show('badge-pura');
-    }
-
-    const total = data.total_ditemukan || 0;
-    document.getElementById('total-ditemukan').textContent =
-        modeSemua
-            ? `${total} kidung ditemukan (semua tahap)`
-            : `${total} kidung ditemukan`;
-
-    // Explanation
-    document.getElementById('explanation-text').innerHTML = data.explanation || '';
-
-    // Kidung per tahap
+    setBadge('badge-yadnya','Yadnya',ctx.yadnya);
+    setBadge('badge-upacara','Upacara',ctx.upacara);
+    if (ctx.tahap && ctx.tahap!=='None') { setBadge('badge-tahap','Tahap',ctx.tahap===SEMUA_TAHAP?'Semua Tahap':ctx.tahap); show('badge-tahap'); }
+    if (ctx.pura  && ctx.pura !=='None') { setBadge('badge-pura','Pura',ctx.pura); show('badge-pura'); }
+    const total = data.total_ditemukan||0;
+    document.getElementById('total-ditemukan').textContent = modeSemua?`${total} kidung (semua tahap)`:`${total} kidung ditemukan`;
+    document.getElementById('explanation-text').innerHTML = data.explanation||'';
     const container = document.getElementById('tahap-container');
     container.innerHTML = '';
-    const kidungs = data.kidung_per_tahap || [];
-
-    if (!kidungs.length) {
-        container.innerHTML = '<p class="text-muted fst-italic small">Tidak ada kidung ditemukan.</p>';
-        return;
-    }
-
-    // Judul section
-    const sectionTitle = document.createElement('h6');
-    sectionTitle.className = 'fw-bold mb-3 text-uppercase';
-    sectionTitle.style.letterSpacing = '1px';
-    sectionTitle.style.color = 'var(--gold)';
-    sectionTitle.innerHTML = modeSemua
-        ? `<i class="fas fa-list-ol me-2"></i>Panduan Lengkap — ${kidungs.length} Kidung per Tahap`
-        : `<i class="fas fa-scroll me-2"></i>Hasil Konsultasi`;
-    container.appendChild(sectionTitle);
-
-    kidungs.forEach((k, i) => {
-        const isUtama  = (k.judul === data.judul);
-        const isSingle = !modeSemua;
-        const card     = document.createElement('div');
-
-        card.className = `card border-0 shadow-sm tahap-card ${isUtama&&modeSemua?'is-utama':''} ${isSingle?'mode-single':''}`;
-
-        const tahap    = k.tahap || '-';
-        const validasi = k.status_validasi || 'Belum Divalidasi';
-        const vBadge   = validasi === 'Tervalidasi'
-            ? `<span class="badge bg-success" style="font-size:.65rem;"><i class="fas fa-check-circle me-1"></i>${validasi}</span>`
-            : `<span class="badge bg-warning text-dark" style="font-size:.65rem;"><i class="fas fa-clock me-1"></i>${validasi}</span>`;
-
-        card.innerHTML = `
-        <div class="card-header bg-white border-bottom py-2 px-3 d-flex justify-content-between align-items-center flex-wrap gap-1">
-            <div class="fw-bold small d-flex align-items-center gap-2">
-                ${modeSemua
-                    ? `<span class="badge" style="background:var(--gold);">TAHAP ${i+1}</span>
-                       <span class="text-uppercase">${esc(tahap)}</span>`
-                    : `<span class="badge bg-primary">Hasil Rekomendasi</span>
-                       <span class="text-uppercase">${esc(tahap)}</span>`}
-                ${isUtama && modeSemua ? '<span class="badge bg-success ms-1">★ Rekomendasi AI</span>' : ''}
-            </div>
-            ${vBadge}
+    const kidungs = data.kidung_per_tahap||[];
+    if (!kidungs.length) { container.innerHTML='<p class="text-muted fst-italic" style="font-size:.85rem;">Tidak ada kidung ditemukan.</p>'; return; }
+    const sec = document.createElement('h6');
+    sec.className='fw-bold mb-3'; sec.style.cssText='color:var(--gold);font-family:Poppins,sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;';
+    sec.innerHTML = modeSemua?`<i class="fas fa-list-ol me-2"></i>Panduan Lengkap — ${kidungs.length} Kidung per Tahap`:`<i class="fas fa-scroll me-2"></i>Hasil Konsultasi`;
+    container.appendChild(sec);
+    kidungs.forEach((k,i) => {
+        const isUtama=k.judul===data.judul; const isSingle=!modeSemua;
+        const card = document.createElement('div');
+        card.className=`card border-0 tahap-card ${isUtama&&modeSemua?'is-utama':''} ${isSingle?'mode-single':''}`;
+        const validasi=k.status_validasi||'Belum Divalidasi';
+        const vBadge = validasi==='Tervalidasi'
+            ? `<span class="badge bg-success" style="font-size:.62rem;"><i class="fas fa-check-circle me-1"></i>${validasi}</span>`
+            : `<span class="badge bg-warning text-dark" style="font-size:.62rem;"><i class="fas fa-clock me-1"></i>${validasi}</span>`;
+        card.innerHTML=`
+        <div class="card-header bg-white border-bottom py-2 px-3 d-flex justify-content-between align-items-center flex-wrap gap-1" style="border-radius:0 var(--radius) 0 0 !important;">
+            <div class="fw-bold d-flex align-items-center gap-2" style="font-size:.8rem;">
+                ${modeSemua?`<span class="badge" style="background:var(--gold);font-size:.62rem;">TAHAP ${i+1}</span><span class="text-uppercase">${esc(k.tahap||'-')}</span>`:
+                            `<span class="badge bg-primary" style="font-size:.62rem;">Rekomendasi</span><span class="text-uppercase">${esc(k.tahap||'-')}</span>`}
+                ${isUtama&&modeSemua?'<span class="badge bg-success" style="font-size:.62rem;">★ AI</span>':''}
+            </div>${vBadge}
         </div>
         <div class="card-body p-3">
-            <h5 class="fw-bold mb-1">${esc(k.judul||'-')}</h5>
+            <h6 class="fw-bold mb-2" style="font-family:'Playfair Display';font-size:1rem;">${esc(k.judul||'-')}</h6>
             <div class="d-flex gap-2 flex-wrap mb-3">
-                ${k.jenis_sekar ? `<span class="badge bg-light text-dark border small">${esc(k.jenis_sekar)}</span>` : ''}
-                ${k.bahasa      ? `<span class="badge bg-light text-dark border small">${esc(k.bahasa)}</span>` : ''}
-                ${k.pola_melodi && k.pola_melodi !== '-'
-                    ? `<span class="badge bg-light text-dark border small">
-                           <i class="fas fa-music me-1" style="color:var(--gold);"></i>${esc(k.pola_melodi)}
-                       </span>` : ''}
+                ${k.jenis_sekar?`<span class="badge bg-light text-dark border" style="font-size:.7rem;">${esc(k.jenis_sekar)}</span>`:''}
+                ${k.bahasa?`<span class="badge bg-light text-dark border" style="font-size:.7rem;">${esc(k.bahasa)}</span>`:''}
+                ${k.pola_melodi&&k.pola_melodi!=='-'?`<span class="badge bg-light text-dark border" style="font-size:.7rem;"><i class="fas fa-music me-1" style="color:var(--gold);"></i>${esc(k.pola_melodi)}</span>`:''}
             </div>
-
-            <!-- Teks Kidung -->
-            <div class="p-3 rounded-3 mb-3" style="background:#fcf9f6; border:1px solid #f0e8de;">
-                <p class="small fw-bold mb-2" style="color:var(--gold);">
-                    <i class="fas fa-scroll me-1"></i>TEKS KIDUNG:
-                </p>
-                <div class="text-center lh-lg"
-                     style="white-space:pre-line; font-family:Georgia,serif; font-style:italic; font-size:.88rem;">
-                    ${esc(k.teks||'Teks belum tersedia.')}
-                </div>
+            <div class="p-3 rounded-3 mb-3" style="background:var(--bg-soft);border:1px solid var(--border);">
+                <p class="fw-bold mb-2" style="color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;font-family:Poppins,sans-serif;"><i class="fas fa-scroll me-1"></i>Teks Kidung</p>
+                <div class="text-center lh-lg" style="white-space:pre-line;font-family:Georgia,serif;font-style:italic;font-size:.86rem;">${esc(k.teks||'Teks belum tersedia.')}</div>
             </div>
-
-            <!-- Makna Mendalam -->
-            <div class="p-3 rounded-3 mb-3 bg-dark text-white">
-                <p class="small fw-bold mb-2" style="color:#d4af37;">
-                    <i class="fas fa-lightbulb me-1"></i>MAKNA MENDALAM:
-                </p>
-                <p class="mb-0 small opacity-90" style="text-align:justify; line-height:1.7;">
-                    ${esc(k.makna_mendalam||k.makna||'Makna belum tersedia.')}
-                </p>
+            <div class="p-3 rounded-3 mb-3" style="background:var(--dark);">
+                <p class="fw-bold mb-2" style="color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;font-family:Poppins,sans-serif;"><i class="fas fa-lightbulb me-1"></i>Makna Mendalam</p>
+                <p class="mb-0 opacity-85" style="color:rgba(255,255,255,.85);font-size:.83rem;text-align:justify;line-height:1.75;">${esc(k.makna_mendalam||k.makna||'Makna belum tersedia.')}</p>
             </div>
-
-            <!-- Teknik Menyanyi -->
-            <div class="p-3 rounded-3" style="background:rgba(146,98,55,.06); border:1px solid rgba(146,98,55,.15);">
-                <p class="small fw-bold mb-2" style="color:var(--gold);">
-                    <i class="fas fa-music me-1"></i>TEKNIK MENYANYI:
-                </p>
-                <p class="mb-0 small text-muted">${esc(k.teknik_menyanyi||'Teknik belum tersedia.')}</p>
+            <div class="p-3 rounded-3" style="background:rgba(146,98,55,.05);border:1px solid rgba(146,98,55,.14);">
+                <p class="fw-bold mb-2" style="color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;font-family:Poppins,sans-serif;"><i class="fas fa-music me-1"></i>Teknik Menyanyi</p>
+                <p class="mb-0 text-muted" style="font-size:.83rem;">${esc(k.teknik_menyanyi||'Teknik belum tersedia.')}</p>
             </div>
-
-            ${k.sumber && k.sumber !== '-'
-                ? `<p class="small text-muted mt-2 mb-0">
-                       <i class="fas fa-book me-1"></i><strong>Sumber:</strong> ${esc(k.sumber)}
-                   </p>` : ''}
+            ${k.sumber&&k.sumber!=='-'?`<p class="text-muted mt-2 mb-0" style="font-size:.78rem;"><i class="fas fa-book me-1"></i><strong>Sumber:</strong> ${esc(k.sumber)}</p>`:''}
         </div>`;
         container.appendChild(card);
     });
 }
 
-// ─── HELPERS ──────────────────────────────────────────────────
-function setBadge(id, label, val) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const v = (val||'').replace(/── /g,'').replace(/ ──/g,'').replace(/_Ref/g,'').replace(/_/g,' ');
-    el.innerHTML = `<b style="color:var(--gold);">${label}:</b> ${v}`;
+function setBadge(id,label,val) {
+    const el=document.getElementById(id); if(!el) return;
+    const v=(val||'').replace(/── /g,'').replace(/ ──/g,'').replace(/_Ref/g,'').replace(/_/g,' ');
+    el.innerHTML=`<b style="color:var(--gold);">${label}:</b> ${v}`;
 }
-function show(id) { document.getElementById(id)?.classList.remove('d-none'); }
-function hide(id) { document.getElementById(id)?.classList.add('d-none'); }
-function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
-function setLoading(on) {
-    const el = document.getElementById('mini-loader');
-    if (el) on ? el.classList.remove('d-none') : el.classList.add('d-none');
-}
-function post(url, body) {
-    return fetch(url, { method:'POST',
-        headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
-}
-function esc(str) {
-    if (!str) return '';
-    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-function resetWizard() { location.reload(); }
-
+function show(id){ document.getElementById(id)?.classList.remove('d-none'); }
+function hide(id){ document.getElementById(id)?.classList.add('d-none'); }
+function delay(ms){ return new Promise(r=>setTimeout(r,ms)); }
+function setLoading(on){ const el=document.getElementById('mini-loader'); if(el) on?el.classList.remove('d-none'):el.classList.add('d-none'); }
+function post(url,body){ return fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); }
+function esc(str){ if(!str) return ''; return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function resetWizard(){ location.reload(); }
 document.addEventListener('DOMContentLoaded', initWizard);
 </script>
 {% endblock %}

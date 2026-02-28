@@ -1,45 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SariKidung - Digital Wisdom</title>
+    <title>SariKidung - The Sacred Chants</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body class="bg-dark overflow-hidden">
-    <section class="d-flex align-items-center justify-content-center vh-100 position-relative" style="
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
-                    url('https://images.unsplash.com/photo-1573790328299-fc8d8d5ae61e?q=80&w=1600');
-        background-size: cover;
-        background-position: center;
-    ">
-        <div class="animate text-center p-5 rounded-1 shadow-lg" style="
-            max-width: 600px;
-            border: 1px solid rgba(146, 98, 55, 0.4);
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(15px);
-        ">
-            <p class="text-uppercase mb-4 text-bronze" style="letter-spacing: 6px; font-size: 0.8rem;">
-                The Sacred Chants Ontology
-            </p>
-            
-            <h1 class="display-1 fw-bold text-white mb-0" style="font-family: 'Playfair Display';">
-                Sari<span class="text-bronze">Kidung</span>
-            </h1>
-            
-            <div style="width: 80px; height: 2px; background: var(--gold); margin: 30px auto;"></div>
-            
-            <p class="text-white-50 fs-5 mb-5 fst-italic fw-light">
-                "Transforming Balinese Oral Tradition into Digital Wisdom"
-            </p>
-            
-            <a href="{{ url_for('home') }}" class="btn btn-bronze px-5 py-3 rounded-0 text-uppercase fw-bold" style="letter-spacing: 3px;">
-                ENTER ARCHIVE
-            </a>
-        </div>
-    </section>
+<body class="overflow-hidden" style="background:#0a0602;">
+<section class="d-flex align-items-center justify-content-center vh-100 position-relative"
+         style="background:linear-gradient(rgba(0,0,0,.65),rgba(10,6,2,.9)),url('https://images.unsplash.com/photo-1573790328299-fc8d8d5ae61e?q=80&w=1600') center/cover;">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="text-center p-4 p-md-5 animate" style="max-width:560px;">
+        <p style="color:var(--gold);letter-spacing:6px;font-size:.72rem;text-transform:uppercase;margin-bottom:1.5rem;opacity:.8;">The Sacred Chants Ontology</p>
+
+        <div style="font-size:2rem;color:var(--gold);opacity:.2;letter-spacing:12px;margin-bottom:1rem;">ᬒᬁ</div>
+
+        <h1 class="fw-bold text-white mb-0" style="font-family:'Playfair Display';font-size:clamp(3rem,8vw,5rem);line-height:1;">
+            Sari<span style="color:var(--gold);">Kidung</span>
+        </h1>
+
+        <div style="width:60px;height:1px;background:var(--gold);margin:1.75rem auto;opacity:.5;"></div>
+
+        <p class="fst-italic fw-light mb-5" style="color:rgba(255,255,255,.4);font-size:.95rem;line-height:1.7;">
+            "Transforming Balinese Oral Tradition<br>into Digital Wisdom"
+        </p>
+
+        <a href="{{ url_for('home') }}" class="btn btn-bronze px-5 py-3 fw-bold text-uppercase"
+           style="letter-spacing:2.5px;font-size:.84rem;border-radius:4px;">
+            Enter Archive
+        </a>
+    </div>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+    const el = document.querySelector('.animate');
+    if(el){ setTimeout(()=>{ el.style.opacity='1'; el.style.transform='translateY(0)'; },100); }
+});
+</script>
 </body>
 </html>
