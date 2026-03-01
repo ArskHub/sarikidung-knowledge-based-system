@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login — SariKidung</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --gold: #926237;
+      --dark: #1a1a1b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    /* aksara bg dekorasi */
+    body::before {
+      content: 'ᬒᬁ';
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 28rem;
+      color: rgba(146,98,55,.04);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .login-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.75rem 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 24px 60px rgba(0,0,0,.4);
+      border-top: 4px solid var(--gold);
+    }
+
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .logo-mark {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      border: 2px solid var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .75rem;
+    }
+    .logo-mark span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -.5px;
+    }
+    .logo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--dark);
+      margin: 0;
+    }
+    .logo-title span { color: var(--gold); }
+    .logo-sub {
+      font-size: .75rem;
+      color: #aaa;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: .2rem;
+    }
+
+    .form-label {
+      font-size: .8rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: .4rem;
+    }
+    .form-control {
+      border-radius: 10px;
+      border: 1.5px solid #e8e0d8;
+      padding: .65rem 1rem;
+      font-size: .88rem;
+      transition: border-color .2s;
+    }
+    .form-control:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(146,98,55,.1);
+    }
+    .input-group-text {
+      border-radius: 10px 0 0 10px;
+      border: 1.5px solid #e8e0d8;
+      border-right: none;
+      background: #fdf9f5;
+      color: var(--gold);
+    }
+    .input-group .form-control {
+      border-radius: 0 10px 10px 0;
+      border-left: none;
+    }
+    .input-group:focus-within .input-group-text,
+    .input-group:focus-within .form-control {
+      border-color: var(--gold);
+    }
+
+    .btn-login {
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: .75rem;
+      font-weight: 600;
+      font-size: .9rem;
+      width: 100%;
+      transition: background .2s, transform .15s;
+    }
+    .btn-login:hover {
+      background: #7a512d;
+      transform: translateY(-1px);
+    }
+
+    .alert {
+      border-radius: 10px;
+      font-size: .84rem;
+      padding: .7rem 1rem;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 1.25rem;
+    }
+    .back-link a {
+      color: #aaa;
+      font-size: .8rem;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .back-link a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <div class="logo-mark"><span>SK</span></div>
+      <h1 class="logo-title">SARI<span>KIDUNG</span></h1>
+      <p class="logo-sub">Admin Panel</p>
+    </div>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat, msg in messages %}
+          <div class="alert alert-{{ 'danger' if cat == 'danger' else 'success' if cat == 'success' else 'warning' }} mb-3">
+            <i class="fas fa-{{ 'exclamation-circle' if cat == 'danger' else 'check-circle' if cat == 'success' else 'info-circle' }} me-2"></i>{{ msg }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Form -->
+    <form method="POST" action="{{ url_for('admin_login') }}">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-user fa-sm"></i></span>
+          <input type="text" name="username" class="form-control"
+                 placeholder="Username admin" required autocomplete="username"/>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-lock fa-sm"></i></span>
+          <input type="password" name="password" class="form-control"
+                 placeholder="Password" required autocomplete="current-password"/>
+        </div>
+      </div>
+      <button type="submit" class="btn-login">
+        <i class="fas fa-sign-in-alt me-2"></i>Masuk ke Panel Admin
+      </button>
+    </form>
+
+    <div class="back-link">
+      <a href="{{ url_for('home') }}"><i class="fas fa-arrow-left me-1"></i>Kembali ke SariKidung</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

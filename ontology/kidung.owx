@@ -188,6 +188,13 @@
         <DataProperty IRI="#sumberData"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#url_audio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#platform_audio"/>
+    </Declaration>
+
+    <Declaration>
         <DataProperty IRI="#teksKidung"/>
     </Declaration>
     <Declaration>
@@ -8642,6 +8649,16 @@ iwang suruping banyu asri.</Literal>
         <DataProperty IRI="#polaMelodi"/>
         <NamedIndividual IRI="#Kidung_PancaYadnya_PamujianRingBhatara"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Umum</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#url_audio"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Wargasari_Pengawit"/>
+        <Literal>https://soundcloud.com/sayu-arnely/kidung-purwakaning-wargasari</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#platform_audio"/>
+        <NamedIndividual IRI="#Kidung_DewaYadnya_Wargasari_Pengawit"/>
+        <Literal>soundcloud</Literal>
     </DataPropertyAssertion>
 </Ontology>
 

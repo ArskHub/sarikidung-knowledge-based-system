@@ -4,29 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}SariKidung - Sastra Suci Bali{% endblock %}</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     {% block extra_css %}{% endblock %}
 
     <style>
       /* ─── NAVBAR ─────────────────────────────────────────── */
       .navbar {
         transition: box-shadow 0.3s;
-        border-bottom: 1px solid rgba(146, 98, 55, 0.12) !important;
+        border-bottom: 1px solid rgba(146,98,55,.12) !important;
       }
       .nav-link {
         font-size: 0.87rem;
@@ -39,635 +27,227 @@
       .nav-link::after {
         content: "";
         position: absolute;
-        bottom: -2px;
-        left: 0.7rem;
-        right: 0.7rem;
+        bottom: -2px; left: 0.7rem; right: 0.7rem;
         height: 2px;
         background: var(--gold);
         border-radius: 2px;
         transform: scaleX(0);
         transition: transform 0.22s;
       }
-      .nav-link:hover {
-        color: var(--gold) !important;
-      }
+      .nav-link:hover              { color: var(--gold) !important; }
       .nav-link:hover::after,
-      .nav-link.active::after {
-        transform: scaleX(1);
-      }
-      .nav-link.active {
-        color: var(--gold) !important;
-        font-weight: 600;
-      }
+      .nav-link.active::after      { transform: scaleX(1); }
+      .nav-link.active             { color: var(--gold) !important; font-weight: 600; }
 
       @media (max-width: 991px) {
-        #navbarNav {
-          border-top: 1px solid rgba(146, 98, 55, 0.12);
-          margin-top: 0.5rem;
-          padding-top: 0.5rem;
-        }
-        .nav-link::after {
-          display: none;
-        }
-        .nav-link.active {
-          background: rgba(146, 98, 55, 0.08);
-          border-radius: 8px;
-        }
-        #nav-chat-panel {
-          position: fixed !important;
-          top: 70px !important;
-          left: 1rem !important;
-          right: 1rem !important;
-          width: auto !important;
-        }
+        #navbarNav        { border-top: 1px solid rgba(146,98,55,.12); margin-top:.5rem; padding-top:.5rem; }
+        .nav-link::after  { display: none; }
+        .nav-link.active  { background: rgba(146,98,55,.08); border-radius: 8px; }
+        #nav-chat-panel   { position:fixed !important; top:70px !important; left:1rem !important; right:1rem !important; width:auto !important; }
       }
 
-      #nav-chat-btn {
-        transition:
-          background 0.2s,
-          color 0.2s;
-      }
-      #nav-chat-btn:hover {
-        background: rgba(146, 98, 55, 0.08) !important;
-      }
+      #nav-chat-btn { transition: background .2s, color .2s; }
+      #nav-chat-btn:hover { background: rgba(146,98,55,.08) !important; }
 
       /* typing dots */
       .nav-bubble-typing-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #bbb;
-        display: inline-block;
-        animation: nbTyping 0.8s infinite;
+        width:6px; height:6px; border-radius:50%; background:#bbb;
+        display:inline-block; animation: nbTyping .8s infinite;
       }
-      .nav-bubble-typing-dot:nth-child(2) {
-        animation-delay: 0.15s;
-      }
-      .nav-bubble-typing-dot:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-      @keyframes nbTyping {
-        0%,
-        60%,
-        100% {
-          transform: translateY(0);
-        }
-        30% {
-          transform: translateY(-5px);
-        }
-      }
+      .nav-bubble-typing-dot:nth-child(2) { animation-delay:.15s; }
+      .nav-bubble-typing-dot:nth-child(3) { animation-delay:.3s; }
+      @keyframes nbTyping { 0%,60%,100%{transform:translateY(0);} 30%{transform:translateY(-5px);} }
 
       /* quick-question pills */
       .nav-q-btn {
-        font-size: 0.7rem;
-        padding: 3px 10px;
-        border: 1px solid rgba(146, 98, 55, 0.3);
-        color: var(--gold);
-        border-radius: 20px;
-        background: rgba(146, 98, 55, 0.05);
-        cursor: pointer;
-        transition: background 0.15s;
+        font-size:.7rem; padding:3px 10px;
+        border:1px solid rgba(146,98,55,.3); color:var(--gold);
+        border-radius:20px; background:rgba(146,98,55,.05);
+        cursor:pointer; transition:background .15s;
       }
-      .nav-q-btn:hover {
-        background: rgba(146, 98, 55, 0.13);
-      }
+      .nav-q-btn:hover { background:rgba(146,98,55,.13); }
 
       /* ─── FOOTER ──────────────────────────────────────────── */
-      footer {
-        background: #0f0a05;
-        border-top: 3px solid var(--gold);
-      }
+      footer { background: #0f0a05; border-top: 3px solid var(--gold); }
       .footer-title {
-        color: var(--gold);
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        font-family: "Poppins", sans-serif;
+        color: var(--gold); font-size:.72rem; text-transform:uppercase;
+        letter-spacing:2px; font-weight:700; margin-bottom:1rem;
+        font-family:"Poppins",sans-serif;
       }
-      .footer-links li {
-        margin-bottom: 0.5rem;
-      }
-      .footer-links a {
-        color: rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition: color 0.2s;
-      }
-      .footer-links a:hover {
-        color: var(--gold);
-      }
+      .footer-links li { margin-bottom:.5rem; }
+      .footer-links a  { color:rgba(255,255,255,.5); text-decoration:none; font-size:.85rem; transition:color .2s; }
+      .footer-links a:hover { color:var(--gold); }
       .footer-social a {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.5);
-        transition: all 0.2s;
-        font-size: 0.85rem;
-        text-decoration: none;
+        width:36px; height:36px; border-radius:50%;
+        border:1px solid rgba(255,255,255,.15);
+        display:inline-flex; align-items:center; justify-content:center;
+        color:rgba(255,255,255,.5); transition:all .2s; font-size:.85rem;
+        text-decoration:none;
       }
-      .footer-social a:hover {
-        border-color: var(--gold);
-        color: var(--gold);
-      }
-      .footer-bali-text {
-        font-size: 1.1rem;
-        color: var(--gold);
-        opacity: 0.15;
-        letter-spacing: 6px;
-      }
+      .footer-social a:hover { border-color:var(--gold); color:var(--gold); }
+      .footer-bali-text { font-size:1.1rem; color:var(--gold); opacity:.15; letter-spacing:6px; }
     </style>
   </head>
 
   <body>
+
     <!-- ═══════════ NAVBAR ═══════════ -->
     <nav class="navbar navbar-expand-lg sticky-top bg-white py-2">
       <div class="container">
+
         <!-- Brand + Logo SVG Bali Art -->
-        <a
-          class="navbar-brand d-flex align-items-center gap-2"
-          href="{{ url_for('home') }}"
-        >
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="SariKidung Logo"
-          >
-            <!-- lingkaran luar -->
-            <circle
-              cx="20"
-              cy="20"
-              r="19"
-              stroke="#926237"
-              stroke-width="1.4"
-              fill="#0f0a05"
-            />
-            <!-- ornamen patra punggel (daun spiral) — 4 arah -->
-            <path
-              d="M20 4 Q24 8 20 12 Q16 8 20 4Z"
-              fill="#926237"
-              opacity=".7"
-            />
-            <path
-              d="M36 20 Q32 24 28 20 Q32 16 36 20Z"
-              fill="#926237"
-              opacity=".7"
-            />
-            <path
-              d="M20 36 Q16 32 20 28 Q24 32 20 36Z"
-              fill="#926237"
-              opacity=".7"
-            />
-            <path
-              d="M4 20 Q8 16 12 20 Q8 24 4 20Z"
-              fill="#926237"
-              opacity=".7"
-            />
-            <!-- ornamen sudut diagonal (lebih kecil) -->
-            <path
-              d="M27.5 7 Q29 10 27 12 Q25 9 27.5 7Z"
-              fill="#926237"
-              opacity=".45"
-            />
-            <path
-              d="M33 27.5 Q30 29 28 27 Q31 25 33 27.5Z"
-              fill="#926237"
-              opacity=".45"
-            />
-            <path
-              d="M12.5 33 Q11 30 13 28 Q15 31 12.5 33Z"
-              fill="#926237"
-              opacity=".45"
-            />
-            <path
-              d="M7 12.5 Q10 11 12 13 Q9 15 7 12.5Z"
-              fill="#926237"
-              opacity=".45"
-            />
-            <!-- lingkaran dalam bersinar -->
-            <circle
-              cx="20"
-              cy="20"
-              r="9"
-              stroke="#926237"
-              stroke-width=".8"
-              fill="none"
-              opacity=".4"
-            />
-            <circle cx="20" cy="20" r="5" fill="#926237" opacity=".25" />
-            <!-- aksara Om inti -->
-            <circle cx="20" cy="20" r="3" fill="#926237" opacity=".85" />
-            <circle cx="20" cy="20" r="1.3" fill="#fdf9f5" />
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('home') }}">
+          <!-- Logo SVG: "SK" kekinian + ornamen Bali, no fill bg -->
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="SariKidung">
+            <!-- border luar segi-8 (octagon tipis) -->
+            <path d="M19 1.5 L27.5 4.5 L34.5 11 L37.5 19 L34.5 27 L27.5 33.5 L19 36.5 L10.5 33.5 L3.5 27 L0.5 19 L3.5 11 L10.5 4.5 Z"
+                  stroke="#926237" stroke-width="1" fill="none" opacity=".55"/>
+            <!-- ornamen titik sudut kecil khas ukiran Bali -->
+            <circle cx="19"   cy="1.5"  r="1.2" fill="#926237" opacity=".5"/>
+            <circle cx="19"   cy="36.5" r="1.2" fill="#926237" opacity=".5"/>
+            <circle cx="0.5"  cy="19"   r="1.2" fill="#926237" opacity=".5"/>
+            <circle cx="37.5" cy="19"   r="1.2" fill="#926237" opacity=".5"/>
+            <!-- huruf S -->
+            <path d="M10 13.5 Q10 11 13 11 L16.5 11 Q19 11 19 13.5 Q19 16 16 16.5 L13 17 Q10 17.5 10 20.5 Q10 23.5 13 24 L17.5 24 Q20 24 20 21.5"
+                  stroke="#926237" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- huruf K -->
+            <line x1="23" y1="11" x2="23" y2="24" stroke="#926237" stroke-width="2" stroke-linecap="round"/>
+            <path d="M23 17.8 L28.5 11" stroke="#926237" stroke-width="2" stroke-linecap="round"/>
+            <path d="M23 17.8 L28.5 24" stroke="#926237" stroke-width="2" stroke-linecap="round"/>
+            <!-- garis bawah ornamental -->
+            <line x1="9" y1="27.5" x2="29" y2="27.5" stroke="#926237" stroke-width=".7" stroke-linecap="round" opacity=".4"/>
+            <circle cx="19" cy="27.5" r="1" fill="#926237" opacity=".5"/>
           </svg>
-          <span class="logo-text" style="font-size: 1.15rem"
-            >SARI<span>KIDUNG</span></span
-          >
+          <span class="logo-text" style="font-size:1.15rem;">SARI<span>KIDUNG</span></span>
         </a>
 
         <!-- Toggler mobile + Chat btn mobile -->
         <div class="d-flex align-items-center gap-2 d-lg-none">
-          <button
-            onclick="toggleNavChat()"
-            id="nav-chat-btn-mobile"
-            class="btn btn-sm px-2 py-1"
-            style="
-              border: 1.5px solid var(--gold);
-              color: var(--gold);
-              border-radius: 8px;
-              background: #fff;
-              position: relative;
-            "
-          >
+          <button onclick="toggleNavChat()" id="nav-chat-btn-mobile"
+                  class="btn btn-sm px-2 py-1"
+                  style="border:1.5px solid var(--gold);color:var(--gold);border-radius:8px;background:#fff;position:relative;">
             <i class="fas fa-comment-dots"></i>
-            <span
-              id="nav-chat-notif-mobile"
-              style="
-                display: none;
-                width: 7px;
-                height: 7px;
-                background: #e74c3c;
-                border-radius: 50%;
-                position: absolute;
-                top: 3px;
-                right: 3px;
-              "
-            ></span>
+            <span id="nav-chat-notif-mobile"
+                  style="display:none;width:7px;height:7px;background:#e74c3c;border-radius:50%;position:absolute;top:3px;right:3px;"></span>
           </button>
-          <button
-            class="navbar-toggler border-0 p-1"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-label="Toggle navigation"
-          >
+          <button class="navbar-toggler border-0 p-1" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
 
         <!-- Nav links -->
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul
-            class="navbar-nav ms-auto align-items-lg-center gap-lg-1 py-2 py-lg-0"
-          >
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 py-2 py-lg-0">
             <li class="nav-item">
-              <a
-                class="nav-link {{ 'active' if request.path == url_for('home') }}"
-                href="{{ url_for('home') }}"
-                >Home</a
-              >
+              <a class="nav-link {{ 'active' if request.path == url_for('home') }}" href="{{ url_for('home') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link {{ 'active' if request.path == url_for('browsing') }}"
-                href="{{ url_for('browsing') }}"
-                >Expert System</a
-              >
+              <a class="nav-link {{ 'active' if request.path == url_for('library') }}" href="{{ url_for('library') }}">Library</a>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link {{ 'active' if request.path == url_for('library') }}"
-                href="{{ url_for('library') }}"
-                >Library</a
-              >
+              <a class="nav-link {{ 'active' if request.path == url_for('questionnaire') }}" href="{{ url_for('questionnaire') }}">Feedback</a>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link {{ 'active' if request.path == url_for('questionnaire') }}"
-                href="{{ url_for('questionnaire') }}"
-                >Feedback</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link {{ 'active' if request.path == url_for('about') }}"
-                href="{{ url_for('about') }}"
-                >About</a
-              >
+              <a class="nav-link {{ 'active' if request.path == url_for('about') }}" href="{{ url_for('about') }}">About</a>
             </li>
 
             <!-- divider desktop -->
             <li class="nav-item d-none d-lg-block ms-2">
-              <div
-                style="
-                  width: 1px;
-                  height: 24px;
-                  background: rgba(146, 98, 55, 0.2);
-                  margin-top: 4px;
-                "
-              ></div>
+              <div style="width:1px;height:24px;background:rgba(146,98,55,.2);margin-top:4px;"></div>
             </li>
 
             <!-- CTA Konsultasi -->
             <li class="nav-item ms-lg-1 mt-2 mt-lg-0">
-              <a
-                href="{{ url_for('browsing') }}"
-                class="btn btn-bronze px-4 py-2 fw-bold w-100 w-lg-auto"
-                style="font-size: 0.85rem; border-radius: 8px"
-              >
+              <a href="{{ url_for('browsing') }}" class="btn btn-bronze px-4 py-2 fw-bold w-100 w-lg-auto"
+                 style="font-size:.85rem;border-radius:8px;">
                 <i class="fas fa-search me-1"></i>KONSULTASI
               </a>
             </li>
 
             <!-- Chat AI (desktop) -->
-            <li
-              class="nav-item position-relative d-none d-lg-block mt-2 mt-lg-0"
-            >
-              <button
-                onclick="toggleNavChat()"
-                id="nav-chat-btn"
-                class="btn px-3 py-2 fw-bold d-flex align-items-center gap-2"
-                style="
-                  background: #fff;
-                  border: 2px solid var(--gold);
-                  color: var(--gold);
-                  border-radius: 8px;
-                  position: relative;
-                "
-              >
+            <li class="nav-item position-relative d-none d-lg-block mt-2 mt-lg-0">
+              <button onclick="toggleNavChat()" id="nav-chat-btn"
+                      class="btn px-3 py-2 fw-bold d-flex align-items-center gap-2"
+                      style="background:#fff;border:2px solid var(--gold);color:var(--gold);border-radius:8px;position:relative;">
                 <i class="fas fa-comment-dots"></i>
-                <span style="font-size: 0.85rem">Chat</span>
-                <span
-                  id="nav-chat-notif"
-                  style="
-                    display: none;
-                    width: 8px;
-                    height: 8px;
-                    background: #e74c3c;
-                    border-radius: 50%;
-                    position: absolute;
-                    top: 5px;
-                    right: 5px;
-                  "
-                ></span>
+                <span style="font-size:.85rem;">Chat</span>
+                <span id="nav-chat-notif"
+                      style="display:none;width:8px;height:8px;background:#e74c3c;border-radius:50%;position:absolute;top:5px;right:5px;"></span>
               </button>
 
               <!-- Panel chat desktop -->
-              <div
-                id="nav-chat-panel"
-                style="
-                  display: none;
-                  position: absolute;
-                  top: calc(100% + 12px);
-                  right: 0;
-                  width: 360px;
-                  border-radius: 16px;
-                  z-index: 2000;
-                  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
-                  overflow: hidden;
-                  flex-direction: column;
-                  background: #fff;
-                  border: 1px solid rgba(146, 98, 55, 0.2);
-                "
-              >
+              <div id="nav-chat-panel"
+                   style="display:none;position:absolute;top:calc(100% + 12px);right:0;width:360px;
+                          border-radius:16px;z-index:2000;box-shadow:0 8px 40px rgba(0,0,0,.18);
+                          overflow:hidden;flex-direction:column;background:#fff;
+                          border:1px solid rgba(146,98,55,.2);">
                 <!-- header -->
-                <div
-                  style="
-                    background: var(--gold);
-                    padding: 12px 16px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                  "
-                >
+                <div style="background:var(--gold);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;">
                   <div class="d-flex align-items-center gap-2">
                     <!-- logo mini di header panel -->
-                    <svg
-                      width="28"
-                      height="28"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        cx="20"
-                        cy="20"
-                        r="19"
-                        fill="rgba(255,255,255,.15)"
-                      />
-                      <path
-                        d="M20 4 Q24 8 20 12 Q16 8 20 4Z"
-                        fill="rgba(255,255,255,.8)"
-                      />
-                      <path
-                        d="M36 20 Q32 24 28 20 Q32 16 36 20Z"
-                        fill="rgba(255,255,255,.8)"
-                      />
-                      <path
-                        d="M20 36 Q16 32 20 28 Q24 32 20 36Z"
-                        fill="rgba(255,255,255,.8)"
-                      />
-                      <path
-                        d="M4 20 Q8 16 12 20 Q8 24 4 20Z"
-                        fill="rgba(255,255,255,.8)"
-                      />
-                      <circle
-                        cx="20"
-                        cy="20"
-                        r="5"
-                        fill="rgba(255,255,255,.2)"
-                      />
-                      <circle
-                        cx="20"
-                        cy="20"
-                        r="2.5"
-                        fill="rgba(255,255,255,.9)"
-                      />
+                    <svg width="26" height="26" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19 1.5 L27.5 4.5 L34.5 11 L37.5 19 L34.5 27 L27.5 33.5 L19 36.5 L10.5 33.5 L3.5 27 L0.5 19 L3.5 11 L10.5 4.5 Z"
+                            stroke="rgba(255,255,255,.6)" stroke-width="1" fill="none"/>
+                      <circle cx="19" cy="1.5"  r="1.2" fill="rgba(255,255,255,.6)"/>
+                      <circle cx="19" cy="36.5" r="1.2" fill="rgba(255,255,255,.6)"/>
+                      <circle cx="0.5"  cy="19" r="1.2" fill="rgba(255,255,255,.6)"/>
+                      <circle cx="37.5" cy="19" r="1.2" fill="rgba(255,255,255,.6)"/>
+                      <path d="M10 13.5 Q10 11 13 11 L16.5 11 Q19 11 19 13.5 Q19 16 16 16.5 L13 17 Q10 17.5 10 20.5 Q10 23.5 13 24 L17.5 24 Q20 24 20 21.5"
+                            stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                      <line x1="23" y1="11" x2="23" y2="24" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M23 17.8 L28.5 11" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M23 17.8 L28.5 24" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                     <div>
-                      <div
-                        style="
-                          color: #fff;
-                          font-weight: 700;
-                          font-size: 0.9rem;
-                          line-height: 1.2;
-                        "
-                      >
-                        SariBot
-                      </div>
-                      <div
-                        style="
-                          color: rgba(255, 255, 255, 0.8);
-                          font-size: 0.7rem;
-                        "
-                      >
-                        <span
-                          style="
-                            display: inline-block;
-                            width: 7px;
-                            height: 7px;
-                            background: #4ade80;
-                            border-radius: 50%;
-                            margin-right: 4px;
-                          "
-                        ></span>
+                      <div style="color:#fff;font-weight:700;font-size:.9rem;line-height:1.2;">SariBot</div>
+                      <div style="color:rgba(255,255,255,.8);font-size:.7rem;">
+                        <span style="display:inline-block;width:7px;height:7px;background:#4ade80;border-radius:50%;margin-right:4px;"></span>
                         Khusus Kidung & Upacara Bali
                       </div>
                     </div>
                   </div>
                   <div class="d-flex gap-1">
-                    <button
-                      onclick="clearNavChat()"
-                      title="Hapus riwayat"
-                      style="
-                        background: rgba(255, 255, 255, 0.15);
-                        border: none;
-                        color: #fff;
-                        border-radius: 6px;
-                        padding: 5px 8px;
-                        cursor: pointer;
-                        font-size: 0.72rem;
-                      "
-                    >
+                    <button onclick="clearNavChat()" title="Hapus riwayat"
+                            style="background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:5px 8px;cursor:pointer;font-size:.72rem;">
                       <i class="fas fa-trash-alt"></i>
                     </button>
-                    <button
-                      onclick="toggleNavChat()"
-                      title="Tutup"
-                      style="
-                        background: rgba(255, 255, 255, 0.15);
-                        border: none;
-                        color: #fff;
-                        border-radius: 6px;
-                        padding: 5px 8px;
-                        cursor: pointer;
-                        font-size: 0.72rem;
-                      "
-                    >
+                    <button onclick="toggleNavChat()" title="Tutup"
+                            style="background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:5px 8px;cursor:pointer;font-size:.72rem;">
                       <i class="fas fa-times"></i>
                     </button>
                   </div>
                 </div>
                 <!-- messages -->
-                <div
-                  id="nav-chat-messages"
-                  style="
-                    overflow-y: auto;
-                    padding: 14px;
-                    background: #fdf9f5;
-                    height: 300px;
-                  "
-                >
+                <div id="nav-chat-messages"
+                     style="overflow-y:auto;padding:14px;background:#fdf9f5;height:300px;">
                   <div class="d-flex gap-2 mb-3">
-                    <div
-                      style="
-                        width: 28px;
-                        height: 28px;
-                        border-radius: 50%;
-                        background: var(--gold);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        flex-shrink: 0;
-                        align-self: flex-end;
-                      "
-                    >
-                      <i
-                        class="fas fa-robot text-white"
-                        style="font-size: 0.6rem"
-                      ></i>
+                    <div style="width:28px;height:28px;border-radius:50%;background:var(--gold);
+                                display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+                      <i class="fas fa-robot text-white" style="font-size:.6rem;"></i>
                     </div>
-                    <div
-                      style="
-                        background: #fff;
-                        border: 1px solid #ede0cf;
-                        border-radius: 12px;
-                        padding: 10px 12px;
-                        font-size: 0.82rem;
-                        max-width: 85%;
-                        line-height: 1.5;
-                      "
-                    >
-                      Rahajeng! 🙏 Tanya seputar
-                      <strong>Kidung & upacara Bali</strong>.
+                    <div style="background:#fff;border:1px solid #ede0cf;border-radius:12px;
+                                padding:10px 12px;font-size:.82rem;max-width:85%;line-height:1.5;">
+                      Rahajeng! 🙏 Tanya seputar <strong>Kidung & upacara Bali</strong>.
                     </div>
                   </div>
                 </div>
                 <!-- suggestions -->
-                <div
-                  id="nav-chat-suggestions"
-                  style="
-                    padding: 8px 12px;
-                    border-top: 1px solid #f0e8de;
-                    background: #fff;
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 5px;
-                  "
-                >
-                  <button
-                    onclick="setNavQ('Apa itu Kidung Wargasari?')"
-                    class="nav-q-btn"
-                  >
-                    Kidung Wargasari?
-                  </button>
-                  <button
-                    onclick="setNavQ('Kidung apa untuk Ngaben?')"
-                    class="nav-q-btn"
-                  >
-                    Kidung Ngaben?
-                  </button>
-                  <button
-                    onclick="setNavQ('Bedanya Sekar Alit dan Sekar Madya?')"
-                    class="nav-q-btn"
-                  >
-                    Sekar Alit vs Madya?
-                  </button>
+                <div id="nav-chat-suggestions"
+                     style="padding:8px 12px;border-top:1px solid #f0e8de;background:#fff;display:flex;flex-wrap:wrap;gap:5px;">
+                  <button onclick="setNavQ('Apa itu Kidung Wargasari?')" class="nav-q-btn">Kidung Wargasari?</button>
+                  <button onclick="setNavQ('Kidung apa untuk Ngaben?')" class="nav-q-btn">Kidung Ngaben?</button>
+                  <button onclick="setNavQ('Bedanya Sekar Alit dan Sekar Madya?')" class="nav-q-btn">Sekar Alit vs Madya?</button>
                 </div>
                 <!-- input -->
-                <div
-                  style="
-                    padding: 10px 12px;
-                    border-top: 1px solid #eee;
-                    background: #fff;
-                    display: flex;
-                    gap: 8px;
-                  "
-                >
-                  <input
-                    id="nav-chat-input"
-                    type="text"
-                    placeholder="Ketik pertanyaan..."
-                    onkeydown="
-                      if (event.key === 'Enter') {
-                        event.preventDefault();
-                        sendNavChat();
-                      }
-                    "
-                    style="
-                      flex: 1;
-                      border: 1.5px solid #ede0cf;
-                      border-radius: 10px;
-                      padding: 8px 12px;
-                      font-size: 0.82rem;
-                      outline: none;
-                      transition: border-color 0.2s;
-                      font-family: inherit;
-                    "
-                  />
-                  <button
-                    onclick="sendNavChat()"
-                    id="nav-send-btn"
-                    style="
-                      background: var(--gold);
-                      border: none;
-                      color: #fff;
-                      border-radius: 10px;
-                      padding: 8px 12px;
-                      cursor: pointer;
-                    "
-                  >
-                    <i
-                      class="fas fa-paper-plane"
-                      style="font-size: 0.82rem"
-                    ></i>
+                <div style="padding:10px 12px;border-top:1px solid #eee;background:#fff;display:flex;gap:8px;">
+                  <input id="nav-chat-input" type="text" placeholder="Ketik pertanyaan..."
+                         onkeydown="if(event.key==='Enter'){event.preventDefault();sendNavChat();}"
+                         style="flex:1;border:1.5px solid #ede0cf;border-radius:10px;padding:8px 12px;
+                                font-size:.82rem;outline:none;transition:border-color .2s;font-family:inherit;" />
+                  <button onclick="sendNavChat()" id="nav-send-btn"
+                          style="background:var(--gold);border:none;color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;">
+                    <i class="fas fa-paper-plane" style="font-size:.82rem;"></i>
                   </button>
                 </div>
               </div>
@@ -678,196 +258,57 @@
     </nav>
 
     <!-- Panel chat mobile -->
-    <div
-      id="nav-chat-panel-mobile"
-      style="
-        display: none;
-        position: fixed;
-        top: 62px;
-        left: 1rem;
-        right: 1rem;
-        border-radius: 16px;
-        z-index: 2000;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-        flex-direction: column;
-        background: #fff;
-        border: 1px solid rgba(146, 98, 55, 0.2);
-      "
-    >
-      <div
-        style="
-          background: var(--gold);
-          padding: 12px 16px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        "
-      >
+    <div id="nav-chat-panel-mobile"
+         style="display:none;position:fixed;top:62px;left:1rem;right:1rem;
+                border-radius:16px;z-index:2000;box-shadow:0 8px 40px rgba(0,0,0,.2);
+                overflow:hidden;flex-direction:column;background:#fff;
+                border:1px solid rgba(146,98,55,.2);">
+      <div style="background:var(--gold);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;">
         <div class="d-flex align-items-center gap-2">
-          <div
-            style="
-              width: 28px;
-              height: 28px;
-              border-radius: 50%;
-              background: rgba(255, 255, 255, 0.2);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <i class="fas fa-robot text-white" style="font-size: 0.65rem"></i>
+          <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);
+                      display:flex;align-items:center;justify-content:center;">
+            <i class="fas fa-robot text-white" style="font-size:.65rem;"></i>
           </div>
-          <div style="color: #fff; font-weight: 700; font-size: 0.88rem">
+          <div style="color:#fff;font-weight:700;font-size:.88rem;">
             SariBot
-            <span
-              style="
-                display: block;
-                font-size: 0.65rem;
-                font-weight: 400;
-                opacity: 0.8;
-              "
-              >Khusus Kidung & Upacara Bali</span
-            >
+            <span style="display:block;font-size:.65rem;font-weight:400;opacity:.8;">Khusus Kidung & Upacara Bali</span>
           </div>
         </div>
         <div class="d-flex gap-1">
-          <button
-            onclick="clearNavChat(true)"
-            style="
-              background: rgba(255, 255, 255, 0.15);
-              border: none;
-              color: #fff;
-              border-radius: 6px;
-              padding: 4px 7px;
-              cursor: pointer;
-              font-size: 0.7rem;
-            "
-          >
+          <button onclick="clearNavChat(true)"
+                  style="background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:4px 7px;cursor:pointer;font-size:.7rem;">
             <i class="fas fa-trash-alt"></i>
           </button>
-          <button
-            onclick="toggleNavChat()"
-            style="
-              background: rgba(255, 255, 255, 0.15);
-              border: none;
-              color: #fff;
-              border-radius: 6px;
-              padding: 4px 7px;
-              cursor: pointer;
-              font-size: 0.7rem;
-            "
-          >
+          <button onclick="toggleNavChat()"
+                  style="background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:4px 7px;cursor:pointer;font-size:.7rem;">
             <i class="fas fa-times"></i>
           </button>
         </div>
       </div>
-      <div
-        id="nav-chat-messages-mobile"
-        style="
-          overflow-y: auto;
-          padding: 14px;
-          background: #fdf9f5;
-          height: 260px;
-        "
-      >
+      <div id="nav-chat-messages-mobile" style="overflow-y:auto;padding:14px;background:#fdf9f5;height:260px;">
         <div class="d-flex gap-2 mb-3">
-          <div
-            style="
-              width: 26px;
-              height: 26px;
-              border-radius: 50%;
-              background: var(--gold);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-shrink: 0;
-              align-self: flex-end;
-            "
-          >
-            <i class="fas fa-robot text-white" style="font-size: 0.55rem"></i>
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold);
+                      display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
+            <i class="fas fa-robot text-white" style="font-size:.55rem;"></i>
           </div>
-          <div
-            style="
-              background: #fff;
-              border: 1px solid #ede0cf;
-              border-radius: 12px;
-              padding: 9px 12px;
-              font-size: 0.8rem;
-              max-width: 85%;
-              line-height: 1.5;
-            "
-          >
+          <div style="background:#fff;border:1px solid #ede0cf;border-radius:12px;
+                      padding:9px 12px;font-size:.8rem;max-width:85%;line-height:1.5;">
             Rahajeng! 🙏 Tanya seputar <strong>Kidung & upacara Bali</strong>.
           </div>
         </div>
       </div>
-      <div
-        id="nav-chat-sug-mobile"
-        style="
-          padding: 8px 12px;
-          border-top: 1px solid #f0e8de;
-          background: #fff;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-        "
-      >
-        <button
-          onclick="setNavQ('Apa itu Kidung Wargasari?', true)"
-          class="nav-q-btn"
-        >
-          Kidung Wargasari?
-        </button>
-        <button
-          onclick="setNavQ('Kidung apa untuk Ngaben?', true)"
-          class="nav-q-btn"
-        >
-          Kidung Ngaben?
-        </button>
+      <div id="nav-chat-sug-mobile"
+           style="padding:8px 12px;border-top:1px solid #f0e8de;background:#fff;display:flex;flex-wrap:wrap;gap:5px;">
+        <button onclick="setNavQ('Apa itu Kidung Wargasari?', true)" class="nav-q-btn">Kidung Wargasari?</button>
+        <button onclick="setNavQ('Kidung apa untuk Ngaben?', true)" class="nav-q-btn">Kidung Ngaben?</button>
       </div>
-      <div
-        style="
-          padding: 10px 12px;
-          border-top: 1px solid #eee;
-          background: #fff;
-          display: flex;
-          gap: 8px;
-        "
-      >
-        <input
-          id="nav-chat-input-mobile"
-          type="text"
-          placeholder="Ketik pertanyaan..."
-          onkeydown="
-            if (event.key === 'Enter') {
-              event.preventDefault();
-              sendNavChat(true);
-            }
-          "
-          style="
-            flex: 1;
-            border: 1.5px solid #ede0cf;
-            border-radius: 10px;
-            padding: 8px 12px;
-            font-size: 0.82rem;
-            outline: none;
-            font-family: inherit;
-          "
-        />
-        <button
-          onclick="sendNavChat(true)"
-          id="nav-send-btn-mobile"
-          style="
-            background: var(--gold);
-            border: none;
-            color: #fff;
-            border-radius: 10px;
-            padding: 8px 12px;
-            cursor: pointer;
-          "
-        >
-          <i class="fas fa-paper-plane" style="font-size: 0.8rem"></i>
+      <div style="padding:10px 12px;border-top:1px solid #eee;background:#fff;display:flex;gap:8px;">
+        <input id="nav-chat-input-mobile" type="text" placeholder="Ketik pertanyaan..."
+               onkeydown="if(event.key==='Enter'){event.preventDefault();sendNavChat(true);}"
+               style="flex:1;border:1.5px solid #ede0cf;border-radius:10px;padding:8px 12px;font-size:.82rem;outline:none;font-family:inherit;" />
+        <button onclick="sendNavChat(true)" id="nav-send-btn-mobile"
+                style="background:var(--gold);border:none;color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;">
+          <i class="fas fa-paper-plane" style="font-size:.8rem;"></i>
         </button>
       </div>
     </div>
@@ -885,102 +326,31 @@
           <!-- Brand -->
           <div class="col-lg-4 col-md-6">
             <div class="d-flex align-items-center gap-2 mb-3">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="19"
-                  stroke="#926237"
-                  stroke-width="1.4"
-                  fill="#1a0e05"
-                />
-                <path
-                  d="M20 4 Q24 8 20 12 Q16 8 20 4Z"
-                  fill="#926237"
-                  opacity=".8"
-                />
-                <path
-                  d="M36 20 Q32 24 28 20 Q32 16 36 20Z"
-                  fill="#926237"
-                  opacity=".8"
-                />
-                <path
-                  d="M20 36 Q16 32 20 28 Q24 32 20 36Z"
-                  fill="#926237"
-                  opacity=".8"
-                />
-                <path
-                  d="M4 20 Q8 16 12 20 Q8 24 4 20Z"
-                  fill="#926237"
-                  opacity=".8"
-                />
-                <path
-                  d="M27.5 7 Q29 10 27 12 Q25 9 27.5 7Z"
-                  fill="#926237"
-                  opacity=".45"
-                />
-                <path
-                  d="M33 27.5 Q30 29 28 27 Q31 25 33 27.5Z"
-                  fill="#926237"
-                  opacity=".45"
-                />
-                <path
-                  d="M12.5 33 Q11 30 13 28 Q15 31 12.5 33Z"
-                  fill="#926237"
-                  opacity=".45"
-                />
-                <path
-                  d="M7 12.5 Q10 11 12 13 Q9 15 7 12.5Z"
-                  fill="#926237"
-                  opacity=".45"
-                />
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="9"
-                  stroke="#926237"
-                  stroke-width=".8"
-                  fill="none"
-                  opacity=".35"
-                />
-                <circle cx="20" cy="20" r="3" fill="#926237" opacity=".85" />
-                <circle cx="20" cy="20" r="1.3" fill="#fdf9f5" />
+              <svg width="34" height="34" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 1.5 L27.5 4.5 L34.5 11 L37.5 19 L34.5 27 L27.5 33.5 L19 36.5 L10.5 33.5 L3.5 27 L0.5 19 L3.5 11 L10.5 4.5 Z"
+                      stroke="#926237" stroke-width="1" fill="none" opacity=".55"/>
+                <circle cx="19"   cy="1.5"  r="1.2" fill="#926237" opacity=".5"/>
+                <circle cx="19"   cy="36.5" r="1.2" fill="#926237" opacity=".5"/>
+                <circle cx="0.5"  cy="19"   r="1.2" fill="#926237" opacity=".5"/>
+                <circle cx="37.5" cy="19"   r="1.2" fill="#926237" opacity=".5"/>
+                <path d="M10 13.5 Q10 11 13 11 L16.5 11 Q19 11 19 13.5 Q19 16 16 16.5 L13 17 Q10 17.5 10 20.5 Q10 23.5 13 24 L17.5 24 Q20 24 20 21.5"
+                      stroke="#926237" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <line x1="23" y1="11" x2="23" y2="24" stroke="#926237" stroke-width="2" stroke-linecap="round"/>
+                <path d="M23 17.8 L28.5 11" stroke="#926237" stroke-width="2" stroke-linecap="round"/>
+                <path d="M23 17.8 L28.5 24" stroke="#926237" stroke-width="2" stroke-linecap="round"/>
+                <line x1="9" y1="27.5" x2="29" y2="27.5" stroke="#926237" stroke-width=".7" stroke-linecap="round" opacity=".4"/>
+                <circle cx="19" cy="27.5" r="1" fill="#926237" opacity=".5"/>
               </svg>
-              <span
-                style="
-                  font-family: &quot;Playfair Display&quot;;
-                  font-size: 1.1rem;
-                  color: #fff;
-                  font-weight: 700;
-                "
-              >
-                SARI<span style="color: var(--gold)">KIDUNG</span>
+              <span style="font-family:'Playfair Display';font-size:1.1rem;color:#fff;font-weight:700;">
+                SARI<span style="color:var(--gold)">KIDUNG</span>
               </span>
             </div>
-            <p
-              style="
-                color: rgba(255, 255, 255, 0.45);
-                font-size: 0.84rem;
-                line-height: 1.8;
-                max-width: 280px;
-              "
-            >
-              Pelestarian Sastra Suci Kidung Panca Yadnya Bali melalui
-              pendekatan sistem pakar berbasis Ontologi dan digitalisasi budaya.
+            <p style="color:rgba(255,255,255,.45);font-size:.84rem;line-height:1.8;max-width:280px;">
+              Pelestarian Sastra Suci Kidung Panca Yadnya Bali melalui pendekatan sistem pakar berbasis Ontologi dan digitalisasi budaya.
             </p>
             <div class="footer-social d-flex gap-2 mt-3">
-              <a href="#" aria-label="Instagram"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#" aria-label="YouTube"
-                ><i class="fab fa-youtube"></i
-              ></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
 
@@ -989,7 +359,6 @@
             <h6 class="footer-title">Navigasi</h6>
             <ul class="list-unstyled footer-links">
               <li><a href="{{ url_for('home') }}">Home</a></li>
-              <li><a href="{{ url_for('browsing') }}">Expert System</a></li>
               <li><a href="{{ url_for('library') }}">Library</a></li>
               <li><a href="{{ url_for('questionnaire') }}">Feedback</a></li>
               <li><a href="{{ url_for('about') }}">About</a></li>
@@ -1000,22 +369,10 @@
           <div class="col-6 col-lg-2 col-md-3">
             <h6 class="footer-title">Panca Yadnya</h6>
             <ul class="list-unstyled footer-links">
-              {% for nama, aksara in [('Dewa Yadnya','ᬤᬾᬯ'),('Pitra
-              Yadnya','ᬧᬶᬢᬺ'),('Manusa Yadnya','ᬫᬦᬸᬱ'),('Bhuta
-              Yadnya','ᬪᬹᬢ'),('Rsi Yadnya','ᬓ᭄ᬱᬶ')] %}
+              {% for nama, aksara in [('Dewa Yadnya','ᬤᬾᬯ'),('Pitra Yadnya','ᬧᬶᬢᬺ'),('Manusa Yadnya','ᬫᬦᬸᬱ'),('Bhuta Yadnya','ᬪᬹᬢ'),('Rsi Yadnya','ᬓ᭄ᬱᬶ')] %}
               <li>
-                <span
-                  style="
-                    color: var(--gold);
-                    font-size: 0.9rem;
-                    margin-right: 6px;
-                  "
-                  >{{ aksara }}</span
-                >
-                <span
-                  style="color: rgba(255, 255, 255, 0.45); font-size: 0.84rem"
-                  >{{ nama }}</span
-                >
+                <span style="color:var(--gold);font-size:.9rem;margin-right:6px;">{{ aksara }}</span>
+                <span style="color:rgba(255,255,255,.45);font-size:.84rem;">{{ nama }}</span>
               </li>
               {% endfor %}
             </ul>
@@ -1026,65 +383,26 @@
             <h6 class="footer-title">Hubungi Kami</h6>
             <div class="d-flex flex-column gap-2 mb-4">
               <div class="d-flex align-items-center gap-2">
-                <i
-                  class="fas fa-map-marker-alt"
-                  style="color: var(--gold); width: 14px; font-size: 0.8rem"
-                ></i>
-                <span
-                  style="color: rgba(255, 255, 255, 0.45); font-size: 0.84rem"
-                  >Denpasar, Bali</span
-                >
+                <i class="fas fa-map-marker-alt" style="color:var(--gold);width:14px;font-size:.8rem;"></i>
+                <span style="color:rgba(255,255,255,.45);font-size:.84rem;">Denpasar, Bali</span>
               </div>
               <div class="d-flex align-items-center gap-2">
-                <i
-                  class="fas fa-envelope"
-                  style="color: var(--gold); width: 14px; font-size: 0.8rem"
-                ></i>
-                <span
-                  style="color: rgba(255, 255, 255, 0.45); font-size: 0.84rem"
-                  >info@sarikidung.com</span
-                >
+                <i class="fas fa-envelope" style="color:var(--gold);width:14px;font-size:.8rem;"></i>
+                <span style="color:rgba(255,255,255,.45);font-size:.84rem;">info@sarikidung.com</span>
               </div>
             </div>
-            <a
-              href="{{ url_for('browsing') }}"
-              class="btn btn-bronze px-4 py-2 fw-bold"
-              style="font-size: 0.8rem; border-radius: 8px"
-            >
+            <a href="{{ url_for('browsing') }}" class="btn btn-bronze px-4 py-2 fw-bold" style="font-size:.8rem;border-radius:8px;">
               <i class="fas fa-search me-1"></i>Mulai Konsultasi
             </a>
           </div>
         </div>
 
-        <hr
-          style="
-            border-color: rgba(255, 255, 255, 0.08);
-            margin: 2.5rem 0 1.5rem;
-          "
-        />
-        <div
-          class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2"
-        >
-          <p
-            style="
-              color: rgba(255, 255, 255, 0.2);
-              font-size: 0.75rem;
-              margin: 0;
-            "
-          >
-            &copy; 2026 SariKidung Bali. Digitalization of Balinese Sacred
-            Literature.
+        <hr style="border-color:rgba(255,255,255,.08);margin:2.5rem 0 1.5rem;">
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+          <p style="color:rgba(255,255,255,.2);font-size:.75rem;margin:0;">
+            &copy; 2026 SariKidung Bali. Digitalization of Balinese Sacred Literature.
           </p>
-          <p
-            style="
-              color: rgba(255, 255, 255, 0.15);
-              font-size: 0.8rem;
-              margin: 0;
-              letter-spacing: 3px;
-            "
-          >
-            ᬒᬁ
-          </p>
+          <p style="color:rgba(255,255,255,.15);font-size:.8rem;margin:0;letter-spacing:3px;">ᬒᬁ</p>
         </div>
       </div>
     </footer>
@@ -1095,57 +413,48 @@
 
     <script>
       let navChatHistory = [];
-      let navChatOpen = false;
-      const isMobile = () => window.innerWidth < 992;
+      let navChatOpen    = false;
+      const isMobile     = () => window.innerWidth < 992;
 
       function toggleNavChat() {
         navChatOpen = !navChatOpen;
-        const mob = isMobile();
-        const panel = document.getElementById(
-          mob ? "nav-chat-panel-mobile" : "nav-chat-panel",
-        );
-        const notif = document.getElementById(
-          mob ? "nav-chat-notif-mobile" : "nav-chat-notif",
-        );
-        panel.style.display = navChatOpen ? "flex" : "none";
+        const mob   = isMobile();
+        const panel = document.getElementById(mob ? 'nav-chat-panel-mobile' : 'nav-chat-panel');
+        const notif = document.getElementById(mob ? 'nav-chat-notif-mobile' : 'nav-chat-notif');
+        panel.style.display = navChatOpen ? 'flex' : 'none';
         if (navChatOpen) {
-          if (notif) notif.style.display = "none";
-          const id = mob ? "nav-chat-input-mobile" : "nav-chat-input";
+          if (notif) notif.style.display = 'none';
+          const id = mob ? 'nav-chat-input-mobile' : 'nav-chat-input';
           setTimeout(() => document.getElementById(id)?.focus(), 100);
         }
       }
 
-      document.addEventListener("click", function (e) {
+      document.addEventListener('click', function(e) {
         if (!navChatOpen) return;
-        const mob = isMobile();
-        const panel = document.getElementById(
-          mob ? "nav-chat-panel-mobile" : "nav-chat-panel",
-        );
-        const btnDesk = document.getElementById("nav-chat-btn");
-        const btnMob = document.getElementById("nav-chat-btn-mobile");
-        if (
-          panel &&
-          !panel.contains(e.target) &&
-          (!btnDesk || !btnDesk.contains(e.target)) &&
-          (!btnMob || !btnMob.contains(e.target))
-        ) {
+        const mob     = isMobile();
+        const panel   = document.getElementById(mob ? 'nav-chat-panel-mobile' : 'nav-chat-panel');
+        const btnDesk = document.getElementById('nav-chat-btn');
+        const btnMob  = document.getElementById('nav-chat-btn-mobile');
+        if (panel && !panel.contains(e.target) &&
+            (!btnDesk || !btnDesk.contains(e.target)) &&
+            (!btnMob  || !btnMob.contains(e.target))) {
           navChatOpen = false;
-          panel.style.display = "none";
+          panel.style.display = 'none';
         }
       });
 
       function setNavQ(q, mob = false) {
-        const id = mob ? "nav-chat-input-mobile" : "nav-chat-input";
-        const sid = mob ? "nav-chat-sug-mobile" : "nav-chat-suggestions";
+        const id  = mob ? 'nav-chat-input-mobile' : 'nav-chat-input';
+        const sid = mob ? 'nav-chat-sug-mobile'   : 'nav-chat-suggestions';
         document.getElementById(id).value = q;
         document.getElementById(id).focus();
-        document.getElementById(sid).style.display = "none";
+        document.getElementById(sid).style.display = 'none';
       }
 
       function clearNavChat(mob = false) {
         navChatHistory = [];
-        const mid = mob ? "nav-chat-messages-mobile" : "nav-chat-messages";
-        const sid = mob ? "nav-chat-sug-mobile" : "nav-chat-suggestions";
+        const mid = mob ? 'nav-chat-messages-mobile' : 'nav-chat-messages';
+        const sid = mob ? 'nav-chat-sug-mobile'      : 'nav-chat-suggestions';
         document.getElementById(mid).innerHTML = `
           <div class="d-flex gap-2 mb-3">
             <div style="width:26px;height:26px;border-radius:50%;background:var(--gold);
@@ -1157,54 +466,48 @@
               Riwayat dihapus. Rahajeng! 🙏 Silakan tanya lagi.
             </div>
           </div>`;
-        document.getElementById(sid).style.display = "flex";
+        document.getElementById(sid).style.display = 'flex';
       }
 
       async function sendNavChat(mob = false) {
-        const inputId = mob ? "nav-chat-input-mobile" : "nav-chat-input";
-        const sendId = mob ? "nav-send-btn-mobile" : "nav-send-btn";
-        const sugId = mob ? "nav-chat-sug-mobile" : "nav-chat-suggestions";
-        const msgId = mob ? "nav-chat-messages-mobile" : "nav-chat-messages";
-        const input = document.getElementById(inputId);
-        const pesan = input.value.trim();
+        const inputId = mob ? 'nav-chat-input-mobile'   : 'nav-chat-input';
+        const sendId  = mob ? 'nav-send-btn-mobile'      : 'nav-send-btn';
+        const sugId   = mob ? 'nav-chat-sug-mobile'      : 'nav-chat-suggestions';
+        const msgId   = mob ? 'nav-chat-messages-mobile' : 'nav-chat-messages';
+        const input   = document.getElementById(inputId);
+        const pesan   = input.value.trim();
         if (!pesan) return;
 
-        input.value = "";
+        input.value = '';
         input.disabled = true;
         document.getElementById(sendId).disabled = true;
-        document.getElementById(sugId).style.display = "none";
+        document.getElementById(sugId).style.display = 'none';
 
-        appendNavMsg("user", pesan, msgId);
-        navChatHistory.push({ role: "user", text: pesan });
+        appendNavMsg('user', pesan, msgId);
+        navChatHistory.push({ role:'user', text:pesan });
         const tid = appendNavTyping(msgId);
 
         try {
-          const res = await fetch("/api/chat", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              message: pesan,
-              history: navChatHistory.slice(0, -1),
-            }),
+          const res  = await fetch('/api/chat', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ message:pesan, history:navChatHistory.slice(0,-1) })
           });
           const data = await res.json();
           removeNavEl(tid);
-          const reply = data.reply || "Maaf, tidak ada respons.";
-          appendNavMsg("bot", reply, msgId);
-          if (data.status === "success") {
-            navChatHistory.push({ role: "bot", text: reply });
-            if (navChatHistory.length > 20)
-              navChatHistory = navChatHistory.slice(-20);
+          const reply = data.reply || 'Maaf, tidak ada respons.';
+          appendNavMsg('bot', reply, msgId);
+          if (data.status === 'success') {
+            navChatHistory.push({ role:'bot', text:reply });
+            if (navChatHistory.length > 20) navChatHistory = navChatHistory.slice(-20);
           }
           if (!navChatOpen) {
-            const notif = document.getElementById(
-              mob ? "nav-chat-notif-mobile" : "nav-chat-notif",
-            );
-            if (notif) notif.style.display = "block";
+            const notif = document.getElementById(mob ? 'nav-chat-notif-mobile' : 'nav-chat-notif');
+            if (notif) notif.style.display = 'block';
           }
-        } catch (e) {
+        } catch(e) {
           removeNavEl(tid);
-          appendNavMsg("bot", "Maaf, gagal terhubung. Coba lagi.", msgId);
+          appendNavMsg('bot', 'Maaf, gagal terhubung. Coba lagi.', msgId);
         } finally {
           input.disabled = false;
           document.getElementById(sendId).disabled = false;
@@ -1213,21 +516,21 @@
       }
 
       function appendNavMsg(role, text, msgId) {
-        const msgs = document.getElementById(msgId);
-        const isBot = role === "bot";
-        const div = document.createElement("div");
-        div.className = `d-flex gap-2 mb-2 ${isBot ? "" : "flex-row-reverse"}`;
+        const msgs  = document.getElementById(msgId);
+        const isBot = role === 'bot';
+        const div   = document.createElement('div');
+        div.className = `d-flex gap-2 mb-2 ${isBot ? '' : 'flex-row-reverse'}`;
         const fmt = text
-          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-          .replace(/\*(.*?)\*/g, "<em>$1</em>")
-          .replace(/\n/g, "<br>");
+          .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+          .replace(/\*(.*?)\*/g,'<em>$1</em>')
+          .replace(/\n/g,'<br>');
         div.innerHTML = `
-          <div style="width:26px;height:26px;border-radius:50%;background:${isBot ? "var(--gold)" : "#e0e0e0"};
+          <div style="width:26px;height:26px;border-radius:50%;background:${isBot?'var(--gold)':'#e0e0e0'};
                       display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
-            <i class="fas fa-${isBot ? "robot" : "user"} ${isBot ? "text-white" : "text-muted"}" style="font-size:.55rem;"></i>
+            <i class="fas fa-${isBot?'robot':'user'} ${isBot?'text-white':'text-muted'}" style="font-size:.55rem;"></i>
           </div>
-          <div style="background:${isBot ? "#fff" : "var(--gold)"};color:${isBot ? "var(--dark)" : "#fff"};
-                      border:${isBot ? "1px solid #ede0cf" : "none"};border-radius:12px;
+          <div style="background:${isBot?'#fff':'var(--gold)'};color:${isBot?'var(--dark)':'#fff'};
+                      border:${isBot?'1px solid #ede0cf':'none'};border-radius:12px;
                       padding:9px 11px;font-size:.8rem;max-width:82%;line-height:1.5;">
             ${fmt}
           </div>`;
@@ -1237,10 +540,9 @@
 
       function appendNavTyping(msgId) {
         const msgs = document.getElementById(msgId);
-        const id = "nt-" + Date.now();
-        const div = document.createElement("div");
-        div.id = id;
-        div.className = "d-flex gap-2 mb-2";
+        const id   = 'nt-' + Date.now();
+        const div  = document.createElement('div');
+        div.id = id; div.className = 'd-flex gap-2 mb-2';
         div.innerHTML = `
           <div style="width:26px;height:26px;border-radius:50%;background:var(--gold);
                       display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;">
@@ -1257,9 +559,7 @@
         return id;
       }
 
-      function removeNavEl(id) {
-        document.getElementById(id)?.remove();
-      }
+      function removeNavEl(id) { document.getElementById(id)?.remove(); }
     </script>
   </body>
 </html>

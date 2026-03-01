@@ -66,7 +66,7 @@
                         </td>
                         <td>
                             <span class="badge rounded-pill px-3 py-2 yadnya-cell"
-                                  style="background:rgba(146,98,55,.09);color:var(--gold);border:1px solid rgba(146,98,55,.2);font-size:.72rem;">
+                                style="background:rgba(146,98,55,.09);color:var(--gold);border:1px solid rgba(146,98,55,.2);font-size:.72rem;">
                                 {{ k.yadnya.replace('_',' ') }}
                             </span>
                         </td>
@@ -171,12 +171,34 @@ async function showDetail(targetId) {
                 <p class="fw-bold mb-2" style="color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;font-family:Poppins,sans-serif;"><i class="fas fa-music me-1"></i>Teknik Menyanyi</p>
                 <p class="mb-0 text-muted" style="font-size:.86rem;">${esc(data.teknik_menyanyi||'Teknik belum tersedia.')}</p>
             </div>
+            ${data.has_audio && data.embed_url ? renderLibraryAudio(data) : ''}
             ${data.sumber&&data.sumber!=='-'?`<p class="text-muted mt-3 mb-0" style="font-size:.8rem;"><i class="fas fa-book me-1"></i><strong>Sumber:</strong> ${esc(data.sumber)}</p>`:''}`;
         } else {
             document.getElementById('modalJudul').textContent='Tidak Ditemukan';
             document.getElementById('modalBody').innerHTML='<p class="text-muted text-center py-4" style="font-size:.86rem;">Data kidung tidak tersedia.</p>';
         }
     } catch(e){ document.getElementById('modalBody').innerHTML='<p class="text-danger text-center py-4" style="font-size:.86rem;">Gagal memuat data.</p>'; }
+}
+function renderLibraryAudio(data) {
+    const platform = data.platform_audio || '';
+    let iframeHtml = '';
+    if (platform === 'soundcloud') {
+        iframeHtml = `<iframe width="100%" height="90" scrolling="no" frameborder="no" allow="autoplay"
+            src="${data.embed_url}"></iframe>`;
+    } else if (platform === 'youtube') {
+        iframeHtml = `<iframe width="100%" height="215" src="${data.embed_url}"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>`;
+    }
+    if (!iframeHtml) return '';
+    return `
+    <div class="p-3 rounded-3 mt-3" style="background:rgba(146,98,55,.05);border:1px solid rgba(146,98,55,.2);">
+        <p class="fw-bold mb-2" style="color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;font-family:Poppins,sans-serif;">
+            <i class="fas fa-headphones me-1"></i>Dengarkan Kidung
+            <span class="badge ms-1" style="background:${platform==='youtube'?'#f00':'#f50'};font-size:.58rem;text-transform:capitalize;">${platform}</span>
+        </p>
+        <div class="rounded-3 overflow-hidden">${iframeHtml}</div>
+    </div>`;
 }
 function esc(str){ if(!str) return ''; return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 </script>

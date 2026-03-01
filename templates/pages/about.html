@@ -5,21 +5,22 @@
 
 <header class="page-header animate">
     <span class="aksara-deco">ᬒᬁ</span>
-    <span class="page-tag">Metodologi & Teknologi</span>
+    <span class="page-tag">Tentang SariKidung</span>
     <h1>Methodology & Technology</h1>
     <p>Implementasi Semantic Web dan Expert System untuk Pelestarian Kidung Bali.</p>
 </header>
 
 <div class="container my-5">
 
-    <!-- Metode -->
+    <!-- Cara kerja sistem -->
     <div class="row g-5 align-items-center mb-5">
         <div class="col-lg-6 animate">
-            <span class="section-tag">Metode Pengembangan</span>
-            <h2 class="fw-bold mb-4" style="font-size:1.9rem;">Bagaimana SariKidung<br>Dibangun?</h2>
+            <span class="section-tag">Cara Kerja Sistem</span>
+            <h2 class="fw-bold mb-4" style="font-size:1.9rem;">Bagaimana <span style="color:var(--gold);">SariKidung Bekerja?</span></h2>
             <p class="text-muted mb-4" style="line-height:1.9;font-size:.9rem;">
-                Pengembangan <strong>SariKidung</strong> menggunakan metode pengembangan sistem pakar yang terintegrasi dengan teknologi <em>Semantic Web</em>.
-                Data dikumpulkan melalui studi literatur sastra agama dan wawancara dengan praktisi Dharma Gita untuk membangun basis pengetahuan yang valid secara teologis.
+                SariKidung menggunakan metode <strong>Rule-Based System</strong> dengan pendekatan <strong>Decision Tree</strong>.
+                Basis pengetahuannya tersimpan dalam format <strong>Ontologi OWL</strong> yang berisi 74+ Kidung Panca Yadnya
+                beserta relasi upacara, tahap, makna, dan teknik menyanyikannya.
             </p>
             <div class="p-4 rounded-3" style="background:var(--bg-soft);border:1px solid var(--border);">
                 <h6 class="fw-bold mb-2" style="color:var(--gold);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;">
@@ -32,9 +33,30 @@
             </div>
         </div>
         <div class="col-lg-6 animate">
-            <div class="rounded-3 overflow-hidden" style="border:1px solid var(--border);">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800"
-                     class="img-fluid d-block" alt="Technology Concept" style="width:100%;height:280px;object-fit:cover;">
+            <!-- Alur konsultasi -->
+            <div class="p-4 rounded-3" style="background:var(--dark);">
+                <h6 class="fw-bold mb-4" style="color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;">
+                    <i class="fas fa-route me-2"></i>Alur Konsultasi
+                </h6>
+                {% for no, icon, judul, deskripsi in [
+                    ('1','fas fa-om','Pilih Jenis Yadnya','Dewa, Pitra, Manusa, Bhuta, atau Rsi Yadnya'),
+                    ('2','fas fa-torii-gate','Pilih Upacara','Sesuaikan dengan upacara yang akan dilaksanakan'),
+                    ('3','fas fa-map-marker-alt','Pilih Pura/Tempat','Hanya jika relevan dengan konteks upacara'),
+                    ('4','fas fa-scroll','Terima Hasil','Kidung per tahap + makna + teknik menyanyi')
+                ] %}
+                <div class="d-flex align-items-start gap-3 mb-3 {% if not loop.last %}pb-3{% endif %}" style="border-bottom:{% if not loop.last %}1px solid rgba(255,255,255,.08){% else %}none{% endif %};">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                         style="width:30px;height:30px;background:var(--gold);">
+                        <small class="fw-bold text-white" style="font-size:.75rem;">{{ no }}</small>
+                    </div>
+                    <div>
+                        <div class="fw-semibold" style="font-size:.85rem;color:#fff;">
+                            <i class="{{ icon }} me-1" style="color:var(--gold);"></i>{{ judul }}
+                        </div>
+                        <div style="font-size:.78rem;color:rgba(255,255,255,.45);">{{ deskripsi }}</div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -56,6 +78,29 @@
         {% endfor %}
     </div>
 
+    <!-- Tips sebelum konsultasi -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 animate">
+            <div class="sk-card p-4 p-md-5" style="border-left:3px solid var(--gold) !important;">
+                <h5 class="fw-bold mb-4" style="font-family:'Playfair Display';">
+                    <i class="fas fa-info-circle me-2" style="color:var(--gold);"></i>Tips Sebelum Konsultasi
+                </h5>
+                {% for teks, icon, warna in [
+                    ('Pastikan Anda mengetahui jenis Yadnya dari upacara yang akan dilaksanakan (misal: Piodalan = Dewa Yadnya, Ngaben = Pitra Yadnya).','fas fa-check-circle','#28a745'),
+                    ('Pilih jawaban yang paling sesuai — tidak perlu khawatir salah, Anda bisa mengulang konsultasi kapan saja.','fas fa-check-circle','#28a745'),
+                    ('Jika tidak yakin dengan pilihan Pura, pilih "Umum" atau "Kahyangan Tiga" sebagai default.','fas fa-check-circle','#28a745'),
+                    ('Hasil mencakup semua tahapan upacara, tidak hanya satu kidung. Bisa diunduh sebagai PDF.','fas fa-check-circle','#28a745'),
+                    ('Data kidung masih dalam proses validasi pakar. Selalu konfirmasi dengan pemangku setempat.','fas fa-exclamation-triangle','#f59e0b')
+                ] %}
+                <div class="d-flex gap-3 mb-3">
+                    <i class="{{ icon }} mt-1 flex-shrink-0" style="color:{{ warna }};font-size:.9rem;"></i>
+                    <span class="text-muted" style="font-size:.86rem;line-height:1.75;">{{ teks }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <!-- Semantic banner -->
     <div class="rounded-3 p-5 animate" style="background:var(--dark);">
         <div class="row align-items-center g-4">
@@ -68,9 +113,9 @@
                 </p>
             </div>
             <div class="col-lg-4 text-center">
-                <div style="width:100px;height:100px;border:2px solid rgba(146,98,55,.4);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
-                    <i class="fas fa-brain" style="font-size:2.5rem;color:var(--gold);opacity:.7;"></i>
-                </div>
+                <a href="{{ url_for('browsing') }}" class="btn btn-bronze btn-lg px-5 py-3 fw-bold" style="font-size:.88rem;">
+                    <i class="fas fa-play me-2"></i>Mulai Konsultasi
+                </a>
             </div>
         </div>
     </div>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel Admin — SariKidung</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root { --gold:#926237; --gold-light:rgba(146,98,55,.09); --dark:#1a1a1b; --border:#ede0cf; }
+    body { font-family:'Poppins',sans-serif; background:#f4f1ed; min-height:100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px; min-height: 100vh;
+      background: var(--dark);
+      border-right: 3px solid var(--gold);
+      position: fixed; top:0; left:0;
+      display: flex; flex-direction: column;
+      z-index: 100;
+    }
+    .sidebar-brand {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .sidebar-brand .logo-mark {
+      width:38px; height:38px; border-radius:8px;
+      border:1.5px solid var(--gold);
+      display:inline-flex; align-items:center; justify-content:center;
+      margin-bottom:.5rem;
+    }
+    .sidebar-brand .logo-mark span {
+      font-family:'Playfair Display',serif;
+      font-size:.88rem; font-weight:700; color:var(--gold);
+    }
+    .sidebar-brand h6 {
+      font-family:'Playfair Display',serif;
+      color:#fff; font-size:.95rem; margin:0;
+    }
+    .sidebar-brand h6 span { color:var(--gold); }
+    .sidebar-brand p { color:rgba(255,255,255,.35); font-size:.68rem; margin:0; letter-spacing:1.5px; text-transform:uppercase; }
+
+    .sidebar-nav { padding: 1rem 0; flex:1; }
+    .nav-section {
+      padding: .5rem 1.25rem .25rem;
+      font-size:.62rem; color:rgba(255,255,255,.25);
+      text-transform:uppercase; letter-spacing:2px; font-weight:700;
+    }
+    .sidebar-link {
+      display:flex; align-items:center; gap:.75rem;
+      padding:.65rem 1.25rem; color:rgba(255,255,255,.5);
+      font-size:.83rem; font-weight:500; text-decoration:none;
+      transition:all .2s; border-left:3px solid transparent;
+    }
+    .sidebar-link:hover { color:#fff; background:rgba(255,255,255,.05); }
+    .sidebar-link.active { color:var(--gold); border-left-color:var(--gold); background:rgba(146,98,55,.08); }
+    .sidebar-link i { width:16px; text-align:center; font-size:.85rem; }
+
+    .sidebar-footer {
+      padding:1rem 1.25rem;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+    .sidebar-footer .user-info {
+      display:flex; align-items:center; gap:.6rem; margin-bottom:.75rem;
+    }
+    .sidebar-footer .avatar {
+      width:32px; height:32px; border-radius:50%;
+      background:var(--gold); display:flex; align-items:center; justify-content:center;
+      font-size:.75rem; color:#fff; font-weight:700; flex-shrink:0;
+    }
+    .sidebar-footer .user-name { color:#fff; font-size:.8rem; font-weight:600; }
+    .sidebar-footer .user-role { color:rgba(255,255,255,.35); font-size:.68rem; }
+
+    /* Main content */
+    .main { margin-left:240px; padding:2rem; }
+
+    /* Topbar */
+    .topbar {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:2rem;
+    }
+    .topbar h4 { font-family:'Playfair Display',serif; font-size:1.4rem; margin:0; }
+    .topbar p  { color:#999; font-size:.8rem; margin:0; }
+
+    /* Stat cards */
+    .stat-card {
+      background:#fff; border-radius:14px; padding:1.5rem;
+      border:1px solid var(--border);
+      box-shadow:0 2px 12px rgba(146,98,55,.06);
+    }
+    .stat-card .stat-icon {
+      width:48px; height:48px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; margin-bottom:1rem;
+    }
+    .stat-card .stat-num {
+      font-family:'Playfair Display',serif;
+      font-size:2rem; font-weight:700; color:var(--dark); line-height:1;
+    }
+    .stat-card .stat-label { color:#999; font-size:.78rem; margin-top:.3rem; }
+
+    /* Quick actions */
+    .action-card {
+      background:#fff; border-radius:14px; padding:1.5rem;
+      border:1px solid var(--border);
+      box-shadow:0 2px 12px rgba(146,98,55,.06);
+      display:flex; flex-direction:column;
+      transition:transform .2s, box-shadow .2s;
+      text-decoration:none; color:inherit;
+    }
+    .action-card:hover {
+      transform:translateY(-3px);
+      box-shadow:0 6px 24px rgba(146,98,55,.12);
+      color:inherit;
+    }
+    .action-card .ac-icon {
+      width:44px; height:44px; border-radius:10px;
+      background:var(--gold-light); color:var(--gold);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; margin-bottom:1rem;
+    }
+
+    /* Flash */
+    .alert { border-radius:10px; font-size:.84rem; }
+
+    /* Yadnya bars */
+    .yadnya-bar { margin-bottom:.75rem; }
+    .yadnya-bar .label { font-size:.8rem; color:#555; margin-bottom:.3rem; display:flex; justify-content:space-between; }
+    .progress { height:6px; border-radius:6px; background:#f0e8de; }
+    .progress-bar { background:var(--gold); border-radius:6px; }
+
+    /* Tabel Kidung */
+    .kidung-table th { font-size:.72rem; text-transform:uppercase; letter-spacing:1px; color:var(--gold); font-weight:700; }
+    .kidung-table td { font-size:.83rem; vertical-align:middle; }
+    .kidung-table tr:hover { background:var(--gold-light); }
+    .btn-edit   { border:1.5px solid #3b82f6; color:#3b82f6; background:#fff; border-radius:6px; padding:3px 10px; font-size:.75rem; }
+    .btn-edit:hover   { background:#3b82f6; color:#fff; }
+    .btn-delete { border:1.5px solid #e74c3c; color:#e74c3c; background:#fff; border-radius:6px; padding:3px 10px; font-size:.75rem; }
+    .btn-delete:hover { background:#e74c3c; color:#fff; }
+    .search-box { border:1.5px solid var(--border); border-radius:8px; padding:.45rem .9rem; font-size:.84rem; width:100%; max-width:280px; }
+    .search-box:focus { outline:none; border-color:var(--gold); }
+
+    @media(max-width:768px) {
+      .sidebar { width:100%; min-height:auto; position:relative; }
+      .main { margin-left:0; padding:1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo-mark"><span>SK</span></div>
+      <h6>SARI<span>KIDUNG</span></h6>
+      <p>Admin Panel</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">Menu</div>
+      <a href="{{ url_for('admin_panel') }}" class="sidebar-link active">
+        <i class="fas fa-th-large"></i> Dashboard
+      </a>
+      <a href="{{ url_for('admin_kidung') }}" class="sidebar-link">
+        <i class="fas fa-scroll"></i> Kelola Kidung
+      </a>
+      <a href="{{ url_for('admin_tambah') }}" class="sidebar-link">
+        <i class="fas fa-plus-circle"></i> Tambah Kidung
+      </a>
+      <a href="{{ url_for('library') }}" target="_blank" class="sidebar-link">
+        <i class="fas fa-book-open"></i> Lihat Library
+      </a>
+
+      <div class="nav-section mt-3">Akun</div>
+      <a href="{{ url_for('admin_ganti_password') }}" class="sidebar-link">
+        <i class="fas fa-key"></i> Ganti Password
+      </a>
+      <a href="{{ url_for('home') }}" target="_blank" class="sidebar-link">
+        <i class="fas fa-external-link-alt"></i> Lihat Website
+      </a>
+      <a href="{{ url_for('admin_logout') }}" class="sidebar-link" style="color:#e74c3c!important;">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="avatar">{{ current_user.username[0].upper() }}</div>
+        <div>
+          <div class="user-name">{{ current_user.username }}</div>
+          <div class="user-role">Administrator</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div>
+        <h4>Dashboard <span style="color:var(--gold);">Admin</span></h4>
+        <p>Selamat datang kembali, {{ current_user.username }}. Rahajeng! 🙏</p>
+      </div>
+      <a href="{{ url_for('admin_tambah') }}" class="btn"
+         style="background:var(--gold);color:#fff;border-radius:8px;font-size:.83rem;font-weight:600;padding:.55rem 1.2rem;">
+        <i class="fas fa-plus me-1"></i>Tambah Kidung
+      </a>
+    </div>
+
+    <!-- Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat, msg in messages %}
+          <div class="alert alert-{{ 'danger' if cat == 'danger' else 'success' if cat == 'success' else 'info' }} mb-3">
+            <i class="fas fa-{{ 'exclamation-circle' if cat == 'danger' else 'check-circle' if cat == 'success' else 'info-circle' }} me-2"></i>{{ msg }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Stat cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#fff8f0;color:var(--gold);"><i class="fas fa-scroll"></i></div>
+          <div class="stat-num">{{ total_kidung }}</div>
+          <div class="stat-label">Total Kidung</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#f0fdf4;color:#22c55e;"><i class="fas fa-om"></i></div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Jenis Yadnya</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#eff6ff;color:#3b82f6;"><i class="fas fa-sitemap"></i></div>
+          <div class="stat-num">OWL</div>
+          <div class="stat-label">Format Ontologi</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#fdf4ff;color:#a855f7;"><i class="fas fa-brain"></i></div>
+          <div class="stat-num">Active</div>
+          <div class="stat-label">Expert System</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- Distribusi per Yadnya -->
+      <div class="col-lg-7">
+        <div class="stat-card h-100">
+          <h6 class="fw-bold mb-4" style="font-size:.85rem;">
+            <i class="fas fa-chart-bar me-2" style="color:var(--gold);"></i>Distribusi Kidung per Yadnya
+          </h6>
+          {% set total = total_kidung if total_kidung > 0 else 1 %}
+          {% for nama, jml in stats_yadnya.items() %}
+          <div class="yadnya-bar">
+            <div class="label">
+              <span>{{ nama }}</span>
+              <span style="color:var(--gold);font-weight:600;">{{ jml }}</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" style="width:{{ (jml/total*100)|round|int }}%;"></div>
+            </div>
+          </div>
+          {% else %}
+          <p class="text-muted" style="font-size:.84rem;">Data distribusi belum tersedia.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="col-lg-5">
+        <div class="stat-card h-100">
+          <h6 class="fw-bold mb-4" style="font-size:.85rem;">
+            <i class="fas fa-bolt me-2" style="color:var(--gold);"></i>Aksi Cepat
+          </h6>
+          <div class="d-flex flex-column gap-2">
+            <a href="{{ url_for('admin_tambah') }}" class="action-card">
+              <div class="ac-icon"><i class="fas fa-plus"></i></div>
+              <div class="fw-semibold" style="font-size:.85rem;">Tambah Kidung Baru</div>
+              <div class="text-muted" style="font-size:.75rem;">Input data kidung ke basis pengetahuan</div>
+            </a>
+            <a href="{{ url_for('admin_ganti_password') }}" class="action-card">
+              <div class="ac-icon"><i class="fas fa-key"></i></div>
+              <div class="fw-semibold" style="font-size:.85rem;">Ganti Password Admin</div>
+              <div class="text-muted" style="font-size:.75rem;">Ubah password akun administrator</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

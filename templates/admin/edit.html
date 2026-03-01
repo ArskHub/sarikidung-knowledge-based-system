@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Kidung — SariKidung Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root { --gold:#926237; --gold-light:rgba(146,98,55,.09); --dark:#1a1a1b; --border:#ede0cf; }
+    body { font-family:'Poppins',sans-serif; background:#f4f1ed; min-height:100vh; }
+
+    .sidebar {
+      width:240px; min-height:100vh; background:var(--dark);
+      border-right:3px solid var(--gold); position:fixed; top:0; left:0;
+      display:flex; flex-direction:column; z-index:100;
+    }
+    .sidebar-brand { padding:1.5rem 1.25rem 1rem; border-bottom:1px solid rgba(255,255,255,.07); }
+    .logo-mark {
+      width:38px; height:38px; border-radius:8px; border:1.5px solid var(--gold);
+      display:inline-flex; align-items:center; justify-content:center; margin-bottom:.5rem;
+    }
+    .logo-mark span { font-family:'Playfair Display',serif; font-size:.88rem; font-weight:700; color:var(--gold); }
+    .sidebar-brand h6 { font-family:'Playfair Display',serif; color:#fff; font-size:.95rem; margin:0; }
+    .sidebar-brand h6 span { color:var(--gold); }
+    .sidebar-brand p { color:rgba(255,255,255,.35); font-size:.68rem; margin:0; letter-spacing:1.5px; text-transform:uppercase; }
+    .sidebar-nav { padding:1rem 0; flex:1; }
+    .nav-section { padding:.5rem 1.25rem .25rem; font-size:.62rem; color:rgba(255,255,255,.25); text-transform:uppercase; letter-spacing:2px; font-weight:700; }
+    .sidebar-link {
+      display:flex; align-items:center; gap:.75rem; padding:.65rem 1.25rem;
+      color:rgba(255,255,255,.5); font-size:.83rem; font-weight:500;
+      text-decoration:none; transition:all .2s; border-left:3px solid transparent;
+    }
+    .sidebar-link:hover { color:#fff; background:rgba(255,255,255,.05); }
+    .sidebar-link.active { color:var(--gold); border-left-color:var(--gold); background:rgba(146,98,55,.08); }
+    .sidebar-link i { width:16px; text-align:center; font-size:.85rem; }
+    .sidebar-footer { padding:1rem 1.25rem; border-top:1px solid rgba(255,255,255,.07); }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-size:.75rem; color:#fff; font-weight:700; }
+
+    .main { margin-left:240px; padding:2rem; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; }
+    .topbar h4 { font-family:'Playfair Display',serif; font-size:1.4rem; margin:0; }
+
+    .form-card {
+      background:#fff; border-radius:16px; padding:2rem;
+      border:1px solid var(--border); box-shadow:0 2px 12px rgba(146,98,55,.06);
+    }
+    .form-section-title {
+      font-size:.72rem; text-transform:uppercase; letter-spacing:2px;
+      color:var(--gold); font-weight:700; margin-bottom:1rem;
+      padding-bottom:.5rem; border-bottom:1px solid var(--border);
+    }
+    .form-label { font-size:.8rem; font-weight:600; color:#555; margin-bottom:.35rem; }
+    .form-control, .form-select {
+      border-radius:9px; border:1.5px solid #e8e0d8;
+      padding:.6rem .9rem; font-size:.86rem; transition:border-color .2s;
+      font-family:'Poppins',sans-serif;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color:var(--gold); box-shadow:0 0 0 3px rgba(146,98,55,.1);
+    }
+    textarea.form-control { resize:vertical; min-height:100px; }
+    .btn-save {
+      background:var(--gold); color:#fff; border:none; border-radius:9px;
+      padding:.7rem 2rem; font-weight:600; font-size:.88rem; transition:background .2s;
+    }
+    .btn-save:hover { background:#7a512d; }
+    .btn-cancel {
+      background:#fff; color:#666; border:1.5px solid #e0d8d0; border-radius:9px;
+      padding:.7rem 1.5rem; font-weight:500; font-size:.88rem;
+      text-decoration:none; display:inline-block;
+    }
+    .btn-cancel:hover { border-color:#aaa; color:#333; }
+    .alert { border-radius:10px; font-size:.84rem; }
+    .required { color:#e74c3c; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo-mark"><span>SK</span></div>
+      <h6>SARI<span>KIDUNG</span></h6>
+      <p>Admin Panel</p>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Menu</div>
+      <a href="{{ url_for('admin_panel') }}" class="sidebar-link">
+        <i class="fas fa-th-large"></i> Dashboard
+      </a>
+      <a href="{{ url_for('admin_kidung') }}" class="sidebar-link active">
+        <i class="fas fa-scroll"></i> Kelola Kidung
+      </a>
+      <a href="{{ url_for('admin_tambah') }}" class="sidebar-link">
+        <i class="fas fa-plus-circle"></i> Tambah Kidung
+      </a>
+      <a href="{{ url_for('library') }}" target="_blank" class="sidebar-link">
+        <i class="fas fa-book-open"></i> Lihat Library
+      </a>
+      <div class="nav-section mt-3">Akun</div>
+      <a href="{{ url_for('admin_ganti_password') }}" class="sidebar-link">
+        <i class="fas fa-key"></i> Ganti Password
+      </a>
+      <a href="{{ url_for('home') }}" target="_blank" class="sidebar-link">
+        <i class="fas fa-external-link-alt"></i> Lihat Website
+      </a>
+      <a href="{{ url_for('admin_logout') }}" class="sidebar-link" style="color:#e74c3c!important;">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="d-flex align-items-center gap-2">
+        <div class="avatar">{{ current_user.username[0].upper() }}</div>
+        <div>
+          <div style="color:#fff;font-size:.8rem;font-weight:600;">{{ current_user.username }}</div>
+          <div style="color:rgba(255,255,255,.35);font-size:.68rem;">Administrator</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h4>Edit <span style="color:var(--gold);">Kidung</span></h4>
+        <p style="color:#999;font-size:.8rem;margin:0;">Perbarui data kidung dalam basis pengetahuan</p>
+      </div>
+      <a href="{{ url_for('admin_panel') }}" class="btn-cancel">
+        <i class="fas fa-arrow-left me-1"></i>Kembali
+      </a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat, msg in messages %}
+          <div class="alert alert-{{ 'danger' if cat == 'danger' else 'success' }} mb-3">
+            <i class="fas fa-{{ 'exclamation-circle' if cat == 'danger' else 'check-circle' }} me-2"></i>{{ msg }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('admin_edit', target=data.target) }}">
+      <input type="hidden" name="target" value="{{ data.target }}">
+      <div class="row g-3">
+
+        <!-- Kolom kiri -->
+        <div class="col-lg-7">
+          <div class="form-card mb-3">
+            <div class="form-section-title"><i class="fas fa-info-circle me-2"></i>Informasi Dasar</div>
+            <div class="mb-3">
+              <label class="form-label">Judul Kidung <span class="required">*</span></label>
+              <input type="text" name="judul" class="form-control"
+                     placeholder="contoh: Kawitan Wargasari"
+                     value="{{ data.get('judul','') }}" required/>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Jenis Yadnya <span class="required">*</span></label>
+                <select name="yadnya" class="form-select" required>
+                  <option value="">-- Pilih Yadnya --</option>
+                  {% for y in ['Dewa Yadnya','Pitra Yadnya','Manusa Yadnya','Bhuta Yadnya','Rsi Yadnya'] %}
+                  <option value="{{ y }}" {{ 'selected' if data.get('jenis_yadnya') == y }}>{{ y }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Upacara</label>
+                <select name="upacara" id="sel-upacara" class="form-select">
+                  <option value="">-- Pilih Upacara --</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Tahap</label>
+                <select name="tahap" id="sel-tahap" class="form-select">
+                  <option value="">-- Pilih Tahap --</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Pura / Tempat</label>
+                <select name="pura" id="sel-pura" class="form-select">
+                  <option value="">-- Pilih Pura --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="form-section-title"><i class="fas fa-scroll me-2"></i>Teks Kidung</div>
+            <textarea name="teks" class="form-control" rows="6"
+                      placeholder="Masukkan lirik / teks kidung di sini...">{{ data.get('teks','') or data.get('teks_kidung','') }}</textarea>
+          </div>
+        </div>
+
+        <!-- Kolom kanan -->
+        <div class="col-lg-5">
+          <div class="form-card mb-3">
+            <div class="form-section-title"><i class="fas fa-tags me-2"></i>Klasifikasi</div>
+            <div class="mb-3">
+              <label class="form-label">Jenis Sekar</label>
+              <select name="jenis_sekar" class="form-select">
+                <option value="">-- Pilih --</option>
+                {% for s in ['Sekar Alit','Sekar Madya','Sekar Agung'] %}
+                <option value="{{ s }}" {{ 'selected' if data.get('jenis_sekar') == s }}>{{ s }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Bahasa</label>
+              <select name="bahasa" class="form-select">
+                <option value="">-- Pilih --</option>
+                {% for b in ['Bali','Kawi','Sansekerta','Bali-Kawi','Indonesia'] %}
+                <option value="{{ b }}" {{ 'selected' if data.get('bahasa') == b }}>{{ b }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Sumber</label>
+              <input type="text" name="sumber" class="form-control"
+                     placeholder="contoh: Lontar Wargasari"
+                     value="{{ data.get('sumber','') }}"/>
+            </div>
+          </div>
+
+          <div class="form-card mb-3">
+            <div class="form-section-title"><i class="fas fa-lightbulb me-2"></i>Makna & Teknik</div>
+            <div class="mb-3">
+              <label class="form-label">Makna Mendalam</label>
+              <textarea name="makna" class="form-control" rows="3"
+                        placeholder="Penjelasan filosofis / spiritual kidung...">{{ data.get('makna_mendalam','') or data.get('makna','') }}</textarea>
+            </div>
+            <div>
+              <label class="form-label">Teknik Menyanyi</label>
+              <textarea name="teknik" class="form-control" rows="3"
+                        placeholder="Panduan wirama, tempo, gaya nyanyian...">{{ data.get('teknik_menyanyi','') or data.get('teknik','') }}</textarea>
+            </div>
+          </div>
+
+          <div class="form-card mb-3">
+            <div class="form-section-title"><i class="fas fa-headphones me-2"></i>Audio Kidung</div>
+            <div class="mb-3">
+              <label class="form-label">URL Audio</label>
+              <input type="url" name="url_audio" id="url_audio" class="form-control"
+                     placeholder="https://soundcloud.com/... atau https://youtube.com/..."
+                     value="{{ data.get('url_audio') or '' }}"
+                     oninput="previewAudio(this.value)"/>
+              <small class="text-muted" style="font-size:.75rem;">
+                <i class="fab fa-soundcloud me-1" style="color:#f50;"></i>SoundCloud &nbsp;|&nbsp;
+                <i class="fab fa-youtube me-1" style="color:#f00;"></i>YouTube
+              </small>
+            </div>
+            <div id="audio-preview" class="d-none">
+              <label class="form-label">Preview</label>
+              <div id="audio-player-wrap" class="rounded-3 overflow-hidden" style="border:1.5px solid var(--border);"></div>
+            </div>
+          </div>
+
+          <!-- Tombol -->
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn-save">
+              <i class="fas fa-save me-2"></i>Update Kidung
+            </button>
+            <a href="{{ url_for('admin_panel') }}" class="btn-cancel">Batal</a>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  // ── Load opsi dropdown dari ontologi ─────────────────────────
+  async function loadOptions() {
+    try {
+      const res  = await fetch('/api/options');
+      const data = await res.json();
+      if (data.status !== 'success') return;
+
+      const currentUpacara = "{{ data.get('upacara','') }}";
+      const currentTahap   = "{{ data.get('tahap','') }}";
+      const currentPura    = "{{ data.get('pura','') }}";
+
+      function fillSelect(id, items, current) {
+        const sel = document.getElementById(id);
+        if (!sel) return;
+        items.forEach(item => {
+          const opt = document.createElement('option');
+          opt.value = item;
+          opt.textContent = item;
+          if (item === current) opt.selected = true;
+          sel.appendChild(opt);
+        });
+      }
+
+      fillSelect('sel-upacara', data.upacara, currentUpacara);
+      fillSelect('sel-tahap',   data.tahap,   currentTahap);
+      fillSelect('sel-pura',    data.pura,    currentPura);
+
+    } catch(e) {
+      console.error('Gagal load options:', e);
+    }
+  }
+
+  // ── Preview audio player ──────────────────────────────────────
+  function previewAudio(url) {
+    const wrap    = document.getElementById('audio-player-wrap');
+    const preview = document.getElementById('audio-preview');
+    if (!url) { preview.classList.add('d-none'); wrap.innerHTML = ''; return; }
+
+    if (url.includes('soundcloud.com')) {
+      const clean = url.split('?')[0];
+      const src   = `https://w.soundcloud.com/player/?url=${encodeURIComponent(clean)}&color=%23926237&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false`;
+      const iframe = document.createElement('iframe');
+      iframe.width = '100%'; iframe.height = '90';
+      iframe.scrolling = 'no'; iframe.frameBorder = 'no';
+      iframe.allow = 'autoplay'; iframe.src = src;
+      wrap.innerHTML = '';
+      wrap.appendChild(iframe);
+      preview.classList.remove('d-none');
+    } else if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      let vid = '';
+      if (url.includes('youtu.be/'))      vid = url.split('youtu.be/')[1].split('?')[0];
+      else if (url.includes('watch?v='))  vid = url.split('watch?v=')[1].split('&')[0];
+      if (vid) {
+        const iframe = document.createElement('iframe');
+        iframe.width = '100%'; iframe.height = '200';
+        iframe.frameBorder = '0'; iframe.allowFullscreen = true;
+        iframe.src = `https://www.youtube.com/embed/${vid}`;
+        wrap.innerHTML = '';
+        wrap.appendChild(iframe);
+        preview.classList.remove('d-none');
+      }
+    } else {
+      preview.classList.add('d-none');
+      wrap.innerHTML = '';
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    loadOptions();
+    const v = document.getElementById('url_audio')?.value;
+    if (v) previewAudio(v);
+  });
+  </script>
+</body>
+</html>

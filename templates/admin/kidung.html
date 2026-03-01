@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kelola Kidung — SariKidung Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root { --gold:#926237; --gold-light:rgba(146,98,55,.09); --dark:#1a1a1b; --border:#ede0cf; }
+    body { font-family:'Poppins',sans-serif; background:#f4f1ed; min-height:100vh; }
+
+    /* Sidebar */
+    .sidebar { width:240px; min-height:100vh; background:var(--dark); border-right:3px solid var(--gold); position:fixed; top:0; left:0; display:flex; flex-direction:column; z-index:100; }
+    .sidebar-brand { padding:1.5rem 1.25rem 1rem; border-bottom:1px solid rgba(255,255,255,.07); }
+    .logo-mark { width:38px; height:38px; border-radius:8px; border:1.5px solid var(--gold); display:inline-flex; align-items:center; justify-content:center; margin-bottom:.5rem; }
+    .logo-mark span { font-family:'Playfair Display',serif; font-size:.88rem; font-weight:700; color:var(--gold); }
+    .sidebar-brand h6 { font-family:'Playfair Display',serif; color:#fff; font-size:.95rem; margin:0; }
+    .sidebar-brand h6 span { color:var(--gold); }
+    .sidebar-brand p { color:rgba(255,255,255,.35); font-size:.68rem; margin:0; letter-spacing:1.5px; text-transform:uppercase; }
+    .sidebar-nav { padding:1rem 0; flex:1; }
+    .nav-section { padding:.5rem 1.25rem .25rem; font-size:.62rem; color:rgba(255,255,255,.25); text-transform:uppercase; letter-spacing:2px; font-weight:700; }
+    .sidebar-link { display:flex; align-items:center; gap:.75rem; padding:.65rem 1.25rem; color:rgba(255,255,255,.5); font-size:.83rem; font-weight:500; text-decoration:none; transition:all .2s; border-left:3px solid transparent; }
+    .sidebar-link:hover { color:#fff; background:rgba(255,255,255,.05); }
+    .sidebar-link.active { color:var(--gold); border-left-color:var(--gold); background:rgba(146,98,55,.08); }
+    .sidebar-link i { width:16px; text-align:center; font-size:.85rem; }
+    .sidebar-footer { padding:1rem 1.25rem; border-top:1px solid rgba(255,255,255,.07); }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-size:.75rem; color:#fff; font-weight:700; }
+
+    /* Main */
+    .main { margin-left:240px; padding:2rem; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; flex-wrap:wrap; gap:1rem; }
+    .topbar h4 { font-family:'Playfair Display',serif; font-size:1.4rem; margin:0; }
+
+    /* Card */
+    .sk-card { background:#fff; border-radius:14px; border:1px solid var(--border); box-shadow:0 2px 12px rgba(146,98,55,.06); }
+
+    /* Toolbar */
+    .toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.75rem; padding:1.25rem 1.5rem; border-bottom:1px solid var(--border); }
+    .search-wrap { position:relative; }
+    .search-wrap i { position:absolute; left:.8rem; top:50%; transform:translateY(-50%); color:#aaa; font-size:.8rem; }
+    .search-input { border:1.5px solid var(--border); border-radius:8px; padding:.5rem .9rem .5rem 2.2rem; font-size:.84rem; font-family:'Poppins',sans-serif; width:260px; transition:border-color .2s; }
+    .search-input:focus { outline:none; border-color:var(--gold); }
+
+    /* Filter pills */
+    .filter-pills { display:flex; flex-wrap:wrap; gap:.5rem; padding:.75rem 1.5rem; border-bottom:1px solid var(--border); }
+    .pill { border:1.5px solid var(--border); background:#fff; border-radius:20px; padding:.3rem .9rem; font-size:.75rem; cursor:pointer; font-family:'Poppins',sans-serif; transition:all .2s; color:#666; }
+    .pill:hover { border-color:var(--gold); color:var(--gold); }
+    .pill.active { background:var(--dark); border-color:var(--dark); color:#fff; }
+
+    /* Table */
+    .kidung-table { font-family:'Poppins',sans-serif; }
+    .kidung-table thead th { background:#faf6f1; font-size:.68rem; text-transform:uppercase; letter-spacing:1.2px; color:#999; font-weight:700; padding:.85rem 1rem; border-bottom:2px solid var(--border); white-space:nowrap; }
+    .kidung-table tbody td { padding:.8rem 1rem; vertical-align:middle; border-bottom:1px solid #f5f0ea; font-size:.83rem; }
+    .kidung-table tbody tr:hover { background:#fdf9f5; }
+    .kidung-table tbody tr:last-child td { border-bottom:none; }
+
+    /* Badges */
+    .badge-yadnya { background:var(--gold-light); color:var(--gold); border:1px solid rgba(146,98,55,.2); font-size:.68rem; padding:.3rem .7rem; border-radius:20px; font-weight:600; white-space:nowrap; }
+    .badge-audio { background:#fff3f0; color:#f50; border:1px solid rgba(255,85,0,.2); font-size:.65rem; padding:.25rem .6rem; border-radius:20px; }
+    .badge-no-audio { color:#ccc; font-size:.75rem; }
+
+    /* Action buttons */
+    .btn-act { border-radius:6px; padding:.3rem .7rem; font-size:.75rem; font-weight:600; transition:all .2s; border:1.5px solid; cursor:pointer; }
+    .btn-act-edit { border-color:#3b82f6; color:#3b82f6; background:#fff; }
+    .btn-act-edit:hover { background:#3b82f6; color:#fff; }
+    .btn-act-del  { border-color:#ef4444; color:#ef4444; background:#fff; }
+    .btn-act-del:hover  { background:#ef4444; color:#fff; }
+
+    /* Btn tambah */
+    .btn-tambah { background:var(--gold); color:#fff; border:none; border-radius:8px; padding:.55rem 1.2rem; font-size:.83rem; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:.4rem; transition:background .2s; }
+    .btn-tambah:hover { background:#7a512d; color:#fff; }
+
+    /* Empty state */
+    .empty-state { padding:3rem; text-align:center; }
+    .empty-state .aksara { font-size:3rem; color:var(--gold); opacity:.15; line-height:1; margin-bottom:.5rem; }
+
+    /* Stats bar */
+    .stats-bar { display:flex; gap:1.5rem; flex-wrap:wrap; padding:.75rem 1.5rem; background:#faf6f1; border-bottom:1px solid var(--border); border-radius:14px 14px 0 0; }
+    .stat-item { font-size:.75rem; color:#888; }
+    .stat-item strong { color:var(--dark); font-weight:700; }
+
+    /* Alert */
+    .alert { border-radius:10px; font-size:.84rem; }
+
+    @media(max-width:768px) {
+      .sidebar { width:100%; min-height:auto; position:relative; }
+      .main { margin-left:0; padding:1rem; }
+      .search-input { width:100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo-mark"><span>SK</span></div>
+      <h6>SARI<span>KIDUNG</span></h6>
+      <p>Admin Panel</p>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Menu</div>
+      <a href="{{ url_for('admin_panel') }}" class="sidebar-link">
+        <i class="fas fa-th-large"></i> Dashboard
+      </a>
+      <a href="{{ url_for('admin_kidung') }}" class="sidebar-link active">
+        <i class="fas fa-scroll"></i> Kelola Kidung
+      </a>
+      <a href="{{ url_for('admin_tambah') }}" class="sidebar-link">
+        <i class="fas fa-plus-circle"></i> Tambah Kidung
+      </a>
+      <a href="{{ url_for('library') }}" target="_blank" class="sidebar-link">
+        <i class="fas fa-book-open"></i> Lihat Library
+      </a>
+      <div class="nav-section mt-3">Akun</div>
+      <a href="{{ url_for('admin_ganti_password') }}" class="sidebar-link">
+        <i class="fas fa-key"></i> Ganti Password
+      </a>
+      <a href="{{ url_for('home') }}" target="_blank" class="sidebar-link">
+        <i class="fas fa-external-link-alt"></i> Lihat Website
+      </a>
+      <a href="{{ url_for('admin_logout') }}" class="sidebar-link" style="color:#e74c3c!important;">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="d-flex align-items-center gap-2">
+        <div class="avatar">{{ current_user.username[0].upper() }}</div>
+        <div>
+          <div style="color:#fff;font-size:.8rem;font-weight:600;">{{ current_user.username }}</div>
+          <div style="color:rgba(255,255,255,.35);font-size:.68rem;">Administrator</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div>
+        <h4>Kelola <span style="color:var(--gold);">Kidung</span></h4>
+        <p style="color:#999;font-size:.8rem;margin:0;">Manajemen data kidung dalam basis pengetahuan ontologi</p>
+      </div>
+      <a href="{{ url_for('admin_tambah') }}" class="btn-tambah">
+        <i class="fas fa-plus"></i> Tambah Kidung
+      </a>
+    </div>
+
+    <!-- Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat, msg in messages %}
+          <div class="alert alert-{{ 'danger' if cat == 'danger' else 'success' if cat == 'success' else 'info' }} mb-3">
+            <i class="fas fa-{{ 'exclamation-circle' if cat == 'danger' else 'check-circle' if cat == 'success' else 'info-circle' }} me-2"></i>{{ msg }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Tabel -->
+    <div class="sk-card">
+
+      <!-- Stats bar -->
+      <div class="stats-bar">
+        <div class="stat-item">Total: <strong id="countAll">{{ all_kidungs|length }}</strong> kidung</div>
+        <div class="stat-item">Ditampilkan: <strong id="countShown">{{ all_kidungs|length }}</strong></div>
+        {% set audio_count = all_kidungs|selectattr('has_audio')|list|length %}
+        <div class="stat-item">Punya Audio: <strong style="color:#f50;">{{ audio_count }}</strong></div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-wrap">
+          <i class="fas fa-search"></i>
+          <input type="text" class="search-input" id="searchInput"
+                 placeholder="Cari judul, upacara, yadnya..."
+                 oninput="filterTable()"/>
+        </div>
+      </div>
+
+      <!-- Filter pills -->
+      <div class="filter-pills">
+        <button class="pill active" onclick="filterYadnya('ALL',this)">Semua</button>
+        {% for y in ['Dewa Yadnya','Pitra Yadnya','Manusa Yadnya','Bhuta Yadnya','Rsi Yadnya'] %}
+        <button class="pill" onclick="filterYadnya('{{ y }}',this)">{{ y }}</button>
+        {% endfor %}
+        <button class="pill" onclick="filterYadnya('AUDIO',this)" style="border-color:#f50;color:#f50;">
+          <i class="fas fa-music me-1"></i>Ada Audio
+        </button>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table class="table kidung-table mb-0" id="kidungTable">
+          <thead>
+            <tr>
+              <th class="ps-4" style="width:4%;">#</th>
+              <th style="width:35%;">Judul Kidung</th>
+              <th style="width:18%;">Jenis Yadnya</th>
+              <th style="width:18%;">Upacara</th>
+              <th style="width:10%;">Audio</th>
+              <th class="text-center" style="width:15%;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for k in all_kidungs %}
+            <tr data-yadnya="{{ k.yadnya }}" data-audio="{{ 'yes' if k.has_audio else 'no' }}">
+              <td class="ps-4 text-muted fw-bold idx-col" style="font-size:.78rem;">{{ loop.index }}</td>
+              <td>
+                <div class="fw-semibold" style="color:var(--dark);">{{ (k.judul or k.target).replace('_',' ') }}</div>
+                {% if k.jenis_sekar and k.jenis_sekar != 'None' %}
+                <small class="text-muted" style="font-size:.71rem;">{{ k.jenis_sekar.replace('_',' ') }}</small>
+                {% endif %}
+              </td>
+              <td><span class="badge-yadnya">{{ k.yadnya.replace('_',' ') }}</span></td>
+              <td class="text-muted">{{ k.upacara.replace('_',' ') if k.upacara and k.upacara != 'None' else '-' }}</td>
+              <td>
+                {% if k.has_audio %}
+                <span class="badge-audio"><i class="fas fa-headphones me-1"></i>Audio</span>
+                {% else %}
+                <span class="badge-no-audio">—</span>
+                {% endif %}
+              </td>
+              <td class="text-center">
+                <div class="d-flex gap-1 justify-content-center">
+                  <a href="{{ url_for('admin_edit', target=k.target) }}" class="btn-act btn-act-edit" title="Edit">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                  <button onclick="confirmDelete('{{ k.target }}','{{ (k.judul or k.target)|replace('_',' ') }}')"
+                          class="btn-act btn-act-del" title="Hapus">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="6">
+                <div class="empty-state">
+                  <div class="aksara">ᬒᬁ</div>
+                  <p class="text-muted mb-2" style="font-size:.85rem;">Belum ada data kidung.</p>
+                  <a href="{{ url_for('admin_tambah') }}" class="btn-tambah" style="font-size:.8rem;padding:.4rem 1rem;">
+                    <i class="fas fa-plus"></i> Tambah Sekarang
+                  </a>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- No result -->
+      <div id="noResult" class="empty-state d-none">
+        <div class="aksara">ᬒᬁ</div>
+        <p class="text-muted mb-2" style="font-size:.85rem;">Tidak ada kidung yang cocok.</p>
+        <button class="pill" onclick="resetFilter()">Bersihkan Filter</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal Konfirmasi Hapus -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" style="max-width:400px;">
+      <div class="modal-content border-0 shadow-lg" style="border-radius:14px;overflow:hidden;">
+        <div class="modal-header border-0 pb-0 pt-4 px-4">
+          <div class="d-flex align-items-center gap-2">
+            <div style="width:36px;height:36px;border-radius:8px;background:#fff0f0;display:flex;align-items:center;justify-content:center;">
+              <i class="fas fa-trash" style="color:#ef4444;font-size:.9rem;"></i>
+            </div>
+            <h6 class="modal-title fw-bold mb-0" style="font-size:.95rem;">Hapus Kidung</h6>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body px-4 py-3">
+          <p class="text-muted mb-2" style="font-size:.84rem;">Yakin ingin menghapus kidung ini?</p>
+          <div class="p-3 rounded-3" style="background:#faf6f1;border:1px solid var(--border);">
+            <p class="fw-bold mb-0" id="deleteKidungName" style="color:var(--gold);font-size:.88rem;"></p>
+          </div>
+          <p class="text-muted mt-2 mb-0" style="font-size:.76rem;">
+            <i class="fas fa-exclamation-triangle me-1" style="color:#f59e0b;"></i>
+            Data akan dihapus permanen dari ontologi dan tidak dapat dikembalikan.
+          </p>
+        </div>
+        <div class="modal-footer border-0 px-4 pb-4 pt-0 gap-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary px-3" data-bs-dismiss="modal">Batal</button>
+          <form id="deleteForm" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-sm btn-danger px-3">
+              <i class="fas fa-trash me-1"></i>Ya, Hapus
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  let activeYadnya = 'ALL';
+
+  function filterTable() {
+    const q = document.getElementById('searchInput').value.toUpperCase().trim();
+    applyFilters(q, activeYadnya);
+  }
+
+  function filterYadnya(cat, el) {
+    document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    activeYadnya = cat;
+    const q = document.getElementById('searchInput').value.toUpperCase().trim();
+    applyFilters(q, cat);
+  }
+
+  function applyFilters(q, cat) {
+    const rows = document.querySelectorAll('#kidungTable tbody tr[data-yadnya]');
+    let count = 0;
+    rows.forEach(row => {
+      const txt    = row.textContent.toUpperCase();
+      const yadnya = row.dataset.yadnya || '';
+      const audio  = row.dataset.audio || '';
+
+      const matchQ = !q || txt.includes(q);
+      let matchCat = true;
+      if (cat === 'AUDIO')  matchCat = audio === 'yes';
+      else if (cat !== 'ALL') matchCat = yadnya.toLowerCase().includes(cat.toLowerCase().split(' ')[0]);
+
+      const vis = matchQ && matchCat;
+      row.style.display = vis ? '' : 'none';
+      if (vis) { count++; row.querySelector('.idx-col').textContent = count; }
+    });
+
+    document.getElementById('countShown').textContent = count;
+    document.getElementById('noResult').classList.toggle('d-none', count > 0);
+  }
+
+  function resetFilter() {
+    document.getElementById('searchInput').value = '';
+    activeYadnya = 'ALL';
+    document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+    document.querySelector('.pill').classList.add('active');
+    applyFilters('', 'ALL');
+  }
+
+  function confirmDelete(target, judul) {
+    document.getElementById('deleteKidungName').textContent = judul;
+    document.getElementById('deleteForm').action = `/admin/hapus/${target}`;
+    new bootstrap.Modal(document.getElementById('deleteModal')).show();
+  }
+  </script>
+</body>
+</html>

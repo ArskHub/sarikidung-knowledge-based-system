@@ -38,6 +38,99 @@
     </div>
 </header>
 
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="text-center mb-5 animate">
+            <span class="section-tag">Cara Penggunaan</span>
+            <h2 class="fw-bold mb-2" style="font-size:2rem;">Temukan Kidung dalam 3 Langkah</h2>
+            <p class="text-muted mx-auto" style="max-width:480px;font-size:.88rem;line-height:1.8;">
+                Sistem pakar kami memandu Anda dengan pertanyaan sederhana untuk menemukan kidung yang paling tepat.
+            </p>
+            <div class="gold-divider"></div>
+        </div>
+
+        <div class="row g-4 align-items-center">
+            <!-- Step 1 -->
+            <div class="col-md-4 animate">
+                <div class="text-center p-4">
+                    <div class="mx-auto mb-4 d-flex align-items-center justify-content-center"
+                         style="width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);background:var(--gold-light);position:relative;">
+                        <i class="fas fa-om" style="font-size:1.6rem;color:var(--gold);"></i>
+                        <span style="position:absolute;top:-8px;right:-8px;width:24px;height:24px;
+                                     background:var(--gold);border-radius:50%;color:#fff;
+                                     font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;">1</span>
+                    </div>
+                    <h5 class="fw-bold mb-2">Pilih Jenis Yadnya</h5>
+                    <p class="text-muted mb-0" style="font-size:.86rem;line-height:1.8;">
+                        Tentukan jenis upacara — Dewa, Pitra, Manusa, Bhuta, atau Rsi Yadnya.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Panah -->
+            <div class="col-md-4 animate d-none d-md-flex flex-column align-items-center" style="gap:1rem;">
+                <!-- Step 2 di tengah dengan highlight -->
+                <div style="width:2px;height:40px;background:linear-gradient(to bottom,transparent,var(--gold));"></div>
+                <div class="text-center p-4 rounded-3 w-100" style="background:var(--dark);border:1px solid rgba(146,98,55,.3);">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center"
+                         style="width:60px;height:60px;border-radius:50%;background:var(--gold);position:relative;">
+                        <i class="fas fa-question" style="font-size:1.3rem;color:#fff;"></i>
+                        <span style="position:absolute;top:-8px;right:-8px;width:22px;height:22px;
+                                     background:#fff;border-radius:50%;color:var(--gold);
+                                     font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;">2</span>
+                    </div>
+                    <h5 class="fw-bold mb-2" style="color:#fff;">Jawab Pertanyaan</h5>
+                    <p class="mb-0" style="font-size:.83rem;line-height:1.8;color:rgba(255,255,255,.5);">
+                        Sistem mengajukan 2–3 pertanyaan tentang upacara dan tahapannya.
+                    </p>
+                </div>
+                <div style="width:2px;height:40px;background:linear-gradient(to top,transparent,var(--gold));"></div>
+            </div>
+
+            <!-- Step 2 mobile only -->
+            <div class="col-12 d-md-none animate">
+                <div class="text-center p-4 rounded-3" style="background:var(--dark);border:1px solid rgba(146,98,55,.3);">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center"
+                         style="width:60px;height:60px;border-radius:50%;background:var(--gold);position:relative;">
+                        <i class="fas fa-question" style="font-size:1.3rem;color:#fff;"></i>
+                        <span style="position:absolute;top:-8px;right:-8px;width:22px;height:22px;
+                                     background:#fff;border-radius:50%;color:var(--gold);
+                                     font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;">2</span>
+                    </div>
+                    <h5 class="fw-bold mb-2" style="color:#fff;">Jawab Pertanyaan</h5>
+                    <p class="mb-0" style="font-size:.83rem;line-height:1.8;color:rgba(255,255,255,.5);">
+                        Sistem mengajukan 2–3 pertanyaan tentang upacara dan tahapannya.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-4 animate">
+                <div class="text-center p-4">
+                    <div class="mx-auto mb-4 d-flex align-items-center justify-content-center"
+                         style="width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);background:var(--gold-light);position:relative;">
+                        <i class="fas fa-scroll" style="font-size:1.6rem;color:var(--gold);"></i>
+                        <span style="position:absolute;top:-8px;right:-8px;width:24px;height:24px;
+                                     background:var(--gold);border-radius:50%;color:#fff;
+                                     font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;">3</span>
+                    </div>
+                    <h5 class="fw-bold mb-2">Terima Hasil Kidung</h5>
+                    <p class="text-muted mb-0" style="font-size:.86rem;line-height:1.8;">
+                        Dapatkan kidung lengkap beserta teks, makna mendalam, dan teknik menyanyikannya.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 animate">
+            <a href="{{ url_for('browsing') }}" class="btn btn-bronze px-5 py-3 fw-bold" style="font-size:.88rem;border-radius:8px;">
+                <i class="fas fa-play me-2"></i>Coba Sekarang — Gratis
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- ═══ INTRO KIDUNG ═══ -->
 <section class="py-5 bg-white">
     <div class="container py-4">
@@ -221,6 +314,38 @@
             </div>
         </div>
         {% endfor %}
+    </div>
+</section>
+
+<!-- ═══ CTA BANNER ═══ -->
+<section class="py-5 bg-white">
+    <div class="container py-3 animate">
+        <div class="rounded-3 p-5 p-md-5 text-center position-relative overflow-hidden"
+             style="background:linear-gradient(135deg,var(--dark) 0%,#2a1a08 100%);border:1px solid rgba(146,98,55,.25);">
+            <!-- ornamen aksara background -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                        font-size:18rem;color:rgba(146,98,55,.04);line-height:1;
+                        pointer-events:none;user-select:none;font-family:'Playfair Display';">ᬒ</div>
+
+            <div style="position:relative;z-index:2;">
+                <div style="font-size:1.2rem;color:var(--gold);opacity:.4;letter-spacing:10px;margin-bottom:.75rem;">ᬒᬁ</div>
+                <h2 class="fw-bold mb-3" style="color:#fff;font-family:'Playfair Display';font-size:clamp(1.6rem,4vw,2.4rem);">
+                    Upacara Anda Layak<br>Mendapat Kidung yang <span style="color:var(--gold);font-style:italic;">Tepat</span>
+                </h2>
+                <p class="mx-auto mb-5" style="color:rgba(255,255,255,.5);max-width:500px;font-size:.9rem;line-height:1.9;">
+                    74+ kidung tersedia dalam basis pengetahuan kami. Konsultasi hanya 2–3 menit, hasilnya lengkap dengan teks, makna, dan panduan menyanyi.
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{{ url_for('browsing') }}" class="btn btn-bronze btn-lg px-5 py-3 fw-bold" style="font-size:.88rem;border-radius:8px;">
+                        <i class="fas fa-search me-2"></i>MULAI KONSULTASI
+                    </a>
+                    <a href="{{ url_for('library') }}" class="btn btn-lg px-5 py-3 fw-bold"
+                       style="border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);border-radius:8px;font-size:.88rem;background:transparent;">
+                        <i class="fas fa-book-open me-2"></i>LIHAT LIBRARY
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
