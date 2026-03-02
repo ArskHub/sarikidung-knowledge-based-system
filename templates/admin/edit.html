@@ -162,8 +162,10 @@
                 <label class="form-label">Jenis Yadnya <span class="required">*</span></label>
                 <select name="yadnya" class="form-select" required>
                   <option value="">-- Pilih Yadnya --</option>
+                  {% set yadnya_map = {'DewaYadnya':'Dewa Yadnya','PitraYadnya':'Pitra Yadnya','ManusaYadnya':'Manusa Yadnya','BhutaYadnya':'Bhuta Yadnya','RsiYadnya':'Rsi Yadnya'} %}
+                  {% set current_yadnya = yadnya_map.get(data.get('jenis_yadnya',''), data.get('jenis_yadnya','')) %}
                   {% for y in ['Dewa Yadnya','Pitra Yadnya','Manusa Yadnya','Bhuta Yadnya','Rsi Yadnya'] %}
-                  <option value="{{ y }}" {{ 'selected' if data.get('jenis_yadnya') == y }}>{{ y }}</option>
+                  <option value="{{ y }}" {{ 'selected' if current_yadnya == y }}>{{ y }}</option>
                   {% endfor %}
                 </select>
               </div>
@@ -203,8 +205,10 @@
               <label class="form-label">Jenis Sekar</label>
               <select name="jenis_sekar" class="form-select">
                 <option value="">-- Pilih --</option>
+                {% set sekar_map = {'KidungSekarAlit':'Sekar Alit','KidungSekarMadya':'Sekar Madya','KidungWargasari':'Sekar Agung'} %}
+                {% set current_sekar = sekar_map.get(data.get('jenis_sekar',''), data.get('jenis_sekar','')) %}
                 {% for s in ['Sekar Alit','Sekar Madya','Sekar Agung'] %}
-                <option value="{{ s }}" {{ 'selected' if data.get('jenis_sekar') == s }}>{{ s }}</option>
+                <option value="{{ s }}" {{ 'selected' if current_sekar == s }}>{{ s }}</option>
                 {% endfor %}
               </select>
             </div>
