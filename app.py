@@ -39,7 +39,6 @@ def load_user(user_id):
 def init_db():
     with app.app_context():
         db.create_all()
-        # Buat akun admin default jika belum ada
         if not AdminUser.query.filter_by(username='admin').first():
             admin = AdminUser(
                 username = 'admin',
@@ -136,7 +135,6 @@ def chat_page():
 
 @app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
-    # Kalau sudah login, langsung ke panel
     if current_user.is_authenticated:
         return redirect(url_for('admin_panel'))
 
@@ -162,7 +160,6 @@ def admin_panel():
     stats_yadnya = {}
     if not df.empty and 'yadnya' in df.columns:
         stats_yadnya = df['yadnya'].value_counts().to_dict()
-    # Kirim semua kidung untuk tabel CRUD
     all_kidungs = []
     if not df.empty:
         for _, row in df.iterrows():
@@ -185,29 +182,105 @@ def admin_panel():
 @login_required
 def admin_tambah():
     if request.method == 'POST':
-        # Ambil data dari form
         data = {
-            'judul':         request.form.get('judul', '').strip(),
-            'yadnya':        request.form.get('yadnya', '').strip(),
-            'upacara':       request.form.get('upacara', '').strip(),
-            'tahap':         request.form.get('tahap', '').strip(),
-            'pura':          request.form.get('pura', '').strip(),
-            'jenis_sekar':   request.form.get('jenis_sekar', '').strip(),
-            'bahasa':        request.form.get('bahasa', '').strip(),
-            'teks':          request.form.get('teks', '').strip(),
-            'makna':         request.form.get('makna', '').strip(),
-            'teknik':        request.form.get('teknik', '').strip(),
-            'sumber':        request.form.get('sumber', '').strip(),
+            'judul':       request.form.get('judul', '').strip(),
+            'yadnya':      request.form.get('yadnya', '').strip(),
+            'upacara':     request.form.get('upacara', '').strip(),
+            'tahap':       request.form.get('tahap', '').strip(),
+            'pura':        request.form.get('pura', '').strip(),
+            'jenis_sekar': request.form.get('jenis_sekar', '').strip(),
+            'bahasa':      request.form.get('bahasa', '').strip(),
+            'teks':        request.form.get('teks', '').strip(),
+            'makna':       request.form.get('makna', '').strip(),
+            'teknik':      request.form.get('teknik', '').strip(),
+            'sumber':      request.form.get('sumber', '').strip(),
+            'url_audio':   request.form.get('url_audio', '').strip(),
         }
-        # Validasi minimal
+
         if not data['judul'] or not data['yadnya']:
             flash('Judul dan Jenis Yadnya wajib diisi.', 'danger')
             return render_template('admin/tambah.html', data=data)
 
-        # TODO: Simpan ke ontologi OWL
-        # Saat ini flash sukses dulu — integrasi ontologi menyusul
-        flash(f'Kidung "{data["judul"]}" berhasil ditambahkan! (pending sync ke ontologi)', 'success')
-        return redirect(url_for('admin_panel'))
+        try:
+            import re
+            from ontology.loader import ONTO_PATH
+            from ontology.query import get_platform
+
+            onto_admin = load_ontology()
+
+            # 1. Generate nama individual yang unik & aman
+            nama_individual = re.sub(r'[^a-zA-Z0-9]', '_', data['judul']).strip('_')
+            existing = onto_admin.search_one(iri=f"*{nama_individual}")
+            if existing:
+                nama_individual = f"{nama_individual}_{int(time.time())}"
+
+            # 2. Buat individual baru sebagai instance KidungPancaYadnya
+            KidungClass = onto_admin.KidungPancaYadnya
+            kidung_baru = KidungClass(nama_individual, namespace=onto_admin)
+
+            # 3. Set data properties
+            if data['judul']:     kidung_baru.judulKidung   = [data['judul']]
+            if data['bahasa']:    kidung_baru.bahasa         = [data['bahasa']]
+            if data['teks']:      kidung_baru.teksKidung     = [data['teks']]
+            if data['sumber']:    kidung_baru.sumberData     = [data['sumber']]
+            if data['makna']:     kidung_baru.maknaMendalam  = [data['makna']]
+            if data['teknik']:    kidung_baru.teknikMenyanyi = [data['teknik']]
+            if data['url_audio']:
+                kidung_baru.url_audio = [data['url_audio']]
+                plat = get_platform(data['url_audio'])
+                if plat: kidung_baru.platform_audio = [plat]
+
+            # 4. Set object properties
+            yadnya_map = {
+                'Dewa Yadnya':   'DewaYadnya',
+                'Pitra Yadnya':  'PitraYadnya',
+                'Manusa Yadnya': 'ManusaYadnya',
+                'Bhuta Yadnya':  'BhutaYadnya',
+                'Rsi Yadnya':    'RsiYadnya',
+            }
+            sekar_map = {
+                'Sekar Alit':  'KidungSekarAlit',
+                'Sekar Madya': 'KidungSekarMadya',
+                'Sekar Agung': 'KidungWargasari',
+            }
+
+            if data['yadnya'] in yadnya_map:
+                ref = onto_admin.search_one(iri=f"*{yadnya_map[data['yadnya']]}")
+                if ref: kidung_baru.memilikiJenisYadnya = [ref]
+
+            if data['jenis_sekar'] in sekar_map:
+                ref = onto_admin.search_one(iri=f"*{sekar_map[data['jenis_sekar']]}")
+                if ref: kidung_baru.memilikiJenisKidung = [ref]
+
+            for field, prop in [
+                ('upacara', 'digunakanPadaUpacara'),
+                ('tahap',   'digunakanPadaTahap'),
+                ('pura',    'digunakanDiPura'),
+            ]:
+                if data[field]:
+                    clean = data[field].replace(' ', '_')
+                    ref = onto_admin.search_one(iri=f"*{clean}_Ref") \
+                       or onto_admin.search_one(iri=f"*{clean}")
+                    if ref: setattr(kidung_baru, prop, [ref])
+
+            # 5. Simpan ke file OWL
+            onto_admin.save(file=ONTO_PATH, format="rdfxml")
+
+            # 6. Reload ontologi & retrain AI
+            global onto, df, ai_engine
+            onto      = load_ontology()
+            df        = get_kidung_dataframe(onto)
+            ai_engine = KidungDecisionTree()
+            ai_engine.train(df)
+
+            flash(f'Kidung "{data["judul"]}" berhasil ditambahkan!', 'success')
+            return redirect(url_for('admin_panel'))
+
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            flash(f'Gagal menyimpan kidung: {str(e)}', 'danger')
+            return render_template('admin/tambah.html', data=data)
 
     return render_template('admin/tambah.html', data={})
 
@@ -386,12 +459,6 @@ def predict():
         return jsonify({"status": "error", "message": f"Error sistem: {str(e)}"}), 500
 
 
-
-
-
-
-
-
 @app.route('/admin/kidung')
 @login_required
 def admin_kidung():
@@ -409,27 +476,27 @@ def admin_kidung():
             })
     return render_template('admin/kidung.html', all_kidungs=all_kidungs)
 
+
 @app.route('/admin/edit/<target>', methods=['GET', 'POST'])
 @login_required
 def admin_edit(target):
     if request.method == 'POST':
         data = {
-            'target':    request.form.get('target', target).strip(),
-            'judul':     request.form.get('judul', '').strip(),
-            'yadnya':    request.form.get('yadnya', '').strip(),
-            'upacara':   request.form.get('upacara', '').strip(),
-            'tahap':     request.form.get('tahap', '').strip(),
-            'pura':      request.form.get('pura', '').strip(),
+            'target':     request.form.get('target', target).strip(),
+            'judul':      request.form.get('judul', '').strip(),
+            'yadnya':     request.form.get('yadnya', '').strip(),
+            'upacara':    request.form.get('upacara', '').strip(),
+            'tahap':      request.form.get('tahap', '').strip(),
+            'pura':       request.form.get('pura', '').strip(),
             'jenis_sekar':request.form.get('jenis_sekar', '').strip(),
-            'bahasa':    request.form.get('bahasa', '').strip(),
-            'teks':      request.form.get('teks', '').strip(),
-            'makna':     request.form.get('makna', '').strip(),
-            'teknik':    request.form.get('teknik', '').strip(),
-            'sumber':    request.form.get('sumber', '').strip(),
-            'url_audio': request.form.get('url_audio', '').strip(),
+            'bahasa':     request.form.get('bahasa', '').strip(),
+            'teks':       request.form.get('teks', '').strip(),
+            'makna':      request.form.get('makna', '').strip(),
+            'teknik':     request.form.get('teknik', '').strip(),
+            'sumber':     request.form.get('sumber', '').strip(),
+            'url_audio':  request.form.get('url_audio', '').strip(),
         }
         try:
-            import re as _re
             from ontology.query import get_platform
             from ontology.loader import ONTO_PATH
             onto_admin = load_ontology()
@@ -438,29 +505,29 @@ def admin_edit(target):
                 flash('Kidung tidak ditemukan.', 'danger')
                 return redirect(url_for('admin_panel'))
 
-            # Update data properties
-            if data['judul']:     kidung.judulKidung    = [data['judul']]
-            if data['bahasa']:    kidung.bahasa          = [data['bahasa']]
-            if data['teks']:      kidung.teksKidung      = [data['teks']]
-            if data['sumber']:    kidung.sumberData      = [data['sumber']]
-            if data['makna']:     kidung.maknaMendalam   = [data['makna']]
-            if data['teknik']:    kidung.teknikMenyanyi  = [data['teknik']]
+            if data['judul']:  kidung.judulKidung   = [data['judul']]
+            if data['bahasa']: kidung.bahasa         = [data['bahasa']]
+            if data['teks']:   kidung.teksKidung     = [data['teks']]
+            if data['sumber']: kidung.sumberData     = [data['sumber']]
+            if data['makna']:  kidung.maknaMendalam  = [data['makna']]
+            if data['teknik']: kidung.teknikMenyanyi = [data['teknik']]
             if data['url_audio']:
                 kidung.url_audio = [data['url_audio']]
                 plat = get_platform(data['url_audio'])
                 if plat: kidung.platform_audio = [plat]
             else:
-                kidung.url_audio     = []
+                kidung.url_audio      = []
                 kidung.platform_audio = []
 
             yadnya_map = {
-                'Dewa Yadnya': 'DewaYadnya', 'Pitra Yadnya': 'PitraYadnya',
-                'Manusa Yadnya': 'ManusaYadnya', 'Bhuta Yadnya': 'BhutaYadnya',
-                'Rsi Yadnya': 'RsiYadnya'
+                'Dewa Yadnya':   'DewaYadnya',   'Pitra Yadnya':  'PitraYadnya',
+                'Manusa Yadnya': 'ManusaYadnya', 'Bhuta Yadnya':  'BhutaYadnya',
+                'Rsi Yadnya':    'RsiYadnya',
             }
             sekar_map = {
-                'Sekar Alit': 'KidungSekarAlit', 'Sekar Madya': 'KidungSekarMadya',
-                'Sekar Agung': 'KidungWargasari'
+                'Sekar Alit':  'KidungSekarAlit',
+                'Sekar Madya': 'KidungSekarMadya',
+                'Sekar Agung': 'KidungWargasari',
             }
             if data['yadnya'] in yadnya_map:
                 ref = onto_admin.search_one(iri=f"*{yadnya_map[data['yadnya']]}")
@@ -468,26 +535,34 @@ def admin_edit(target):
             if data['jenis_sekar'] in sekar_map:
                 ref = onto_admin.search_one(iri=f"*{sekar_map[data['jenis_sekar']]}")
                 if ref: kidung.memilikiJenisKidung = [ref]
-            for field, prop in [('upacara','digunakanPadaUpacara'),('tahap','digunakanPadaTahap'),('pura','digunakanDiPura')]:
+            for field, prop in [
+                ('upacara', 'digunakanPadaUpacara'),
+                ('tahap',   'digunakanPadaTahap'),
+                ('pura',    'digunakanDiPura'),
+            ]:
                 if data[field]:
                     clean = data[field].replace(' ', '_')
-                    ref = onto_admin.search_one(iri=f"*{clean}_Ref") or onto_admin.search_one(iri=f"*{clean}")
+                    ref = onto_admin.search_one(iri=f"*{clean}_Ref") \
+                       or onto_admin.search_one(iri=f"*{clean}")
                     if ref: setattr(kidung, prop, [ref])
 
             onto_admin.save(file=ONTO_PATH, format="rdfxml")
-            global df_kidung, tree
-            onto_new = load_ontology()
-            df_kidung = get_kidung_dataframe(onto_new)
-            tree = KidungDecisionTree()
-            tree.train(df_kidung)
+
+            # ✅ Fix: gunakan nama variabel global yang benar
+            global onto, df, ai_engine
+            onto      = load_ontology()
+            df        = get_kidung_dataframe(onto)
+            ai_engine = KidungDecisionTree()
+            ai_engine.train(df)
 
             flash(f'Kidung "{data["judul"]}" berhasil diperbarui!', 'success')
             return redirect(url_for('admin_panel'))
         except Exception as e:
+            import traceback
+            traceback.print_exc()
             flash(f'Gagal update: {str(e)}', 'danger')
             return render_template('admin/edit.html', data=data)
 
-    # GET — load data kidung untuk form
     detail = get_kidung_detail(onto, target)
     if not detail:
         flash('Kidung tidak ditemukan.', 'danger')
@@ -507,24 +582,25 @@ def admin_hapus(target):
             flash('Kidung tidak ditemukan.', 'danger')
             return redirect(url_for('admin_panel'))
 
-        judul = (kidung.judulKidung[0] if kidung.judulKidung else target.replace('_',' '))
+        judul = (kidung.judulKidung[0] if kidung.judulKidung else target.replace('_', ' '))
         destroy(kidung)
         onto_admin.save(file=ONTO_PATH, format="rdfxml")
 
-        global df_kidung, tree
-        onto_new = load_ontology()
-        df_kidung = get_kidung_dataframe(onto_new)
-        tree = KidungDecisionTree()
-        tree.train(df_kidung)
+        # ✅ Fix: gunakan nama variabel global yang benar
+        global onto, df, ai_engine
+        onto      = load_ontology()
+        df        = get_kidung_dataframe(onto)
+        ai_engine = KidungDecisionTree()
+        ai_engine.train(df)
 
         flash(f'Kidung "{judul}" berhasil dihapus.', 'success')
     except Exception as e:
         flash(f'Gagal hapus: {str(e)}', 'danger')
     return redirect(url_for('admin_panel'))
 
+
 @app.route('/api/options', methods=['GET'])
 def api_options():
-    """Return semua pilihan dropdown dari ontologi untuk form admin."""
     if onto is None:
         return jsonify({"status": "error"})
     try:
@@ -539,14 +615,15 @@ def api_options():
             ])
 
         return jsonify({
-            "status":   "success",
-            "upacara":  get_individuals("UpacaraPancaYadnya"),
-            "tahap":    get_individuals("TahapPelaksanaanUpacara"),
-            "pura":     get_individuals("PuraTempatPelaksanaan"),
-            "makna":    get_individuals("MaknaKidung"),
+            "status":  "success",
+            "upacara": get_individuals("UpacaraPancaYadnya"),
+            "tahap":   get_individuals("TahapPelaksanaanUpacara"),
+            "pura":    get_individuals("PuraTempatPelaksanaan"),
+            "makna":   get_individuals("MaknaKidung"),
         })
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)})
+
 
 @app.route('/api/kidung/<nama>', methods=['GET'])
 def detail_kidung(nama):
