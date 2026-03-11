@@ -19,7 +19,7 @@
                 <label class="form-label fw-bold mb-2" style="font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;">Cari Kidung</label>
                 <div class="input-group" style="border:1.5px solid var(--border);border-radius:8px;overflow:hidden;">
                     <span class="input-group-text bg-white border-0 text-muted" style="padding:.55rem .75rem;"><i class="fas fa-search" style="font-size:.85rem;"></i></span>
-                    <input type="text" id="searchInput" onkeyup="searchTable()"
+                    <input type="text" id="searchInput" onkeyup="onSearch()"
                            class="form-control border-0 shadow-none ps-0"
                            placeholder="Nama kidung, upacara, jenis yadnya..."
                            style="font-size:.88rem;">
@@ -56,10 +56,14 @@
                         <th class="py-3 border-0 text-center" style="width:11%;color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:1px;font-family:'Poppins',sans-serif;">Detail</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tableBody">
                     {% for k in kidungs %}
-                    <tr class="border-bottom" style="border-color:var(--border) !important;">
-                        <td class="ps-4 fw-bold index-col" style="color:var(--gold);font-size:.82rem;">{{ loop.index }}</td>
+                    <tr class="border-bottom kid-row" style="border-color:var(--border) !important;"
+                        data-judul="{{ (k.judul or k.target).replace('_',' ')|lower }}"
+                        data-yadnya="{{ k.yadnya.replace('_',' ')|lower }}"
+                        data-upacara="{{ k.upacara.replace('_',' ')|lower }}"
+                        data-target="{{ k.target }}">
+                        <td class="ps-4 fw-bold index-col" style="color:var(--gold);font-size:.82rem;"></td>
                         <td>
                             <div class="fw-semibold name-cell" style="font-size:.87rem;">{{ (k.judul or k.target).replace('_',' ') }}</div>
                             <small class="text-muted sekar-cell" style="font-size:.74rem;">{{ k.jenis_sekar.replace('_',' ') if k.jenis_sekar and k.jenis_sekar != 'None' else '' }}</small>
@@ -83,10 +87,31 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- No Result -->
         <div id="noResult" class="py-5 text-center d-none">
             <div style="font-size:2.5rem;color:var(--gold);opacity:.15;margin-bottom:.5rem;">ᬒᬁ</div>
             <p class="text-muted fst-italic" style="font-size:.85rem;">Tidak ada kidung yang cocok.</p>
             <button class="btn btn-sm" style="color:var(--gold);border:1.5px solid var(--gold);border-radius:20px;font-size:.8rem;padding:4px 14px;" onclick="resetSearch()">Bersihkan Pencarian</button>
+        </div>
+
+        <!-- Pagination Footer -->
+        <div id="paginationWrapper" class="d-flex align-items-center justify-content-between flex-wrap gap-2 px-4 py-3" style="border-top:1px solid var(--border);background:var(--bg-soft);">
+            <p class="mb-0 text-muted" style="font-size:.78rem;" id="pageInfo"></p>
+            <div class="d-flex align-items-center gap-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-muted" style="font-size:.75rem;">Tampil</span>
+                    <select id="perPageSelect" onchange="onPerPageChange()" class="form-select form-select-sm shadow-none rounded-pill ps-3"
+                        style="font-size:.78rem;color:var(--gold);background:white;border:1.5px solid var(--border);width:auto;cursor:pointer;">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <nav aria-label="Pagination">
+                    <ul class="pagination pagination-sm mb-0 gap-1" id="pageButtons"></ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
@@ -108,46 +133,171 @@
     </div>
 </div>
 
+<style>
+#pageButtons .page-item .page-link {
+    border: 1.5px solid var(--border);
+    color: var(--gold);
+    font-size: .75rem;
+    padding: .3rem .65rem;
+    border-radius: 6px !important;
+    background: white;
+    transition: all .2s;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    min-width: 32px;
+    text-align: center;
+    line-height: 1.5;
+}
+#pageButtons .page-item .page-link:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+#pageButtons .page-item.active .page-link {
+    background: var(--dark);
+    color: var(--gold);
+    border-color: var(--dark);
+}
+#pageButtons .page-item.disabled .page-link {
+    opacity: .3;
+    pointer-events: none;
+    background: white;
+}
+#perPageSelect:focus { box-shadow: 0 0 0 2px rgba(146,98,55,.2) !important; border-color: var(--gold) !important; }
+</style>
+
 <script>
+/* ── State ── */
+let allRows     = [];
+let currentPage = 1;
+let perPage     = 10;
+
+/* ── Init ── */
+document.addEventListener('DOMContentLoaded', () => {
+    allRows = Array.from(document.querySelectorAll('.kid-row'));
+    render();
+});
+
+/* ── Computed visible rows based on current filter+search ── */
+function getVisibleRows() {
+    const search = document.getElementById('searchInput').value.toLowerCase().trim();
+    const catEl  = document.querySelector('.filter-btn.active');
+    const cat    = catEl ? catEl.textContent.trim() : 'Semua';
+
+    return allRows.filter(row => {
+        const matchSearch = !search || [row.dataset.judul, row.dataset.yadnya, row.dataset.upacara].some(t => (t||'').includes(search));
+        const matchCat    = cat === 'Semua' || (row.dataset.yadnya||'').includes(cat.toLowerCase().split(' ')[0]);
+        return matchSearch && matchCat;
+    });
+}
+
+/* ── Main render ── */
+function render() {
+    const visible    = getVisibleRows();
+    const total      = visible.length;
+    const totalPages = Math.max(1, Math.ceil(total / perPage));
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    const start = (currentPage - 1) * perPage;
+    const end   = Math.min(start + perPage, total);
+
+    // hide all rows first
+    allRows.forEach(r => r.style.display = 'none');
+
+    // show current page slice
+    visible.slice(start, end).forEach((row, i) => {
+        row.style.display = '';
+        row.querySelector('.index-col').textContent = start + i + 1;
+    });
+
+    // UI updates
+    const hasResult = total > 0;
+    document.getElementById('noResult').classList.toggle('d-none', hasResult);
+    document.getElementById('paginationWrapper').style.display = hasResult ? '' : 'none';
+
+    updateCounter(total);
+
+    document.getElementById('pageInfo').textContent = hasResult
+        ? `Menampilkan ${start + 1}–${end} dari ${total} kidung`
+        : '';
+
+    renderPageButtons(totalPages);
+}
+
+/* ── Render numbered page buttons ── */
+function renderPageButtons(totalPages) {
+    const ul = document.getElementById('pageButtons');
+    ul.innerHTML = '';
+
+    function mkBtn(label, page, disabled, active) {
+        const li = document.createElement('li');
+        li.className = 'page-item' + (disabled ? ' disabled' : '') + (active ? ' active' : '');
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.innerHTML = label;
+        if (!disabled) a.addEventListener('click', e => { e.preventDefault(); currentPage = page; render(); window.scrollTo({top:0,behavior:'smooth'}); });
+        li.appendChild(a);
+        return li;
+    }
+
+    // ← Prev
+    ul.appendChild(mkBtn('<i class="fas fa-chevron-left" style="font-size:.6rem;"></i>', currentPage - 1, currentPage === 1));
+
+    // Smart page range
+    const delta = 2;
+    const pages = new Set([1, totalPages]);
+    for (let p = Math.max(1, currentPage - delta); p <= Math.min(totalPages, currentPage + delta); p++) pages.add(p);
+    const sorted = [...pages].sort((a, b) => a - b);
+
+    let prev = null;
+    sorted.forEach(p => {
+        if (prev !== null && p - prev > 1) {
+            const li = document.createElement('li');
+            li.className = 'page-item disabled';
+            li.innerHTML = '<span class="page-link" style="border:none;background:transparent;padding:.3rem .4rem;">…</span>';
+            ul.appendChild(li);
+        }
+        ul.appendChild(mkBtn(p, p, false, p === currentPage));
+        prev = p;
+    });
+
+    // → Next
+    ul.appendChild(mkBtn('<i class="fas fa-chevron-right" style="font-size:.6rem;"></i>', currentPage + 1, currentPage === totalPages));
+}
+
+/* ── Event handlers ── */
+function onSearch()        { currentPage = 1; render(); }
+function onPerPageChange() { perPage = parseInt(document.getElementById('perPageSelect').value); currentPage = 1; render(); }
+
+function filterByCategory(cat, el) {
+    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active','btn-dark'); b.classList.add('btn-outline-bronze'); });
+    el.classList.add('active','btn-dark'); el.classList.remove('btn-outline-bronze');
+    currentPage = 1; render();
+}
+
+function resetSearch() {
+    document.getElementById('searchInput').value = '';
+    filterByCategory('Semua', document.querySelector('[onclick*="ALL"]'));
+}
+
 function updateCounter(n) {
     const el = document.getElementById('counterDisplay');
-    if(el) el.innerHTML = `${n} <small class="text-dark fw-normal" style="font-size:.85rem;">Kidung</small>`;
+    if (el) el.innerHTML = `${n} <small class="text-dark fw-normal" style="font-size:.85rem;">Kidung</small>`;
 }
-function searchTable() {
-    const filter = document.getElementById('searchInput').value.toUpperCase().trim();
-    const rows = document.querySelectorAll('#kidungTable tbody tr');
-    let count = 0;
-    rows.forEach((row,i) => {
-        const text = [row.querySelector('.name-cell')?.textContent||'',row.querySelector('.yadnya-cell')?.textContent||'',row.querySelector('.upacara-cell')?.textContent||''].join(' ').toUpperCase();
-        const vis = text.includes(filter); row.style.display = vis?'':'none';
-        if(vis){ count++; row.querySelector('.index-col').textContent=count; }
-    });
-    updateCounter(count);
-    document.getElementById('noResult').classList.toggle('d-none',count>0);
-}
-function filterByCategory(cat,el) {
-    document.querySelectorAll('.filter-btn').forEach(b=>{ b.classList.remove('active','btn-dark'); b.classList.add('btn-outline-bronze'); });
-    el.classList.add('active','btn-dark'); el.classList.remove('btn-outline-bronze');
-    const rows = document.querySelectorAll('#kidungTable tbody tr'); let count=0;
-    rows.forEach(row=>{
-        const yadnya=row.querySelector('.yadnya-cell')?.textContent.trim().toUpperCase()||'';
-        const vis=cat==='ALL'||yadnya.includes(cat.toUpperCase().split(' ')[0]);
-        row.style.display=vis?'':'none'; if(vis){count++;row.querySelector('.index-col').textContent=count;}
-    });
-    updateCounter(count); document.getElementById('noResult').classList.toggle('d-none',count>0);
-}
-function resetSearch(){ document.getElementById('searchInput').value=''; filterByCategory('ALL',document.querySelector('[onclick*="ALL"]')); }
+
+/* ── Modal ── */
 async function showDetail(targetId) {
     const modal = new bootstrap.Modal(document.getElementById('detailModal'));
-    document.getElementById('modalJudul').textContent='Memuat...';
-    document.getElementById('modalBody').innerHTML='<div class="text-center py-4"><div class="spinner-border" style="color:var(--gold);width:1.5rem;height:1.5rem;border-width:2px;"></div></div>';
+    document.getElementById('modalJudul').textContent = 'Memuat...';
+    document.getElementById('modalBody').innerHTML = '<div class="text-center py-4"><div class="spinner-border" style="color:var(--gold);width:1.5rem;height:1.5rem;border-width:2px;"></div></div>';
     modal.show();
     try {
-        const res=await fetch('/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({target:targetId})});
-        const data=await res.json();
-        if(data.status==='success'){
-            document.getElementById('modalJudul').textContent=data.judul||targetId.replace(/_/g,' ');
-            document.getElementById('modalBody').innerHTML=`
+        const res  = await fetch('/predict', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ target: targetId }) });
+        const data = await res.json();
+        if (data.status === 'success') {
+            document.getElementById('modalJudul').textContent = data.judul || targetId.replace(/_/g,' ');
+            document.getElementById('modalBody').innerHTML = `
             <div class="row g-3 mb-4">
                 ${[['Jenis Sekar',data.jenis_sekar],['Bahasa',data.bahasa]].map(([l,v])=>`
                 <div class="col-sm-4"><div class="p-3 rounded-3" style="background:var(--bg-soft);border:1px solid var(--border);">
@@ -174,21 +324,21 @@ async function showDetail(targetId) {
             ${data.has_audio && data.embed_url ? renderLibraryAudio(data) : ''}
             ${data.sumber&&data.sumber!=='-'?`<p class="text-muted mt-3 mb-0" style="font-size:.8rem;"><i class="fas fa-book me-1"></i><strong>Sumber:</strong> ${esc(data.sumber)}</p>`:''}`;
         } else {
-            document.getElementById('modalJudul').textContent='Tidak Ditemukan';
-            document.getElementById('modalBody').innerHTML='<p class="text-muted text-center py-4" style="font-size:.86rem;">Data kidung tidak tersedia.</p>';
+            document.getElementById('modalJudul').textContent = 'Tidak Ditemukan';
+            document.getElementById('modalBody').innerHTML = '<p class="text-muted text-center py-4" style="font-size:.86rem;">Data kidung tidak tersedia.</p>';
         }
-    } catch(e){ document.getElementById('modalBody').innerHTML='<p class="text-danger text-center py-4" style="font-size:.86rem;">Gagal memuat data.</p>'; }
+    } catch(e) {
+        document.getElementById('modalBody').innerHTML = '<p class="text-danger text-center py-4" style="font-size:.86rem;">Gagal memuat data.</p>';
+    }
 }
+
 function renderLibraryAudio(data) {
     const platform = data.platform_audio || '';
     let iframeHtml = '';
     if (platform === 'soundcloud') {
-        iframeHtml = `<iframe width="100%" height="90" scrolling="no" frameborder="no" allow="autoplay"
-            src="${data.embed_url}"></iframe>`;
+        iframeHtml = `<iframe width="100%" height="90" scrolling="no" frameborder="no" allow="autoplay" src="${data.embed_url}"></iframe>`;
     } else if (platform === 'youtube') {
-        iframeHtml = `<iframe width="100%" height="215" src="${data.embed_url}"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>`;
+        iframeHtml = `<iframe width="100%" height="215" src="${data.embed_url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     }
     if (!iframeHtml) return '';
     return `
@@ -200,6 +350,7 @@ function renderLibraryAudio(data) {
         <div class="rounded-3 overflow-hidden">${iframeHtml}</div>
     </div>`;
 }
-function esc(str){ if(!str) return ''; return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function esc(str) { if(!str) return ''; return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 </script>
 {% endblock %}

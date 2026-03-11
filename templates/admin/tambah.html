@@ -74,6 +74,20 @@
     .btn-cancel:hover { border-color:#aaa; color:#333; }
     .alert { border-radius:10px; font-size:.84rem; }
     .required { color:#e74c3c; }
+
+    /* Style untuk input "baru" yang muncul */
+    .new-input-wrap {
+      margin-top:.5rem;
+      display:none;
+    }
+    .new-input-wrap .form-control {
+      border-color:var(--gold);
+      background:#fffdf9;
+    }
+    .new-input-wrap small {
+      font-size:.72rem;
+      color:var(--gold);
+    }
   </style>
 </head>
 <body>
@@ -166,24 +180,50 @@
                   {% endfor %}
                 </select>
               </div>
+
+              <!-- Upacara -->
               <div class="col-md-6">
                 <label class="form-label">Upacara</label>
-                <select name="upacara" id="sel-upacara" class="form-select">
+                <select id="sel-upacara" class="form-select" onchange="toggleNew('upacara')">
                   <option value="">-- Pilih Upacara --</option>
                 </select>
+                <div class="new-input-wrap" id="wrap-upacara">
+                  <input type="text" id="input-upacara" class="form-control"
+                         placeholder="Ketik nama upacara baru..."/>
+                  <small><i class="fas fa-plus-circle me-1"></i>Akan ditambahkan ke ontologi</small>
+                </div>
+                <!-- Hidden field yang dikirim ke Flask -->
+                <input type="hidden" name="upacara" id="val-upacara"/>
               </div>
+
+              <!-- Tahap -->
               <div class="col-md-6">
                 <label class="form-label">Tahap</label>
-                <select name="tahap" id="sel-tahap" class="form-select">
+                <select id="sel-tahap" class="form-select" onchange="toggleNew('tahap')">
                   <option value="">-- Pilih Tahap --</option>
                 </select>
+                <div class="new-input-wrap" id="wrap-tahap">
+                  <input type="text" id="input-tahap" class="form-control"
+                         placeholder="Ketik nama tahap baru..."/>
+                  <small><i class="fas fa-plus-circle me-1"></i>Akan ditambahkan ke ontologi</small>
+                </div>
+                <input type="hidden" name="tahap" id="val-tahap"/>
               </div>
+
+              <!-- Pura -->
               <div class="col-md-6">
                 <label class="form-label">Pura / Tempat</label>
-                <select name="pura" id="sel-pura" class="form-select">
+                <select id="sel-pura" class="form-select" onchange="toggleNew('pura')">
                   <option value="">-- Pilih Pura --</option>
                 </select>
+                <div class="new-input-wrap" id="wrap-pura">
+                  <input type="text" id="input-pura" class="form-control"
+                         placeholder="Ketik nama pura baru..."/>
+                  <small><i class="fas fa-plus-circle me-1"></i>Akan ditambahkan ke ontologi</small>
+                </div>
+                <input type="hidden" name="pura" id="val-pura"/>
               </div>
+
             </div>
           </div>
 
@@ -259,7 +299,7 @@
 
           <!-- Tombol -->
           <div class="d-flex gap-2">
-            <button type="submit" class="btn-save">
+            <button type="submit" class="btn-save" onclick="prepareSubmit()">
               <i class="fas fa-save me-2"></i>Simpan Kidung
             </button>
             <a href="{{ url_for('admin_panel') }}" class="btn-cancel">Batal</a>
@@ -272,6 +312,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+  const NEW_OPTION = '__NEW__';
+
   // ── Load opsi dropdown dari ontologi ─────────────────────────
   async function loadOptions() {
     try {
@@ -279,29 +321,65 @@
       const data = await res.json();
       if (data.status !== 'success') return;
 
-      const currentUpacara = "{{ data.get('upacara','') }}";
-      const currentTahap   = "{{ data.get('tahap','') }}";
-      const currentPura    = "{{ data.get('pura','') }}";
-
-      function fillSelect(id, items, current) {
+      function fillSelect(id, items) {
         const sel = document.getElementById(id);
         if (!sel) return;
         items.forEach(item => {
           const opt = document.createElement('option');
           opt.value = item;
           opt.textContent = item;
-          if (item === current) opt.selected = true;
           sel.appendChild(opt);
         });
+        // Tambahkan opsi "+ Tambah Baru..." di paling bawah
+        const divider = document.createElement('option');
+        divider.disabled = true;
+        divider.textContent = '──────────────';
+        sel.appendChild(divider);
+
+        const newOpt = document.createElement('option');
+        newOpt.value = NEW_OPTION;
+        newOpt.textContent = '+ Tambah Baru...';
+        newOpt.style.color = '#926237';
+        newOpt.style.fontWeight = '600';
+        sel.appendChild(newOpt);
       }
 
-      fillSelect('sel-upacara', data.upacara, currentUpacara);
-      fillSelect('sel-tahap',   data.tahap,   currentTahap);
-      fillSelect('sel-pura',    data.pura,    currentPura);
+      fillSelect('sel-upacara', data.upacara);
+      fillSelect('sel-tahap',   data.tahap);
+      fillSelect('sel-pura',    data.pura);
 
     } catch(e) {
       console.error('Gagal load options:', e);
     }
+  }
+
+  // ── Toggle input baru saat pilih "+ Tambah Baru..." ──────────
+  function toggleNew(field) {
+    const sel  = document.getElementById(`sel-${field}`);
+    const wrap = document.getElementById(`wrap-${field}`);
+    if (sel.value === NEW_OPTION) {
+      wrap.style.display = 'block';
+      document.getElementById(`input-${field}`).focus();
+    } else {
+      wrap.style.display = 'none';
+    }
+  }
+
+  // ── Sebelum submit: isi hidden field dengan nilai yang benar ──
+  function prepareSubmit() {
+    ['upacara', 'tahap', 'pura'].forEach(field => {
+      const sel   = document.getElementById(`sel-${field}`);
+      const input = document.getElementById(`input-${field}`);
+      const hidden = document.getElementById(`val-${field}`);
+
+      if (sel.value === NEW_OPTION) {
+        // Pakai nilai dari input teks baru
+        hidden.value = input.value.trim();
+      } else {
+        // Pakai nilai dari dropdown
+        hidden.value = sel.value;
+      }
+    });
   }
 
   // ── Preview audio player ──────────────────────────────────────

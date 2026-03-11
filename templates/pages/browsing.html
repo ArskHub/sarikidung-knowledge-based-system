@@ -89,9 +89,8 @@
                 <h6 class="text-muted mb-2">Selamat datang!</h6>
                 <p class="text-muted fst-italic mb-4" style="font-size:.83rem;">Jawab pertanyaan di panel kiri untuk mulai konsultasi.</p>
                 <div class="d-flex gap-4 text-center">
-                    <div><div class="fw-bold" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">74+</div><small class="text-muted" style="font-size:.72rem;">Koleksi Kidung</small></div>
+                    <div><div class="fw-bold" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">80</div><small class="text-muted" style="font-size:.72rem;">Koleksi Kidung</small></div>
                     <div><div class="fw-bold" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">5</div><small class="text-muted" style="font-size:.72rem;">Jenis Yadnya</small></div>
-                    <div><div class="fw-bold" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">7</div><small class="text-muted" style="font-size:.72rem;">Tahap Upacara</small></div>
                 </div>
             </div>
 
@@ -280,23 +279,18 @@ function renderResults(data) {
     if (!kidungs.length) { container.innerHTML='<p class="text-muted fst-italic" style="font-size:.85rem;">Tidak ada kidung ditemukan.</p>'; return; }
     const sec = document.createElement('h6');
     sec.className='fw-bold mb-3'; sec.style.cssText='color:var(--gold);font-family:Poppins,sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;';
-    sec.innerHTML = modeSemua?`<i class="fas fa-list-ol me-2"></i>Panduan Lengkap — ${kidungs.length} Kidung per Tahap`:`<i class="fas fa-scroll me-2"></i>Hasil Konsultasi`;
+    sec.innerHTML = modeSemua?`<i class="fas fa-list-ol me-2"></i>Panduan Lengkap -- ${kidungs.length} Kidung per Tahap`:`<i class="fas fa-scroll me-2"></i>Hasil Konsultasi`;
     container.appendChild(sec);
     kidungs.forEach((k,i) => {
         const isUtama=k.judul===data.judul; const isSingle=!modeSemua;
         const card = document.createElement('div');
         card.className=`card border-0 tahap-card ${isUtama&&modeSemua?'is-utama':''} ${isSingle?'mode-single':''}`;
-        const validasi=k.status_validasi||'Belum Divalidasi';
-        const vBadge = validasi==='Tervalidasi'
-            ? `<span class="badge bg-success" style="font-size:.62rem;"><i class="fas fa-check-circle me-1"></i>${validasi}</span>`
-            : `<span class="badge bg-warning text-dark" style="font-size:.62rem;"><i class="fas fa-clock me-1"></i>${validasi}</span>`;
         card.innerHTML=`
         <div class="card-header bg-white border-bottom py-2 px-3 d-flex justify-content-between align-items-center flex-wrap gap-1" style="border-radius:0 var(--radius) 0 0 !important;">
             <div class="fw-bold d-flex align-items-center gap-2" style="font-size:.8rem;">
                 ${modeSemua?`<span class="badge" style="background:var(--gold);font-size:.62rem;">TAHAP ${i+1}</span><span class="text-uppercase">${esc(k.tahap||'-')}</span>`:
                             `<span class="badge bg-primary" style="font-size:.62rem;">Rekomendasi</span><span class="text-uppercase">${esc(k.tahap||'-')}</span>`}
-                ${isUtama&&modeSemua?'<span class="badge bg-success" style="font-size:.62rem;">★ AI</span>':''}
-            </div>${vBadge}
+            </div>
         </div>
         <div class="card-body p-3">
             <h6 class="fw-bold mb-2" style="font-family:'Playfair Display';font-size:1rem;">${esc(k.judul||'-')}</h6>

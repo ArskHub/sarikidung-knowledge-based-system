@@ -252,6 +252,12 @@ def admin_tambah():
                 ref = onto_admin.search_one(iri=f"*{sekar_map[data['jenis_sekar']]}")
                 if ref: kidung_baru.memilikiJenisKidung = [ref]
 
+            # Map field → class ontologi untuk auto-buat individual baru
+            class_map = {
+                'upacara': 'UpacaraPancaYadnya',
+                'tahap':   'TahapPelaksanaanUpacara',
+                'pura':    'PuraTempatPelaksanaan',
+            }
             for field, prop in [
                 ('upacara', 'digunakanPadaUpacara'),
                 ('tahap',   'digunakanPadaTahap'),
@@ -261,6 +267,12 @@ def admin_tambah():
                     clean = data[field].replace(' ', '_')
                     ref = onto_admin.search_one(iri=f"*{clean}_Ref") \
                        or onto_admin.search_one(iri=f"*{clean}")
+                    if not ref:
+                        # Nilai baru — buat individual otomatis di ontologi
+                        ParentClass = onto_admin.search_one(iri=f"*{class_map[field]}")
+                        if ParentClass:
+                            ref = ParentClass(f"{clean}_Ref", namespace=onto_admin)
+                            print(f"✅ Individual baru dibuat: {clean}_Ref sebagai {class_map[field]}")
                     if ref: setattr(kidung_baru, prop, [ref])
 
             # 5. Simpan ke file OWL
