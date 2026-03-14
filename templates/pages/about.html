@@ -1,127 +1,758 @@
-{% extends "layouts/base.html" %}
-{% block title %}About - SariKidung{% endblock %}
-
-{% block content %}
+{% extends "layouts/base.html" %} {% block title %}About - SariKidung{% endblock
+%} {% block content %}
 
 <header class="page-header animate">
-    <span class="aksara-deco">ᬒᬁ</span>
-    <span class="page-tag">Tentang SariKidung</span>
-    <h1>Methodology & Technology</h1>
-    <p>Implementasi Semantic Web dan Expert System untuk Pelestarian Kidung Bali.</p>
+  <span class="aksara-deco">ᬒᬁ</span>
+  <span class="page-tag">Tentang SariKidung</span>
+  <h1>Methodology & Technology</h1>
+  <p>
+    Implementasi Semantic Web dan Expert System untuk Pelestarian Kidung Bali.
+  </p>
 </header>
 
 <div class="container my-5">
-
-    <!-- Cara kerja sistem -->
-    <div class="row g-5 align-items-center mb-5">
-        <div class="col-lg-6 animate">
-            <span class="section-tag">Cara Kerja Sistem</span>
-            <h2 class="fw-bold mb-4" style="font-size:1.9rem;">Bagaimana <span style="color:var(--gold);">SariKidung Bekerja?</span></h2>
-            <p class="text-muted mb-4" style="line-height:1.9;font-size:.9rem;">
-                SariKidung menggunakan metode <strong>Rule-Based System</strong> dengan pendekatan <strong>Decision Tree</strong>.
-                Basis pengetahuannya tersimpan dalam format <strong>Ontologi OWL</strong> yang berisi 74+ Kidung Panca Yadnya
-                beserta relasi upacara, tahap, makna, dan teknik menyanyikannya.
-            </p>
-            <div class="p-4 rounded-3" style="background:var(--bg-soft);border:1px solid var(--border);">
-                <h6 class="fw-bold mb-2" style="color:var(--gold);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;">
-                    <i class="fas fa-project-diagram me-2"></i>Arsitektur Sistem
-                </h6>
-                <p class="text-muted mb-0" style="font-size:.86rem;line-height:1.8;">
-                    Sistem memisahkan antara <strong>Knowledge Base</strong> (format OWL/Ontologi) dan <strong>Inference Engine</strong>
-                    (logika Decision Tree) untuk menghasilkan rekomendasi yang cepat dan akurat.
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-6 animate">
-            <!-- Alur konsultasi -->
-            <div class="p-4 rounded-3" style="background:var(--dark);">
-                <h6 class="fw-bold mb-4" style="color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;">
-                    <i class="fas fa-route me-2"></i>Alur Konsultasi
-                </h6>
-                {% for no, icon, judul, deskripsi in [
-                    ('1','fas fa-om','Pilih Jenis Yadnya','Dewa, Pitra, Manusa, Bhuta, atau Rsi Yadnya'),
-                    ('2','fas fa-torii-gate','Pilih Upacara','Sesuaikan dengan upacara yang akan dilaksanakan'),
-                    ('3','fas fa-map-marker-alt','Pilih Pura/Tempat','Hanya jika relevan dengan konteks upacara'),
-                    ('4','fas fa-scroll','Terima Hasil','Kidung per tahap + makna + teknik menyanyi')
-                ] %}
-                <div class="d-flex align-items-start gap-3 mb-3 {% if not loop.last %}pb-3{% endif %}" style="border-bottom:{% if not loop.last %}1px solid rgba(255,255,255,.08){% else %}none{% endif %};">
-                    <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:30px;height:30px;background:var(--gold);">
-                        <small class="fw-bold text-white" style="font-size:.75rem;">{{ no }}</small>
-                    </div>
-                    <div>
-                        <div class="fw-semibold" style="font-size:.85rem;color:#fff;">
-                            <i class="{{ icon }} me-1" style="color:var(--gold);"></i>{{ judul }}
-                        </div>
-                        <div style="font-size:.78rem;color:rgba(255,255,255,.45);">{{ deskripsi }}</div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+  <!-- Cara kerja sistem -->
+  <div class="row g-5 align-items-center mb-5">
+    <div class="col-lg-6 animate">
+      <span class="section-tag">Cara Kerja Sistem</span>
+      <h2 class="fw-bold mb-4" style="font-size: 1.9rem">
+        Bagaimana <span style="color: var(--gold)">SariKidung Bekerja?</span>
+      </h2>
+      <p class="text-muted mb-4" style="line-height: 1.9; font-size: 0.9rem">
+        SariKidung menggunakan metode <strong>Rule-Based System</strong> dengan
+        pendekatan <strong>Decision Tree CART</strong>. Basis pengetahuannya
+        tersimpan dalam format <strong>Ontologi OWL</strong> yang berisi 80
+        Kidung Panca Yadnya beserta relasi upacara, tahap, makna, dan teknik
+        menyanyikannya.
+      </p>
+      <div
+        class="p-4 rounded-3"
+        style="background: var(--bg-soft); border: 1px solid var(--border)"
+      >
+        <h6
+          class="fw-bold mb-2"
+          style="
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          "
+        >
+          <i class="fas fa-project-diagram me-2"></i>Arsitektur Sistem
+        </h6>
+        <p class="text-muted mb-0" style="font-size: 0.86rem; line-height: 1.8">
+          Sistem memisahkan antara <strong>Knowledge Base</strong> (format
+          OWL/Ontologi) dan <strong>Inference Engine</strong>
+          (logika Decision Tree CART dengan kriteria Entropy) untuk menghasilkan
+          rekomendasi yang cepat dan akurat.
+        </p>
+      </div>
     </div>
-
-    <!-- 3 Teknologi -->
-    <div class="row g-4 mb-5">
-        {% for icon, judul, deskripsi in [
-            ('fas fa-sitemap','Ontology (OWL)','Representasi pengetahuan yang mendefinisikan hubungan antara Yadnya, Upacara, dan Kidung secara hierarkis dan terstruktur.'),
-            ('fas fa-code-branch','Decision Tree','Algoritma klasifikasi yang digunakan untuk mencocokkan input pengguna dengan Kidung yang paling relevan dari basis pengetahuan.'),
-            ('fas fa-database','Knowledge Base','Penyimpanan data sastra yang divalidasi pakar — mencakup teks suci, makna mendalam, dan klasifikasi bahasa Kidung.')
-        ] %}
-        <div class="col-md-4 animate">
-            <div class="feature-card p-4 text-center h-100">
-                <div class="mb-3" style="color:var(--gold);font-size:2.2rem;"><i class="{{ icon }}"></i></div>
-                <h5 class="fw-bold mb-2">{{ judul }}</h5>
-                <p class="text-muted mb-0" style="font-size:.86rem;line-height:1.8;">{{ deskripsi }}</p>
+    <div class="col-lg-6 animate">
+      <div class="p-4 rounded-3" style="background: var(--dark)">
+        <h6
+          class="fw-bold mb-4"
+          style="
+            color: var(--gold);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+          "
+        >
+          <i class="fas fa-route me-2"></i>Alur Konsultasi
+        </h6>
+        {% for no, icon, judul, deskripsi in [ ('1','fas fa-om','Pilih Jenis
+        Yadnya','Dewa, Pitra, Manusa, Bhuta, atau Rsi Yadnya'), ('2','fas
+        fa-torii-gate','Pilih Upacara','Sesuaikan dengan upacara yang akan
+        dilaksanakan'), ('3','fas fa-map-marker-alt','Pilih Pura/Tempat','Hanya
+        jika relevan dengan konteks upacara'), ('4','fas fa-scroll','Terima
+        Hasil','Kidung per tahap + makna + teknik menyanyi') ] %}
+        <div
+          class="d-flex align-items-start gap-3 mb-3 {% if not loop.last %}pb-3{% endif %}"
+          style="border-bottom:{% if not loop.last %}1px solid rgba(255,255,255,.08){% else %}none{% endif %};"
+        >
+          <div
+            class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+            style="width: 30px; height: 30px; background: var(--gold)"
+          >
+            <small class="fw-bold text-white" style="font-size: 0.75rem"
+              >{{ no }}</small
+            >
+          </div>
+          <div>
+            <div class="fw-semibold" style="font-size: 0.85rem; color: #fff">
+              <i class="{{ icon }} me-1" style="color: var(--gold)"></i>{{ judul
+              }}
             </div>
+            <div style="font-size: 0.78rem; color: rgba(255, 255, 255, 0.45)">
+              {{ deskripsi }}
+            </div>
+          </div>
         </div>
         {% endfor %}
+      </div>
     </div>
+  </div>
 
-    <!-- Tips sebelum konsultasi -->
-    <div class="row justify-content-center mb-5">
-        <div class="col-lg-8 animate">
-            <div class="sk-card p-4 p-md-5" style="border-left:3px solid var(--gold) !important;">
-                <h5 class="fw-bold mb-4" style="font-family:'Playfair Display';">
-                    <i class="fas fa-info-circle me-2" style="color:var(--gold);"></i>Tips Sebelum Konsultasi
-                </h5>
-                {% for teks, icon, warna in [
-                    ('Pastikan Anda mengetahui jenis Yadnya dari upacara yang akan dilaksanakan (misal: Piodalan = Dewa Yadnya, Ngaben = Pitra Yadnya).','fas fa-check-circle','#28a745'),
-                    ('Pilih jawaban yang paling sesuai — tidak perlu khawatir salah, Anda bisa mengulang konsultasi kapan saja.','fas fa-check-circle','#28a745'),
-                    ('Jika tidak yakin dengan pilihan Pura, pilih "Umum" atau "Kahyangan Tiga" sebagai default.','fas fa-check-circle','#28a745'),
-                    ('Hasil mencakup semua tahapan upacara, tidak hanya satu kidung. Bisa diunduh sebagai PDF.','fas fa-check-circle','#28a745'),
-                    ('Data kidung masih dalam proses validasi pakar. Selalu konfirmasi dengan pemangku setempat.','fas fa-exclamation-triangle','#f59e0b')
-                ] %}
-                <div class="d-flex gap-3 mb-3">
-                    <i class="{{ icon }} mt-1 flex-shrink-0" style="color:{{ warna }};font-size:.9rem;"></i>
-                    <span class="text-muted" style="font-size:.86rem;line-height:1.75;">{{ teks }}</span>
+  <!-- 3 Teknologi -->
+  <div class="row g-4 mb-5">
+    {% for icon, judul, deskripsi in [ ('fas fa-sitemap','Ontology
+    (OWL)','Representasi pengetahuan yang mendefinisikan hubungan antara Yadnya,
+    Upacara, dan Kidung secara hierarkis dan terstruktur.'), ('fas
+    fa-code-branch','Decision Tree CART','Algoritma klasifikasi CART dengan
+    kriteria Entropy yang digunakan untuk mencocokkan input pengguna dengan
+    Kidung yang paling relevan dari basis pengetahuan.'), ('fas
+    fa-database','Knowledge Base','Penyimpanan data sastra yang divalidasi pakar
+    — mencakup teks suci, makna mendalam, dan klasifikasi bahasa Kidung.') ] %}
+    <div class="col-md-4 animate">
+      <div class="feature-card p-4 text-center h-100">
+        <div class="mb-3" style="color: var(--gold); font-size: 2.2rem">
+          <i class="{{ icon }}"></i>
+        </div>
+        <h5 class="fw-bold mb-2">{{ judul }}</h5>
+        <p class="text-muted mb-0" style="font-size: 0.86rem; line-height: 1.8">
+          {{ deskripsi }}
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Tips sebelum konsultasi -->
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-8 animate">
+      <div
+        class="sk-card p-4 p-md-5"
+        style="border-left: 3px solid var(--gold) !important"
+      >
+        <h5
+          class="fw-bold mb-4"
+          style="font-family: &quot;Playfair Display&quot;"
+        >
+          <i class="fas fa-info-circle me-2" style="color: var(--gold)"></i>Tips
+          Sebelum Konsultasi
+        </h5>
+        {% for teks, icon, warna in [ ('Pastikan Anda mengetahui jenis Yadnya
+        dari upacara yang akan dilaksanakan (misal: Piodalan = Dewa Yadnya,
+        Ngaben = Pitra Yadnya).','fas fa-check-circle','#28a745'), ('Pilih
+        jawaban yang paling sesuai — tidak perlu khawatir salah, Anda bisa
+        mengulang konsultasi kapan saja.','fas fa-check-circle','#28a745'),
+        ('Jika tidak yakin dengan pilihan Pura, pilih "Umum" atau "Kahyangan
+        Tiga" sebagai default.','fas fa-check-circle','#28a745'), ('Hasil
+        mencakup semua tahapan upacara, tidak hanya satu kidung. Bisa diunduh
+        sebagai PDF.','fas fa-check-circle','#28a745'), ('Data kidung masih
+        dalam proses validasi pakar. Selalu konfirmasi dengan pemangku
+        setempat.','fas fa-exclamation-triangle','#f59e0b') ] %}
+        <div class="d-flex gap-3 mb-3">
+          <i
+            class="{{ icon }} mt-1 flex-shrink-0"
+            style="color:{{ warna }};font-size:.9rem;"
+          ></i>
+          <span class="text-muted" style="font-size: 0.86rem; line-height: 1.75"
+            >{{ teks }}</span
+          >
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== REFERENSI SECTION ===== -->
+  <div class="row justify-content-center mb-5">
+    <div class="col-12 animate">
+      <div class="text-center mb-4">
+        <span class="section-tag">Transparansi & Akademik</span>
+        <h3 class="fw-bold" style="font-size: 1.6rem">
+          Sumber Data <span style="color: var(--gold)">& Referensi</span>
+        </h3>
+        <p
+          class="text-muted"
+          style="font-size: 0.88rem; max-width: 560px; margin: 0 auto"
+        >
+          Seluruh data kidung dan teknologi yang digunakan dalam sistem
+          SariKidung bersumber dari referensi akademik, literatur kebudayaan,
+          dan wawancara langsung dengan penggiat kidung Bali.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Sumber Data Kidung -->
+        <div class="col-lg-6">
+          <div
+            class="ref-card h-100 p-4 p-md-5 rounded-3"
+            style="background: var(--bg-soft); border: 1px solid var(--border)"
+          >
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div
+                class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  background: rgba(180, 140, 60, 0.12);
+                  border: 1px solid rgba(180, 140, 60, 0.25);
+                "
+              >
+                <i
+                  class="fas fa-book-open"
+                  style="color: var(--gold); font-size: 1.1rem"
+                ></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-0" style="font-size: 0.92rem">
+                  Sumber Data Kidung
+                </h6>
+                <small class="text-muted" style="font-size: 0.75rem"
+                  >Literatur, website & wawancara pakar</small
+                >
+              </div>
+            </div>
+
+            <!-- Item 1 -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >1</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  Kidung Panca Yadnya
                 </div>
-                {% endfor %}
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  I Made Bidja · Penerbit Paramita
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(180, 140, 60, 0.1);
+                  color: var(--gold);
+                  border: 1px solid rgba(180, 140, 60, 0.3);
+                  padding: 3px 8px;
+                "
+                >Buku</span
+              >
             </div>
-        </div>
-    </div>
 
-    <!-- Semantic banner -->
-    <div class="rounded-3 p-5 animate" style="background:var(--dark);">
-        <div class="row align-items-center g-4">
-            <div class="col-lg-8">
-                <h3 class="fw-bold mb-3" style="color:var(--gold);font-family:'Playfair Display';font-size:1.6rem;">Pemodelan Data Semantik</h3>
-                <p class="mb-0" style="color:rgba(255,255,255,.6);line-height:1.9;font-size:.9rem;">
-                    Berbeda dengan database tradisional, teknologi semantik memungkinkan sistem memahami "konteks".
-                    Misalnya, sistem mengetahui bahwa <em>Wargasari</em> tidak sekadar lagu, tetapi memiliki relasi khusus
-                    dengan <em>Dewa Yadnya</em> dan tahapan <em>Piodalan</em>.
-                </p>
+            <!-- Item 2 -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >2</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  Kidung Panca Yadnya
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Berata · Bookstore Agency · 1973
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(180, 140, 60, 0.1);
+                  color: var(--gold);
+                  border: 1px solid rgba(180, 140, 60, 0.3);
+                  padding: 3px 8px;
+                "
+                >Buku</span
+              >
             </div>
-            <div class="col-lg-4 text-center">
-                <a href="{{ url_for('browsing') }}" class="btn btn-bronze btn-lg px-5 py-3 fw-bold" style="font-size:.88rem;">
-                    <i class="fas fa-play me-2"></i>Mulai Konsultasi
-                </a>
+
+            <!-- Item 3 -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >3</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  Sastra Bali — Koleksi Kidung Digital
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  <a
+                    href="https://sastrabali.com/kidung/"
+                    target="_blank"
+                    style="color: var(--gold); text-decoration: none"
+                  >
+                    <i
+                      class="fas fa-external-link-alt me-1"
+                      style="font-size: 0.65rem"
+                    ></i
+                    >sastrabali.com/kidung
+                  </a>
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(59, 130, 246, 0.1);
+                  color: #3b82f6;
+                  border: 1px solid rgba(59, 130, 246, 0.3);
+                  padding: 3px 8px;
+                "
+                >Website</span
+              >
             </div>
+
+            <!-- Item 4 -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >4</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  Jurnal & Referensi Ilmiah
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Berbagai penulis · 2013–2023
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(16, 185, 129, 0.1);
+                  color: #10b981;
+                  border: 1px solid rgba(16, 185, 129, 0.3);
+                  padding: 3px 8px;
+                "
+                >Jurnal</span
+              >
+            </div>
+
+            <!-- Item 5 -->
+            <div class="d-flex gap-3 align-items-start">
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >5</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  Penggiat & Pemangku Kidung Bali
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Wawancara langsung · 2025
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(245, 158, 11, 0.1);
+                  color: #f59e0b;
+                  border: 1px solid rgba(245, 158, 11, 0.3);
+                  padding: 3px 8px;
+                "
+                >Wawancara</span
+              >
+            </div>
+          </div>
         </div>
+
+        <!-- Referensi Teknologi -->
+        <div class="col-lg-6">
+          <div
+            class="ref-card h-100 p-4 p-md-5 rounded-3"
+            style="background: var(--bg-soft); border: 1px solid var(--border)"
+          >
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div
+                class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  background: rgba(180, 140, 60, 0.12);
+                  border: 1px solid rgba(180, 140, 60, 0.25);
+                "
+              >
+                <i
+                  class="fas fa-microchip"
+                  style="color: var(--gold); font-size: 1.1rem"
+                ></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-0" style="font-size: 0.92rem">
+                  Referensi Teknologi
+                </h6>
+                <small class="text-muted" style="font-size: 0.75rem"
+                  >Framework & library yang digunakan</small
+                >
+              </div>
+            </div>
+
+            <!-- Flask -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >1</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">Flask</div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Framework web mikro Python untuk routing dan rendering
+                  antarmuka
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(59, 130, 246, 0.1);
+                  color: #3b82f6;
+                  border: 1px solid rgba(59, 130, 246, 0.3);
+                  padding: 3px 8px;
+                "
+                >2.x</span
+              >
+            </div>
+
+            <!-- owlready2 -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >2</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  owlready2
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Library Python untuk memuat dan memanipulasi ontologi OWL
+                  secara programatik
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(139, 92, 246, 0.1);
+                  color: #8b5cf6;
+                  border: 1px solid rgba(139, 92, 246, 0.3);
+                  padding: 3px 8px;
+                "
+                >Latest</span
+              >
+            </div>
+
+            <!-- scikit-learn -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >3</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  scikit-learn
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Implementasi Decision Tree CART (criterion=entropy) via
+                  DecisionTreeClassifier
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(16, 185, 129, 0.1);
+                  color: #10b981;
+                  border: 1px solid rgba(16, 185, 129, 0.3);
+                  padding: 3px 8px;
+                "
+                >1.x</span
+              >
+            </div>
+
+            <!-- Protege -->
+            <div
+              class="d-flex gap-3 align-items-start mb-3 pb-3"
+              style="border-bottom: 1px solid var(--border)"
+            >
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >4</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  Protege 5.5
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Perangkat lunak pembangunan dan verifikasi konsistensi
+                  ontologi OWL
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(245, 158, 11, 0.1);
+                  color: #f59e0b;
+                  border: 1px solid rgba(245, 158, 11, 0.3);
+                  padding: 3px 8px;
+                "
+                >5.5</span
+              >
+            </div>
+
+            <!-- Groq -->
+            <div class="d-flex gap-3 align-items-start">
+              <span
+                class="flex-shrink-0 fw-bold d-flex align-items-center justify-content-center"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  min-width: 22px;
+                  background: var(--gold);
+                  color: #fff;
+                  border-radius: 50%;
+                  font-size: 0.65rem;
+                  margin-top: 2px;
+                "
+                >5</span
+              >
+              <div style="flex: 1">
+                <div class="fw-semibold" style="font-size: 0.82rem">
+                  Groq API (LLaMA 3)
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 0.76rem; margin-top: 2px"
+                >
+                  Backend LLM berkecepatan tinggi untuk asisten percakapan
+                  SariBot
+                </div>
+              </div>
+              <span
+                class="badge rounded-pill flex-shrink-0"
+                style="
+                  font-size: 0.65rem;
+                  background: rgba(239, 68, 68, 0.1);
+                  color: #ef4444;
+                  border: 1px solid rgba(239, 68, 68, 0.3);
+                  padding: 3px 8px;
+                "
+                >llama-3.1-8b</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /row -->
+
+      <!-- Catatan bawah -->
+      <div class="mt-4 text-center">
+        <p class="text-muted" style="font-size: 0.78rem; line-height: 1.8">
+          <i class="fas fa-graduation-cap me-1" style="color: var(--gold)"></i>
+          Sistem SariKidung dikembangkan sebagai Tugas Akhir Program Studi
+          Informatika, Fakultas MIPA, Universitas Udayana · 2025
+        </p>
+      </div>
     </div>
+  </div>
+  <!-- ===== END REFERENSI ===== -->
+
+  <!-- Semantic banner -->
+  <div class="rounded-3 p-5 animate" style="background: var(--dark)">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <h3
+          class="fw-bold mb-3"
+          style="
+            color: var(--gold);
+            font-family: &quot;Playfair Display&quot;;
+            font-size: 1.6rem;
+          "
+        >
+          Pemodelan Data Semantik
+        </h3>
+        <p
+          class="mb-0"
+          style="
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.9;
+            font-size: 0.9rem;
+          "
+        >
+          Berbeda dengan database tradisional, teknologi semantik memungkinkan
+          sistem memahami "konteks". Misalnya, sistem mengetahui bahwa
+          <em>Wargasari</em> tidak sekadar lagu, tetapi memiliki relasi khusus
+          dengan <em>Dewa Yadnya</em> dan tahapan <em>Piodalan</em>.
+        </p>
+      </div>
+      <div class="col-lg-4 text-center">
+        <a
+          href="{{ url_for('browsing') }}"
+          class="btn btn-bronze btn-lg px-5 py-3 fw-bold"
+          style="font-size: 0.88rem"
+        >
+          <i class="fas fa-play me-2"></i>Mulai Konsultasi
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
-.section-tag{font-size:.7rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:700;display:block;margin-bottom:.4rem;font-family:"Poppins",sans-serif;}
+  .section-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.4rem;
+    font-family: "Poppins", sans-serif;
+  }
+  .ref-card {
+    transition:
+      box-shadow 0.2s,
+      transform 0.2s;
+  }
+  .ref-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
 </style>
 {% endblock %}

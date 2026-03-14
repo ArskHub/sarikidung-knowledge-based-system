@@ -30,7 +30,7 @@ class KidungDecisionTree:
         self.model.fit(df_enc[self.features], df_enc['target'])
         self.is_trained = True
         print(f"✅ Decision Tree trained: {len(df)} data")
-
+        print(self.model.feature_importances_)
     def predict(self, input_dict):
         try:
             if not self.is_trained: return None
