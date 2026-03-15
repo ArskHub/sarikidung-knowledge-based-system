@@ -304,10 +304,7 @@ async function showDetail(targetId) {
                     <small class="text-muted d-block mb-1 fw-bold text-uppercase" style="font-size:.62rem;letter-spacing:1px;">${l}</small>
                     <span class="fw-bold" style="color:var(--gold);font-size:.88rem;">${esc(v||'-')}</span>
                 </div></div>`).join('')}
-                <div class="col-sm-4"><div class="p-3 rounded-3" style="background:var(--bg-soft);border:1px solid var(--border);">
-                    <small class="text-muted d-block mb-1 fw-bold text-uppercase" style="font-size:.62rem;letter-spacing:1px;">Status Validasi</small>
-                    <span class="badge ${data.status_validasi==='Tervalidasi'?'bg-success':'bg-warning text-dark'}" style="font-size:.72rem;">${esc(data.status_validasi||'-')}</span>
-                </div></div>
+            
             </div>
             <div class="p-4 rounded-3 mb-3" style="background:var(--bg-soft);border:1px solid var(--border);">
                 <p class="fw-bold mb-2" style="color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;font-family:Poppins,sans-serif;"><i class="fas fa-scroll me-1"></i>Teks Kidung</p>

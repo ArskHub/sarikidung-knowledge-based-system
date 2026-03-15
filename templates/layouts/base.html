@@ -7,9 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo_sarikidung.png') }}" />
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/logo_sarikidung.png') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo_sarikidung.png') }}" sizes="32x32" />
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/logo_sarikidung.png') }}" />
     {% block extra_css %}{% endblock %}
 
     <style>
@@ -99,7 +99,7 @@
 
         <!-- Brand + Logo SVG Bali Art -->
         <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('home') }}">
-          <img src="{{ url_for('static', filename='img/logo_sarikidung.png') }}" alt="SariKidung" style="width:60px;height:60px;object-fit:contain;">
+          <img src="{{ url_for('static', filename='img/logo_sarikidung.png') }}" alt="SariKidung" style="height:36px;width:auto;object-fit:contain;">
           <span class="logo-text" style="font-size:1.15rem;">SARI<span>KIDUNG</span></span>
         </a>
 
@@ -295,7 +295,7 @@
           <!-- Brand -->
           <div class="col-lg-4 col-md-6">
             <div class="d-flex align-items-center gap-2 mb-3">
-              <img src="{{ url_for('static', filename='img/logo_sarikidung.png') }}" alt="SariKidung" style="width:54px;height:54px;object-fit:contain;">
+              <img src="{{ url_for('static', filename='img/logo_sarikidung.png') }}" alt="SariKidung" style="width:48px;height:48px;object-fit:contain;">
               <span style="font-family:'Playfair Display';font-size:1.1rem;color:#fff;font-weight:700;">
                 SARI<span style="color:var(--gold)">KIDUNG</span>
               </span>
@@ -343,7 +343,7 @@
               </div>
               <div class="d-flex align-items-center gap-2">
                 <i class="fas fa-envelope" style="color:var(--gold);width:14px;font-size:.8rem;"></i>
-                <span style="color:rgba(255,255,255,.45);font-size:.84rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="61080f070e21120013080a0805140f064f020e0c">[email&#160;protected]</a></span>
+                <span style="color:rgba(255,255,255,.45);font-size:.84rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="40292e262f00332132292b2924352e276e232f2d">[email&#160;protected]</a></span>
               </div>
             </div>
             <a href="{{ url_for('browsing') }}" class="btn btn-bronze px-4 py-2 fw-bold" style="font-size:.8rem;border-radius:8px;">
@@ -508,3 +508,13 @@
             <span class="nav-bubble-typing-dot"></span>
             <span class="nav-bubble-typing-dot"></span>
             <span class="nav-bubble-typing-dot"></span>
+          </div>`;
+        msgs.appendChild(div);
+        msgs.scrollTop = msgs.scrollHeight;
+        return id;
+      }
+
+      function removeNavEl(id) { document.getElementById(id)?.remove(); }
+    </script>
+  </body>
+</html>
